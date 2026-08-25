@@ -1,2622 +1,2969 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta
-        name="description"
-        content="Paula Borch Psicopedagogia — acompanhamento psicopedagógico individualizado."
-    >
-
-    <title>Paula Borch | Psicopedagogia</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
+<meta name="description" content="Paula Borch Psicopedagogia — um olhar individual para diferentes formas de aprender.">
 
-        /* =========================================================
-           BASE
-        ========================================================= */
+<title>Paula Borch | Psicopedagogia</title>
 
-        :root {
-            --white: #ffffff;
-            --paper: #fafbf9;
-            --soft: #f4f6f4;
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-            --line: #e5e8e5;
-            --line-dark: #d5dad6;
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-            --text: #343a36;
-            --text-soft: #68716b;
-            --text-light: #929b95;
+<style>
 
-            --sage: #8fa697;
-            --sage-dark: #687f70;
-            --sage-soft: #e8eee9;
+/* ==========================================================
+   ROOT
+========================================================== */
 
-            --heading: "Manrope", sans-serif;
-            --body: "DM Sans", sans-serif;
-        }
+:root{
+    --white:#ffffff;
+    --off:#f7f8f7;
+    --light:#eef0ef;
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    --gray:#e1e4e2;
+    --gray-dark:#cbd0cc;
 
-        html {
-            scroll-behavior: smooth;
-        }
+    --graphite:#303432;
+    --graphite-2:#3b403d;
 
-        body {
-            background: var(--white);
-            color: var(--text);
-            font-family: var(--body);
-            overflow-x: hidden;
-        }
+    --text:#303532;
+    --text-soft:#737a75;
+    --text-light:#9ba19d;
 
-        img {
-            display: block;
-            max-width: 100%;
-        }
+    --purple:#5d4a78;
+    --purple-light:#756293;
+    --purple-soft:#eeeaf3;
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+    --green:#879d8d;
+    --green-dark:#647c6c;
 
-        button {
-            font: inherit;
-        }
+    --heading:"Manrope",sans-serif;
+    --body:"DM Sans",sans-serif;
+}
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--white);
+    color:var(--text);
+    font-family:var(--body);
+    overflow-x:hidden;
+}
+
+body.menu-open{
+    overflow:hidden;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
 
-        .container {
-            width: min(1160px, calc(100% - 64px));
-            margin: 0 auto;
-        }
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font:inherit;
+}
+
+::selection{
+    background:var(--purple);
+    color:white;
+}
+
+.container{
+    width:min(1160px,calc(100% - 64px));
+    margin:auto;
+}
+
+
+/* ==========================================================
+   PAGE LOADER
+========================================================== */
 
+.loader{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:var(--graphite);
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+}
+
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-inner{
+    text-align:center;
+}
+
+.loader-logo{
+    width:82px;
+    margin:auto;
+    filter:brightness(0) invert(1);
+    opacity:.9;
+}
 
-        /* =========================================================
-           HEADER
-        ========================================================= */
+.loader-line{
+    width:80px;
+    height:1px;
+    margin:20px auto 0;
+    background:rgba(255,255,255,.3);
+    overflow:hidden;
+}
 
-        .header {
-            position: fixed;
-            z-index: 1000;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 72px;
+.loader-line span{
+    display:block;
+    width:100%;
+    height:100%;
+    background:white;
 
-            background: rgba(255,255,255,.94);
-            backdrop-filter: blur(14px);
+    transform:translateX(-100%);
+    animation:loaderLine 1.3s ease forwards;
+}
 
-            border-bottom: 1px solid transparent;
+@keyframes loaderLine{
+    to{
+        transform:translateX(0);
+    }
+}
 
-            transition: .3s ease;
-        }
 
-        .header.scrolled {
-            border-color: var(--line);
-        }
+/* ==========================================================
+   HEADER
+========================================================== */
 
-        .header-inner {
-            height: 100%;
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+    width:100%;
+    height:76px;
 
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(18px);
 
-        /* LOGO */
+    border-bottom:1px solid transparent;
 
-        .logo {
-            width: 72px;
-            flex-shrink: 0;
-        }
+    transition:
+        height .3s ease,
+        border .3s ease,
+        background .3s ease;
+}
 
-        .logo img {
-            width: 100%;
-            height: auto;
-        }
+.header.scrolled{
+    height:68px;
+    border-color:var(--gray);
+    background:rgba(255,255,255,.96);
+}
 
+.header-inner{
+    height:100%;
 
-        /* NAV */
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
 
-        .nav {
-            display: flex;
-            align-items: center;
-            gap: 34px;
-        }
 
-        .nav a {
-            position: relative;
+/* LOGO */
 
-            color: var(--text-soft);
+.logo{
+    width:76px;
+}
 
-            font-family: var(--heading);
-            font-size: 10px;
-            font-weight: 600;
+.logo img{
+    width:100%;
+    height:auto;
+}
 
-            letter-spacing: .04em;
-        }
 
-        .nav a::after {
-            content: "";
+/* NAV */
 
-            position: absolute;
-            left: 0;
-            bottom: -7px;
+.nav{
+    display:flex;
+    align-items:center;
+    gap:36px;
+}
 
-            width: 0;
-            height: 1px;
+.nav a{
+    position:relative;
 
-            background: var(--sage-dark);
+    color:#656d67;
 
-            transition: .25s;
-        }
+    font-family:var(--heading);
+    font-size:10px;
+    font-weight:600;
 
-        .nav a:hover::after {
-            width: 100%;
-        }
+    transition:.25s;
+}
 
+.nav a::after{
+    content:"";
 
-        /* HEADER CTA */
+    position:absolute;
+    left:0;
+    bottom:-8px;
 
-        .header-cta {
-            padding: 10px 16px;
+    width:0;
+    height:1px;
 
-            border: 1px solid var(--line-dark);
-            border-radius: 5px;
+    background:var(--purple);
 
-            color: var(--text);
+    transition:.3s;
+}
 
-            font-family: var(--heading);
-            font-size: 9px;
-            font-weight: 600;
+.nav a:hover{
+    color:var(--graphite);
+}
 
-            transition: .25s;
-        }
+.nav a:hover::after{
+    width:100%;
+}
 
-        .header-cta:hover {
-            background: var(--text);
-            border-color: var(--text);
-            color: white;
-        }
 
+/* HEADER BUTTON */
 
-        /* MOBILE MENU BUTTON */
+.header-button{
+    padding:10px 16px;
 
-        .menu-button {
-            display: none;
+    border:1px solid var(--gray-dark);
+    border-radius:4px;
 
-            width: 38px;
-            height: 38px;
+    font-family:var(--heading);
+    font-size:9px;
+    font-weight:600;
 
-            border: 1px solid var(--line-dark);
-            background: white;
-            border-radius: 4px;
+    transition:.3s;
+}
 
-            cursor: pointer;
-        }
+.header-button:hover{
+    background:var(--graphite);
+    color:white;
+    border-color:var(--graphite);
+    transform:translateY(-2px);
+}
 
-        .menu-lines {
-            width: 15px;
-            margin: auto;
-        }
 
-        .menu-lines span {
-            display: block;
+/* ==========================================================
+   MOBILE BUTTON
+========================================================== */
 
-            height: 1px;
-            width: 100%;
+.menu-button{
+    display:none;
 
-            margin: 5px 0;
+    width:39px;
+    height:39px;
 
-            background: var(--text);
-            transition: .3s;
-        }
+    border:1px solid var(--gray-dark);
+    background:white;
+    border-radius:4px;
 
+    cursor:pointer;
+}
 
-        /* =========================================================
-           MOBILE MENU
-        ========================================================= */
+.menu-icon{
+    width:16px;
+    margin:auto;
+}
 
-        .mobile-menu {
-            position: fixed;
-            z-index: 900;
+.menu-icon span{
+    display:block;
 
-            inset: 0;
+    width:100%;
+    height:1px;
 
-            padding: 100px 25px 30px;
+    margin:5px 0;
 
-            background: white;
+    background:var(--graphite);
 
-            transform: translateY(-100%);
-            transition: transform .5s cubic-bezier(.7,0,.2,1);
+    transition:.3s;
+}
 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
 
-        .mobile-menu.open {
-            transform: translateY(0);
-        }
+/* ==========================================================
+   MOBILE MENU
+========================================================== */
 
-        .mobile-menu ul {
-            list-style: none;
-        }
+.mobile-menu{
+    position:fixed;
+    inset:0;
+    z-index:950;
 
-        .mobile-menu li {
-            border-bottom: 1px solid var(--line);
-        }
+    background:var(--graphite);
 
-        .mobile-menu a {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+    padding:115px 24px 30px;
 
-            padding: 18px 0;
+    transform:translateY(-100%);
 
-            color: var(--text);
+    transition:
+        transform .65s cubic-bezier(.77,0,.18,1);
 
-            font-family: var(--heading);
-            font-size: 25px;
-            font-weight: 500;
-        }
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
 
-        .mobile-menu small {
-            color: var(--text-light);
-            font-size: 9px;
-        }
+.mobile-menu.open{
+    transform:translateY(0);
+}
 
-        .mobile-bottom {
-            color: var(--text-light);
+.mobile-menu ul{
+    list-style:none;
+}
 
-            font-size: 8px;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-        }
+.mobile-menu li{
+    border-bottom:1px solid rgba(255,255,255,.12);
+}
 
+.mobile-menu a{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-        /* =========================================================
-           HERO
-        ========================================================= */
+    padding:19px 0;
 
-        .hero {
-            padding-top: 72px;
-            min-height: 730px;
+    color:white;
 
-            border-bottom: 1px solid var(--line);
-        }
+    font-family:var(--heading);
+    font-size:29px;
+    font-weight:400;
+}
 
-        .hero-grid {
-            min-height: 658px;
+.mobile-menu small{
+    color:#9ea59f;
+    font-size:8px;
+}
 
-            display: grid;
-            grid-template-columns: 48% 52%;
+.mobile-footer{
+    color:#858d87;
 
-            align-items: center;
-        }
+    font-size:8px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+}
 
 
-        /* HERO COPY */
+/* ==========================================================
+   HERO
+========================================================== */
 
-        .hero-copy {
-            padding: 70px 20px 70px 0;
-        }
+.hero{
+    min-height:760px;
+    padding-top:76px;
 
-        .label {
-            display: flex;
-            align-items: center;
-            gap: 9px;
+    border-bottom:1px solid var(--gray);
+}
 
-            color: var(--text-light);
+.hero-grid{
+    min-height:684px;
 
-            font-family: var(--heading);
-            font-size: 9px;
-            font-weight: 600;
+    display:grid;
+    grid-template-columns:48% 52%;
+    align-items:center;
+}
 
-            text-transform: uppercase;
-            letter-spacing: .12em;
-        }
 
-        .label::before {
-            content: "";
+/* HERO TEXT */
 
-            width: 22px;
-            height: 1px;
+.hero-content{
+    position:relative;
+    z-index:3;
+}
 
-            background: var(--sage);
-        }
+.eyebrow{
+    display:flex;
+    align-items:center;
+    gap:10px;
 
-        .hero h1 {
-            max-width: 580px;
+    color:var(--text-light);
 
-            margin-top: 25px;
+    font-family:var(--heading);
+    font-size:9px;
+    font-weight:600;
 
-            color: var(--text);
+    letter-spacing:.13em;
+    text-transform:uppercase;
+}
 
-            font-family: var(--heading);
-            font-size: clamp(45px, 5vw, 67px);
-            line-height: 1.04;
+.eyebrow::before{
+    content:"";
 
-            font-weight: 500;
-            letter-spacing: -.055em;
-        }
+    width:24px;
+    height:1px;
 
-        .hero h1 span {
-            color: var(--sage-dark);
-        }
+    background:var(--green);
+}
 
-        .hero-text {
-            max-width: 405px;
+.hero h1{
+    max-width:610px;
 
-            margin-top: 24px;
+    margin-top:24px;
 
-            color: var(--text-soft);
+    color:var(--graphite);
 
-            font-size: 12px;
-            line-height: 1.85;
-        }
+    font-family:var(--heading);
+    font-size:clamp(44px,5vw,68px);
+    line-height:1.02;
 
-        .hero-buttons {
-            display: flex;
-            align-items: center;
-            gap: 24px;
+    font-weight:500;
+    letter-spacing:-.065em;
+}
 
-            margin-top: 28px;
-        }
+.hero h1 em{
+    color:var(--green-dark);
+    font-style:normal;
+}
 
-        .button-main {
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
+.hero-description{
+    max-width:405px;
 
-            padding: 13px 18px;
+    margin-top:26px;
 
-            background: var(--text);
-            color: white;
+    color:var(--text-soft);
 
-            border-radius: 4px;
+    font-size:12px;
+    line-height:1.85;
+}
 
-            font-family: var(--heading);
-            font-size: 9px;
-            font-weight: 600;
+.hero-actions{
+    display:flex;
+    align-items:center;
+    gap:24px;
 
-            transition: .25s;
-        }
+    margin-top:30px;
+}
 
-        .button-main:hover {
-            background: var(--sage-dark);
-            transform: translateY(-2px);
-        }
+.primary-button{
+    display:inline-flex;
+    align-items:center;
+    gap:16px;
 
-        .button-text {
-            color: var(--text-soft);
+    padding:14px 19px;
 
-            font-family: var(--heading);
-            font-size: 9px;
-            font-weight: 600;
-        }
+    background:var(--graphite);
+    color:white;
 
+    border-radius:4px;
 
-        /* =========================================================
-           HERO IMAGE
-        ========================================================= */
+    font-family:var(--heading);
+    font-size:9px;
+    font-weight:600;
 
-        .hero-image {
-            height: 630px;
+    transition:.3s;
+}
 
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
+.primary-button span{
+    transition:.3s;
+}
 
-            position: relative;
-        }
+.primary-button:hover{
+    background:var(--purple);
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(40,35,50,.12);
+}
 
-        /*
-            Sem fundo.
-            Sem círculo.
-            Sem filtro.
-            Sem sombra.
-            Sem cover.
+.primary-button:hover span{
+    transform:translateX(4px);
+}
 
-            A imagem permanece inteira.
-        */
+.text-button{
+    color:var(--text-soft);
 
-        .hero-image img {
-            width: 100%;
-            height: 100%;
+    font-family:var(--heading);
+    font-size:9px;
+    font-weight:600;
 
-            object-fit: contain;
-            object-position: center bottom;
+    border-bottom:1px solid var(--gray-dark);
 
-            filter: none;
-        }
+    padding-bottom:4px;
 
+    transition:.25s;
+}
 
-        /* =========================================================
-           INTRO
-        ========================================================= */
+.text-button:hover{
+    color:var(--purple);
+    border-color:var(--purple);
+}
 
-        .intro {
-            padding: 110px 0;
 
-            background: var(--paper);
+/* HERO IMAGE */
 
-            border-bottom: 1px solid var(--line);
-        }
+.hero-photo{
+    height:650px;
 
-        .intro-grid {
-            display: grid;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
 
-            grid-template-columns: 170px 1fr;
-            gap: 55px;
-        }
+    position:relative;
+}
 
-        .intro-number {
-            color: var(--text-light);
+.hero-photo::before{
+    content:"";
 
-            font-family: var(--heading);
-            font-size: 9px;
-            font-weight: 600;
+    position:absolute;
 
-            text-transform: uppercase;
-            letter-spacing: .1em;
-        }
+    right:7%;
+    bottom:12%;
 
-        .intro h2 {
-            max-width: 820px;
+    width:160px;
+    height:160px;
 
-            color: var(--text);
+    border:1px solid var(--gray);
 
-            font-family: var(--heading);
-            font-size: clamp(28px, 3.5vw, 44px);
-            line-height: 1.2;
+    border-radius:50%;
 
-            font-weight: 400;
-            letter-spacing: -.035em;
-        }
+    animation:floatCircle 7s ease-in-out infinite;
+}
 
-        .intro h2 strong {
-            color: var(--sage-dark);
-            font-weight: 500;
-        }
+@keyframes floatCircle{
+    0%,100%{
+        transform:translateY(0);
+    }
 
+    50%{
+        transform:translateY(-15px);
+    }
+}
 
-        /* =========================================================
-           SOBRE
-        ========================================================= */
+.hero-photo img{
+    position:relative;
+    z-index:2;
 
-        .about {
-            padding: 125px 0;
-        }
+    width:100%;
+    height:100%;
 
-        .about-grid {
-            display: grid;
-            grid-template-columns: 46% 54%;
+    object-fit:contain;
+    object-position:center bottom;
 
-            align-items: center;
-        }
+    filter:none;
 
+    transition:transform .8s cubic-bezier(.2,.7,.2,1);
+}
 
-        /* IMAGE */
+.hero-photo:hover img{
+    transform:translateY(-7px);
+}
 
-        .about-image {
-            height: 540px;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+/* ==========================================================
+   INTRO GRAY
+========================================================== */
 
-            position: relative;
-        }
+.intro{
+    background:var(--graphite);
+    color:white;
 
-        .about-image::after {
-            content: "";
+    padding:115px 0;
+}
 
-            position: absolute;
+.intro-grid{
+    display:grid;
+    grid-template-columns:170px 1fr;
+    gap:60px;
+}
 
-            left: 7%;
-            bottom: 9%;
+.intro-label{
+    color:#939b95;
 
-            width: 55px;
-            height: 55px;
+    font-family:var(--heading);
+    font-size:9px;
+    font-weight:600;
 
-            border: 1px solid var(--line-dark);
-            border-radius: 50%;
-        }
+    letter-spacing:.1em;
+    text-transform:uppercase;
+}
 
-        .about-image img {
-            width: 100%;
-            height: 100%;
+.intro h2{
+    max-width:850px;
 
-            object-fit: contain;
-            object-position: center;
+    font-family:var(--heading);
+    font-size:clamp(30px,4vw,47px);
+    line-height:1.17;
 
-            position: relative;
-            z-index: 2;
-        }
+    font-weight:400;
+    letter-spacing:-.045em;
+}
 
+.intro h2 span{
+    color:#a9b9ad;
+}
 
-        /* TEXT */
 
-        .about-content {
-            padding-left: 75px;
-        }
+/* ==========================================================
+   ABOUT
+========================================================== */
 
-        .about-content h2 {
-            max-width: 530px;
+.about{
+    padding:125px 0;
+}
 
-            margin-top: 20px;
+.about-grid{
+    display:grid;
+    grid-template-columns:45% 55%;
+    align-items:center;
+}
 
-            color: var(--text);
+.about-photo{
+    height:550px;
 
-            font-family: var(--heading);
-            font-size: clamp(35px, 4vw, 52px);
-            line-height: 1.04;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-            font-weight: 500;
-            letter-spacing: -.055em;
-        }
+    position:relative;
+}
 
-        .about-content h2 span {
-            color: var(--sage-dark);
-        }
+.about-photo img{
+    width:100%;
+    height:100%;
 
-        .about-content p {
-            max-width: 430px;
+    object-fit:contain;
+    object-position:center;
 
-            margin-top: 22px;
+    transition:transform .8s ease;
+}
 
-            color: var(--text-soft);
+.about-photo:hover img{
+    transform:translateY(-6px);
+}
 
-            font-size: 11px;
-            line-height: 1.9;
-        }
+.about-copy{
+    padding-left:75px;
+}
 
-        .about-details {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+.about-copy h2{
+    max-width:540px;
 
-            max-width: 430px;
+    margin-top:21px;
 
-            margin-top: 30px;
-            padding-top: 20px;
+    font-family:var(--heading);
+    font-size:clamp(36px,4vw,53px);
+    line-height:1.05;
 
-            border-top: 1px solid var(--line);
-        }
+    font-weight:500;
+    letter-spacing:-.06em;
+}
 
-        .about-detail strong {
-            display: block;
+.about-copy h2 span{
+    color:var(--purple);
+}
 
-            color: var(--text);
+.about-copy p{
+    max-width:440px;
 
-            font-family: var(--heading);
-            font-size: 9px;
-            font-weight: 600;
-        }
+    margin-top:23px;
 
-        .about-detail span {
-            display: block;
+    color:var(--text-soft);
 
-            margin-top: 6px;
+    font-size:11px;
+    line-height:1.9;
+}
 
-            color: var(--text-light);
+.about-meta{
+    display:grid;
+    grid-template-columns:1fr 1fr;
 
-            font-size: 9px;
-        }
+    max-width:440px;
 
+    margin-top:30px;
+    padding-top:20px;
 
-        /* =========================================================
-           ATUAÇÃO
-        ========================================================= */
+    border-top:1px solid var(--gray);
+}
 
-        .areas {
-            padding: 120px 0;
+.meta-item strong{
+    display:block;
 
-            background: var(--paper);
+    font-family:var(--heading);
+    font-size:9px;
+}
 
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-        }
+.meta-item span{
+    display:block;
 
-        .areas-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
+    margin-top:6px;
 
-            margin-bottom: 55px;
-        }
+    color:var(--text-light);
 
-        .areas-header h2 {
-            margin-top: 19px;
+    font-size:9px;
+}
 
-            color: var(--text);
 
-            font-family: var(--heading);
-            font-size: clamp(34px, 4vw, 52px);
-            line-height: 1;
+/* ==========================================================
+   AREAS
+========================================================== */
 
-            font-weight: 500;
-            letter-spacing: -.06em;
-        }
+.areas{
+    background:var(--off);
 
-        .areas-header h2 span {
-            color: var(--sage-dark);
-        }
+    padding:120px 0;
 
-        .areas-intro {
-            width: 310px;
+    border-top:1px solid var(--gray);
+    border-bottom:1px solid var(--gray);
+}
 
-            color: var(--text-soft);
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
 
-            font-size: 11px;
-            line-height: 1.8;
-        }
+    margin-bottom:55px;
+}
 
+.section-title{
+    margin-top:20px;
 
-        /* LIST */
+    font-family:var(--heading);
+    font-size:clamp(35px,4vw,52px);
+    line-height:1;
 
-        .areas-list {
-            border-top: 1px solid var(--line-dark);
-        }
+    font-weight:500;
+    letter-spacing:-.06em;
+}
 
-        .area {
-            min-height: 100px;
+.section-title span{
+    color:var(--purple);
+}
 
-            display: grid;
-            grid-template-columns: 60px 1fr 35px;
-            align-items: center;
+.section-intro{
+    width:310px;
 
-            border-bottom: 1px solid var(--line-dark);
+    color:var(--text-soft);
 
-            transition: .25s;
-        }
+    font-size:10px;
+    line-height:1.85;
+}
 
-        .area:hover {
-            padding-left: 10px;
-            background: white;
-        }
+.area-list{
+    border-top:1px solid var(--gray-dark);
+}
 
-        .area-number {
-            color: var(--text-light);
+.area{
+    display:grid;
+    grid-template-columns:65px 1fr 45px;
+    align-items:center;
 
-            font-family: var(--heading);
-            font-size: 9px;
-        }
+    min-height:100px;
 
-        .area-name {
-            color: var(--text);
+    border-bottom:1px solid var(--gray-dark);
 
-            font-family: var(--heading);
-            font-size: clamp(20px, 2.2vw, 28px);
+    transition:.35s;
+}
 
-            font-weight: 400;
-            letter-spacing: -.03em;
-        }
+.area:hover{
+    padding-left:13px;
+    background:white;
+}
 
-        .area-arrow {
-            width: 29px;
-            height: 29px;
+.area-number{
+    color:var(--text-light);
 
-            display: grid;
-            place-items: center;
+    font-family:var(--heading);
+    font-size:9px;
+}
 
-            border: 1px solid var(--line-dark);
-            border-radius: 50%;
+.area-name{
+    font-family:var(--heading);
+    font-size:clamp(20px,2.3vw,29px);
+    font-weight:400;
+    letter-spacing:-.035em;
+}
 
-            color: var(--text-soft);
+.area-arrow{
+    width:31px;
+    height:31px;
 
-            transition: .25s;
-        }
+    display:grid;
+    place-items:center;
 
-        .area:hover .area-arrow {
-            background: var(--sage);
-            border-color: var(--sage);
-            color: white;
-        }
+    border:1px solid var(--gray-dark);
+    border-radius:50%;
 
+    transition:.35s;
+}
 
-        /* =========================================================
-           BLOCO FOTO / TEXTO
-        ========================================================= */
+.area:hover .area-arrow{
+    color:white;
+    background:var(--purple);
+    border-color:var(--purple);
 
-        .statement {
-            padding: 125px 0;
-        }
+    transform:rotate(45deg);
+}
 
-        .statement-grid {
-            display: grid;
-            grid-template-columns: 55% 45%;
 
-            align-items: center;
-        }
+/* ==========================================================
+   PURPLE STATEMENT
+========================================================== */
 
-        .statement-image {
-            height: 500px;
+.statement{
+    position:relative;
+    overflow:hidden;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    padding:145px 0;
 
-        .statement-image img {
-            width: 100%;
-            height: 100%;
+    background:var(--purple);
+    color:white;
+}
 
-            object-fit: contain;
-            object-position: center;
-        }
+.statement::before{
+    content:"";
 
-        .statement-content {
-            padding-left: 75px;
-        }
+    position:absolute;
 
-        .statement-content h2 {
-            max-width: 470px;
+    width:500px;
+    height:500px;
 
-            margin-top: 20px;
+    top:-300px;
+    right:-120px;
 
-            color: var(--text);
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:50%;
+}
 
-            font-family: var(--heading);
-            font-size: clamp(32px, 4vw, 50px);
-            line-height: 1.08;
+.statement::after{
+    content:"";
 
-            font-weight: 500;
-            letter-spacing: -.055em;
-        }
+    position:absolute;
 
-        .statement-content h2 span {
-            color: var(--sage-dark);
-        }
+    width:260px;
+    height:260px;
 
-        .statement-content p {
-            max-width: 380px;
+    bottom:-170px;
+    left:8%;
 
-            margin-top: 22px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+}
 
-            color: var(--text-soft);
+.statement-inner{
+    position:relative;
+    z-index:2;
 
-            font-size: 11px;
-            line-height: 1.9;
-        }
+    text-align:center;
+}
 
+.statement .eyebrow{
+    justify-content:center;
+    color:#c8c0d3;
+}
 
-        /* =========================================================
-           PROCESSO
-        ========================================================= */
+.statement .eyebrow::before{
+    background:#b5a9c4;
+}
 
-        .process {
-            padding: 120px 0;
+.statement h2{
+    max-width:850px;
 
-            background: var(--text);
-            color: white;
-        }
+    margin:24px auto 0;
 
-        .process-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
+    font-family:var(--heading);
+    font-size:clamp(38px,5vw,62px);
+    line-height:1.04;
 
-            margin-bottom: 55px;
-        }
+    font-weight:400;
+    letter-spacing:-.06em;
+}
 
-        .process-header .label {
-            color: #aeb7b1;
-        }
+.statement h2 strong{
+    font-weight:500;
+    color:#d5cde0;
+}
 
-        .process-header .label::before {
-            background: var(--sage);
-        }
+.statement p{
+    max-width:540px;
 
-        .process-title {
-            max-width: 620px;
+    margin:28px auto 0;
 
-            margin-top: 19px;
+    color:#d1cbd8;
 
-            font-family: var(--heading);
-            font-size: clamp(33px, 4vw, 51px);
-            line-height: 1.04;
+    font-size:11px;
+    line-height:1.9;
+}
 
-            font-weight: 400;
-            letter-spacing: -.05em;
-        }
 
-        .process-title span {
-            color: var(--sage);
-        }
+/* ==========================================================
+   STATISTICS
+========================================================== */
 
-        .process-description {
-            width: 290px;
+.stats{
+    padding:80px 0;
 
-            color: #aeb5b0;
+    background:white;
 
-            font-size: 10px;
-            line-height: 1.85;
-        }
+    border-bottom:1px solid var(--gray);
+}
 
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+}
 
-            border-top: 1px solid rgba(255,255,255,.16);
-            border-bottom: 1px solid rgba(255,255,255,.16);
-        }
+.stat{
+    padding:15px 40px;
 
-        .process-item {
-            min-height: 235px;
+    border-right:1px solid var(--gray);
+}
 
-            padding: 25px;
+.stat:first-child{
+    padding-left:0;
+}
 
-            border-right: 1px solid rgba(255,255,255,.16);
-        }
+.stat:last-child{
+    border-right:0;
+}
 
-        .process-item:last-child {
-            border-right: none;
-        }
+.stat-number{
+    color:var(--purple);
 
-        .process-number {
-            color: var(--sage);
+    font-family:var(--heading);
+    font-size:42px;
+    font-weight:500;
 
-            font-family: var(--heading);
-            font-size: 9px;
-        }
+    letter-spacing:-.06em;
+}
 
-        .process-item h3 {
-            margin-top: 80px;
+.stat-label{
+    display:block;
 
-            color: white;
+    margin-top:6px;
 
-            font-family: var(--heading);
-            font-size: 20px;
-            font-weight: 500;
-        }
+    color:var(--text-soft);
 
-        .process-item p {
-            margin-top: 9px;
+    font-size:9px;
+}
 
-            color: #919a94;
 
-            font-size: 9px;
-            line-height: 1.7;
-        }
+/* ==========================================================
+   PROCESS
+========================================================== */
 
+.process{
+    padding:125px 0;
+}
 
-        /* =========================================================
-           FAQ
-        ========================================================= */
+.process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
 
-        .faq {
-            padding: 120px 0;
+    margin-top:60px;
 
-            background: var(--soft);
-        }
+    border-top:1px solid var(--gray-dark);
+    border-bottom:1px solid var(--gray-dark);
+}
 
-        .faq-grid {
-            display: grid;
-            grid-template-columns: 36% 64%;
-            gap: 50px;
-        }
+.process-item{
+    min-height:250px;
 
-        .faq-title {
-            margin-top: 20px;
+    padding:26px;
 
-            color: var(--text);
+    border-right:1px solid var(--gray-dark);
 
-            font-family: var(--heading);
-            font-size: clamp(35px, 4vw, 50px);
-            line-height: 1;
+    transition:.3s;
+}
 
-            font-weight: 500;
-            letter-spacing: -.055em;
-        }
+.process-item:last-child{
+    border-right:none;
+}
 
-        .faq-title span {
-            color: var(--sage-dark);
-        }
+.process-item:hover{
+    background:var(--off);
+}
 
-        .faq-list {
-            border-top: 1px solid var(--line-dark);
-        }
+.process-number{
+    color:var(--purple);
 
-        details {
-            border-bottom: 1px solid var(--line-dark);
-        }
+    font-family:var(--heading);
+    font-size:9px;
+}
 
-        summary {
-            min-height: 70px;
+.process-item h3{
+    margin-top:82px;
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
+    font-family:var(--heading);
+    font-size:20px;
+    font-weight:500;
+}
 
-            cursor: pointer;
-            list-style: none;
+.process-item p{
+    max-width:190px;
 
-            color: var(--text);
+    margin-top:9px;
 
-            font-family: var(--heading);
-            font-size: 11px;
-            font-weight: 500;
-        }
+    color:var(--text-soft);
 
-        summary::-webkit-details-marker {
-            display: none;
-        }
+    font-size:9px;
+    line-height:1.75;
+}
 
-        summary::after {
-            content: "+";
 
-            width: 27px;
-            height: 27px;
+/* ==========================================================
+   FAQ
+========================================================== */
 
-            display: grid;
-            place-items: center;
+.faq{
+    padding:120px 0;
 
-            flex-shrink: 0;
+    background:var(--off);
 
-            border: 1px solid var(--line-dark);
-            border-radius: 50%;
+    border-top:1px solid var(--gray);
+}
 
-            color: var(--text-soft);
+.faq-grid{
+    display:grid;
+    grid-template-columns:37% 63%;
+    gap:50px;
+}
 
-            font-size: 15px;
-            font-weight: 400;
-        }
+.faq-title{
+    margin-top:20px;
 
-        details[open] summary::after {
-            content: "−";
-        }
+    font-family:var(--heading);
+    font-size:clamp(36px,4vw,51px);
+    line-height:1;
 
-        details p {
-            max-width: 600px;
+    font-weight:500;
+    letter-spacing:-.06em;
+}
 
-            padding: 0 40px 22px 0;
+.faq-title span{
+    color:var(--purple);
+}
 
-            color: var(--text-soft);
+.faq-list{
+    border-top:1px solid var(--gray-dark);
+}
 
-            font-size: 10px;
-            line-height: 1.8;
-        }
+details{
+    border-bottom:1px solid var(--gray-dark);
+}
 
+summary{
+    min-height:72px;
 
-        /* =========================================================
-           CONTATO
-        ========================================================= */
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-        .contact {
-            padding: 130px 0;
-        }
+    cursor:pointer;
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 65% 35%;
+    list-style:none;
 
-            align-items: end;
-        }
+    font-family:var(--heading);
+    font-size:11px;
+    font-weight:500;
+}
 
-        .contact h2 {
-            max-width: 720px;
+summary::-webkit-details-marker{
+    display:none;
+}
 
-            margin-top: 20px;
+summary::after{
+    content:"+";
 
-            color: var(--text);
+    width:28px;
+    height:28px;
 
-            font-family: var(--heading);
-            font-size: clamp(38px, 5vw, 62px);
-            line-height: 1;
+    display:grid;
+    place-items:center;
 
-            font-weight: 500;
-            letter-spacing: -.06em;
-        }
+    border:1px solid var(--gray-dark);
+    border-radius:50%;
 
-        .contact h2 span {
-            color: var(--sage-dark);
-        }
+    color:var(--text-soft);
 
-        .contact-side {
-            border-top: 1px solid var(--line);
-        }
+    transition:.3s;
+}
 
-        .contact-item {
-            padding: 16px 0;
+details[open] summary::after{
+    content:"−";
+    background:var(--purple);
+    border-color:var(--purple);
+    color:white;
+}
 
-            border-bottom: 1px solid var(--line);
-        }
+details p{
+    max-width:610px;
 
-        .contact-item small {
-            display: block;
+    padding:0 50px 23px 0;
 
-            color: var(--text-light);
+    color:var(--text-soft);
 
-            font-family: var(--heading);
-            font-size: 8px;
-            font-weight: 600;
+    font-size:10px;
+    line-height:1.85;
+}
 
-            text-transform: uppercase;
-            letter-spacing: .1em;
-        }
 
-        .contact-item a {
-            display: block;
+/* ==========================================================
+   CONTACT
+========================================================== */
 
-            margin-top: 6px;
+.contact{
+    padding:135px 0;
+}
 
-            color: var(--text);
+.contact-grid{
+    display:grid;
+    grid-template-columns:65% 35%;
+    align-items:end;
+}
 
-            font-size: 12px;
-        }
+.contact h2{
+    max-width:720px;
 
-        .contact-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 13px;
+    margin-top:20px;
 
-            margin-top: 28px;
+    font-family:var(--heading);
+    font-size:clamp(40px,5vw,63px);
+    line-height:1;
 
-            padding: 13px 18px;
+    font-weight:500;
+    letter-spacing:-.065em;
+}
 
-            background: var(--sage-dark);
-            color: white;
+.contact h2 span{
+    color:var(--purple);
+}
 
-            border-radius: 4px;
+.contact-button{
+    display:inline-flex;
+    align-items:center;
+    gap:16px;
 
-            font-family: var(--heading);
-            font-size: 9px;
-            font-weight: 600;
+    margin-top:30px;
 
-            transition: .25s;
-        }
+    padding:14px 19px;
 
-        .contact-button:hover {
-            background: var(--text);
-        }
+    background:var(--graphite);
+    color:white;
 
+    border-radius:4px;
 
-        /* =========================================================
-           FOOTER
-        ========================================================= */
+    font-family:var(--heading);
+    font-size:9px;
+    font-weight:600;
 
-        footer {
-            padding: 45px 0 20px;
+    transition:.3s;
+}
 
-            background: var(--paper);
+.contact-button:hover{
+    background:var(--purple);
+    transform:translateY(-3px);
+}
 
-            border-top: 1px solid var(--line);
-        }
+.contact-side{
+    border-top:1px solid var(--gray);
+}
 
-        .footer-top {
-            display: flex;
-            justify-content: space-between;
+.contact-item{
+    padding:17px 0;
 
-            padding-bottom: 40px;
-        }
+    border-bottom:1px solid var(--gray);
+}
 
-        .footer-logo {
-            width: 72px;
-        }
+.contact-item small{
+    display:block;
 
-        .footer-logo img {
-            width: 100%;
-        }
+    color:var(--text-light);
 
-        .footer-description {
-            max-width: 250px;
+    font-family:var(--heading);
+    font-size:8px;
+    font-weight:600;
 
-            margin-top: 15px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+}
 
-            color: var(--text-light);
+.contact-item a{
+    display:block;
 
-            font-size: 9px;
-            line-height: 1.7;
-        }
+    margin-top:7px;
 
-        .footer-links {
-            display: flex;
-            gap: 65px;
-        }
+    font-size:11px;
 
-        .footer-column h4 {
-            margin-bottom: 14px;
+    transition:.25s;
+}
 
-            color: var(--text-light);
+.contact-item a:hover{
+    color:var(--purple);
+}
 
-            font-family: var(--heading);
-            font-size: 8px;
-            font-weight: 600;
 
-            text-transform: uppercase;
-            letter-spacing: .1em;
-        }
+/* ==========================================================
+   FOOTER
+========================================================== */
 
-        .footer-column a {
-            display: block;
+.footer{
+    background:#292d2b;
+    color:white;
 
-            margin-bottom: 8px;
+    padding:55px 0 22px;
+}
 
-            color: var(--text-soft);
+.footer-main{
+    display:grid;
+    grid-template-columns:1.4fr .6fr .6fr;
 
-            font-size: 9px;
-        }
+    padding-bottom:50px;
 
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
 
-            padding-top: 17px;
+.footer-brand img{
+    width:76px;
 
-            border-top: 1px solid var(--line);
+    filter:brightness(0) invert(1);
+}
 
-            color: var(--text-light);
+.footer-brand p{
+    max-width:260px;
 
-            font-size: 8px;
-        }
+    margin-top:17px;
 
+    color:#9ba19d;
 
-        /* =========================================================
-           WHATSAPP
-        ========================================================= */
+    font-size:9px;
+    line-height:1.8;
+}
 
-        .whatsapp {
-            position: fixed;
-            z-index: 800;
+.footer-column h4{
+    margin-bottom:17px;
 
-            right: 20px;
-            bottom: 20px;
+    color:#7f8782;
 
-            width: 46px;
-            height: 46px;
+    font-family:var(--heading);
+    font-size:8px;
+    font-weight:600;
 
-            display: grid;
-            place-items: center;
+    letter-spacing:.11em;
+    text-transform:uppercase;
+}
 
-            background: var(--sage-dark);
-            border-radius: 50%;
+.footer-column a{
+    display:block;
 
-            box-shadow: 0 8px 25px rgba(40,50,44,.14);
+    margin-bottom:10px;
 
-            transition: .25s;
-        }
+    color:#d1d5d2;
 
-        .whatsapp:hover {
-            transform: translateY(-3px);
-        }
+    font-size:9px;
 
-        .whatsapp svg {
-            width: 18px;
-            fill: white;
-        }
+    transition:.25s;
+}
 
+.footer-column a:hover{
+    color:white;
+    transform:translateX(3px);
+}
 
-        /* =========================================================
-           REVEAL
-        ========================================================= */
+.footer-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(18px);
+    padding-top:19px;
 
-            transition:
-                opacity .7s ease,
-                transform .7s ease;
-        }
+    color:#737b76;
 
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    font-size:8px;
+}
 
+.footer-social{
+    color:#a4aaa6;
 
-        /* =========================================================
-           TABLET
-        ========================================================= */
+    transition:.25s;
+}
 
-        @media (max-width: 950px) {
+.footer-social:hover{
+    color:white;
+}
 
-            .container {
-                width: calc(100% - 44px);
-            }
 
-            .nav {
-                gap: 22px;
-            }
+/* ==========================================================
+   WHATSAPP
+========================================================== */
 
-            .hero-grid {
-                grid-template-columns: 50% 50%;
-            }
+.whatsapp{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    z-index:700;
 
-            .hero h1 {
-                font-size: 48px;
-            }
+    width:46px;
+    height:46px;
 
-            .hero-image {
-                height: 550px;
-            }
+    display:grid;
+    place-items:center;
 
-            .about-content,
-            .statement-content {
-                padding-left: 40px;
-            }
+    background:var(--purple);
+    color:white;
 
-            .process-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+    border-radius:50%;
 
-            .process-item:nth-child(2) {
-                border-right: none;
-            }
+    box-shadow:0 10px 30px rgba(30,25,40,.18);
 
-            .process-item:nth-child(-n+2) {
-                border-bottom: 1px solid rgba(255,255,255,.16);
-            }
-        }
+    transition:.3s;
+}
 
+.whatsapp:hover{
+    transform:translateY(-5px) scale(1.04);
+}
 
-        /* =========================================================
-           MOBILE
-        ========================================================= */
+.whatsapp svg{
+    width:18px;
+    fill:white;
+}
 
-        @media (max-width: 700px) {
 
-            .container {
-                width: calc(100% - 32px);
-            }
+/* ==========================================================
+   SCROLL REVEAL
+========================================================== */
 
-            .header {
-                height: 64px;
-            }
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
 
-            .logo {
-                width: 68px;
-            }
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.2,.7,.2,1);
+}
 
-            .nav,
-            .header-cta {
-                display: none;
-            }
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
 
-            .menu-button {
-                display: block;
-            }
 
+/* ==========================================================
+   DELAY
+========================================================== */
 
-            /* HERO */
+.delay-1{
+    transition-delay:.1s;
+}
 
-            .hero {
-                padding-top: 64px;
-                min-height: auto;
-            }
+.delay-2{
+    transition-delay:.2s;
+}
 
-            .hero-grid {
-                min-height: auto;
+.delay-3{
+    transition-delay:.3s;
+}
 
-                display: grid;
-                grid-template-columns: 1fr;
 
-                padding-top: 60px;
-            }
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
 
-            .hero-copy {
-                padding: 0;
-            }
+@media(max-width:950px){
 
-            .hero h1 {
-                max-width: 500px;
+    .container{
+        width:calc(100% - 44px);
+    }
 
-                margin-top: 20px;
+    .nav{
+        gap:21px;
+    }
 
-                font-size: 42px;
-                line-height: 1.05;
-            }
+    .hero h1{
+        font-size:49px;
+    }
 
-            .hero-text {
-                max-width: 380px;
+    .about-copy{
+        padding-left:40px;
+    }
 
-                margin-top: 20px;
+    .process-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-                font-size: 11px;
-            }
+    .process-item:nth-child(2){
+        border-right:none;
+    }
 
-            .hero-buttons {
-                margin-top: 24px;
-            }
+    .process-item:nth-child(-n+2){
+        border-bottom:1px solid var(--gray-dark);
+    }
 
-            .hero-image {
-                height: 410px;
+    .footer-main{
+        grid-template-columns:1fr 1fr 1fr;
+    }
+}
 
-                margin-top: 15px;
-            }
 
+/* ==========================================================
+   MOBILE
+========================================================== */
 
-            /* INTRO */
+@media(max-width:700px){
 
-            .intro {
-                padding: 80px 0;
-            }
+    .container{
+        width:calc(100% - 32px);
+    }
 
-            .intro-grid {
-                grid-template-columns: 1fr;
-                gap: 22px;
-            }
+    .header{
+        height:65px;
+    }
 
-            .intro h2 {
-                font-size: 28px;
-            }
+    .header.scrolled{
+        height:62px;
+    }
 
+    .logo{
+        width:68px;
+    }
 
-            /* ABOUT */
+    .nav,
+    .header-button{
+        display:none;
+    }
 
-            .about {
-                padding: 85px 0;
-            }
+    .menu-button{
+        display:block;
+    }
 
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
 
-            .about-image {
-                height: 400px;
-                margin-bottom: 45px;
-            }
+    /* HERO */
 
-            .about-content {
-                padding-left: 0;
-            }
+    .hero{
+        min-height:auto;
+        padding-top:65px;
+    }
 
-            .about-content h2 {
-                font-size: 36px;
-            }
+    .hero-grid{
+        min-height:auto;
 
+        grid-template-columns:1fr;
 
-            /* AREAS */
+        padding-top:60px;
+    }
 
-            .areas {
-                padding: 85px 0;
-            }
+    .hero h1{
+        font-size:42px;
+        line-height:1.05;
+    }
 
-            .areas-header {
-                display: block;
-            }
+    .hero-description{
+        font-size:11px;
+    }
 
-            .areas-header h2 {
-                font-size: 36px;
-            }
+    .hero-actions{
+        margin-top:25px;
+    }
 
-            .areas-intro {
-                width: auto;
-                margin-top: 22px;
-            }
+    .hero-photo{
+        height:420px;
+        margin-top:15px;
+    }
 
-            .area {
-                min-height: 86px;
-                grid-template-columns: 38px 1fr 30px;
-            }
+    .hero-photo::before{
+        width:120px;
+        height:120px;
 
-            .area-name {
-                font-size: 19px;
-            }
+        right:0;
+        bottom:12%;
+    }
 
 
-            /* STATEMENT */
+    /* INTRO */
 
-            .statement {
-                padding: 85px 0;
-            }
+    .intro{
+        padding:80px 0;
+    }
 
-            .statement-grid {
-                grid-template-columns: 1fr;
-            }
+    .intro-grid{
+        grid-template-columns:1fr;
+        gap:22px;
+    }
 
-            .statement-content {
-                padding-left: 0;
-                margin-top: 35px;
-            }
+    .intro h2{
+        font-size:29px;
+    }
 
-            .statement-content h2 {
-                font-size: 35px;
-            }
 
-            .statement-image {
-                height: 390px;
-            }
+    /* ABOUT */
 
+    .about{
+        padding:85px 0;
+    }
 
-            /* PROCESS */
+    .about-grid{
+        grid-template-columns:1fr;
+    }
 
-            .process {
-                padding: 85px 0;
-            }
+    .about-photo{
+        height:390px;
+        margin-bottom:45px;
+    }
 
-            .process-header {
-                display: block;
-            }
+    .about-copy{
+        padding-left:0;
+    }
 
-            .process-title {
-                font-size: 35px;
-            }
+    .about-copy h2{
+        font-size:36px;
+    }
 
-            .process-description {
-                width: auto;
-                margin-top: 20px;
-            }
 
-            .process-grid {
-                grid-template-columns: 1fr;
-            }
+    /* AREAS */
 
-            .process-item {
-                min-height: 190px;
+    .areas{
+        padding:85px 0;
+    }
 
-                border-right: none;
-                border-bottom: 1px solid rgba(255,255,255,.16);
-            }
+    .section-head{
+        display:block;
+    }
 
-            .process-item:last-child {
-                border-bottom: none;
-            }
+    .section-title{
+        font-size:36px;
+    }
 
-            .process-item h3 {
-                margin-top: 55px;
-            }
+    .section-intro{
+        width:auto;
+        margin-top:22px;
+    }
 
+    .area{
+        min-height:86px;
+        grid-template-columns:35px 1fr 35px;
+    }
 
-            /* FAQ */
+    .area-name{
+        font-size:18px;
+    }
 
-            .faq {
-                padding: 85px 0;
-            }
 
-            .faq-grid {
-                grid-template-columns: 1fr;
-                gap: 45px;
-            }
+    /* PURPLE */
 
-            .faq-title {
-                font-size: 36px;
-            }
+    .statement{
+        padding:105px 0;
+    }
 
+    .statement h2{
+        font-size:39px;
+    }
 
-            /* CONTACT */
+    .statement p{
+        font-size:10px;
+    }
 
-            .contact {
-                padding: 90px 0;
-            }
 
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
+    /* STATS */
 
-            .contact h2 {
-                font-size: 40px;
-            }
+    .stats{
+        padding:55px 0;
+    }
 
-            .contact-side {
-                margin-top: 45px;
-            }
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
 
+    .stat,
+    .stat:first-child{
+        padding:20px 0;
 
-            /* FOOTER */
+        border-right:0;
+        border-bottom:1px solid var(--gray);
+    }
 
-            .footer-top {
-                display: block;
-            }
+    .stat:last-child{
+        border-bottom:0;
+    }
 
-            .footer-links {
-                margin-top: 40px;
-                gap: 45px;
-            }
 
-            .footer-bottom {
-                display: block;
-            }
+    /* PROCESS */
 
-            .footer-bottom span {
-                display: block;
-                margin-top: 6px;
-            }
-        }
+    .process{
+        padding:85px 0;
+    }
 
+    .process-grid{
+        grid-template-columns:1fr;
+        margin-top:45px;
+    }
 
-        /* =========================================================
-           MOBILE PEQUENO
-        ========================================================= */
+    .process-item{
+        min-height:190px;
 
-        @media (max-width: 380px) {
+        border-right:0;
+        border-bottom:1px solid var(--gray-dark);
+    }
 
-            .hero h1 {
-                font-size: 38px;
-            }
+    .process-item:last-child{
+        border-bottom:0;
+    }
 
-            .hero-image {
-                height: 360px;
-            }
+    .process-item h3{
+        margin-top:55px;
+    }
 
-            .about-image,
-            .statement-image {
-                height: 350px;
-            }
 
-            .about-content h2,
-            .areas-header h2,
-            .statement-content h2,
-            .process-title,
-            .faq-title {
-                font-size: 32px;
-            }
-        }
+    /* FAQ */
 
+    .faq{
+        padding:85px 0;
+    }
 
-        /* =========================================================
-           REDUCED MOTION
-        ========================================================= */
+    .faq-grid{
+        grid-template-columns:1fr;
+        gap:45px;
+    }
 
-        @media (prefers-reduced-motion: reduce) {
+    .faq-title{
+        font-size:37px;
+    }
 
-            html {
-                scroll-behavior: auto;
-            }
 
-            *,
-            *::before,
-            *::after {
-                transition: none !important;
-                animation: none !important;
-            }
+    /* CONTACT */
 
-            .reveal {
-                opacity: 1;
-                transform: none;
-            }
-        }
+    .contact{
+        padding:90px 0;
+    }
 
-    </style>
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact h2{
+        font-size:40px;
+    }
+
+    .contact-side{
+        margin-top:45px;
+    }
+
+
+    /* FOOTER */
+
+    .footer{
+        padding:45px 0 20px;
+    }
+
+    .footer-main{
+        grid-template-columns:1fr 1fr;
+        gap:35px;
+    }
+
+    .footer-brand{
+        grid-column:1 / -1;
+    }
+
+    .footer-bottom{
+        display:block;
+    }
+
+    .footer-bottom span{
+        display:block;
+        margin-bottom:7px;
+    }
+
+    .whatsapp{
+        right:16px;
+        bottom:16px;
+    }
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media(max-width:380px){
+
+    .hero h1{
+        font-size:37px;
+    }
+
+    .hero-photo{
+        height:360px;
+    }
+
+    .about-photo{
+        height:350px;
+    }
+
+    .statement h2{
+        font-size:34px;
+    }
+
+    .contact h2{
+        font-size:36px;
+    }
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+        animation:none!important;
+        transition:none!important;
+    }
+
+    .reveal{
+        opacity:1;
+        transform:none;
+    }
+}
+
+</style>
 </head>
-
 
 <body>
 
 
-    <!-- =========================================================
-         HEADER
-    ========================================================= -->
+<!-- ==========================================================
+     LOADER
+========================================================== -->
 
-    <header class="header" id="header">
+<div class="loader" id="loader">
 
-        <div class="container header-inner">
+    <div class="loader-inner">
 
-            <a href="#inicio" class="logo">
-                <img
-                    src="https://i.imgur.com/b2bgrDe.png"
-                    alt="Paula Borch Psicopedagogia"
-                >
-            </a>
+        <img
+            class="loader-logo"
+            src="https://i.imgur.com/b2bgrDe.png"
+            alt=""
+        >
 
-
-            <nav class="nav">
-
-                <a href="#sobre">Sobre</a>
-                <a href="#atuacao">Atuação</a>
-                <a href="#processo">Processo</a>
-                <a href="#duvidas">Dúvidas</a>
-                <a href="#contato">Contato</a>
-
-            </nav>
-
-
-            <a href="#contato" class="header-cta">
-                Agendar conversa
-            </a>
-
-
-            <button
-                class="menu-button"
-                id="menuButton"
-                aria-label="Abrir menu"
-            >
-
-                <div class="menu-lines">
-                    <span></span>
-                    <span></span>
-                </div>
-
-            </button>
-
-        </div>
-
-    </header>
-
-
-    <!-- =========================================================
-         MOBILE MENU
-    ========================================================= -->
-
-    <div class="mobile-menu" id="mobileMenu">
-
-        <ul>
-
-            <li>
-                <a href="#sobre">
-                    Sobre
-                    <small>01</small>
-                </a>
-            </li>
-
-            <li>
-                <a href="#atuacao">
-                    Atuação
-                    <small>02</small>
-                </a>
-            </li>
-
-            <li>
-                <a href="#processo">
-                    Processo
-                    <small>03</small>
-                </a>
-            </li>
-
-            <li>
-                <a href="#duvidas">
-                    Dúvidas
-                    <small>04</small>
-                </a>
-            </li>
-
-            <li>
-                <a href="#contato">
-                    Contato
-                    <small>05</small>
-                </a>
-            </li>
-
-        </ul>
-
-        <div class="mobile-bottom">
-            Paula Borch · Psicopedagogia
+        <div class="loader-line">
+            <span></span>
         </div>
 
     </div>
 
-
-    <main>
-
-
-        <!-- =====================================================
-             HERO
-        ===================================================== -->
-
-        <section class="hero" id="inicio">
-
-            <div class="container hero-grid">
+</div>
 
 
-                <div class="hero-copy reveal">
+<!-- ==========================================================
+     HEADER
+========================================================== -->
 
-                    <div class="label">
-                        Psicopedagogia
-                    </div>
+<header class="header" id="header">
 
+    <div class="container header-inner">
 
-                    <h1>
-                        Um olhar individual
-                        para diferentes formas
-                        de <span>aprender.</span>
-                    </h1>
+        <a href="#inicio" class="logo">
 
+            <img
+                src="https://i.imgur.com/b2bgrDe.png"
+                alt="Paula Borch Psicopedagogia"
+            >
 
-                    <p class="hero-text">
-                        Acompanhamento psicopedagógico
-                        individualizado, com escuta,
-                        cuidado e estratégias pensadas
-                        para cada processo de aprendizagem.
-                    </p>
+        </a>
 
 
-                    <div class="hero-buttons">
+        <nav class="nav">
 
-                        <a
-                            href="#contato"
-                            class="button-main"
-                        >
-                            Conhecer o trabalho
-                            <span>→</span>
-                        </a>
+            <a href="#sobre">Sobre</a>
+            <a href="#atuacao">Atuação</a>
+            <a href="#processo">Processo</a>
+            <a href="#duvidas">Dúvidas</a>
+            <a href="#contato">Contato</a>
 
-                        <a
-                            href="#sobre"
-                            class="button-text"
-                        >
-                            Sobre Paula
-                        </a>
+        </nav>
 
-                    </div>
+
+        <a
+            href="#contato"
+            class="header-button"
+        >
+            Agendar conversa
+        </a>
+
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            aria-label="Abrir menu"
+        >
+
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+            </div>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ==========================================================
+     MOBILE MENU
+========================================================== -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <ul>
+
+        <li>
+            <a href="#sobre">
+                Sobre
+                <small>01</small>
+            </a>
+        </li>
+
+        <li>
+            <a href="#atuacao">
+                Atuação
+                <small>02</small>
+            </a>
+        </li>
+
+        <li>
+            <a href="#processo">
+                Processo
+                <small>03</small>
+            </a>
+        </li>
+
+        <li>
+            <a href="#duvidas">
+                Dúvidas
+                <small>04</small>
+            </a>
+        </li>
+
+        <li>
+            <a href="#contato">
+                Contato
+                <small>05</small>
+            </a>
+        </li>
+
+    </ul>
+
+    <div class="mobile-footer">
+        Paula Borch · Psicopedagogia
+    </div>
+
+</div>
+
+
+<main>
+
+
+<!-- ==========================================================
+     HERO
+========================================================== -->
+
+<section class="hero" id="inicio">
+
+    <div class="container hero-grid">
+
+
+        <div class="hero-content reveal">
+
+            <div class="eyebrow">
+                Psicopedagogia
+            </div>
+
+
+            <h1>
+
+                Um olhar individual
+                para diferentes formas
+                de <em>aprender.</em>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Acompanhamento psicopedagógico
+                individualizado, com escuta, cuidado
+                e estratégias pensadas para cada
+                processo de aprendizagem.
+
+            </p>
+
+
+            <div class="hero-actions">
+
+                <a
+                    href="#contato"
+                    class="primary-button"
+                >
+
+                    Conhecer o trabalho
+
+                    <span>→</span>
+
+                </a>
+
+
+                <a
+                    href="#sobre"
+                    class="text-button"
+                >
+                    Sobre Paula
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-photo reveal delay-1">
+
+            <img
+                src="https://i.imgur.com/vFnjZTE.png"
+                alt="Paula Borch"
+                loading="eager"
+                decoding="async"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     INTRO CINZA
+========================================================== -->
+
+<section class="intro">
+
+    <div class="container intro-grid reveal">
+
+        <div class="intro-label">
+            01 — abordagem
+        </div>
+
+
+        <h2>
+
+            Antes de pensar em uma dificuldade,
+            é preciso compreender
+
+            <span>
+                quem está aprendendo.
+            </span>
+
+        </h2>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     SOBRE
+========================================================== -->
+
+<section class="about" id="sobre">
+
+    <div class="container about-grid">
+
+
+        <div class="about-photo reveal">
+
+            <img
+                src="https://i.imgur.com/w2k0Ar5.png"
+                alt="Paula Borch"
+                loading="lazy"
+                decoding="async"
+            >
+
+        </div>
+
+
+        <div class="about-copy reveal">
+
+            <div class="eyebrow">
+                Sobre Paula
+            </div>
+
+
+            <h2>
+
+                Conhecer,
+                compreender e
+                <span>acompanhar.</span>
+
+            </h2>
+
+
+            <p>
+
+                O trabalho psicopedagógico começa
+                pela escuta e pela compreensão da
+                história de cada pessoa.
+
+            </p>
+
+
+            <p>
+
+                A partir dessa percepção, são
+                construídas estratégias que respeitam
+                o ritmo, as características e as
+                potencialidades de cada processo.
+
+            </p>
+
+
+            <div class="about-meta">
+
+                <div class="meta-item">
+
+                    <strong>
+                        Individual
+                    </strong>
+
+                    <span>
+                        Cada percurso é único.
+                    </span>
 
                 </div>
 
 
-                <!-- FOTO 1 -->
+                <div class="meta-item">
 
-                <div class="hero-image reveal">
+                    <strong>
+                        Acolhedor
+                    </strong>
 
-                    <img
-                        src="https://i.imgur.com/vFnjZTE.png"
-                        alt="Paula Borch"
-                        loading="eager"
-                        decoding="async"
-                    >
+                    <span>
+                        Escuta antes da intervenção.
+                    </span>
 
                 </div>
 
             </div>
 
-        </section>
+        </div>
+
+    </div>
+
+</section>
 
 
-        <!-- =====================================================
-             INTRO
-        ===================================================== -->
+<!-- ==========================================================
+     ÁREAS
+========================================================== -->
 
-        <section class="intro">
+<section class="areas" id="atuacao">
 
-            <div class="container intro-grid">
+    <div class="container">
 
-                <div class="intro-number">
-                    01 — abordagem
+
+        <div class="section-head reveal">
+
+            <div>
+
+                <div class="eyebrow">
+                    Atuação
                 </div>
 
+                <h2 class="section-title">
 
-                <h2 class="reveal">
-
-                    Antes de pensar em uma dificuldade,
-                    é preciso compreender
-
-                    <strong>
-                        quem está aprendendo.
-                    </strong>
+                    Cuidado para cada
+                    <span>necessidade.</span>
 
                 </h2>
 
             </div>
 
-        </section>
 
+            <p class="section-intro">
 
-        <!-- =====================================================
-             SOBRE
-        ===================================================== -->
+                O acompanhamento é definido
+                a partir da demanda e das
+                características observadas
+                durante o processo.
 
-        <section class="about" id="sobre">
+            </p>
 
-            <div class="container about-grid">
+        </div>
 
 
-                <!-- FOTO 2 -->
+        <div class="area-list">
 
-                <div class="about-image reveal">
 
-                    <img
-                        src="https://i.imgur.com/w2k0Ar5.png"
-                        alt="Paula Borch"
-                        loading="lazy"
-                        decoding="async"
-                    >
+            <a
+                href="#contato"
+                class="area reveal"
+            >
 
-                </div>
-
-
-                <div class="about-content reveal">
-
-                    <div class="label">
-                        Sobre Paula
-                    </div>
-
-
-                    <h2>
-                        Conhecer,
-                        compreender e
-                        <span>acompanhar.</span>
-                    </h2>
-
-
-                    <p>
-                        O trabalho psicopedagógico começa
-                        pela escuta e pela compreensão da
-                        história de cada pessoa.
-                    </p>
-
-
-                    <p>
-                        A partir dessa percepção, são
-                        construídas estratégias que respeitam
-                        o ritmo, as características e as
-                        potencialidades de cada processo.
-                    </p>
-
-
-                    <div class="about-details">
-
-                        <div class="about-detail">
-
-                            <strong>
-                                Individual
-                            </strong>
-
-                            <span>
-                                Cada percurso é único.
-                            </span>
-
-                        </div>
-
-
-                        <div class="about-detail">
-
-                            <strong>
-                                Acolhedor
-                            </strong>
-
-                            <span>
-                                Escuta antes da intervenção.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             ATUAÇÃO
-        ===================================================== -->
-
-        <section class="areas" id="atuacao">
-
-            <div class="container">
-
-
-                <div class="areas-header reveal">
-
-                    <div>
-
-                        <div class="label">
-                            Atuação
-                        </div>
-
-                        <h2>
-                            Cuidado para cada
-                            <span>necessidade.</span>
-                        </h2>
-
-                    </div>
-
-
-                    <p class="areas-intro">
-                        O acompanhamento é definido a partir
-                        da demanda e das características
-                        observadas durante o processo.
-                    </p>
-
-                </div>
-
-
-                <div class="areas-list">
-
-
-                    <a href="#contato" class="area reveal">
-
-                        <span class="area-number">
-                            01
-                        </span>
-
-                        <span class="area-name">
-                            Avaliação psicopedagógica
-                        </span>
-
-                        <span class="area-arrow">
-                            ↗
-                        </span>
-
-                    </a>
-
-
-                    <a href="#contato" class="area reveal">
-
-                        <span class="area-number">
-                            02
-                        </span>
-
-                        <span class="area-name">
-                            Intervenção psicopedagógica
-                        </span>
-
-                        <span class="area-arrow">
-                            ↗
-                        </span>
-
-                    </a>
-
-
-                    <a href="#contato" class="area reveal">
-
-                        <span class="area-number">
-                            03
-                        </span>
-
-                        <span class="area-name">
-                            Dificuldades de aprendizagem
-                        </span>
-
-                        <span class="area-arrow">
-                            ↗
-                        </span>
-
-                    </a>
-
-
-                    <a href="#contato" class="area reveal">
-
-                        <span class="area-number">
-                            04
-                        </span>
-
-                        <span class="area-name">
-                            Alfabetização e aprendizagem
-                        </span>
-
-                        <span class="area-arrow">
-                            ↗
-                        </span>
-
-                    </a>
-
-
-                    <a href="#contato" class="area reveal">
-
-                        <span class="area-number">
-                            05
-                        </span>
-
-                        <span class="area-name">
-                            Orientação à família
-                        </span>
-
-                        <span class="area-arrow">
-                            ↗
-                        </span>
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             STATEMENT + FOTO 3
-        ===================================================== -->
-
-        <section class="statement">
-
-            <div class="container statement-grid">
-
-
-                <div class="statement-image reveal">
-
-                    <img
-                        src="https://i.imgur.com/j2RHxPe.png"
-                        alt="Paula Borch"
-                        loading="lazy"
-                        decoding="async"
-                    >
-
-                </div>
-
-
-                <div class="statement-content reveal">
-
-                    <div class="label">
-                        Aprendizagem
-                    </div>
-
-
-                    <h2>
-                        Não existe uma única
-                        maneira de
-
-                        <span>
-                            aprender.
-                        </span>
-                    </h2>
-
-
-                    <p>
-                        Quando compreendemos como cada
-                        pessoa aprende, abrimos espaço
-                        para encontrar novas possibilidades.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             PROCESSO
-        ===================================================== -->
-
-        <section class="process" id="processo">
-
-            <div class="container">
-
-
-                <div class="process-header reveal">
-
-                    <div>
-
-                        <div class="label">
-                            Processo
-                        </div>
-
-                        <h2 class="process-title">
-                            Um caminho construído
-                            <span>individualmente.</span>
-                        </h2>
-
-                    </div>
-
-
-                    <p class="process-description">
-                        O processo não é padronizado.
-                        Cada etapa é conduzida de acordo
-                        com a necessidade identificada.
-                    </p>
-
-                </div>
-
-
-                <div class="process-grid">
-
-
-                    <article class="process-item reveal">
-
-                        <div class="process-number">
-                            01
-                        </div>
-
-                        <h3>
-                            Escuta
-                        </h3>
-
-                        <p>
-                            Compreender a história e a demanda.
-                        </p>
-
-                    </article>
-
-
-                    <article class="process-item reveal">
-
-                        <div class="process-number">
-                            02
-                        </div>
-
-                        <h3>
-                            Investigação
-                        </h3>
-
-                        <p>
-                            Observar estratégias e dificuldades.
-                        </p>
-
-                    </article>
-
-
-                    <article class="process-item reveal">
-
-                        <div class="process-number">
-                            03
-                        </div>
-
-                        <h3>
-                            Intervenção
-                        </h3>
-
-                        <p>
-                            Desenvolver estratégias adequadas.
-                        </p>
-
-                    </article>
-
-
-                    <article class="process-item reveal">
-
-                        <div class="process-number">
-                            04
-                        </div>
-
-                        <h3>
-                            Acompanhamento
-                        </h3>
-
-                        <p>
-                            Observar avanços e ajustar o percurso.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             FAQ
-        ===================================================== -->
-
-        <section class="faq" id="duvidas">
-
-            <div class="container faq-grid">
-
-
-                <div class="reveal">
-
-                    <div class="label">
-                        Dúvidas
-                    </div>
-
-                    <h2 class="faq-title">
-                        Antes de
-                        <span>começar.</span>
-                    </h2>
-
-                </div>
-
-
-                <div class="faq-list reveal">
-
-
-                    <details>
-
-                        <summary>
-                            Para quem é indicado o acompanhamento?
-                        </summary>
-
-                        <p>
-                            O acompanhamento pode ser indicado
-                            para crianças e adolescentes que
-                            apresentam dificuldades ou desafios
-                            relacionados ao processo de aprendizagem.
-                        </p>
-
-                    </details>
-
-
-                    <details>
-
-                        <summary>
-                            Como funciona a primeira conversa?
-                        </summary>
-
-                        <p>
-                            O primeiro contato é destinado à
-                            compreensão da demanda e à definição
-                            dos próximos passos.
-                        </p>
-
-                    </details>
-
-
-                    <details>
-
-                        <summary>
-                            O atendimento é individualizado?
-                        </summary>
-
-                        <p>
-                            Sim. O planejamento considera as
-                            características e necessidades de
-                            cada pessoa.
-                        </p>
-
-                    </details>
-
-
-                    <details>
-
-                        <summary>
-                            A família participa do processo?
-                        </summary>
-
-                        <p>
-                            A participação da família é importante
-                            para manter uma comunicação próxima
-                            durante o acompanhamento.
-                        </p>
-
-                    </details>
-
-
-                    <details>
-
-                        <summary>
-                            Como faço para agendar?
-                        </summary>
-
-                        <p>
-                            Entre em contato pelo WhatsApp para
-                            conversar sobre a demanda e verificar
-                            a disponibilidade.
-                        </p>
-
-                    </details>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             CONTATO
-        ===================================================== -->
-
-        <section class="contact" id="contato">
-
-            <div class="container contact-grid">
-
-
-                <div class="reveal">
-
-                    <div class="label">
-                        Contato
-                    </div>
-
-
-                    <h2>
-                        Vamos conversar sobre
-                        o próximo
-
-                        <span>
-                            passo.
-                        </span>
-                    </h2>
-
-
-                    <!-- TROQUE O NÚMERO -->
-
-                    <a
-                        href="https://wa.me/5500000000000"
-                        target="_blank"
-                        rel="noopener"
-                        class="contact-button"
-                    >
-                        Falar pelo WhatsApp
-                        <span>→</span>
-                    </a>
-
-                </div>
-
-
-                <div class="contact-side reveal">
-
-                    <div class="contact-item">
-
-                        <small>
-                            WhatsApp
-                        </small>
-
-                        <a
-                            href="https://wa.me/5500000000000"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            Conversar agora
-                        </a>
-
-                    </div>
-
-
-                    <div class="contact-item">
-
-                        <small>
-                            E-mail
-                        </small>
-
-                        <a href="mailto:contato@paulaborch.com">
-                            contato@paulaborch.com
-                        </a>
-
-                    </div>
-
-
-                    <div class="contact-item">
-
-                        <small>
-                            Atendimento
-                        </small>
-
-                        <a href="#contato">
-                            Mediante agendamento
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =====================================================
-         FOOTER
-    ===================================================== -->
-
-    <footer>
-
-        <div class="container">
-
-            <div class="footer-top">
-
-
-                <div>
-
-                    <a href="#inicio" class="footer-logo">
-
-                        <img
-                            src="https://i.imgur.com/b2bgrDe.png"
-                            alt="Paula Borch Psicopedagogia"
-                        >
-
-                    </a>
-
-
-                    <p class="footer-description">
-                        Psicopedagogia com olhar individual
-                        para diferentes formas de aprender.
-                    </p>
-
-                </div>
-
-
-                <div class="footer-links">
-
-
-                    <div class="footer-column">
-
-                        <h4>
-                            Navegação
-                        </h4>
-
-                        <a href="#sobre">
-                            Sobre
-                        </a>
-
-                        <a href="#atuacao">
-                            Atuação
-                        </a>
-
-                        <a href="#processo">
-                            Processo
-                        </a>
-
-                    </div>
-
-
-                    <div class="footer-column">
-
-                        <h4>
-                            Contato
-                        </h4>
-
-                        <a href="#contato">
-                            Agendamento
-                        </a>
-
-                        <a href="mailto:contato@paulaborch.com">
-                            E-mail
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="footer-bottom">
-
-                <span>
-                    © 2026 Paula Borch Psicopedagogia
+                <span class="area-number">
+                    01
                 </span>
 
-                <span>
-                    Todos os direitos reservados.
+                <span class="area-name">
+                    Avaliação psicopedagógica
                 </span>
+
+                <span class="area-arrow">
+                    ↗
+                </span>
+
+            </a>
+
+
+            <a
+                href="#contato"
+                class="area reveal"
+            >
+
+                <span class="area-number">
+                    02
+                </span>
+
+                <span class="area-name">
+                    Intervenção psicopedagógica
+                </span>
+
+                <span class="area-arrow">
+                    ↗
+                </span>
+
+            </a>
+
+
+            <a
+                href="#contato"
+                class="area reveal"
+            >
+
+                <span class="area-number">
+                    03
+                </span>
+
+                <span class="area-name">
+                    Dificuldades de aprendizagem
+                </span>
+
+                <span class="area-arrow">
+                    ↗
+                </span>
+
+            </a>
+
+
+            <a
+                href="#contato"
+                class="area reveal"
+            >
+
+                <span class="area-number">
+                    04
+                </span>
+
+                <span class="area-name">
+                    Alfabetização e aprendizagem
+                </span>
+
+                <span class="area-arrow">
+                    ↗
+                </span>
+
+            </a>
+
+
+            <a
+                href="#contato"
+                class="area reveal"
+            >
+
+                <span class="area-number">
+                    05
+                </span>
+
+                <span class="area-name">
+                    Orientação à família
+                </span>
+
+                <span class="area-arrow">
+                    ↗
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     ÚNICA ÁREA ROXA
+========================================================== -->
+
+<section class="statement">
+
+    <div class="container statement-inner reveal">
+
+        <div class="eyebrow">
+            Aprendizagem
+        </div>
+
+
+        <h2>
+
+            Não existe uma única maneira
+            de <strong>aprender.</strong>
+
+        </h2>
+
+
+        <p>
+
+            Cada pessoa possui seu próprio ritmo,
+            suas características e diferentes formas
+            de construir conhecimento.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     STATS
+========================================================== -->
+
+<section class="stats">
+
+    <div class="container stats-grid">
+
+
+        <div class="stat reveal">
+
+            <div class="stat-number">
+                01
+            </div>
+
+            <span class="stat-label">
+                olhar individualizado
+            </span>
+
+        </div>
+
+
+        <div class="stat reveal delay-1">
+
+            <div class="stat-number">
+                02
+            </div>
+
+            <span class="stat-label">
+                escuta e acompanhamento
+            </span>
+
+        </div>
+
+
+        <div class="stat reveal delay-2">
+
+            <div class="stat-number">
+                03
+            </div>
+
+            <span class="stat-label">
+                estratégias personalizadas
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     PROCESSO
+========================================================== -->
+
+<section class="process" id="processo">
+
+    <div class="container">
+
+
+        <div class="section-head reveal">
+
+            <div>
+
+                <div class="eyebrow">
+                    Processo
+                </div>
+
+                <h2 class="section-title">
+
+                    Um caminho construído
+                    <span>individualmente.</span>
+
+                </h2>
+
+            </div>
+
+
+            <p class="section-intro">
+
+                O processo não é padronizado.
+                Cada etapa é conduzida de acordo
+                com a necessidade identificada.
+
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <article class="process-item reveal">
+
+                <div class="process-number">
+                    01
+                </div>
+
+                <h3>
+                    Escuta
+                </h3>
+
+                <p>
+                    Compreender a história e a demanda.
+                </p>
+
+            </article>
+
+
+            <article class="process-item reveal delay-1">
+
+                <div class="process-number">
+                    02
+                </div>
+
+                <h3>
+                    Investigação
+                </h3>
+
+                <p>
+                    Observar estratégias e dificuldades.
+                </p>
+
+            </article>
+
+
+            <article class="process-item reveal delay-2">
+
+                <div class="process-number">
+                    03
+                </div>
+
+                <h3>
+                    Intervenção
+                </h3>
+
+                <p>
+                    Desenvolver estratégias adequadas.
+                </p>
+
+            </article>
+
+
+            <article class="process-item reveal delay-3">
+
+                <div class="process-number">
+                    04
+                </div>
+
+                <h3>
+                    Acompanhamento
+                </h3>
+
+                <p>
+                    Observar avanços e ajustar o percurso.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     FAQ
+========================================================== -->
+
+<section class="faq" id="duvidas">
+
+    <div class="container faq-grid">
+
+
+        <div class="reveal">
+
+            <div class="eyebrow">
+                Dúvidas
+            </div>
+
+            <h2 class="faq-title">
+
+                Antes de
+                <span>começar.</span>
+
+            </h2>
+
+        </div>
+
+
+        <div class="faq-list reveal">
+
+
+            <details>
+
+                <summary>
+                    Para quem é indicado o acompanhamento?
+                </summary>
+
+                <p>
+
+                    O acompanhamento pode ser indicado
+                    para crianças e adolescentes que
+                    apresentam dificuldades ou desafios
+                    relacionados ao processo de aprendizagem.
+
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Como funciona a primeira conversa?
+                </summary>
+
+                <p>
+
+                    O primeiro contato é destinado à
+                    compreensão da demanda e à definição
+                    dos próximos passos.
+
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    O atendimento é individualizado?
+                </summary>
+
+                <p>
+
+                    Sim. O planejamento considera as
+                    características e necessidades de
+                    cada pessoa.
+
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    A família participa do processo?
+                </summary>
+
+                <p>
+
+                    A participação da família é importante
+                    para manter uma comunicação próxima
+                    durante o acompanhamento.
+
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Como faço para agendar?
+                </summary>
+
+                <p>
+
+                    Entre em contato pelo WhatsApp para
+                    conversar sobre a demanda e verificar
+                    a disponibilidade.
+
+                </p>
+
+            </details>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     CONTATO
+========================================================== -->
+
+<section class="contact" id="contato">
+
+    <div class="container contact-grid">
+
+
+        <div class="reveal">
+
+            <div class="eyebrow">
+                Contato
+            </div>
+
+
+            <h2>
+
+                Vamos conversar sobre
+                o próximo <span>passo.</span>
+
+            </h2>
+
+
+            <!-- TROQUE PELO WHATSAPP REAL -->
+
+            <a
+                href="https://wa.me/5500000000000"
+                target="_blank"
+                rel="noopener"
+                class="contact-button"
+            >
+
+                Falar pelo WhatsApp
+
+                <span>→</span>
+
+            </a>
+
+        </div>
+
+
+        <div class="contact-side reveal">
+
+            <div class="contact-item">
+
+                <small>
+                    WhatsApp
+                </small>
+
+                <a
+                    href="https://wa.me/5500000000000"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Conversar agora
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <small>
+                    E-mail
+                </small>
+
+                <a href="mailto:contato@paulaborch.com">
+                    contato@paulaborch.com
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <small>
+                    Atendimento
+                </small>
+
+                <a href="#contato">
+                    Mediante agendamento
+                </a>
 
             </div>
 
         </div>
 
-    </footer>
+    </div>
+
+</section>
+
+</main>
 
 
-    <!-- =====================================================
-         WHATSAPP
-    ===================================================== -->
+<!-- ==========================================================
+     FOOTER
+========================================================== -->
 
-    <a
-        class="whatsapp"
-        href="https://wa.me/5500000000000"
-        target="_blank"
-        rel="noopener"
-        aria-label="WhatsApp"
-    >
+<footer class="footer">
 
-        <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-        >
-            <path d="M20.52 3.48A11.77 11.77 0 0 0 12.14 0C5.63 0 .33 5.3.33 11.82c0 2.08.54 4.1 1.56 5.88L.23 24l6.45-1.69a11.78 11.78 0 0 0 5.46 1.39h.01c6.51 0 11.81-5.3 11.81-11.82 0-3.15-1.23-6.11-3.44-8.4ZM12.15 21.7h-.01a9.8 9.8 0 0 1-5-1.36l-.36-.21-3.83 1 1.02-3.73-.23-.38a9.82 9.82 0 1 1 8.41 4.68Zm5.39-7.35c-.29-.15-1.72-.85-1.99-.94-.27-.1-.46-.15-.66.15-.19.29-.75.94-.92 1.13-.17.19-.34.22-.63.07-.29-.15-1.21-.45-2.3-1.43-.85-.76-1.43-1.7-1.6-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.49.1-.19.05-.37-.02-.52-.07-.15-.66-1.58-.9-2.17-.24-.57-.48-.49-.66-.5h-.56c-.19 0-.5.07-.77.37-.27.29-1.02.99-1.02 2.41s1.04 2.79 1.18 2.98c.15.19 2.05 3.13 4.96 4.39.69.3 1.23.48 1.65.61.69.22 1.31.19 1.81.11.55-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.19-.56-.34Z"/>
-        </svg>
-
-    </a>
+    <div class="container">
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ===================================================== -->
-
-    <script>
-
-        /* HEADER */
-
-        const header =
-            document.getElementById("header");
-
-        window.addEventListener("scroll", () => {
-
-            header.classList.toggle(
-                "scrolled",
-                window.scrollY > 10
-            );
-
-        });
+        <div class="footer-main">
 
 
-        /* MOBILE MENU */
+            <div class="footer-brand">
 
-        const menuButton =
-            document.getElementById("menuButton");
+                <img
+                    src="https://i.imgur.com/b2bgrDe.png"
+                    alt="Paula Borch Psicopedagogia"
+                >
 
-        const mobileMenu =
-            document.getElementById("mobileMenu");
+
+                <p>
+
+                    Psicopedagogia com olhar individual
+                    para diferentes formas de aprender.
+
+                </p>
+
+            </div>
 
 
-        menuButton.addEventListener("click", () => {
+            <div class="footer-column">
 
-            mobileMenu.classList.toggle("open");
+                <h4>
+                    Navegação
+                </h4>
 
-        });
+                <a href="#sobre">
+                    Sobre
+                </a>
 
+                <a href="#atuacao">
+                    Atuação
+                </a>
+
+                <a href="#processo">
+                    Processo
+                </a>
+
+                <a href="#duvidas">
+                    Dúvidas
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Contato
+                </h4>
+
+                <a href="#contato">
+                    Agendamento
+                </a>
+
+                <a href="mailto:contato@paulaborch.com">
+                    E-mail
+                </a>
+
+                <a
+                    href="https://wa.me/5500000000000"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Paula Borch Psicopedagogia
+            </span>
+
+
+            <a
+                href="#inicio"
+                class="footer-social"
+            >
+                Voltar ao início ↑
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ==========================================================
+     WHATSAPP
+========================================================== -->
+
+<a
+    class="whatsapp"
+    href="https://wa.me/5500000000000"
+    target="_blank"
+    rel="noopener"
+    aria-label="WhatsApp"
+>
+
+<svg viewBox="0 0 24 24">
+<path d="M20.52 3.48A11.77 11.77 0 0 0 12.14 0C5.63 0 .33 5.3.33 11.82c0 2.08.54 4.1 1.56 5.88L.23 24l6.45-1.69a11.78 11.78 0 0 0 5.46 1.39h.01c6.51 0 11.81-5.3 11.81-11.82 0-3.15-1.23-6.11-3.44-8.4ZM12.15 21.7h-.01a9.8 9.8 0 0 1-5-1.36l-.36-.21-3.83 1 1.02-3.73-.23-.38a9.82 9.82 0 1 1 8.41 4.68Zm5.39-7.35c-.29-.15-1.72-.85-1.99-.94-.27-.1-.46-.15-.66.15-.19.29-.75.94-.92 1.13-.17.19-.34.22-.63.07-.29-.15-1.21-.45-2.3-1.43-.85-.76-1.43-1.7-1.6-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.49.1-.19.05-.37-.02-.52-.07-.15-.66-1.58-.9-2.17-.24-.57-.48-.49-.66-.5h-.56c-.19 0-.5.07-.77.37-.27.29-1.02.99-1.02 2.41s1.04 2.79 1.18 2.98c.15.19 2.05 3.13 4.96 4.39.69.3 1.23.48 1.65.61.69.22 1.31.19 1.81.11.55-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.19-.56-.34Z"/>
+</svg>
+
+</a>
+
+
+<script>
+
+/* ==========================================================
+   LOADER
+========================================================== */
+
+window.addEventListener("load",function(){
+
+    setTimeout(function(){
 
         document
-            .querySelectorAll(".mobile-menu a")
-            .forEach(link => {
+            .getElementById("loader")
+            .classList.add("hide");
 
-                link.addEventListener("click", () => {
+    },900);
 
-                    mobileMenu.classList.remove("open");
-
-                });
-
-            });
+});
 
 
-        /* FAQ */
+/* ==========================================================
+   HEADER SCROLL
+========================================================== */
 
-        document
-            .querySelectorAll("details")
-            .forEach(item => {
+const header =
+    document.getElementById("header");
 
-                item.addEventListener("toggle", () => {
+window.addEventListener("scroll",function(){
 
-                    if (!item.open) return;
+    if(window.scrollY > 20){
 
-                    document
-                        .querySelectorAll("details")
-                        .forEach(other => {
+        header.classList.add("scrolled");
 
-                            if (other !== item) {
-                                other.removeAttribute("open");
-                            }
+    }else{
 
-                        });
+        header.classList.remove("scrolled");
 
-                });
+    }
 
-            });
+});
 
 
-        /* REVEAL */
+/* ==========================================================
+   MOBILE MENU
+========================================================== */
 
-        const elements =
-            document.querySelectorAll(".reveal");
+const menuButton =
+    document.getElementById("menuButton");
+
+const mobileMenu =
+    document.getElementById("mobileMenu");
 
 
-        const observer =
-            new IntersectionObserver(
-                entries => {
+menuButton.addEventListener("click",function(){
 
-                    entries.forEach(entry => {
+    mobileMenu.classList.toggle("open");
 
-                        if (entry.isIntersecting) {
+    document.body.classList.toggle(
+        "menu-open"
+    );
 
-                            entry.target.classList.add(
-                                "visible"
-                            );
+});
 
-                            observer.unobserve(
-                                entry.target
-                            );
 
-                        }
+document
+.querySelectorAll(".mobile-menu a")
+.forEach(function(link){
 
-                    });
+    link.addEventListener("click",function(){
 
-                },
-                {
-                    threshold: 0.08
+        mobileMenu.classList.remove("open");
+
+        document.body.classList.remove(
+            "menu-open"
+        );
+
+    });
+
+});
+
+
+/* ==========================================================
+   ESC FECHA MENU
+========================================================== */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+
+        mobileMenu.classList.remove("open");
+
+        document.body.classList.remove(
+            "menu-open"
+        );
+
+    }
+
+});
+
+
+/* ==========================================================
+   SCROLL REVEAL
+========================================================== */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+    new IntersectionObserver(
+        function(entries){
+
+            entries.forEach(function(entry){
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("show");
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
                 }
-            );
+
+            });
+
+        },
+        {
+            threshold:.08
+        }
+    );
 
 
-        elements.forEach(element => {
+revealElements.forEach(function(element){
 
-            observer.observe(element);
+    revealObserver.observe(element);
 
-        });
+});
 
 
-        /* ESC */
+/* ==========================================================
+   FAQ — APENAS UMA ABERTA
+========================================================== */
 
-        document.addEventListener("keydown", event => {
+document
+.querySelectorAll("details")
+.forEach(function(detail){
 
-            if (event.key === "Escape") {
+    detail.addEventListener("toggle",function(){
 
-                mobileMenu.classList.remove("open");
+        if(!detail.open) return;
+
+        document
+        .querySelectorAll("details")
+        .forEach(function(other){
+
+            if(other !== detail){
+
+                other.removeAttribute("open");
 
             }
 
         });
 
-    </script>
+    });
+
+});
+
+
+/* ==========================================================
+   PARALLAX SUAVE NA FOTO PRINCIPAL
+========================================================== */
+
+const heroImage =
+    document.querySelector(".hero-photo img");
+
+
+window.addEventListener("scroll",function(){
+
+    if(window.innerWidth < 700) return;
+
+    const scroll =
+        window.scrollY;
+
+    if(scroll < 700){
+
+        heroImage.style.transform =
+            `translateY(${scroll * .025}px)`;
+
+    }
+
+});
+
+
+</script>
 
 </body>
 </html>
