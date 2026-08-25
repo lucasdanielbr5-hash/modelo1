@@ -2,17 +2,13 @@
 <html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta
     name="description"
-    content="Paula Borch — Psicopedagogia, aprendizagem e desenvolvimento."
+    content="Paula Borch — Psicopedagogia, desenvolvimento e aprendizagem."
 >
 
 <title>Paula Borch | Psicopedagogia</title>
@@ -21,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
     rel="stylesheet"
 >
 
@@ -42,8 +38,9 @@ html{
 }
 
 body{
+    margin:0;
     font-family:"DM Sans",sans-serif;
-    color:#343936;
+    color:#303532;
     background:#fff;
     overflow-x:hidden;
     -webkit-font-smoothing:antialiased;
@@ -55,8 +52,8 @@ img{
 }
 
 a{
-    text-decoration:none;
     color:inherit;
+    text-decoration:none;
 }
 
 button,
@@ -69,32 +66,41 @@ button{
     cursor:pointer;
 }
 
+::selection{
+    background:#e8e1ed;
+    color:#303532;
+}
+
 
 /* =========================================================
-   CORES
+   VARIÁVEIS
 ========================================================= */
 
 :root{
 
     --white:#ffffff;
 
-    --off-white:#fafaf8;
+    --bg:#fbfbfa;
 
-    --gray-bg:#f3f4f1;
-
-    --gray-light:#e9ebe7;
-
-    --gray-line:#dfe2dd;
-
-    --text:#343936;
+    --text:#303532;
 
     --text-soft:#707772;
 
-    --text-muted:#9aa09b;
+    --muted:#9ba19d;
 
-    --purple:#76627f;
+    --line:#e1e4e0;
 
-    --purple-light:#ece7ef;
+    --purple:#75647f;
+
+    --purple-dark:#685772;
+
+    --purple-light:#eee9f1;
+
+    --sage:#e9efea;
+
+    --gray-soft:#f4f5f3;
+
+    --gray:#eceeeb;
 
     --whatsapp:#25d366;
 }
@@ -129,12 +135,17 @@ header{
 
     background:rgba(255,255,255,.97);
 
-    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(215,219,215,.8);
 
-    border-bottom:1px solid #e7e9e5;
+    backdrop-filter:blur(18px);
 
     transition:.3s ease;
 }
+
+header.scrolled{
+    box-shadow:0 8px 30px rgba(40,45,42,.06);
+}
+
 
 .nav{
 
@@ -145,39 +156,32 @@ header{
 }
 
 
-/* LOGO MENOR */
-
 .logo{
 
-    width:82px;
-
-    flex-shrink:0;
+    width:84px;
 
     display:flex;
     align-items:center;
+
+    flex-shrink:0;
 }
 
 .logo img{
-
     width:100%;
     height:auto;
-
-    object-fit:contain;
 }
 
-
-/* MENU */
 
 .menu{
 
     margin-left:auto;
-    margin-right:27px;
 
     display:flex;
     align-items:center;
 
-    gap:27px;
+    gap:29px;
 }
+
 
 .menu a{
 
@@ -186,13 +190,13 @@ header{
     font-size:9px;
     font-weight:500;
 
-    color:#666d68;
+    color:#707671;
 
-    transition:.25s;
+    transition:.25s ease;
 }
 
 .menu a:hover{
-    color:#343936;
+    color:#303532;
 }
 
 .menu a::after{
@@ -209,7 +213,7 @@ header{
 
     background:var(--purple);
 
-    transition:.3s;
+    transition:.3s ease;
 }
 
 .menu a:hover::after{
@@ -217,27 +221,27 @@ header{
 }
 
 
-/* BOTÃO */
-
 .header-button{
+
+    margin-left:28px;
 
     height:38px;
 
     padding:0 19px;
 
+    border-radius:50px;
+
     display:flex;
     align-items:center;
     justify-content:center;
 
-    border-radius:50px;
-
-    background:#343936;
+    background:#303532;
     color:#fff;
 
     font-size:9px;
     font-weight:600;
 
-    transition:.3s;
+    transition:.3s ease;
 }
 
 .header-button:hover{
@@ -248,20 +252,20 @@ header{
 }
 
 
-/* MOBILE MENU */
-
 .menu-toggle{
 
     display:none;
 
+    margin-left:auto;
+
     width:40px;
     height:40px;
 
-    border:1px solid var(--gray-line);
-
-    border-radius:50%;
+    border:1px solid var(--line);
 
     background:#fff;
+
+    border-radius:50%;
 
     position:relative;
 }
@@ -270,14 +274,14 @@ header{
 
     position:absolute;
 
-    left:11px;
+    left:12px;
 
-    width:17px;
+    width:16px;
     height:1px;
 
-    background:#343936;
+    background:#303532;
 
-    transition:.3s;
+    transition:.3s ease;
 }
 
 .menu-toggle span:first-child{
@@ -309,20 +313,15 @@ header{
 
 .hero{
 
-    /*
-       IMPORTANTE:
-       começa exatamente abaixo do menu.
-       Não existe espaço branco entre menu e conteúdo.
-    */
+    min-height:100vh;
 
     padding-top:68px;
-
-    min-height:100vh;
 
     background:#fff;
 
     overflow:hidden;
 }
+
 
 .hero-grid{
 
@@ -330,15 +329,15 @@ header{
 
     display:grid;
 
-    grid-template-columns:1fr 1fr;
-
-    gap:0;
+    grid-template-columns:48% 52%;
 
     align-items:stretch;
 }
 
 
-/* LADO ESQUERDO */
+/* ---------------------------------------------------------
+   HERO TEXTO
+--------------------------------------------------------- */
 
 .hero-content{
 
@@ -348,8 +347,9 @@ header{
 
     justify-content:center;
 
-    padding:60px 45px 60px 0;
+    padding:65px 45px 65px 0;
 }
+
 
 .hero-eyebrow{
 
@@ -357,14 +357,17 @@ header{
     align-items:center;
     gap:10px;
 
-    font-size:8px;
-    font-weight:600;
+    margin-bottom:27px;
 
-    text-transform:uppercase;
+    color:#858c87;
+
+    font-size:8px;
+
+    font-weight:600;
 
     letter-spacing:.18em;
 
-    color:#858c87;
+    text-transform:uppercase;
 }
 
 .hero-eyebrow::before{
@@ -374,25 +377,25 @@ header{
     width:26px;
     height:1px;
 
-    background:#aeb3ae;
+    background:#a7ada8;
 }
 
 
 .hero h1{
 
-    max-width:600px;
-
-    margin-top:27px;
+    max-width:590px;
 
     font-family:"Manrope",sans-serif;
 
-    font-size:clamp(50px,5.6vw,76px);
+    font-size:clamp(52px,5.5vw,76px);
 
-    line-height:.96;
+    line-height:.94;
 
-    letter-spacing:-.075em;
+    letter-spacing:-.078em;
 
     font-weight:500;
+
+    color:#303532;
 }
 
 .hero h1 span{
@@ -404,13 +407,13 @@ header{
 
     max-width:470px;
 
-    margin-top:28px;
+    margin-top:29px;
 
-    font-size:12px;
+    color:#69716c;
 
-    line-height:1.9;
+    font-size:11px;
 
-    color:#737a75;
+    line-height:1.95;
 }
 
 
@@ -422,7 +425,7 @@ header{
 
     gap:12px;
 
-    margin-top:30px;
+    margin-top:31px;
 }
 
 
@@ -444,12 +447,14 @@ header{
 
     font-weight:600;
 
-    transition:.3s;
+    transition:.3s ease;
 }
+
 
 .button-main{
 
-    background:#343936;
+    background:#303532;
+
     color:#fff;
 }
 
@@ -460,25 +465,26 @@ header{
     transform:translateY(-3px);
 }
 
-.button-light{
 
-    border:1px solid #dce0db;
+.button-light{
 
     background:#fff;
 
-    color:#656c67;
+    border:1px solid #dfe2de;
+
+    color:#5d6560;
 }
 
 .button-light:hover{
 
-    border-color:#c9cdc8;
+    border-color:#c9cdc9;
 
     transform:translateY(-3px);
 }
 
 
 /* =========================================================
-   HERO FOTO
+   HERO VISUAL
 ========================================================= */
 
 .hero-visual{
@@ -487,132 +493,153 @@ header{
 
     min-height:calc(100vh - 68px);
 
-    display:flex;
+    display:grid;
 
-    align-items:flex-end;
+    grid-template-columns:1fr 78px;
 
-    justify-content:center;
-
-    background:#fafaf8;
+    background:#f7f8f6;
 
     overflow:hidden;
 }
 
 
 /*
-   FOTO
+    FAIXA VISUAL DA FOTO
 */
 
 .hero-photo{
 
     position:relative;
 
-    z-index:3;
-
-    width:100%;
-
     height:100%;
+
+    overflow:hidden;
 
     display:flex;
 
     align-items:flex-end;
 
     justify-content:center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fafaf9 0%,
+            #f6f7f5 100%
+        );
 }
+
 
 .hero-photo img{
 
+    position:relative;
+
+    z-index:2;
+
     width:100%;
+
     height:100%;
 
     object-fit:contain;
 
     object-position:center bottom;
 
-    /*
-       Evita que o navegador "corte"
-       ou estoure a imagem.
-    */
     image-rendering:auto;
+
+    transform:scale(1.015);
+
+    transition:transform .8s ease;
 }
 
 
-/*
-   PAULA BORCH VERTICAL
+.hero-photo:hover img{
+    transform:scale(1.025);
+}
 
-   FICA AO LADO DA FOTO.
-*/
+
+/* =========================================================
+   NOME VERTICAL
+========================================================= */
+
+.hero-name-column{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#f1f2f0;
+
+    border-left:1px solid #e3e5e1;
+
+    overflow:hidden;
+}
+
 
 .hero-name{
 
     position:absolute;
 
-    z-index:2;
-
-    right:8%;
-
-    top:50%;
-
-    transform:
-        translateY(-50%)
-        rotate(90deg);
-
-    transform-origin:center;
-
     white-space:nowrap;
 
     font-family:"Manrope",sans-serif;
 
-    font-size:clamp(48px,5vw,72px);
-
-    line-height:1;
+    font-size:clamp(40px,4.5vw,66px);
 
     font-weight:600;
 
     letter-spacing:-.075em;
 
-    color:#e2e5e1;
+    color:#dfe2df;
+
+    writing-mode:vertical-rl;
+
+    text-orientation:mixed;
+
+    transform:rotate(180deg);
+
+    user-select:none;
 
     pointer-events:none;
 
-    user-select:none;
+    line-height:1;
 }
 
 
-/*
-   CAIXA SOBRE A FOTO
-*/
+/* =========================================================
+   CARD DA FOTO
+========================================================= */
 
 .hero-card{
 
     position:absolute;
 
-    z-index:6;
+    z-index:5;
 
-    left:6%;
+    left:22px;
 
-    bottom:42px;
+    bottom:28px;
 
     width:126px;
 
     min-height:126px;
 
-    padding:20px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:flex-end;
+    padding:17px;
 
     border-radius:4px;
 
-    background:#343936;
+    background:#303532;
 
     color:#fff;
 
-    box-shadow:0 15px 35px rgba(30,35,32,.15);
+    box-shadow:
+        0 18px 35px rgba(30,35,32,.16);
+
+    overflow:hidden;
 }
+
 
 .hero-card::before{
 
@@ -620,7 +647,23 @@ header{
 
     position:absolute;
 
-    top:15px;
+    width:100px;
+    height:100px;
+
+    right:-58px;
+    bottom:-62px;
+
+    border:1px solid rgba(255,255,255,.13);
+
+    border-radius:50%;
+}
+
+
+.hero-card-dot{
+
+    position:absolute;
+
+    top:14px;
     right:14px;
 
     width:5px;
@@ -628,53 +671,108 @@ header{
 
     border-radius:50%;
 
-    background:#c7b3d0;
+    background:#cdbdd5;
 }
 
-.hero-card small{
+
+.hero-card-label{
 
     font-size:6px;
 
-    text-transform:uppercase;
-
     letter-spacing:.16em;
 
-    color:#b8c0ba;
+    text-transform:uppercase;
+
+    color:#b9c0bb;
+
+    margin-bottom:11px;
 }
+
 
 .hero-card strong{
 
-    margin-top:10px;
+    display:block;
+
+    max-width:90px;
 
     font-family:"Manrope",sans-serif;
 
-    font-size:15px;
+    font-size:16px;
 
-    line-height:1.15;
+    line-height:1.08;
 
     font-weight:500;
+
+    letter-spacing:-.035em;
 }
 
 
 /* =========================================================
-   INTRO
+   HERO MARCADOR
+========================================================= */
+
+.hero-side-mark{
+
+    position:absolute;
+
+    z-index:3;
+
+    right:101px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:30px;
+
+    height:150px;
+
+    border-left:1px solid rgba(117,100,127,.18);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+.hero-side-mark span{
+
+    writing-mode:vertical-rl;
+
+    transform:rotate(180deg);
+
+    color:#a29aa6;
+
+    font-size:6px;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+}
+
+
+/* =========================================================
+   SEÇÃO INTRO
 ========================================================= */
 
 .intro{
 
-    padding:125px 0;
+    padding:135px 0;
 
     background:#fff;
 }
+
 
 .intro-grid{
 
     display:grid;
 
-    grid-template-columns:.32fr 1.68fr;
+    grid-template-columns:.35fr 1.65fr;
 
-    gap:70px;
+    gap:75px;
 }
+
 
 .section-label{
 
@@ -688,57 +786,61 @@ header{
 
     font-weight:600;
 
-    text-transform:uppercase;
-
     letter-spacing:.18em;
 
-    color:#8b918c;
+    text-transform:uppercase;
+
+    color:#8a918c;
 }
 
 .section-label i{
 
-    display:block;
-
-    width:25px;
+    width:26px;
     height:1px;
 
-    background:#aeb3ae;
+    display:block;
+
+    background:#a8ada8;
 }
+
 
 .intro-title{
 
-    max-width:800px;
+    max-width:780px;
 
     font-family:"Manrope",sans-serif;
 
-    font-size:clamp(42px,5vw,64px);
+    font-size:clamp(43px,5vw,65px);
 
-    line-height:1.03;
+    line-height:1.02;
 
     letter-spacing:-.07em;
 
     font-weight:500;
 }
 
+
 .intro-title span{
 
     display:block;
 
-    color:#8c928d;
+    color:#898f8a;
 }
+
 
 .intro-text{
 
-    max-width:650px;
+    max-width:670px;
 
-    margin-top:26px;
+    margin-top:28px;
 
-    font-size:12px;
+    color:#737a75;
+
+    font-size:11px;
 
     line-height:1.95;
-
-    color:#777e79;
 }
+
 
 .intro-footer{
 
@@ -746,41 +848,44 @@ header{
 
     align-items:center;
 
-    gap:15px;
+    gap:14px;
 
-    margin-top:38px;
+    margin-top:39px;
 }
+
 
 .intro-footer-line{
 
-    width:65px;
+    width:68px;
     height:1px;
 
-    background:#d2d6d1;
+    background:#d6dad5;
 }
+
 
 .intro-footer span{
 
-    font-size:8px;
+    font-size:7px;
 
     text-transform:uppercase;
 
-    letter-spacing:.14em;
+    letter-spacing:.16em;
 
-    color:#9ba09c;
+    color:#9ca29d;
 }
 
 
 /* =========================================================
-   ATUAÇÃO
+   CARDS DE ATUAÇÃO
 ========================================================= */
 
 .services{
 
-    padding:0 0 125px;
+    padding-bottom:135px;
 
     background:#fff;
 }
+
 
 .services-grid{
 
@@ -791,52 +896,57 @@ header{
     gap:15px;
 }
 
+
 .service{
 
     position:relative;
 
-    min-height:220px;
+    min-height:225px;
 
     padding:25px;
 
-    overflow:hidden;
-
     border-radius:22px;
+
+    overflow:hidden;
 
     transition:.4s ease;
 }
 
 .service:hover{
 
-    transform:translateY(-5px);
+    transform:translateY(-6px);
 
-    box-shadow:0 18px 45px rgba(40,45,42,.08);
+    box-shadow:
+        0 20px 45px rgba(45,50,47,.08);
 }
 
+
 .service:nth-child(1){
-    background:#eef2ee;
+    background:#edf2ee;
 }
 
 .service:nth-child(2){
-    background:#f0edf2;
+    background:#efebf1;
 }
 
 .service:nth-child(3){
-    background:#eef1f1;
+    background:#eef2f3;
 }
+
 
 .service-icon{
 
-    width:49px;
-    height:49px;
+    width:48px;
+    height:48px;
+
+    border-radius:14px;
 
     display:grid;
     place-items:center;
 
-    border-radius:14px;
-
     background:rgba(255,255,255,.75);
 }
+
 
 .service-icon svg{
 
@@ -845,13 +955,24 @@ header{
 
     fill:none;
 
-    stroke:#65706a;
+    stroke:#69736d;
 
     stroke-width:1.4;
 
     stroke-linecap:round;
+
     stroke-linejoin:round;
 }
+
+
+.service:nth-child(2) .service-icon svg{
+    stroke:var(--purple);
+}
+
+.service:nth-child(3) .service-icon svg{
+    stroke:#66777b;
+}
+
 
 .service-content{
 
@@ -859,8 +980,9 @@ header{
 
     left:25px;
     right:25px;
-    bottom:25px;
+    bottom:24px;
 }
+
 
 .service h3{
 
@@ -873,17 +995,18 @@ header{
     letter-spacing:-.045em;
 }
 
+
 .service p{
 
     max-width:300px;
 
     margin-top:8px;
 
-    font-size:10px;
+    font-size:9px;
 
-    line-height:1.7;
+    line-height:1.75;
 
-    color:#777e79;
+    color:#727a75;
 }
 
 
@@ -893,25 +1016,27 @@ header{
 
 .process{
 
-    padding:125px 0;
+    padding:130px 0;
 
-    background:#f8f9f6;
+    background:#f7f8f6;
 }
+
 
 .process-header{
 
-    max-width:760px;
+    max-width:720px;
 
-    margin-bottom:65px;
+    margin-bottom:68px;
 }
+
 
 .process-header h2{
 
-    margin-top:20px;
+    margin-top:19px;
 
     font-family:"Manrope",sans-serif;
 
-    font-size:clamp(40px,4.8vw,60px);
+    font-size:clamp(40px,4.7vw,60px);
 
     line-height:1.04;
 
@@ -920,18 +1045,20 @@ header{
     font-weight:500;
 }
 
+
 .process-header p{
 
     max-width:500px;
 
-    margin-top:19px;
+    margin-top:20px;
 
-    font-size:11px;
+    color:#7b827d;
 
-    line-height:1.85;
+    font-size:10px;
 
-    color:#7b817c;
+    line-height:1.9;
 }
+
 
 .steps{
 
@@ -942,32 +1069,36 @@ header{
     position:relative;
 }
 
+
 .steps::before{
 
     content:"";
 
     position:absolute;
 
-    left:8%;
-    right:8%;
-
     top:31px;
+
+    left:8%;
+
+    right:8%;
 
     height:1px;
 
-    background:#dfe2dd;
+    background:#dfe2de;
 }
+
 
 .step{
 
     position:relative;
 
-    padding-right:30px;
+    padding-right:35px;
 }
 
 .step:not(:first-child){
-    padding-left:30px;
+    padding-left:35px;
 }
+
 
 .step-icon{
 
@@ -979,52 +1110,61 @@ header{
     height:63px;
 
     display:grid;
-
     place-items:center;
-
-    border-radius:50%;
 
     background:#fff;
 
     border:1px solid #dfe2dd;
 
-    transition:.4s;
+    border-radius:50%;
+
+    transition:.4s ease;
 }
+
 
 .step:hover .step-icon{
 
-    transform:scale(1.07);
+    transform:translateY(-4px);
 
     background:#f0ebf2;
 }
 
+
 .step-icon svg{
 
-    width:27px;
-    height:27px;
+    width:26px;
+    height:26px;
 
     fill:none;
 
-    stroke:#68716b;
+    stroke:#66726a;
 
     stroke-width:1.4;
 
     stroke-linecap:round;
+
     stroke-linejoin:round;
 }
+
+
+.step:nth-child(2) .step-icon svg{
+    stroke:var(--purple);
+}
+
 
 .step-number{
 
     margin-top:23px;
 
-    font-size:8px;
+    font-size:7px;
 
     font-weight:600;
 
     letter-spacing:.16em;
 
-    color:#a0a59f;
+    color:#9ca29d;
 }
+
 
 .step h3{
 
@@ -1036,20 +1176,21 @@ header{
 
     font-weight:500;
 
-    letter-spacing:-.045em;
+    letter-spacing:-.04em;
 }
+
 
 .step p{
 
-    max-width:290px;
+    max-width:280px;
 
-    margin-top:9px;
+    margin-top:8px;
 
-    font-size:10px;
+    font-size:9px;
 
     line-height:1.8;
 
-    color:#7a807b;
+    color:#7a817c;
 }
 
 
@@ -1059,21 +1200,23 @@ header{
 
 .about{
 
-    padding:130px 0;
+    padding:140px 0;
 
     background:#fff;
 }
+
 
 .about-grid{
 
     display:grid;
 
-    grid-template-columns:.9fr 1.1fr;
+    grid-template-columns:.85fr 1.15fr;
 
-    gap:80px;
+    gap:85px;
 
     align-items:center;
 }
+
 
 .about-photo{
 
@@ -1087,10 +1230,11 @@ header{
 
     overflow:hidden;
 
-    border-radius:26px;
+    border-radius:25px;
 
-    background:#f5f6f3;
+    background:#f7f7f5;
 }
+
 
 .about-photo img{
 
@@ -1102,15 +1246,16 @@ header{
     object-position:center bottom;
 }
 
+
 .about-title{
 
-    max-width:600px;
+    max-width:590px;
 
     margin-top:20px;
 
     font-family:"Manrope",sans-serif;
 
-    font-size:clamp(40px,4.7vw,58px);
+    font-size:clamp(40px,4.7vw,59px);
 
     line-height:1.04;
 
@@ -1119,9 +1264,11 @@ header{
     font-weight:500;
 }
 
+
 .about-title span{
     color:var(--purple);
 }
+
 
 .about-text{
 
@@ -1129,12 +1276,13 @@ header{
 
     margin-top:24px;
 
-    font-size:11px;
+    color:#777e79;
+
+    font-size:10px;
 
     line-height:1.9;
-
-    color:#777e79;
 }
+
 
 .about-points{
 
@@ -1142,21 +1290,23 @@ header{
 
     grid-template-columns:1fr 1fr;
 
-    gap:11px;
+    gap:12px;
 
-    margin-top:30px;
+    margin-top:31px;
 }
+
 
 .about-point{
 
     padding:15px;
 
-    border:1px solid #e4e7e2;
+    border:1px solid #e3e6e2;
 
     border-radius:14px;
 
-    transition:.3s;
+    transition:.3s ease;
 }
+
 
 .about-point:hover{
 
@@ -1165,14 +1315,16 @@ header{
     transform:translateY(-3px);
 }
 
+
 .about-point strong{
 
     display:block;
 
-    font-size:10px;
+    font-size:9px;
 
     font-weight:600;
 }
+
 
 .about-point span{
 
@@ -1180,121 +1332,193 @@ header{
 
     margin-top:5px;
 
-    font-size:9px;
+    color:#858c87;
 
-    line-height:1.55;
+    font-size:8px;
 
-    color:#878d88;
+    line-height:1.6;
 }
 
 
 /* =========================================================
-   FRASE / EFEITO DE PALAVRA NO FUNDO
+   FRASE — EFEITO "APRENDER"
 ========================================================= */
 
 .quote{
 
     position:relative;
 
+    min-height:520px;
+
     padding:125px 0;
+
+    display:flex;
+
+    align-items:center;
 
     overflow:hidden;
 
-    background:#76627f;
+    background:var(--purple);
 
     color:#fff;
 }
 
 
 /*
-   PALAVRA GIGANTE NO FUNDO
-
-   É este o efeito solicitado.
+   Palavra gigante no fundo.
+   Não fica "jogada": fica alinhada ao grid
+   e parcialmente cortada pela lateral.
 */
 
-.quote::before{
-
-    content:"APRENDER";
+.quote-background-word{
 
     position:absolute;
 
     z-index:0;
 
     top:50%;
-    left:50%;
 
-    transform:
-        translate(-50%,-50%)
-        rotate(-5deg);
+    right:-32px;
+
+    transform:translateY(-50%);
 
     font-family:"Manrope",sans-serif;
 
-    font-size:clamp(100px,18vw,270px);
+    font-size:clamp(130px,18vw,245px);
 
     font-weight:700;
 
-    line-height:1;
+    line-height:.8;
 
-    letter-spacing:-.09em;
+    letter-spacing:-.11em;
 
     color:rgba(255,255,255,.055);
 
     white-space:nowrap;
 
-    pointer-events:none;
-
     user-select:none;
+
+    pointer-events:none;
 }
 
-.quote-grid{
+
+.quote-background-word::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:7%;
+
+    top:50%;
+
+    width:70%;
+
+    height:1px;
+
+    background:rgba(255,255,255,.13);
+
+}
+
+
+.quote-content{
 
     position:relative;
 
     z-index:2;
 
-    display:grid;
-
-    grid-template-columns:1fr .55fr;
-
-    gap:80px;
-
-    align-items:end;
+    max-width:850px;
 }
 
-.quote .section-label{
 
-    color:rgba(255,255,255,.65);
+.quote-content .section-label{
+
+    color:rgba(255,255,255,.64);
 }
 
-.quote .section-label i{
 
+.quote-content .section-label i{
     background:rgba(255,255,255,.45);
 }
 
+
 .quote h2{
 
-    max-width:800px;
+    max-width:820px;
 
-    margin-top:20px;
+    margin-top:22px;
 
     font-family:"Manrope",sans-serif;
 
-    font-size:clamp(38px,5vw,62px);
+    font-size:clamp(40px,5vw,64px);
 
-    line-height:1.04;
+    line-height:1.03;
 
-    letter-spacing:-.07em;
+    letter-spacing:-.075em;
 
     font-weight:500;
 }
 
-.quote p{
 
-    font-size:11px;
+.quote-highlight{
 
-    line-height:1.85;
+    position:relative;
 
-    color:rgba(255,255,255,.7);
+    display:inline-block;
+
+    color:#fff;
+}
+
+
+.quote-highlight::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-4px;
+
+    width:100%;
+
+    height:1px;
+
+    background:rgba(255,255,255,.4);
+}
+
+
+.quote-description{
+
+    max-width:480px;
+
+    margin-top:25px;
+
+    color:rgba(255,255,255,.66);
+
+    font-size:10px;
+
+    line-height:1.9;
+}
+
+
+.quote-number{
+
+    position:absolute;
+
+    z-index:2;
+
+    right:55px;
+
+    bottom:45px;
+
+    font-size:7px;
+
+    letter-spacing:.2em;
+
+    text-transform:uppercase;
+
+    color:rgba(255,255,255,.42);
 }
 
 
@@ -1304,10 +1528,11 @@ header{
 
 .videos{
 
-    padding:130px 0;
+    padding:135px 0;
 
     background:#fff;
 }
+
 
 .videos-heading{
 
@@ -1319,8 +1544,9 @@ header{
 
     gap:60px;
 
-    margin-bottom:52px;
+    margin-bottom:55px;
 }
+
 
 .videos-heading h2{
 
@@ -1337,21 +1563,20 @@ header{
     font-weight:500;
 }
 
+
 .videos-heading p{
 
     max-width:310px;
 
-    font-size:11px;
+    margin-bottom:3px;
+
+    color:#7c837e;
+
+    font-size:10px;
 
     line-height:1.85;
-
-    color:#7d827e;
 }
 
-
-/*
-   MOSAICO
-*/
 
 .video-mosaic{
 
@@ -1364,51 +1589,63 @@ header{
     gap:15px;
 }
 
+
 .video-item{
 
     position:relative;
 
     overflow:hidden;
 
-    border-radius:20px;
+    border-radius:21px;
 
-    background:#eef0ed;
+    border:1px solid #e2e5e1;
 
-    border:1px solid #e2e5e0;
+    background:#f0f2ef;
 
-    transition:.4s;
+    transition:.45s ease;
 }
+
 
 .video-item:hover{
 
     transform:translateY(-5px);
 
-    box-shadow:0 18px 45px rgba(40,45,42,.1);
+    box-shadow:
+        0 20px 45px rgba(40,45,42,.09);
 }
+
 
 .video-item:nth-child(1){
 
     grid-column:1;
+
     grid-row:1 / 3;
 }
+
 
 .video-item:nth-child(2){
 
     grid-column:2;
+
     grid-row:1;
 }
+
 
 .video-item:nth-child(3){
 
     grid-column:3;
+
     grid-row:1;
 }
+
 
 .video-item:nth-child(4){
 
     grid-column:2 / 4;
+
     grid-row:2;
 }
+
 
 .video-item iframe{
 
@@ -1422,50 +1659,53 @@ header{
     border:0;
 }
 
+
 .video-tag{
 
     position:absolute;
 
-    z-index:4;
+    z-index:5;
 
-    top:12px;
-    left:12px;
+    top:13px;
+    left:13px;
 
     padding:7px 10px;
 
     border-radius:30px;
 
-    background:rgba(255,255,255,.88);
+    background:rgba(255,255,255,.9);
 
-    backdrop-filter:blur(8px);
+    backdrop-filter:blur(10px);
 
-    font-size:7px;
+    color:#646b66;
+
+    font-size:6px;
 
     font-weight:600;
 
+    letter-spacing:.14em;
+
     text-transform:uppercase;
-
-    letter-spacing:.13em;
-
-    color:#686e69;
 
     pointer-events:none;
 }
 
+
 .videos-button{
 
-    margin-top:40px;
+    margin-top:45px;
 
     display:flex;
 
     justify-content:center;
 }
 
+
 .youtube-button{
 
     min-height:45px;
 
-    padding:0 20px;
+    padding:0 21px;
 
     display:inline-flex;
 
@@ -1475,7 +1715,7 @@ header{
 
     border-radius:50px;
 
-    background:#343936;
+    background:#303532;
 
     color:#fff;
 
@@ -1483,8 +1723,9 @@ header{
 
     font-weight:600;
 
-    transition:.3s;
+    transition:.3s ease;
 }
+
 
 .youtube-button:hover{
 
@@ -1493,15 +1734,16 @@ header{
     transform:translateY(-3px);
 }
 
-.youtube-button-icon{
 
-    width:20px;
-    height:20px;
+.youtube-icon{
+
+    width:21px;
+    height:21px;
 
     display:grid;
     place-items:center;
 
-    border-radius:5px;
+    border-radius:6px;
 
     background:#ff0000;
 
@@ -1515,10 +1757,11 @@ header{
 
 .contact{
 
-    padding:125px 0;
+    padding:130px 0;
 
-    background:#f3f4f1;
+    background:#f5f6f3;
 }
+
 
 .contact-grid{
 
@@ -1526,14 +1769,15 @@ header{
 
     grid-template-columns:.82fr 1.18fr;
 
-    gap:85px;
+    gap:90px;
 
     align-items:center;
 }
 
+
 .contact h2{
 
-    max-width:620px;
+    max-width:610px;
 
     margin-top:20px;
 
@@ -1541,28 +1785,30 @@ header{
 
     font-size:clamp(40px,5vw,63px);
 
-    line-height:1.01;
+    line-height:1.02;
 
     letter-spacing:-.075em;
 
     font-weight:500;
 }
 
+
 .contact h2 span{
     color:var(--purple);
 }
+
 
 .contact-text{
 
     max-width:450px;
 
-    margin-top:22px;
+    margin-top:23px;
 
-    font-size:11px;
+    color:#7b827d;
 
-    line-height:1.85;
+    font-size:10px;
 
-    color:#7c827d;
+    line-height:1.9;
 }
 
 
@@ -1572,43 +1818,47 @@ header{
 
 .contact-form{
 
-    padding:34px;
+    padding:35px;
 
     background:#fff;
 
     border:1px solid #e1e4df;
 
-    border-radius:26px;
+    border-radius:25px;
 
-    box-shadow:0 18px 50px rgba(40,45,42,.05);
+    box-shadow:
+        0 18px 55px rgba(40,45,42,.05);
 }
+
 
 .form-top{
-
-    margin-bottom:26px;
+    margin-bottom:27px;
 }
+
 
 .form-top h3{
 
     font-family:"Manrope",sans-serif;
 
-    font-size:23px;
+    font-size:22px;
 
     font-weight:500;
 
-    letter-spacing:-.045em;
+    letter-spacing:-.04em;
 }
+
 
 .form-top p{
 
     margin-top:7px;
 
-    font-size:9px;
+    color:#858b86;
+
+    font-size:8px;
 
     line-height:1.7;
-
-    color:#858b86;
 }
+
 
 .form-row{
 
@@ -1619,10 +1869,11 @@ header{
     gap:12px;
 }
 
-.form-group{
 
+.form-group{
     margin-bottom:14px;
 }
+
 
 .form-group label{
 
@@ -1630,66 +1881,78 @@ header{
 
     margin-bottom:7px;
 
-    font-size:8px;
+    color:#747b76;
+
+    font-size:7px;
 
     font-weight:600;
 
     letter-spacing:.1em;
 
     text-transform:uppercase;
-
-    color:#777e79;
 }
+
 
 .form-group input,
 .form-group textarea{
 
     width:100%;
 
-    border:1px solid #dfe2dd;
-
     outline:none;
 
-    background:#fafaf8;
-
-    color:#343936;
+    border:1px solid #dfe2dd;
 
     border-radius:12px;
 
-    transition:.25s;
+    background:#fafaf8;
+
+    color:#303532;
+
+    transition:.25s ease;
 }
+
 
 .form-group input{
 
-    height:48px;
+    height:47px;
 
     padding:0 14px;
 
-    font-size:10px;
+    font-size:9px;
 }
+
 
 .form-group textarea{
 
-    min-height:125px;
+    min-height:120px;
 
     padding:14px;
 
     resize:vertical;
 
-    font-size:10px;
+    font-size:9px;
 
     line-height:1.6;
 }
+
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+    color:#adb2ae;
+}
+
 
 .form-group input:focus,
 .form-group textarea:focus{
 
     background:#fff;
 
-    border-color:#b7aabd;
+    border-color:#bcaec3;
 
-    box-shadow:0 0 0 3px rgba(118,98,127,.08);
+    box-shadow:
+        0 0 0 3px rgba(117,100,127,.07);
 }
+
 
 .form-submit{
 
@@ -1701,7 +1964,14 @@ header{
 
     border-radius:50px;
 
-    background:#343936;
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:9px;
+
+    background:#303532;
 
     color:#fff;
 
@@ -1709,8 +1979,9 @@ header{
 
     font-weight:600;
 
-    transition:.3s;
+    transition:.3s ease;
 }
+
 
 .form-submit:hover{
 
@@ -1719,15 +1990,33 @@ header{
     transform:translateY(-2px);
 }
 
+
+.form-submit svg{
+
+    width:16px;
+    height:16px;
+
+    fill:none;
+
+    stroke:currentColor;
+
+    stroke-width:1.5;
+
+    stroke-linecap:round;
+
+    stroke-linejoin:round;
+}
+
+
 .form-note{
 
     margin-top:10px;
 
     text-align:center;
 
-    font-size:7px;
-
     color:#a0a59f;
+
+    font-size:7px;
 }
 
 
@@ -1737,14 +2026,15 @@ header{
 
 footer{
 
-    padding:58px 0 23px;
+    padding:58px 0 24px;
 
-    background:#e8eae6;
+    background:#f0f1ef;
 
-    border-top:1px solid #dce0db;
+    border-top:1px solid #dfe2de;
 
-    color:#4d534f;
+    color:#4e5651;
 }
+
 
 .footer-grid{
 
@@ -1756,41 +2046,45 @@ footer{
 
     padding-bottom:43px;
 
-    border-bottom:1px solid #d5d9d4;
+    border-bottom:1px solid #d9ddd8;
 }
+
 
 .footer-logo{
 
-    width:92px;
+    width:88px;
 
-    margin-bottom:16px;
+    margin-bottom:17px;
 }
+
 
 .footer-description{
 
     max-width:310px;
 
-    font-size:9px;
+    color:#7a817c;
+
+    font-size:8px;
 
     line-height:1.8;
-
-    color:#7b817c;
 }
+
 
 .footer-title{
 
     margin-bottom:15px;
 
-    font-size:8px;
+    color:#919892;
+
+    font-size:7px;
 
     font-weight:600;
 
     letter-spacing:.15em;
 
     text-transform:uppercase;
-
-    color:#929892;
 }
+
 
 .footer-links{
 
@@ -1803,25 +2097,27 @@ footer{
     gap:10px;
 }
 
-.footer-links a{
 
-    font-size:9px;
+.footer-links a{
 
     color:#68706b;
 
-    transition:.25s;
+    font-size:8px;
+
+    transition:.25s ease;
 }
+
 
 .footer-links a:hover{
     color:var(--purple);
 }
 
+
 .footer-email{
 
     word-break:break-word;
-
-    font-size:9px !important;
 }
+
 
 .footer-bottom{
 
@@ -1829,18 +2125,19 @@ footer{
 
     display:flex;
 
-    justify-content:space-between;
-
     align-items:center;
+
+    justify-content:space-between;
 
     gap:20px;
 }
 
+
 .footer-bottom span{
 
-    font-size:8px;
+    color:#999f9a;
 
-    color:#9aa09b;
+    font-size:7px;
 }
 
 
@@ -1854,11 +2151,11 @@ footer{
 
     z-index:2000;
 
-    right:22px;
+    right:23px;
     bottom:22px;
 
-    width:59px;
-    height:59px;
+    width:58px;
+    height:58px;
 
     display:flex;
 
@@ -1869,22 +2166,60 @@ footer{
 
     background:var(--whatsapp);
 
-    box-shadow:0 9px 30px rgba(37,211,102,.28);
+    box-shadow:
+        0 10px 30px rgba(37,211,102,.27);
 
-    transition:.3s;
+    transition:.3s ease;
 }
+
 
 .whatsapp-float:hover{
 
-    transform:translateY(-4px) scale(1.04);
+    transform:translateY(-5px) scale(1.04);
 }
+
 
 .whatsapp-float img{
 
-    width:34px;
-    height:34px;
+    width:31px;
+    height:31px;
 
     object-fit:contain;
+}
+
+
+.whatsapp-float::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-5px;
+
+    border:1px solid rgba(37,211,102,.18);
+
+    border-radius:50%;
+
+    animation:pulse 2.5s infinite;
+}
+
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(.9);
+        opacity:.8;
+    }
+
+    70%{
+        transform:scale(1.15);
+        opacity:0;
+    }
+
+    100%{
+        transform:scale(1.15);
+        opacity:0;
+    }
 }
 
 
@@ -1896,12 +2231,13 @@ footer{
 
     opacity:0;
 
-    transform:translateY(22px);
+    transform:translateY(24px);
 
     transition:
-        opacity .8s ease,
-        transform .8s cubic-bezier(.2,.8,.2,1);
+        opacity .75s ease,
+        transform .75s cubic-bezier(.2,.8,.2,1);
 }
+
 
 .reveal.visible{
 
@@ -1919,20 +2255,29 @@ footer{
 
     .menu{
         gap:18px;
-        margin-right:18px;
+    }
+
+    .header-button{
+        margin-left:18px;
+        padding:0 15px;
     }
 
     .hero-grid{
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:1fr;
     }
 
-    .hero h1{
-        font-size:clamp(45px,5.5vw,65px);
+    .hero-content{
+        min-height:560px;
+        padding-right:0;
     }
 
-    .hero-name{
-        right:4%;
-        font-size:50px;
+    .hero-visual{
+        min-height:650px;
+    }
+
+    .intro-grid{
+        grid-template-columns:1fr;
+        gap:30px;
     }
 
     .services-grid{
@@ -1944,13 +2289,12 @@ footer{
     }
 
     .about-grid{
-        grid-template-columns:1fr 1fr;
-        gap:45px;
+        grid-template-columns:1fr;
+        gap:55px;
     }
 
-    .quote-grid{
-        grid-template-columns:1fr;
-        gap:30px;
+    .about-photo{
+        height:540px;
     }
 
     .video-mosaic{
@@ -2001,11 +2345,11 @@ footer{
     }
 
     header{
-        height:65px;
+        height:64px;
     }
 
     .nav{
-        height:65px;
+        height:64px;
     }
 
     .logo{
@@ -2016,7 +2360,7 @@ footer{
 
         position:fixed;
 
-        top:77px;
+        top:76px;
 
         left:17px;
         right:17px;
@@ -2025,21 +2369,20 @@ footer{
 
         padding:22px;
 
-        display:flex;
-
         flex-direction:column;
 
         align-items:flex-start;
 
-        gap:20px;
+        gap:19px;
 
         background:rgba(255,255,255,.98);
 
-        border:1px solid #e3e5e1;
+        border:1px solid #e2e5e1;
 
         border-radius:20px;
 
-        box-shadow:0 20px 60px rgba(40,45,42,.1);
+        box-shadow:
+            0 20px 55px rgba(40,45,42,.09);
 
         opacity:0;
 
@@ -2047,7 +2390,7 @@ footer{
 
         transform:translateY(-10px);
 
-        transition:.3s;
+        transition:.3s ease;
     }
 
     .menu.open{
@@ -2060,7 +2403,7 @@ footer{
     }
 
     .menu a{
-        font-size:11px;
+        font-size:10px;
     }
 
     .header-button{
@@ -2069,34 +2412,36 @@ footer{
 
     .menu-toggle{
         display:block;
-        margin-left:auto;
     }
 
+
+    /* HERO MOBILE */
+
     .hero{
-
-        padding-top:65px;
-
+        padding-top:64px;
         min-height:auto;
     }
 
     .hero-grid{
-
         min-height:auto;
-
-        grid-template-columns:1fr;
     }
 
     .hero-content{
 
-        padding:70px 0 45px;
+        min-height:auto;
+
+        padding:
+            65px
+            0
+            55px;
     }
 
     .hero h1{
-        font-size:47px;
+        font-size:46px;
     }
 
     .hero-text{
-        font-size:11px;
+        font-size:10px;
     }
 
     .hero-actions{
@@ -2109,60 +2454,46 @@ footer{
         width:100%;
     }
 
+
     .hero-visual{
 
         min-height:570px;
 
-        height:570px;
+        grid-template-columns:1fr 55px;
     }
-
-    .hero-photo{
-        height:570px;
-    }
-
-    /*
-       Nome volta para a lateral,
-       mas adapta para o celular.
-    */
 
     .hero-name{
 
-        right:-35px;
-
-        top:50%;
-
-        font-size:43px;
-
-        transform:
-            translateY(-50%)
-            rotate(90deg);
+        font-size:37px;
     }
 
     .hero-card{
 
-        left:5%;
+        left:17px;
+        bottom:20px;
 
-        bottom:25px;
-
-        width:118px;
-
-        min-height:118px;
+        width:120px;
+        min-height:120px;
     }
+
+
+    .hero-side-mark{
+        right:74px;
+    }
+
+
+    /* INTRO */
 
     .intro{
         padding:95px 0;
     }
 
-    .intro-grid{
-
-        grid-template-columns:1fr;
-
-        gap:28px;
-    }
-
     .intro-title{
         font-size:40px;
     }
+
+
+    /* SERVICES */
 
     .services{
         padding-bottom:90px;
@@ -2175,6 +2506,9 @@ footer{
     .service:last-child{
         grid-column:auto;
     }
+
+
+    /* PROCESS */
 
     .process{
         padding:95px 0;
@@ -2189,13 +2523,15 @@ footer{
 
     .steps::before{
 
-        left:31px;
-        right:auto;
-
         top:31px;
         bottom:31px;
 
+        left:31px;
+
+        right:auto;
+
         width:1px;
+
         height:auto;
     }
 
@@ -2217,12 +2553,11 @@ footer{
         top:0;
     }
 
+
+    /* ABOUT */
+
     .about{
         padding:95px 0;
-    }
-
-    .about-grid{
-        grid-template-columns:1fr;
     }
 
     .about-photo{
@@ -2237,17 +2572,32 @@ footer{
         grid-template-columns:1fr;
     }
 
+
+    /* QUOTE */
+
     .quote{
+        min-height:480px;
         padding:95px 0;
+    }
+
+    .quote-background-word{
+
+        right:-45px;
+
+        font-size:125px;
     }
 
     .quote h2{
         font-size:40px;
     }
 
-    .quote::before{
-        font-size:110px;
+    .quote-number{
+        right:25px;
+        bottom:25px;
     }
+
+
+    /* VIDEOS */
 
     .videos{
         padding:95px 0;
@@ -2291,6 +2641,9 @@ footer{
         grid-row:3;
     }
 
+
+    /* CONTACT */
+
     .contact{
         padding:95px 0;
     }
@@ -2302,6 +2655,9 @@ footer{
     .contact-form{
         padding:25px 20px;
     }
+
+
+    /* FOOTER */
 
     .footer-grid{
         grid-template-columns:1fr 1fr;
@@ -2329,33 +2685,24 @@ footer{
 
     .hero-visual{
         min-height:500px;
-        height:500px;
-    }
-
-    .hero-photo{
-        height:500px;
+        grid-template-columns:1fr 48px;
     }
 
     .hero-name{
-
-        right:-30px;
-
-        font-size:35px;
+        font-size:31px;
     }
 
     .hero-card{
-
-        left:15px;
-        bottom:20px;
-
-        width:110px;
-        min-height:110px;
-
-        padding:17px;
+        width:112px;
+        min-height:112px;
     }
 
     .hero-card strong{
         font-size:14px;
+    }
+
+    .hero-side-mark{
+        display:none;
     }
 
     .intro-title{
@@ -2415,24 +2762,21 @@ footer{
     }
 
     .footer-bottom{
-
         flex-direction:column;
-
         align-items:flex-start;
     }
 
     .whatsapp-float{
 
-        width:55px;
-        height:55px;
+        width:54px;
+        height:54px;
 
-        right:16px;
-        bottom:16px;
+        right:17px;
+        bottom:17px;
     }
 }
 
 </style>
-
 </head>
 
 
@@ -2440,69 +2784,65 @@ footer{
 
 
 <!-- =========================================================
-HEADER
+     HEADER
 ========================================================= -->
 
 <header id="header">
 
-<div class="container">
+    <div class="container">
 
-<nav class="nav">
+        <nav class="nav">
 
-
-<a
-    href="#inicio"
-    class="logo"
-    aria-label="Paula Borch"
->
-
-<img
-    src="https://i.imgur.com/b2bgrDe.png"
-    alt="Paula Borch"
->
-
-</a>
+            <a
+                href="#inicio"
+                class="logo"
+                aria-label="Paula Borch"
+            >
+                <img
+                    src="https://i.imgur.com/b2bgrDe.png"
+                    alt="Paula Borch"
+                >
+            </a>
 
 
-<div class="menu" id="menu">
+            <div class="menu" id="menu">
 
-<a href="#inicio">Início</a>
+                <a href="#inicio">Início</a>
 
-<a href="#sobre">Sobre</a>
+                <a href="#sobre">Sobre</a>
 
-<a href="#atuacao">Atuação</a>
+                <a href="#atuacao">Atuação</a>
 
-<a href="#processo">Como funciona</a>
+                <a href="#processo">Como funciona</a>
 
-<a href="#videos">Conteúdos</a>
+                <a href="#videos">Conteúdos</a>
 
-<a href="#contato">Contato</a>
+                <a href="#contato">Contato</a>
 
-</div>
-
-
-<a
-    href="#contato"
-    class="header-button"
->
-    Vamos conversar
-</a>
+            </div>
 
 
-<button
-    class="menu-toggle"
-    id="menuToggle"
-    aria-label="Abrir menu"
->
+            <a
+                href="#contato"
+                class="header-button"
+            >
+                Vamos conversar
+            </a>
 
-<span></span>
-<span></span>
 
-</button>
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+            </button>
 
-</nav>
+        </nav>
 
-</div>
+    </div>
 
 </header>
 
@@ -2512,7 +2852,7 @@ HEADER
 
 
 <!-- =========================================================
-HERO
+     HERO
 ========================================================= -->
 
 <section
@@ -2520,179 +2860,180 @@ HERO
     id="inicio"
 >
 
-<div class="container">
+    <div class="container">
 
-<div class="hero-grid">
-
-
-<div class="hero-content reveal">
-
-<div class="hero-eyebrow">
-    Educação & Desenvolvimento
-</div>
+        <div class="hero-grid">
 
 
-<h1>
+            <div class="hero-content reveal">
 
-Cada pessoa
-aprende de um
-jeito <span>único.</span>
-
-</h1>
+                <div class="hero-eyebrow">
+                    Educação & Desenvolvimento
+                </div>
 
 
-<p class="hero-text">
-
-Um trabalho que considera cada
-história, cada processo e cada
-forma de aprender com atenção,
-acolhimento e individualidade.
-
-</p>
+                <h1>
+                    Cada pessoa
+                    aprende de um
+                    jeito <span>único.</span>
+                </h1>
 
 
-<div class="hero-actions">
-
-<a
-    href="#sobre"
-    class="button-main"
->
-Conheça o trabalho
-</a>
+                <p class="hero-text">
+                    Um trabalho que considera cada história,
+                    cada processo e cada forma de aprender
+                    com atenção, acolhimento e individualidade.
+                </p>
 
 
-<a
-    href="#processo"
-    class="button-light"
->
-Como funciona →
-</a>
+                <div class="hero-actions">
 
-</div>
+                    <a
+                        href="#sobre"
+                        class="button-main"
+                    >
+                        Conheça o trabalho
+                    </a>
 
-</div>
+
+                    <a
+                        href="#processo"
+                        class="button-light"
+                    >
+                        Como funciona →
+                    </a>
+
+                </div>
+
+            </div>
 
 
 
-<div class="hero-visual reveal">
+            <!-- =================================================
+                 FOTO + NOME VERTICAL
+            ================================================= -->
+
+            <div class="hero-visual reveal">
 
 
-<!-- NOME VERTICAL AO LADO DA FOTO -->
+                <div class="hero-photo">
 
-<div class="hero-name">
-Paula Borch
-</div>
-
-
-<!-- FOTO -->
-
-<div class="hero-photo">
-
-<img
-    src="https://i.imgur.com/1QDxDPB.png"
-    alt="Paula Borch"
-    fetchpriority="high"
->
-
-</div>
+                    <img
+                        src="https://i.imgur.com/1QDxDPB.png"
+                        alt="Paula Borch"
+                        fetchpriority="high"
+                    >
 
 
-<!-- QUADRADO SOBRE A FOTO -->
+                    <div class="hero-card">
 
-<div class="hero-card">
+                        <span class="hero-card-dot"></span>
 
-<small>
-Psicopedagogia
-</small>
+                        <div class="hero-card-label">
+                            Psicopedagogia
+                        </div>
 
-<strong>
-Cada história<br>
-importa.
-</strong>
+                        <strong>
+                            Cada história
+                            importa.
+                        </strong>
 
-</div>
+                    </div>
+
+                </div>
 
 
-</div>
+                <!-- NOME NÃO ESTÁ MAIS JOGADO SOBRE A FOTO -->
+                <div class="hero-name-column">
 
-</div>
+                    <div class="hero-name">
+                        Paula Borch
+                    </div>
 
-</div>
+                </div>
+
+
+                <div class="hero-side-mark">
+                    <span>
+                        aprendizagem
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
 
 <!-- =========================================================
-INTRO
+     UM OLHAR INDIVIDUAL
 ========================================================= -->
 
 <section class="intro">
 
-<div class="container">
+    <div class="container">
 
-<div class="intro-grid reveal">
+        <div class="intro-grid reveal">
 
-
-<div class="section-label">
-
-<i></i>
-
-Um olhar individual
-
-</div>
+            <div class="section-label">
+                <i></i>
+                Um olhar individual
+            </div>
 
 
-<div>
+            <div>
 
-<h2 class="intro-title">
+                <h2 class="intro-title">
 
-Aprender não é
-seguir uma fórmula.
+                    Aprender não é
+                    seguir uma fórmula.
 
-<span>
-É encontrar possibilidades.
-</span>
+                    <span>
+                        É encontrar possibilidades.
+                    </span>
 
-</h2>
-
-
-<p class="intro-text">
-
-Cada pessoa possui uma história,
-um ritmo e uma maneira própria
-de se relacionar com o mundo.
-
-O acompanhamento parte da
-escuta e busca compreender
-o que existe por trás de cada
-dificuldade.
-
-</p>
+                </h2>
 
 
-<div class="intro-footer">
+                <p class="intro-text">
 
-<div class="intro-footer-line"></div>
+                    Cada pessoa possui uma história,
+                    um ritmo e uma maneira própria
+                    de se relacionar com o mundo.
 
-<span>
-Cada história importa
-</span>
+                    O acompanhamento parte da escuta
+                    e busca compreender o que existe
+                    por trás de cada dificuldade.
 
-</div>
+                </p>
 
-</div>
 
-</div>
+                <div class="intro-footer">
 
-</div>
+                    <div class="intro-footer-line"></div>
+
+                    <span>
+                        Cada história importa
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
 
 <!-- =========================================================
-ATUAÇÃO
+     ATUAÇÃO
 ========================================================= -->
 
 <section
@@ -2700,126 +3041,139 @@ ATUAÇÃO
     id="atuacao"
 >
 
-<div class="container">
+    <div class="container">
 
-<div class="services-grid">
-
-
-<article class="service reveal">
-
-<div class="service-icon">
-
-<svg viewBox="0 0 48 48">
-
-<circle cx="24" cy="17" r="6"/>
-
-<path d="M12 38c1-7 5-11 12-11s11 4 12 11"/>
-
-<path d="M10 24c-3 0-5 2-5 5s2 5 5 5"/>
-
-<path d="M38 24c3 0 5 2 5 5s-2 5-5 5"/>
-
-</svg>
-
-</div>
-
-<div class="service-content">
-
-<h3>
-Desenvolvimento
-</h3>
-
-<p>
-Um olhar integrado para as
-necessidades e possibilidades
-de cada pessoa.
-</p>
-
-</div>
-
-</article>
+        <div class="services-grid">
 
 
+            <article class="service reveal">
 
-<article class="service reveal">
+                <div class="service-icon">
 
-<div class="service-icon">
+                    <svg viewBox="0 0 48 48">
 
-<svg viewBox="0 0 48 48">
+                        <circle
+                            cx="24"
+                            cy="17"
+                            r="6"
+                        />
 
-<path d="M8 12h32v25H8z"/>
+                        <path
+                            d="M12 38c1-7 5-11 12-11s11 4 12 11"
+                        />
 
-<path d="M15 19h18"/>
+                        <path
+                            d="M10 24c-3 0-5 2-5 5s2 5 5 5"
+                        />
 
-<path d="M15 25h12"/>
+                        <path
+                            d="M38 24c3 0 5 2 5 5s-2 5-5 5"
+                        />
 
-<path d="M15 31h8"/>
+                    </svg>
 
-</svg>
+                </div>
 
-</div>
 
-<div class="service-content">
+                <div class="service-content">
 
-<h3>
-Aprendizagem
-</h3>
+                    <h3>
+                        Desenvolvimento
+                    </h3>
 
-<p>
-Estratégias que respeitam
-diferentes formas, ritmos
-e caminhos para aprender.
-</p>
+                    <p>
+                        Um olhar integrado para as necessidades
+                        e possibilidades de cada pessoa.
+                    </p>
 
-</div>
+                </div>
 
-</article>
+            </article>
 
 
 
-<article class="service reveal">
+            <article class="service reveal">
 
-<div class="service-icon">
+                <div class="service-icon">
 
-<svg viewBox="0 0 48 48">
+                    <svg viewBox="0 0 48 48">
 
-<circle cx="24" cy="24" r="15"/>
+                        <path d="M8 12h32v25H8z"/>
 
-<path d="M24 15v9l6 5"/>
+                        <path d="M15 19h18"/>
 
-<path d="M15 38h18"/>
+                        <path d="M15 25h12"/>
 
-</svg>
+                        <path d="M15 31h8"/>
 
-</div>
+                    </svg>
 
-<div class="service-content">
-
-<h3>
-Acolhimento
-</h3>
-
-<p>
-Um espaço de escuta,
-compreensão e construção
-de novas possibilidades.
-</p>
-
-</div>
-
-</article>
+                </div>
 
 
-</div>
+                <div class="service-content">
 
-</div>
+                    <h3>
+                        Aprendizagem
+                    </h3>
+
+                    <p>
+                        Estratégias que respeitam diferentes
+                        formas, ritmos e caminhos para aprender.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="service reveal">
+
+                <div class="service-icon">
+
+                    <svg viewBox="0 0 48 48">
+
+                        <circle
+                            cx="24"
+                            cy="24"
+                            r="15"
+                        />
+
+                        <path d="M24 15v9l6 5"/>
+
+                        <path d="M15 38h18"/>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="service-content">
+
+                    <h3>
+                        Acolhimento
+                    </h3>
+
+                    <p>
+                        Um espaço de escuta, compreensão
+                        e construção de novas possibilidades.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
 
 </section>
 
 
 
 <!-- =========================================================
-COMO FUNCIONA
+     COMO FUNCIONA
 ========================================================= -->
 
 <section
@@ -2827,165 +3181,161 @@ COMO FUNCIONA
     id="processo"
 >
 
-<div class="container">
+    <div class="container">
 
 
-<div class="process-header reveal">
+        <div class="process-header reveal">
 
-<div class="section-label">
+            <div class="section-label">
+                <i></i>
+                Como funciona
+            </div>
 
-<i></i>
+            <h2>
+                Um processo construído
+                com calma e intenção.
+            </h2>
 
-Como funciona
+            <p>
+                Cada acompanhamento começa pela escuta
+                e pela compreensão da realidade de cada pessoa.
+            </p>
 
-</div>
+        </div>
 
 
-<h2>
 
-Um processo construído
-com calma e intenção.
+        <div class="steps">
 
-</h2>
 
+            <article class="step reveal">
 
-<p>
+                <div class="step-icon">
 
-Cada acompanhamento começa
-pela escuta e pela compreensão
-da realidade de cada pessoa.
+                    <svg viewBox="0 0 48 48">
 
-</p>
+                        <path
+                            d="M24 39c-8.2 0-15-5.4-15-12.5C9 19.1 15.7 13 24 13s15 6.1 15 13.5C39 33.6 32.2 39 24 39Z"
+                        />
 
-</div>
+                        <path
+                            d="M17 23c2-2 4-2 6 0s4 2 6 0"
+                        />
 
+                        <path
+                            d="M19 29c1.7 1.5 4.3 1.5 6 0"
+                        />
 
+                        <circle cx="19" cy="20" r="1.2"/>
+                        <circle cx="29" cy="20" r="1.2"/>
 
-<div class="steps">
+                    </svg>
 
+                </div>
 
-<article class="step reveal">
+                <div class="step-number">
+                    ETAPA 01
+                </div>
 
-<div class="step-icon">
+                <h3>
+                    Escuta
+                </h3>
 
-<svg viewBox="0 0 48 48">
+                <p>
+                    Conhecer a história, compreender
+                    o contexto e ouvir aquilo que está
+                    por trás da dificuldade.
+                </p>
 
-<path d="M24 39c-8.2 0-15-5.4-15-12.5C9 19.1 15.7 13 24 13s15 6.1 15 13.5C39 33.6 32.2 39 24 39Z"/>
+            </article>
 
-<path d="M17 23c2-2 4-2 6 0s4 2 6 0"/>
 
-<path d="M19 29c1.7 1.5 4.3 1.5 6 0"/>
 
-<circle cx="19" cy="20" r="1.2"/>
+            <article class="step reveal">
 
-<circle cx="29" cy="20" r="1.2"/>
+                <div class="step-icon">
 
-</svg>
+                    <svg viewBox="0 0 48 48">
 
-</div>
+                        <circle
+                            cx="22"
+                            cy="22"
+                            r="10"
+                        />
 
-<div class="step-number">
-ETAPA 01
-</div>
+                        <path d="M29 29l9 9"/>
 
-<h3>
-Escuta
-</h3>
+                        <path d="M17 22h10"/>
 
-<p>
-Conhecer a história,
-compreender o contexto e
-ouvir aquilo que está por trás
-da dificuldade.
-</p>
+                        <path d="M22 17v10"/>
 
-</article>
+                    </svg>
 
+                </div>
 
+                <div class="step-number">
+                    ETAPA 02
+                </div>
 
-<article class="step reveal">
+                <h3>
+                    Compreensão
+                </h3>
 
-<div class="step-icon">
+                <p>
+                    Observar necessidades, contexto e
+                    diferentes formas de aprender e se desenvolver.
+                </p>
 
-<svg viewBox="0 0 48 48">
+            </article>
 
-<circle cx="22" cy="22" r="10"/>
 
-<path d="M29 29l9 9"/>
 
-<path d="M17 22h10"/>
+            <article class="step reveal">
 
-<path d="M22 17v10"/>
+                <div class="step-icon">
 
-</svg>
+                    <svg viewBox="0 0 48 48">
 
-</div>
+                        <path
+                            d="M9 34c7-1 11-5 14-11 3-6 7-9 16-10"
+                        />
 
-<div class="step-number">
-ETAPA 02
-</div>
+                        <path d="M31 10h8v8"/>
 
-<h3>
-Compreensão
-</h3>
+                        <circle cx="10" cy="34" r="3"/>
+                        <circle cx="24" cy="23" r="3"/>
+                        <circle cx="39" cy="13" r="3"/>
 
-<p>
-Observar necessidades,
-contexto e diferentes formas
-de aprender e se desenvolver.
-</p>
+                    </svg>
 
-</article>
+                </div>
 
+                <div class="step-number">
+                    ETAPA 03
+                </div>
 
+                <h3>
+                    Caminhos
+                </h3>
 
-<article class="step reveal">
+                <p>
+                    A partir da compreensão, são construídas
+                    estratégias adequadas a cada realidade.
+                </p>
 
-<div class="step-icon">
+            </article>
 
-<svg viewBox="0 0 48 48">
 
-<path d="M9 34c7-1 11-5 14-11 3-6 7-9 16-10"/>
+        </div>
 
-<path d="M31 10h8v8"/>
-
-<circle cx="10" cy="34" r="3"/>
-
-<circle cx="24" cy="23" r="3"/>
-
-<circle cx="39" cy="13" r="3"/>
-
-</svg>
-
-</div>
-
-<div class="step-number">
-ETAPA 03
-</div>
-
-<h3>
-Caminhos
-</h3>
-
-<p>
-A partir da compreensão,
-são construídas estratégias
-adequadas a cada realidade.
-</p>
-
-</article>
-
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
 
 <!-- =========================================================
-SOBRE
+     SOBRE
 ========================================================= -->
 
 <section
@@ -2993,167 +3343,188 @@ SOBRE
     id="sobre"
 >
 
-<div class="container">
+    <div class="container">
 
-<div class="about-grid">
-
-
-<div class="about-photo reveal">
-
-<img
-    src="https://i.imgur.com/bwXelIG.png"
-    alt="Paula Borch"
-    loading="lazy"
->
-
-</div>
+        <div class="about-grid">
 
 
-<div class="reveal">
+            <div class="about-photo reveal">
 
-<div class="section-label">
+                <img
+                    src="https://i.imgur.com/bwXelIG.png"
+                    alt="Paula Borch"
+                    loading="lazy"
+                >
 
-<i></i>
-
-Sobre Paula
-
-</div>
-
-
-<h2 class="about-title">
-
-Conhecimento com
-<span>
-sensibilidade.
-</span>
-
-</h2>
+            </div>
 
 
-<p class="about-text">
 
-O trabalho de Paula parte de uma
-visão individualizada da aprendizagem
-e do desenvolvimento.
+            <div class="reveal">
 
-Mais do que observar apenas a
-dificuldade, o objetivo é compreender
-a pessoa, seu contexto e suas
-possibilidades.
+                <div class="section-label">
 
-</p>
+                    <i></i>
+
+                    Sobre Paula
+
+                </div>
 
 
-<div class="about-points">
+                <h2 class="about-title">
 
-<div class="about-point">
+                    Conhecimento com
 
-<strong>Escuta</strong>
+                    <span>
+                        sensibilidade.
+                    </span>
 
-<span>
-Compreender antes de intervir.
-</span>
-
-</div>
+                </h2>
 
 
-<div class="about-point">
+                <p class="about-text">
 
-<strong>Individualidade</strong>
+                    O trabalho de Paula parte de uma visão
+                    individualizada da aprendizagem e do
+                    desenvolvimento.
 
-<span>
-Cada processo possui seu próprio ritmo.
-</span>
+                    Mais do que observar apenas a dificuldade,
+                    o objetivo é compreender a pessoa, seu
+                    contexto e suas possibilidades.
 
-</div>
-
-
-<div class="about-point">
-
-<strong>Estratégias</strong>
-
-<span>
-Construir caminhos adequados.
-</span>
-
-</div>
+                </p>
 
 
-<div class="about-point">
+                <div class="about-points">
 
-<strong>Acolhimento</strong>
 
-<span>
-Um espaço seguro para desenvolver.
-</span>
+                    <div class="about-point">
 
-</div>
+                        <strong>
+                            Escuta
+                        </strong>
 
-</div>
+                        <span>
+                            Compreender antes de intervir.
+                        </span>
 
-</div>
+                    </div>
 
-</div>
 
-</div>
+                    <div class="about-point">
+
+                        <strong>
+                            Individualidade
+                        </strong>
+
+                        <span>
+                            Cada processo possui seu próprio ritmo.
+                        </span>
+
+                    </div>
+
+
+                    <div class="about-point">
+
+                        <strong>
+                            Estratégias
+                        </strong>
+
+                        <span>
+                            Construir caminhos adequados.
+                        </span>
+
+                    </div>
+
+
+                    <div class="about-point">
+
+                        <strong>
+                            Acolhimento
+                        </strong>
+
+                        <span>
+                            Um espaço seguro para desenvolver.
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
 
 <!-- =========================================================
-FRASE COM PALAVRA NO FUNDO
+     FRASE COM PALAVRA DE FUNDO
 ========================================================= -->
 
 <section class="quote">
 
-<div class="container">
-
-<div class="quote-grid">
-
-
-<div class="reveal">
-
-<div class="section-label">
-
-<i></i>
-
-Psicopedagogia
-
-</div>
+    <!-- palavra trabalhada no fundo -->
+    <div
+        class="quote-background-word"
+        aria-hidden="true"
+    >
+        APRENDER
+    </div>
 
 
-<h2>
+    <div class="container">
 
-Quando entendemos
-como alguém aprende,
-abrimos novos caminhos.
+        <div class="quote-content reveal">
 
-</h2>
+            <div class="section-label">
 
-</div>
+                <i></i>
 
+                Psicopedagogia
 
-<p class="reveal">
-
-Um olhar atento pode transformar
-a maneira como uma dificuldade é
-percebida — e também revelar
-possibilidades.
-
-</p>
+            </div>
 
 
-</div>
+            <h2>
 
-</div>
+                Quando entendemos
+                como alguém aprende,
+                abrimos novos
+                <span class="quote-highlight">
+                    caminhos.
+                </span>
+
+            </h2>
+
+
+            <p class="quote-description">
+
+                Um olhar atento pode transformar a maneira
+                como uma dificuldade é percebida — e também
+                revelar possibilidades.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="quote-number">
+        Paula Borch · 01
+    </div>
 
 </section>
 
 
 
 <!-- =========================================================
-VÍDEOS
+     VÍDEOS
 ========================================================= -->
 
 <section
@@ -3161,151 +3532,152 @@ VÍDEOS
     id="videos"
 >
 
-<div class="container">
+    <div class="container">
 
 
-<div class="videos-heading reveal">
+        <div class="videos-heading reveal">
 
-<div>
+            <div>
 
-<div class="section-label">
+                <div class="section-label">
 
-<i></i>
+                    <i></i>
 
-Conteúdos
+                    Conteúdos
 
-</div>
-
-
-<h2>
-
-Conteúdos para
-aprender junto.
-
-</h2>
-
-</div>
+                </div>
 
 
-<p>
+                <h2>
 
-Vídeos da Paula sobre
-aprendizagem, desenvolvimento,
-educação e psicopedagogia.
+                    Conteúdos para
+                    aprender junto.
 
-</p>
+                </h2>
 
-</div>
-
+            </div>
 
 
-<div class="video-mosaic">
+            <p>
 
+                Vídeos da Paula sobre aprendizagem,
+                desenvolvimento, educação e psicopedagogia.
 
-<article class="video-item reveal">
+            </p>
 
-<span class="video-tag">
-Destaque
-</span>
-
-<iframe
-    src="https://www.youtube.com/embed/G-WHLWXXQrg"
-    title="Paula Borch"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-</iframe>
-
-</article>
+        </div>
 
 
 
-<article class="video-item reveal">
-
-<span class="video-tag">
-Conteúdo
-</span>
-
-<iframe
-    src="https://www.youtube.com/embed/FAuZXncvy5o"
-    title="Paula Borch"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-</iframe>
-
-</article>
+        <div class="video-mosaic">
 
 
+            <article class="video-item reveal">
 
-<article class="video-item reveal">
+                <span class="video-tag">
+                    Destaque
+                </span>
 
-<span class="video-tag">
-Conteúdo
-</span>
+                <iframe
+                    src="https://www.youtube.com/embed/G-WHLWXXQrg"
+                    title="Paula Borch"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
 
-<iframe
-    src="https://www.youtube.com/embed/ocwri6_0fHY"
-    title="Paula Borch"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-</iframe>
-
-</article>
+            </article>
 
 
 
-<article class="video-item reveal">
+            <article class="video-item reveal">
 
-<span class="video-tag">
-Short
-</span>
+                <span class="video-tag">
+                    Conteúdo
+                </span>
 
-<iframe
-    src="https://www.youtube.com/embed/bfmsMIZ-hPc"
-    title="Paula Borch"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-</iframe>
+                <iframe
+                    src="https://www.youtube.com/embed/FAuZXncvy5o"
+                    title="Paula Borch"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
 
-</article>
-
-
-</div>
+            </article>
 
 
 
-<div class="videos-button reveal">
+            <article class="video-item reveal">
 
-<a
-    href="https://www.youtube.com/@prof.paulaborch8774"
-    target="_blank"
-    rel="noopener"
-    class="youtube-button"
->
+                <span class="video-tag">
+                    Conteúdo
+                </span>
 
-<span class="youtube-button-icon">
-▶
-</span>
+                <iframe
+                    src="https://www.youtube.com/embed/ocwri6_0fHY"
+                    title="Paula Borch"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
 
-Ver canal completo
+            </article>
 
-<span>→</span>
 
-</a>
 
-</div>
+            <article class="video-item reveal">
 
-</div>
+                <span class="video-tag">
+                    Short
+                </span>
+
+                <iframe
+                    src="https://www.youtube.com/embed/bfmsMIZ-hPc"
+                    title="Paula Borch"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+
+            </article>
+
+
+        </div>
+
+
+
+        <div class="videos-button reveal">
+
+            <a
+                href="https://www.youtube.com/@prof.paulaborch8774"
+                target="_blank"
+                rel="noopener"
+                class="youtube-button"
+            >
+
+                <span class="youtube-icon">
+                    ▶
+                </span>
+
+                Ver canal completo
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
 
 </section>
 
 
 
 <!-- =========================================================
-CONTATO
+     CONTATO
 ========================================================= -->
 
 <section
@@ -3313,141 +3685,148 @@ CONTATO
     id="contato"
 >
 
-<div class="container">
+    <div class="container">
 
-<div class="contact-grid">
-
-
-<div class="reveal">
-
-<div class="section-label">
-
-<i></i>
-
-Vamos conversar
-
-</div>
+        <div class="contact-grid">
 
 
-<h2>
+            <div class="reveal">
 
-Conte um pouco sobre
-o que você <span>precisa.</span>
+                <div class="section-label">
 
-</h2>
+                    <i></i>
 
+                    Vamos conversar
 
-<p class="contact-text">
-
-Preencha os dados ao lado.
-Ao enviar, sua mensagem será
-encaminhada diretamente para
-o WhatsApp da Paula.
-
-</p>
-
-</div>
+                </div>
 
 
+                <h2>
 
-<form
-    class="contact-form reveal"
-    id="whatsappForm"
->
+                    Conte um pouco sobre
+                    o que você
+                    <span>precisa.</span>
 
-<div class="form-top">
+                </h2>
 
-<h3>
-Vamos começar uma conversa
-</h3>
 
-<p>
-Preencha os campos abaixo para
-entrar em contato.
-</p>
+                <p class="contact-text">
 
-</div>
+                    Preencha os dados ao lado.
+                    Ao enviar, sua mensagem será
+                    encaminhada diretamente para
+                    o WhatsApp da Paula.
+
+                </p>
+
+            </div>
 
 
 
-<div class="form-row">
+            <form
+                class="contact-form reveal"
+                id="whatsappForm"
+            >
 
-<div class="form-group">
+                <div class="form-top">
 
-<label for="nome">
-Seu nome
-</label>
+                    <h3>
+                        Vamos começar uma conversa
+                    </h3>
 
-<input
-    type="text"
-    id="nome"
-    placeholder="Digite seu nome"
-    autocomplete="name"
-    required
->
+                    <p>
+                        Os dados serão utilizados somente
+                        para entrar em contato com você.
+                    </p>
 
-</div>
-
-
-
-<div class="form-group">
-
-<label for="telefone">
-Seu WhatsApp
-</label>
-
-<input
-    type="tel"
-    id="telefone"
-    placeholder="(00) 00000-0000"
-    autocomplete="tel"
-    required
->
-
-</div>
-
-</div>
+                </div>
 
 
+                <div class="form-row">
 
-<div class="form-group">
 
-<label for="necessidade">
-O que você precisa?
-</label>
+                    <div class="form-group">
 
-<textarea
-    id="necessidade"
-    placeholder="Conte brevemente o que gostaria de conversar..."
-    required
-></textarea>
+                        <label for="nome">
+                            Seu nome
+                        </label>
 
-</div>
+                        <input
+                            type="text"
+                            id="nome"
+                            placeholder="Digite seu nome"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
 
 
 
-<button
-    type="submit"
-    class="form-submit"
->
+                    <div class="form-group">
 
-Enviar pelo WhatsApp
+                        <label for="telefone">
+                            Seu WhatsApp
+                        </label>
 
-</button>
+                        <input
+                            type="tel"
+                            id="telefone"
+                            placeholder="(00) 00000-0000"
+                            autocomplete="tel"
+                            required
+                        >
 
-
-<div class="form-note">
-
-Você será direcionado para o WhatsApp após o envio.
-
-</div>
-
-</form>
+                    </div>
 
 
-</div>
+                </div>
 
-</div>
+
+
+                <div class="form-group">
+
+                    <label for="necessidade">
+                        O que você precisa?
+                    </label>
+
+                    <textarea
+                        id="necessidade"
+                        placeholder="Conte brevemente o que gostaria de conversar..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="form-submit"
+                >
+
+                    Enviar pelo WhatsApp
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path d="M4 4l16 7-16 7 3-7-3-7Z"/>
+
+                        <path d="M7 11h9"/>
+
+                    </svg>
+
+                </button>
+
+
+                <div class="form-note">
+                    Você será direcionado para o WhatsApp após o envio.
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -3457,112 +3836,129 @@ Você será direcionado para o WhatsApp após o envio.
 
 
 <!-- =========================================================
-FOOTER
+     FOOTER
 ========================================================= -->
 
 <footer>
 
-<div class="container">
+    <div class="container">
 
-<div class="footer-grid">
-
-
-<div>
-
-<img
-    class="footer-logo"
-    src="https://i.imgur.com/b2bgrDe.png"
-    alt="Paula Borch"
->
-
-<p class="footer-description">
-
-Um espaço voltado à aprendizagem,
-desenvolvimento e construção de
-novas possibilidades.
-
-</p>
-
-</div>
+        <div class="footer-grid">
 
 
+            <div class="footer-brand">
 
-<div>
+                <img
+                    class="footer-logo"
+                    src="https://i.imgur.com/b2bgrDe.png"
+                    alt="Paula Borch"
+                >
 
-<div class="footer-title">
-Navegação
-</div>
 
-<div class="footer-links">
+                <p class="footer-description">
 
-<a href="#inicio">Início</a>
-<a href="#sobre">Sobre</a>
-<a href="#atuacao">Atuação</a>
-<a href="#processo">Como funciona</a>
-<a href="#videos">Conteúdos</a>
+                    Um espaço voltado à aprendizagem,
+                    desenvolvimento e construção de
+                    novas possibilidades.
 
-</div>
+                </p>
 
-</div>
+            </div>
 
 
 
-<div>
+            <div>
 
-<div class="footer-title">
-Contato
-</div>
-
-<div class="footer-links">
-
-<a href="#contato">
-Fale conosco
-</a>
-
-<a
-    href="mailto:contato@paulaborch.com.br"
-    class="footer-email"
->
-contato@paulaborch.com.br
-</a>
-
-<a
-    href="https://www.youtube.com/@prof.paulaborch8774"
-    target="_blank"
-    rel="noopener"
->
-YouTube
-</a>
-
-</div>
-
-</div>
+                <div class="footer-title">
+                    Navegação
+                </div>
 
 
-</div>
+                <div class="footer-links">
+
+                    <a href="#inicio">
+                        Início
+                    </a>
+
+                    <a href="#sobre">
+                        Sobre
+                    </a>
+
+                    <a href="#atuacao">
+                        Atuação
+                    </a>
+
+                    <a href="#processo">
+                        Como funciona
+                    </a>
+
+                    <a href="#videos">
+                        Conteúdos
+                    </a>
+
+                </div>
+
+            </div>
 
 
 
-<div class="footer-bottom">
+            <div>
 
-<span>
-© 2026 Paula Borch. Todos os direitos reservados.
-</span>
+                <div class="footer-title">
+                    Contato
+                </div>
 
-<span>
-Educação • Desenvolvimento • Aprendizagem
-</span>
 
-</div>
+                <div class="footer-links">
 
-</div>
+                    <a href="#contato">
+                        Fale conosco
+                    </a>
+
+                    <a
+                        href="mailto:contato@paulaborch.com.br"
+                        class="footer-email"
+                    >
+                        contato@paulaborch.com.br
+                    </a>
+
+                    <a
+                        href="https://www.youtube.com/@prof.paulaborch8774"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        YouTube
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Paula Borch. Todos os direitos reservados.
+            </span>
+
+            <span>
+                Educação · Desenvolvimento · Aprendizagem
+            </span>
+
+        </div>
+
+    </div>
 
 </footer>
 
 
 
 <!-- =========================================================
-WHATSAPP
+     WHATSAPP FLUTUANTE
 ========================================================= -->
 
 <a
@@ -3571,10 +3967,10 @@ WHATSAPP
     aria-label="Entrar em contato pelo WhatsApp"
 >
 
-<img
-    src="https://i.imgur.com/ZwtM8yo.png"
-    alt="WhatsApp"
->
+    <img
+        src="https://i.imgur.com/ZwtM8yo.png"
+        alt="WhatsApp"
+    >
 
 </a>
 
@@ -3583,51 +3979,135 @@ WHATSAPP
 <script>
 
 /* =========================================================
-   WHATSAPP
+   CONFIGURAÇÃO DO WHATSAPP
 ========================================================= */
 
 const WHATSAPP_PAULA = "5543920036581";
 
 
-const form =
-document.getElementById("whatsappForm");
+/* =========================================================
+   HEADER
+========================================================= */
+
+const header =
+    document.getElementById("header");
 
 
-form.addEventListener("submit", function(e){
+window.addEventListener("scroll",()=>{
 
-    e.preventDefault();
+    if(window.scrollY > 15){
 
+        header.classList.add("scrolled");
 
-    const nome =
-        document
-        .getElementById("nome")
-        .value
-        .trim();
+    }else{
 
+        header.classList.remove("scrolled");
 
-    const telefone =
-        document
-        .getElementById("telefone")
-        .value
-        .trim();
-
-
-    const necessidade =
-        document
-        .getElementById("necessidade")
-        .value
-        .trim();
-
-
-    if(!nome || !telefone || !necessidade){
-
-        alert("Preencha todos os campos.");
-
-        return;
     }
 
+});
 
-    const mensagem =
+
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const menu =
+    document.getElementById("menu");
+
+
+menuToggle.addEventListener("click",()=>{
+
+    const opened =
+        menu.classList.toggle("open");
+
+    menuToggle.classList.toggle(
+        "active",
+        opened
+    );
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        opened
+    );
+
+});
+
+
+document
+    .querySelectorAll(".menu a")
+    .forEach(link=>{
+
+        link.addEventListener("click",()=>{
+
+            menu.classList.remove("open");
+
+            menuToggle.classList.remove("active");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        });
+
+    });
+
+
+/* =========================================================
+   FORMULÁRIO → WHATSAPP
+========================================================= */
+
+const whatsappForm =
+    document.getElementById("whatsappForm");
+
+
+whatsappForm.addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+
+        const nome =
+            document
+                .getElementById("nome")
+                .value
+                .trim();
+
+
+        const telefone =
+            document
+                .getElementById("telefone")
+                .value
+                .trim();
+
+
+        const necessidade =
+            document
+                .getElementById("necessidade")
+                .value
+                .trim();
+
+
+        if(
+            !nome ||
+            !telefone ||
+            !necessidade
+        ){
+
+            alert(
+                "Por favor, preencha todos os campos."
+            );
+
+            return;
+        }
+
+
+        const mensagem =
 `Olá, Paula!
 
 Meu nome é ${nome}.
@@ -3639,158 +4119,137 @@ Gostaria de conversar sobre:
 ${necessidade}`;
 
 
-    const url =
-        "https://wa.me/" +
-        WHATSAPP_PAULA +
-        "?text=" +
-        encodeURIComponent(mensagem);
+        const url =
+            "https://wa.me/" +
+            WHATSAPP_PAULA +
+            "?text=" +
+            encodeURIComponent(mensagem);
 
 
-    window.open(
-        url,
-        "_blank",
-        "noopener"
-    );
+        window.open(
+            url,
+            "_blank",
+            "noopener"
+        );
 
-});
+    }
+);
 
 
 /* =========================================================
    MÁSCARA TELEFONE
 ========================================================= */
 
-const telefone =
-document.getElementById("telefone");
+const telefoneInput =
+    document.getElementById("telefone");
 
 
-telefone.addEventListener("input",function(){
+telefoneInput.addEventListener(
+    "input",
+    function(){
 
-    let value =
-        this.value.replace(/\D/g,"");
-
-
-    value =
-        value.substring(0,11);
+        let value =
+            this.value.replace(/\D/g,"");
 
 
-    if(value.length <= 10){
-
-        value =
-            value.replace(
-                /^(\d{2})(\d{4})(\d{0,4})/,
-                "($1) $2-$3"
-            );
-
-    }else{
-
-        value =
-            value.replace(
-                /^(\d{2})(\d{5})(\d{0,4})/,
-                "($1) $2-$3"
-            );
-
-    }
+        if(value.length > 11){
+            value = value.slice(0,11);
+        }
 
 
-    this.value = value;
+        if(value.length <= 10){
 
-});
+            value =
+                value.replace(
+                    /^(\d{2})(\d{4})(\d{0,4}).*/,
+                    "($1) $2-$3"
+                );
 
+        }else{
 
-/* =========================================================
-   MENU MOBILE
-========================================================= */
-
-const menu =
-document.getElementById("menu");
-
-const menuToggle =
-document.getElementById("menuToggle");
-
-
-menuToggle.addEventListener("click",()=>{
-
-    const open =
-        menu.classList.toggle("open");
-
-
-    menuToggle.classList.toggle(
-        "active",
-        open
-    );
-
-});
-
-
-document
-.querySelectorAll(".menu a")
-.forEach(link=>{
-
-    link.addEventListener("click",()=>{
-
-        menu.classList.remove("open");
-
-        menuToggle.classList.remove("active");
-
-    });
-
-});
-
-
-/* =========================================================
-   ANIMAÇÃO DE ENTRADA
-========================================================= */
-
-const observer =
-new IntersectionObserver(
-
-(entries)=>{
-
-    entries.forEach(entry=>{
-
-        if(entry.isIntersecting){
-
-            entry.target.classList.add("visible");
-
-            observer.unobserve(entry.target);
+            value =
+                value.replace(
+                    /^(\d{2})(\d{5})(\d{0,4}).*/,
+                    "($1) $2-$3"
+                );
 
         }
 
-    });
 
-},
-{
-    threshold:.12
-});
+        this.value = value;
+
+    }
+);
+
+
+/* =========================================================
+   ANIMAÇÕES DE ENTRADA
+========================================================= */
+
+const revealObserver =
+    new IntersectionObserver(
+
+        entries=>{
+
+            entries.forEach(entry=>{
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:.12
+        }
+
+    );
 
 
 document
-.querySelectorAll(".reveal")
-.forEach(element=>{
+    .querySelectorAll(".reveal")
+    .forEach(element=>{
 
-    observer.observe(element);
+        revealObserver.observe(element);
 
-});
+    });
 
 
 /* =========================================================
    ESC FECHA MENU
 ========================================================= */
 
-document.addEventListener("keydown",(e)=>{
+document.addEventListener(
+    "keydown",
+    event=>{
 
-    if(e.key === "Escape"){
+        if(event.key === "Escape"){
 
-        menu.classList.remove("open");
+            menu.classList.remove("open");
 
-        menuToggle.classList.remove("active");
+            menuToggle.classList.remove("active");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
 
     }
-
-});
+);
 
 </script>
-
 
 </body>
 </html>
