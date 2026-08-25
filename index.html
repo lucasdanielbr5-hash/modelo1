@@ -2,9 +2,13 @@
 <html lang="pt-BR">
 
 <head>
+
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <meta
     name="description"
@@ -38,8 +42,8 @@ html{
 }
 
 body{
-    font-family:"DM Sans", sans-serif;
-    color:#343836;
+    font-family:"DM Sans",sans-serif;
+    color:#343936;
     background:#fff;
     overflow-x:hidden;
     -webkit-font-smoothing:antialiased;
@@ -65,11 +69,6 @@ button{
     cursor:pointer;
 }
 
-::selection{
-    background:#ebe6ee;
-    color:#343836;
-}
-
 
 /* =========================================================
    CORES
@@ -79,29 +78,25 @@ button{
 
     --white:#ffffff;
 
-    --bg:#ffffff;
+    --off-white:#fafaf8;
 
-    --soft-bg:#f8f9f7;
+    --gray-bg:#f3f4f1;
 
-    --light:#f2f4f1;
+    --gray-light:#e9ebe7;
 
-    --line:#e2e5e1;
+    --gray-line:#dfe2dd;
 
-    --text:#343836;
+    --text:#343936;
 
-    --muted:#737a75;
+    --text-soft:#707772;
 
-    --light-text:#9ba09c;
+    --text-muted:#9aa09b;
 
-    --purple:#796582;
+    --purple:#76627f;
 
-    --purple-light:#eeeaf1;
+    --purple-light:#ece7ef;
 
-    --green-soft:#eaf1eb;
-
-    --blue-soft:#edf2f3;
-
-    --whatsapp:#25D366;
+    --whatsapp:#25d366;
 }
 
 
@@ -110,8 +105,8 @@ button{
 ========================================================= */
 
 .container{
-    width:min(1180px, calc(100% - 48px));
-    margin:auto;
+    width:min(1180px,calc(100% - 48px));
+    margin:0 auto;
 }
 
 
@@ -121,7 +116,7 @@ button{
 
 header{
 
-    position:absolute;
+    position:fixed;
 
     z-index:1000;
 
@@ -130,24 +125,23 @@ header{
 
     width:100%;
 
-    padding:10px 0;
+    height:68px;
 
-    background:rgba(255,255,255,.93);
+    background:rgba(255,255,255,.97);
 
-    backdrop-filter:blur(16px);
+    backdrop-filter:blur(15px);
 
-    border-bottom:1px solid rgba(215,219,215,.75);
+    border-bottom:1px solid #e7e9e5;
+
+    transition:.3s ease;
 }
-
 
 .nav{
 
-    height:48px;
+    height:68px;
 
     display:flex;
     align-items:center;
-
-    justify-content:space-between;
 }
 
 
@@ -155,7 +149,7 @@ header{
 
 .logo{
 
-    width:78px;
+    width:82px;
 
     flex-shrink:0;
 
@@ -165,17 +159,14 @@ header{
 
 .logo img{
 
-    width:78px;
-
+    width:100%;
     height:auto;
 
     object-fit:contain;
 }
 
 
-/* =========================================================
-   MENU
-========================================================= */
+/* MENU */
 
 .menu{
 
@@ -188,22 +179,20 @@ header{
     gap:27px;
 }
 
-
 .menu a{
 
     position:relative;
 
     font-size:9px;
-
     font-weight:500;
 
-    color:#6d736f;
+    color:#666d68;
 
     transition:.25s;
 }
 
 .menu a:hover{
-    color:#343836;
+    color:#343936;
 }
 
 .menu a::after{
@@ -228,31 +217,25 @@ header{
 }
 
 
-/* =========================================================
-   BOTÃO HEADER
-========================================================= */
+/* BOTÃO */
 
 .header-button{
 
     height:38px;
 
-    padding:0 18px;
-
-    border-radius:50px;
+    padding:0 19px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    background:#343836;
+    border-radius:50px;
 
+    background:#343936;
     color:#fff;
 
     font-size:9px;
-
     font-weight:600;
-
-    white-space:nowrap;
 
     transition:.3s;
 }
@@ -265,9 +248,7 @@ header{
 }
 
 
-/* =========================================================
-   MOBILE BUTTON
-========================================================= */
+/* MOBILE MENU */
 
 .menu-toggle{
 
@@ -276,7 +257,7 @@ header{
     width:40px;
     height:40px;
 
-    border:1px solid var(--line);
+    border:1px solid var(--gray-line);
 
     border-radius:50%;
 
@@ -285,17 +266,16 @@ header{
     position:relative;
 }
 
-
 .menu-toggle span{
 
     position:absolute;
 
-    left:12px;
+    left:11px;
 
-    width:16px;
+    width:17px;
     height:1px;
 
-    background:#343836;
+    background:#343936;
 
     transition:.3s;
 }
@@ -329,82 +309,63 @@ header{
 
 .hero{
 
-    min-height:100vh;
-
-    height:100vh;
+    /*
+       IMPORTANTE:
+       começa exatamente abaixo do menu.
+       Não existe espaço branco entre menu e conteúdo.
+    */
 
     padding-top:68px;
 
-    background:
+    min-height:100vh;
 
-        linear-gradient(
-            105deg,
-            #ffffff 0%,
-            #ffffff 47%,
-            #fafbf9 47%,
-            #f8f9f7 100%
-        );
+    background:#fff;
 
     overflow:hidden;
+}
 
-    display:flex;
+.hero-grid{
+
+    min-height:calc(100vh - 68px);
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:0;
+
     align-items:stretch;
 }
 
 
-/* =========================================================
-   HERO GRID
-========================================================= */
-
-.hero-grid{
-
-    width:100%;
-
-    display:grid;
-
-    grid-template-columns:
-        .93fr
-        1.07fr;
-
-    gap:20px;
-
-    align-items:center;
-}
-
-
-/* =========================================================
-   HERO TEXTO
-========================================================= */
+/* LADO ESQUERDO */
 
 .hero-content{
 
-    padding-bottom:10px;
+    display:flex;
 
-    position:relative;
+    flex-direction:column;
 
-    z-index:5;
+    justify-content:center;
+
+    padding:60px 45px 60px 0;
 }
-
 
 .hero-eyebrow{
 
     display:flex;
-
     align-items:center;
-
     gap:10px;
 
     font-size:8px;
-
     font-weight:600;
-
-    letter-spacing:.18em;
 
     text-transform:uppercase;
 
-    color:#7e8580;
-}
+    letter-spacing:.18em;
 
+    color:#858c87;
+}
 
 .hero-eyebrow::before{
 
@@ -413,32 +374,28 @@ header{
     width:26px;
     height:1px;
 
-    background:#a9afaa;
+    background:#aeb3ae;
 }
 
 
 .hero h1{
 
-    max-width:620px;
+    max-width:600px;
 
-    margin-top:26px;
+    margin-top:27px;
 
     font-family:"Manrope",sans-serif;
 
-    font-size:clamp(47px,5.3vw,72px);
+    font-size:clamp(50px,5.6vw,76px);
 
-    line-height:.98;
+    line-height:.96;
 
     letter-spacing:-.075em;
 
     font-weight:500;
-
-    color:#343836;
 }
 
-
 .hero h1 span{
-
     color:var(--purple);
 }
 
@@ -453,7 +410,7 @@ header{
 
     line-height:1.9;
 
-    color:#707772;
+    color:#737a75;
 }
 
 
@@ -481,7 +438,6 @@ header{
     display:inline-flex;
 
     align-items:center;
-
     justify-content:center;
 
     font-size:9px;
@@ -491,11 +447,9 @@ header{
     transition:.3s;
 }
 
-
 .button-main{
 
-    background:#343836;
-
+    background:#343936;
     color:#fff;
 }
 
@@ -506,21 +460,20 @@ header{
     transform:translateY(-3px);
 }
 
-
 .button-light{
 
-    border:1px solid #dfe2de;
+    border:1px solid #dce0db;
 
     background:#fff;
 
-    color:#626964;
+    color:#656c67;
 }
 
 .button-light:hover{
 
-    transform:translateY(-3px);
+    border-color:#c9cdc8;
 
-    border-color:#c9cdc9;
+    transform:translateY(-3px);
 }
 
 
@@ -532,21 +485,23 @@ header{
 
     position:relative;
 
-    height:calc(100vh - 68px);
-
-    min-height:620px;
+    min-height:calc(100vh - 68px);
 
     display:flex;
 
     align-items:flex-end;
 
     justify-content:center;
+
+    background:#fafaf8;
+
+    overflow:hidden;
 }
 
 
-/* =========================================================
+/*
    FOTO
-========================================================= */
+*/
 
 .hero-photo{
 
@@ -554,7 +509,7 @@ header{
 
     z-index:3;
 
-    width:min(650px,100%);
+    width:100%;
 
     height:100%;
 
@@ -565,30 +520,28 @@ header{
     justify-content:center;
 }
 
-
 .hero-photo img{
 
     width:100%;
-
     height:100%;
 
     object-fit:contain;
 
     object-position:center bottom;
 
+    /*
+       Evita que o navegador "corte"
+       ou estoure a imagem.
+    */
     image-rendering:auto;
-
-    filter:none;
-
-    transform:translateZ(0);
-
-    backface-visibility:hidden;
 }
 
 
-/* =========================================================
+/*
    PAULA BORCH VERTICAL
-========================================================= */
+
+   FICA AO LADO DA FOTO.
+*/
 
 .hero-name{
 
@@ -596,7 +549,7 @@ header{
 
     z-index:2;
 
-    right:-13px;
+    right:8%;
 
     top:50%;
 
@@ -610,7 +563,7 @@ header{
 
     font-family:"Manrope",sans-serif;
 
-    font-size:clamp(48px,5vw,69px);
+    font-size:clamp(48px,5vw,72px);
 
     line-height:1;
 
@@ -618,7 +571,7 @@ header{
 
     letter-spacing:-.075em;
 
-    color:#e4e7e4;
+    color:#e2e5e1;
 
     pointer-events:none;
 
@@ -626,19 +579,19 @@ header{
 }
 
 
-/* =========================================================
-   QUADRADO SOBRE A FOTO
-========================================================= */
+/*
+   CAIXA SOBRE A FOTO
+*/
 
 .hero-card{
 
     position:absolute;
 
-    z-index:8;
+    z-index:6;
 
-    left:5%;
+    left:6%;
 
-    bottom:28px;
+    bottom:42px;
 
     width:126px;
 
@@ -652,14 +605,14 @@ header{
 
     justify-content:flex-end;
 
-    background:#343836;
-
     border-radius:4px;
 
-    box-shadow:
-        0 18px 45px rgba(35,40,37,.15);
-}
+    background:#343936;
 
+    color:#fff;
+
+    box-shadow:0 15px 35px rgba(30,35,32,.15);
+}
 
 .hero-card::before{
 
@@ -667,8 +620,7 @@ header{
 
     position:absolute;
 
-    top:14px;
-
+    top:15px;
     right:14px;
 
     width:5px;
@@ -676,84 +628,31 @@ header{
 
     border-radius:50%;
 
-    background:#c9b9d0;
+    background:#c7b3d0;
 }
-
 
 .hero-card small{
 
-    margin-bottom:9px;
-
     font-size:6px;
-
-    letter-spacing:.16em;
 
     text-transform:uppercase;
 
-    color:#b9c0bb;
-}
+    letter-spacing:.16em;
 
+    color:#b8c0ba;
+}
 
 .hero-card strong{
 
+    margin-top:10px;
+
     font-family:"Manrope",sans-serif;
 
-    font-size:16px;
+    font-size:15px;
 
     line-height:1.15;
 
-    letter-spacing:-.035em;
-
     font-weight:500;
-
-    color:#fff;
-}
-
-
-/* =========================================================
-   CÍRCULO DECORATIVO
-========================================================= */
-
-.hero-circle{
-
-    position:absolute;
-
-    right:2%;
-
-    bottom:26px;
-
-    width:64px;
-    height:64px;
-
-    display:grid;
-
-    place-items:center;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.88);
-
-    border:1px solid rgba(225,228,224,.8);
-
-    backdrop-filter:blur(12px);
-
-    z-index:7;
-}
-
-
-.hero-circle svg{
-
-    width:28px;
-    height:28px;
-
-    fill:none;
-
-    stroke:var(--purple);
-
-    stroke-width:1.4;
-
-    stroke-linecap:round;
-    stroke-linejoin:round;
 }
 
 
@@ -763,26 +662,19 @@ header{
 
 .intro{
 
-    padding:135px 0;
+    padding:125px 0;
 
     background:#fff;
 }
-
 
 .intro-grid{
 
     display:grid;
 
-    grid-template-columns:.38fr 1.62fr;
+    grid-template-columns:.32fr 1.68fr;
 
     gap:70px;
 }
-
-
-.intro-content{
-    max-width:800px;
-}
-
 
 .section-label{
 
@@ -803,19 +695,19 @@ header{
     color:#8b918c;
 }
 
-
 .section-label i{
 
     display:block;
 
-    width:26px;
+    width:25px;
     height:1px;
 
-    background:#a7aca7;
+    background:#aeb3ae;
 }
 
-
 .intro-title{
+
+    max-width:800px;
 
     font-family:"Manrope",sans-serif;
 
@@ -828,20 +720,18 @@ header{
     font-weight:500;
 }
 
-
 .intro-title span{
 
     display:block;
 
-    color:#858b86;
+    color:#8c928d;
 }
-
 
 .intro-text{
 
     max-width:650px;
 
-    margin-top:27px;
+    margin-top:26px;
 
     font-size:12px;
 
@@ -850,28 +740,24 @@ header{
     color:#777e79;
 }
 
-
 .intro-footer{
-
-    margin-top:40px;
 
     display:flex;
 
     align-items:center;
 
     gap:15px;
-}
 
+    margin-top:38px;
+}
 
 .intro-footer-line{
 
-    width:70px;
-
+    width:65px;
     height:1px;
 
     background:#d2d6d1;
 }
-
 
 .intro-footer span{
 
@@ -881,21 +767,20 @@ header{
 
     letter-spacing:.14em;
 
-    color:#9da39e;
+    color:#9ba09c;
 }
 
 
 /* =========================================================
-   SERVIÇOS
+   ATUAÇÃO
 ========================================================= */
 
 .services{
 
-    padding:0 0 135px;
+    padding:0 0 125px;
 
     background:#fff;
 }
-
 
 .services-grid{
 
@@ -906,34 +791,30 @@ header{
     gap:15px;
 }
 
-
 .service{
-
-    min-height:250px;
 
     position:relative;
 
-    padding:26px;
+    min-height:220px;
+
+    padding:25px;
 
     overflow:hidden;
 
-    border-radius:25px;
+    border-radius:22px;
 
     transition:.4s ease;
 }
 
-
 .service:hover{
 
-    transform:translateY(-6px);
+    transform:translateY(-5px);
 
-    box-shadow:
-        0 20px 50px rgba(40,45,42,.08);
+    box-shadow:0 18px 45px rgba(40,45,42,.08);
 }
 
-
 .service:nth-child(1){
-    background:#edf2ed;
+    background:#eef2ee;
 }
 
 .service:nth-child(2){
@@ -941,33 +822,30 @@ header{
 }
 
 .service:nth-child(3){
-    background:#eef2f3;
+    background:#eef1f1;
 }
-
 
 .service-icon{
 
-    width:52px;
-    height:52px;
+    width:49px;
+    height:49px;
 
     display:grid;
-
     place-items:center;
 
-    border-radius:15px;
+    border-radius:14px;
 
-    background:rgba(255,255,255,.72);
+    background:rgba(255,255,255,.75);
 }
-
 
 .service-icon svg{
 
-    width:27px;
-    height:27px;
+    width:25px;
+    height:25px;
 
     fill:none;
 
-    stroke:#647169;
+    stroke:#65706a;
 
     stroke-width:1.4;
 
@@ -975,46 +853,37 @@ header{
     stroke-linejoin:round;
 }
 
-
-.service:nth-child(2) .service-icon svg{
-    stroke:var(--purple);
-}
-
-
 .service-content{
 
     position:absolute;
 
-    left:27px;
-    right:27px;
-
-    bottom:27px;
+    left:25px;
+    right:25px;
+    bottom:25px;
 }
-
 
 .service h3{
 
     font-family:"Manrope",sans-serif;
 
-    font-size:22px;
+    font-size:21px;
 
     font-weight:500;
 
     letter-spacing:-.045em;
 }
 
-
 .service p{
 
-    max-width:310px;
+    max-width:300px;
 
-    margin-top:9px;
+    margin-top:8px;
 
     font-size:10px;
 
-    line-height:1.75;
+    line-height:1.7;
 
-    color:#747a76;
+    color:#777e79;
 }
 
 
@@ -1024,19 +893,17 @@ header{
 
 .process{
 
-    padding:130px 0;
+    padding:125px 0;
 
-    background:#fafaf8;
+    background:#f8f9f6;
 }
-
 
 .process-header{
 
-    max-width:750px;
+    max-width:760px;
 
-    margin-bottom:70px;
+    margin-bottom:65px;
 }
-
 
 .process-header h2{
 
@@ -1053,20 +920,18 @@ header{
     font-weight:500;
 }
 
-
 .process-header p{
 
     max-width:500px;
 
-    margin-top:20px;
+    margin-top:19px;
 
     font-size:11px;
 
     line-height:1.85;
 
-    color:#7b817d;
+    color:#7b817c;
 }
-
 
 .steps{
 
@@ -1077,23 +942,21 @@ header{
     position:relative;
 }
 
-
 .steps::before{
 
     content:"";
 
     position:absolute;
 
-    top:31px;
-
     left:8%;
     right:8%;
 
+    top:31px;
+
     height:1px;
 
-    background:#dfe2dc;
+    background:#dfe2dd;
 }
-
 
 .step{
 
@@ -1102,11 +965,9 @@ header{
     padding-right:30px;
 }
 
-
 .step:not(:first-child){
     padding-left:30px;
 }
-
 
 .step-icon{
 
@@ -1125,19 +986,17 @@ header{
 
     background:#fff;
 
-    border:1px solid #dfe2dc;
+    border:1px solid #dfe2dd;
 
     transition:.4s;
 }
 
-
 .step:hover .step-icon{
 
-    transform:scale(1.08);
+    transform:scale(1.07);
 
-    background:#efebf2;
+    background:#f0ebf2;
 }
-
 
 .step-icon svg{
 
@@ -1146,7 +1005,7 @@ header{
 
     fill:none;
 
-    stroke:#657168;
+    stroke:#68716b;
 
     stroke-width:1.4;
 
@@ -1154,15 +1013,9 @@ header{
     stroke-linejoin:round;
 }
 
-
-.step:nth-child(2) .step-icon svg{
-    stroke:var(--purple);
-}
-
-
 .step-number{
 
-    margin-top:24px;
+    margin-top:23px;
 
     font-size:8px;
 
@@ -1173,20 +1026,18 @@ header{
     color:#a0a59f;
 }
 
-
 .step h3{
 
     margin-top:9px;
 
     font-family:"Manrope",sans-serif;
 
-    font-size:23px;
+    font-size:22px;
 
     font-weight:500;
 
     letter-spacing:-.045em;
 }
-
 
 .step p{
 
@@ -1208,11 +1059,10 @@ header{
 
 .about{
 
-    padding:140px 0;
+    padding:130px 0;
 
     background:#fff;
 }
-
 
 .about-grid{
 
@@ -1220,29 +1070,27 @@ header{
 
     grid-template-columns:.9fr 1.1fr;
 
-    gap:85px;
+    gap:80px;
 
     align-items:center;
 }
 
-
 .about-photo{
 
-    height:570px;
-
-    border-radius:30px;
-
-    overflow:hidden;
-
-    background:#f7f7f5;
+    height:560px;
 
     display:flex;
 
     align-items:flex-end;
 
     justify-content:center;
-}
 
+    overflow:hidden;
+
+    border-radius:26px;
+
+    background:#f5f6f3;
+}
 
 .about-photo img{
 
@@ -1254,12 +1102,11 @@ header{
     object-position:center bottom;
 }
 
-
 .about-title{
 
-    margin-top:20px;
-
     max-width:600px;
+
+    margin-top:20px;
 
     font-family:"Manrope",sans-serif;
 
@@ -1272,11 +1119,9 @@ header{
     font-weight:500;
 }
 
-
 .about-title span{
     color:var(--purple);
 }
-
 
 .about-text{
 
@@ -1288,9 +1133,8 @@ header{
 
     line-height:1.9;
 
-    color:#777d79;
+    color:#777e79;
 }
-
 
 .about-points{
 
@@ -1298,23 +1142,21 @@ header{
 
     grid-template-columns:1fr 1fr;
 
-    gap:12px;
+    gap:11px;
 
-    margin-top:32px;
+    margin-top:30px;
 }
-
 
 .about-point{
 
-    padding:16px;
+    padding:15px;
 
-    border:1px solid #e5e7e3;
+    border:1px solid #e4e7e2;
 
-    border-radius:15px;
+    border-radius:14px;
 
     transition:.3s;
 }
-
 
 .about-point:hover{
 
@@ -1322,7 +1164,6 @@ header{
 
     transform:translateY(-3px);
 }
-
 
 .about-point strong{
 
@@ -1332,7 +1173,6 @@ header{
 
     font-weight:600;
 }
-
 
 .about-point span{
 
@@ -1344,25 +1184,73 @@ header{
 
     line-height:1.55;
 
-    color:#878c88;
+    color:#878d88;
 }
 
 
 /* =========================================================
-   QUOTE
+   FRASE / EFEITO DE PALAVRA NO FUNDO
 ========================================================= */
 
 .quote{
 
-    padding:115px 0;
+    position:relative;
 
-    background:var(--purple);
+    padding:125px 0;
+
+    overflow:hidden;
+
+    background:#76627f;
 
     color:#fff;
 }
 
 
+/*
+   PALAVRA GIGANTE NO FUNDO
+
+   É este o efeito solicitado.
+*/
+
+.quote::before{
+
+    content:"APRENDER";
+
+    position:absolute;
+
+    z-index:0;
+
+    top:50%;
+    left:50%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-5deg);
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:clamp(100px,18vw,270px);
+
+    font-weight:700;
+
+    line-height:1;
+
+    letter-spacing:-.09em;
+
+    color:rgba(255,255,255,.055);
+
+    white-space:nowrap;
+
+    pointer-events:none;
+
+    user-select:none;
+}
+
 .quote-grid{
+
+    position:relative;
+
+    z-index:2;
 
     display:grid;
 
@@ -1373,10 +1261,19 @@ header{
     align-items:end;
 }
 
+.quote .section-label{
+
+    color:rgba(255,255,255,.65);
+}
+
+.quote .section-label i{
+
+    background:rgba(255,255,255,.45);
+}
 
 .quote h2{
 
-    max-width:790px;
+    max-width:800px;
 
     margin-top:20px;
 
@@ -1391,39 +1288,26 @@ header{
     font-weight:500;
 }
 
-
 .quote p{
 
     font-size:11px;
 
     line-height:1.85;
 
-    color:rgba(255,255,255,.68);
-}
-
-
-.quote .section-label{
-
-    color:rgba(255,255,255,.6);
-}
-
-.quote .section-label i{
-
-    background:rgba(255,255,255,.5);
+    color:rgba(255,255,255,.7);
 }
 
 
 /* =========================================================
-   VÍDEOS MOSAICO
+   VÍDEOS
 ========================================================= */
 
 .videos{
 
-    padding:135px 0;
+    padding:130px 0;
 
     background:#fff;
 }
-
 
 .videos-heading{
 
@@ -1435,9 +1319,8 @@ header{
 
     gap:60px;
 
-    margin-bottom:55px;
+    margin-bottom:52px;
 }
-
 
 .videos-heading h2{
 
@@ -1454,12 +1337,9 @@ header{
     font-weight:500;
 }
 
-
 .videos-heading p{
 
     max-width:310px;
-
-    margin-bottom:3px;
 
     font-size:11px;
 
@@ -1468,6 +1348,10 @@ header{
     color:#7d827e;
 }
 
+
+/*
+   MOSAICO
+*/
 
 .video-mosaic{
 
@@ -1480,63 +1364,51 @@ header{
     gap:15px;
 }
 
-
 .video-item{
 
     position:relative;
 
     overflow:hidden;
 
-    border-radius:22px;
+    border-radius:20px;
 
-    background:#f0f1ee;
+    background:#eef0ed;
 
-    border:1px solid #e4e6e2;
+    border:1px solid #e2e5e0;
 
-    transition:.45s ease;
+    transition:.4s;
 }
-
 
 .video-item:hover{
 
     transform:translateY(-5px);
 
-    box-shadow:
-        0 20px 45px rgba(40,45,42,.09);
+    box-shadow:0 18px 45px rgba(40,45,42,.1);
 }
-
 
 .video-item:nth-child(1){
 
     grid-column:1;
-
     grid-row:1 / 3;
 }
-
 
 .video-item:nth-child(2){
 
     grid-column:2;
-
     grid-row:1;
 }
-
 
 .video-item:nth-child(3){
 
     grid-column:3;
-
     grid-row:1;
 }
-
 
 .video-item:nth-child(4){
 
     grid-column:2 / 4;
-
     grid-row:2;
 }
-
 
 .video-item iframe{
 
@@ -1550,21 +1422,20 @@ header{
     border:0;
 }
 
-
 .video-tag{
 
     position:absolute;
 
     z-index:4;
 
-    top:13px;
-    left:13px;
+    top:12px;
+    left:12px;
 
     padding:7px 10px;
 
     border-radius:30px;
 
-    background:rgba(255,255,255,.87);
+    background:rgba(255,255,255,.88);
 
     backdrop-filter:blur(8px);
 
@@ -1572,25 +1443,23 @@ header{
 
     font-weight:600;
 
-    letter-spacing:.13em;
-
     text-transform:uppercase;
 
-    color:#676d68;
+    letter-spacing:.13em;
+
+    color:#686e69;
 
     pointer-events:none;
 }
 
-
 .videos-button{
 
-    margin-top:45px;
+    margin-top:40px;
 
     display:flex;
 
     justify-content:center;
 }
-
 
 .youtube-button{
 
@@ -1606,7 +1475,7 @@ header{
 
     border-radius:50px;
 
-    background:#343836;
+    background:#343936;
 
     color:#fff;
 
@@ -1617,7 +1486,6 @@ header{
     transition:.3s;
 }
 
-
 .youtube-button:hover{
 
     background:var(--purple);
@@ -1625,17 +1493,15 @@ header{
     transform:translateY(-3px);
 }
 
-
 .youtube-button-icon{
 
-    width:21px;
-    height:21px;
+    width:20px;
+    height:20px;
 
     display:grid;
-
     place-items:center;
 
-    border-radius:6px;
+    border-radius:5px;
 
     background:#ff0000;
 
@@ -1649,11 +1515,10 @@ header{
 
 .contact{
 
-    padding:130px 0;
+    padding:125px 0;
 
-    background:#f5f6f3;
+    background:#f3f4f1;
 }
-
 
 .contact-grid{
 
@@ -1661,11 +1526,10 @@ header{
 
     grid-template-columns:.82fr 1.18fr;
 
-    gap:90px;
+    gap:85px;
 
     align-items:center;
 }
-
 
 .contact h2{
 
@@ -1684,11 +1548,9 @@ header{
     font-weight:500;
 }
 
-
 .contact h2 span{
     color:var(--purple);
 }
-
 
 .contact-text{
 
@@ -1710,24 +1572,21 @@ header{
 
 .contact-form{
 
-    padding:35px;
+    padding:34px;
 
     background:#fff;
 
     border:1px solid #e1e4df;
 
-    border-radius:28px;
+    border-radius:26px;
 
-    box-shadow:
-        0 18px 55px rgba(40,45,42,.05);
+    box-shadow:0 18px 50px rgba(40,45,42,.05);
 }
-
 
 .form-top{
 
-    margin-bottom:28px;
+    margin-bottom:26px;
 }
-
 
 .form-top h3{
 
@@ -1740,7 +1599,6 @@ header{
     letter-spacing:-.045em;
 }
 
-
 .form-top p{
 
     margin-top:7px;
@@ -1752,7 +1610,6 @@ header{
     color:#858b86;
 }
 
-
 .form-row{
 
     display:grid;
@@ -1762,12 +1619,10 @@ header{
     gap:12px;
 }
 
-
 .form-group{
 
     margin-bottom:14px;
 }
-
 
 .form-group label{
 
@@ -1786,7 +1641,6 @@ header{
     color:#777e79;
 }
 
-
 .form-group input,
 .form-group textarea{
 
@@ -1798,13 +1652,12 @@ header{
 
     background:#fafaf8;
 
-    color:#353936;
+    color:#343936;
 
-    border-radius:13px;
+    border-radius:12px;
 
     transition:.25s;
 }
-
 
 .form-group input{
 
@@ -1814,7 +1667,6 @@ header{
 
     font-size:10px;
 }
-
 
 .form-group textarea{
 
@@ -1829,18 +1681,15 @@ header{
     line-height:1.6;
 }
 
-
 .form-group input:focus,
 .form-group textarea:focus{
 
     background:#fff;
 
-    border-color:#b8acbd;
+    border-color:#b7aabd;
 
-    box-shadow:
-        0 0 0 3px rgba(118,100,128,.08);
+    box-shadow:0 0 0 3px rgba(118,98,127,.08);
 }
-
 
 .form-submit{
 
@@ -1852,7 +1701,7 @@ header{
 
     border-radius:50px;
 
-    background:#343836;
+    background:#343936;
 
     color:#fff;
 
@@ -1861,16 +1710,7 @@ header{
     font-weight:600;
 
     transition:.3s;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:9px;
 }
-
 
 .form-submit:hover{
 
@@ -1879,27 +1719,9 @@ header{
     transform:translateY(-2px);
 }
 
-
-.form-submit svg{
-
-    width:16px;
-    height:16px;
-
-    fill:none;
-
-    stroke:currentColor;
-
-    stroke-width:1.5;
-
-    stroke-linecap:round;
-
-    stroke-linejoin:round;
-}
-
-
 .form-note{
 
-    margin-top:11px;
+    margin-top:10px;
 
     text-align:center;
 
@@ -1915,15 +1737,14 @@ header{
 
 footer{
 
-    padding:58px 0 24px;
+    padding:58px 0 23px;
 
-    background:#f0f2ef;
+    background:#e8eae6;
+
+    border-top:1px solid #dce0db;
 
     color:#4d534f;
-
-    border-top:1px solid #dfe2dd;
 }
-
 
 .footer-grid{
 
@@ -1933,19 +1754,17 @@ footer{
 
     gap:50px;
 
-    padding-bottom:45px;
+    padding-bottom:43px;
 
-    border-bottom:1px solid #d9ddd8;
+    border-bottom:1px solid #d5d9d4;
 }
-
 
 .footer-logo{
 
-    width:86px;
+    width:92px;
 
-    margin-bottom:17px;
+    margin-bottom:16px;
 }
-
 
 .footer-description{
 
@@ -1957,7 +1776,6 @@ footer{
 
     color:#7b817c;
 }
-
 
 .footer-title{
 
@@ -1974,18 +1792,16 @@ footer{
     color:#929892;
 }
 
-
 .footer-links{
 
     display:flex;
 
     flex-direction:column;
 
-    gap:10px;
-
     align-items:flex-start;
-}
 
+    gap:10px;
+}
 
 .footer-links a{
 
@@ -1996,39 +1812,29 @@ footer{
     transition:.25s;
 }
 
-
 .footer-links a:hover{
     color:var(--purple);
 }
 
-
 .footer-email{
 
-    display:inline-block;
-
-    margin-top:3px;
-
-    font-size:10px;
-
-    color:#5e6560;
-
     word-break:break-word;
-}
 
+    font-size:9px !important;
+}
 
 .footer-bottom{
 
-    padding-top:22px;
+    padding-top:21px;
 
     display:flex;
 
-    align-items:center;
-
     justify-content:space-between;
+
+    align-items:center;
 
     gap:20px;
 }
-
 
 .footer-bottom span{
 
@@ -2049,86 +1855,36 @@ footer{
     z-index:2000;
 
     right:22px;
-
     bottom:22px;
 
-    width:58px;
-    height:58px;
+    width:59px;
+    height:59px;
 
-    display:grid;
+    display:flex;
 
-    place-items:center;
+    align-items:center;
+    justify-content:center;
 
     border-radius:50%;
 
     background:var(--whatsapp);
 
-    color:#fff;
-
-    box-shadow:
-        0 9px 28px rgba(37,211,102,.28);
+    box-shadow:0 9px 30px rgba(37,211,102,.28);
 
     transition:.3s;
 }
 
-
 .whatsapp-float:hover{
 
-    transform:
-        translateY(-5px)
-        scale(1.04);
+    transform:translateY(-4px) scale(1.04);
 }
 
+.whatsapp-float img{
 
-.whatsapp-float svg{
+    width:34px;
+    height:34px;
 
-    width:27px;
-    height:27px;
-
-    fill:none;
-
-    stroke:#fff;
-
-    stroke-width:1.7;
-
-    stroke-linecap:round;
-
-    stroke-linejoin:round;
-}
-
-
-.whatsapp-float::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:-5px;
-
-    border-radius:50%;
-
-    border:1px solid rgba(37,211,102,.18);
-
-    animation:pulse 2.5s infinite;
-}
-
-
-@keyframes pulse{
-
-    0%{
-        transform:scale(.9);
-        opacity:.8;
-    }
-
-    70%{
-        transform:scale(1.16);
-        opacity:0;
-    }
-
-    100%{
-        transform:scale(1.16);
-        opacity:0;
-    }
+    object-fit:contain;
 }
 
 
@@ -2140,13 +1896,12 @@ footer{
 
     opacity:0;
 
-    transform:translateY(25px);
+    transform:translateY(22px);
 
     transition:
         opacity .8s ease,
         transform .8s cubic-bezier(.2,.8,.2,1);
 }
-
 
 .reveal.visible{
 
@@ -2163,85 +1918,38 @@ footer{
 @media(max-width:1050px){
 
     .menu{
-
-        gap:17px;
-
-        margin-right:17px;
+        gap:18px;
+        margin-right:18px;
     }
 
     .hero-grid{
-
         grid-template-columns:1fr 1fr;
-
-        gap:0;
     }
 
     .hero h1{
-
-        font-size:clamp(42px,5vw,59px);
-    }
-
-    .hero-visual{
-
-        min-height:580px;
-    }
-
-    .hero-photo{
-
-        height:100%;
+        font-size:clamp(45px,5.5vw,65px);
     }
 
     .hero-name{
-
-        right:-10px;
-
-        font-size:49px;
-    }
-
-    .hero-card{
-
-        left:0;
-
-        width:112px;
-
-        min-height:112px;
-
-        padding:17px;
-    }
-
-    .intro-grid{
-
-        grid-template-columns:1fr;
-
-        gap:30px;
+        right:4%;
+        font-size:50px;
     }
 
     .services-grid{
-
         grid-template-columns:1fr 1fr;
     }
 
     .service:last-child{
-
         grid-column:1/-1;
     }
 
     .about-grid{
-
-        grid-template-columns:1fr;
-
-        gap:55px;
-    }
-
-    .about-photo{
-
-        height:540px;
+        grid-template-columns:1fr 1fr;
+        gap:45px;
     }
 
     .quote-grid{
-
         grid-template-columns:1fr;
-
         gap:30px;
     }
 
@@ -2256,37 +1964,27 @@ footer{
     }
 
     .video-item:nth-child(1){
-
         grid-column:1/-1;
-
         grid-row:1;
     }
 
     .video-item:nth-child(2){
-
         grid-column:1;
-
         grid-row:2;
     }
 
     .video-item:nth-child(3){
-
         grid-column:2;
-
         grid-row:2;
     }
 
     .video-item:nth-child(4){
-
         grid-column:1/-1;
-
         grid-row:3;
     }
 
     .contact-grid{
-
         grid-template-columns:1fr;
-
         gap:45px;
     }
 }
@@ -2299,37 +1997,26 @@ footer{
 @media(max-width:800px){
 
     .container{
-
-        width:min(100% - 34px, 650px);
+        width:min(100% - 34px,650px);
     }
-
 
     header{
-
-        position:absolute;
-
-        padding:8px 0;
+        height:65px;
     }
-
 
     .nav{
-
-        height:48px;
+        height:65px;
     }
 
-
-    .logo,
-    .logo img{
-
+    .logo{
         width:72px;
     }
-
 
     .menu{
 
         position:fixed;
 
-        top:66px;
+        top:77px;
 
         left:17px;
         right:17px;
@@ -2346,16 +2033,13 @@ footer{
 
         gap:20px;
 
-        background:rgba(255,255,255,.97);
-
-        backdrop-filter:blur(18px);
+        background:rgba(255,255,255,.98);
 
         border:1px solid #e3e5e1;
 
         border-radius:20px;
 
-        box-shadow:
-            0 20px 60px rgba(40,45,42,.09);
+        box-shadow:0 20px 60px rgba(40,45,42,.1);
 
         opacity:0;
 
@@ -2366,7 +2050,6 @@ footer{
         transition:.3s;
     }
 
-
     .menu.open{
 
         opacity:1;
@@ -2376,187 +2059,126 @@ footer{
         transform:translateY(0);
     }
 
-
     .menu a{
         font-size:11px;
     }
-
 
     .header-button{
         display:none;
     }
 
-
     .menu-toggle{
-
         display:block;
-
         margin-left:auto;
     }
 
-
-    /* HERO MOBILE */
-
     .hero{
 
+        padding-top:65px;
+
         min-height:auto;
-
-        height:auto;
-
-        padding-top:86px;
-
-        padding-bottom:45px;
-
-        display:block;
-
-        background:#fff;
     }
-
 
     .hero-grid{
 
-        display:flex;
+        min-height:auto;
 
-        flex-direction:column;
-
-        gap:10px;
+        grid-template-columns:1fr;
     }
-
 
     .hero-content{
 
-        padding-top:25px;
-
-        order:1;
+        padding:70px 0 45px;
     }
-
 
     .hero h1{
-
-        font-size:44px;
-
-        line-height:1;
-
-        margin-top:22px;
+        font-size:47px;
     }
-
 
     .hero-text{
-
         font-size:11px;
-
-        margin-top:22px;
     }
-
 
     .hero-actions{
-
         flex-direction:column;
-
         align-items:stretch;
-
-        margin-top:25px;
     }
-
 
     .button-main,
     .button-light{
-
         width:100%;
     }
-
 
     .hero-visual{
 
-        order:2;
+        min-height:570px;
 
-        height:500px;
-
-        min-height:500px;
-
-        width:100%;
-
-        margin-top:5px;
+        height:570px;
     }
-
 
     .hero-photo{
-
-        width:100%;
-
-        height:500px;
+        height:570px;
     }
 
+    /*
+       Nome volta para a lateral,
+       mas adapta para o celular.
+    */
 
     .hero-name{
 
-        right:0;
+        right:-35px;
 
         top:50%;
+
+        font-size:43px;
 
         transform:
             translateY(-50%)
             rotate(90deg);
-
-        font-size:39px;
-
-        color:#e3e6e3;
     }
-
 
     .hero-card{
 
-        left:3%;
+        left:5%;
 
-        bottom:18px;
+        bottom:25px;
 
-        width:112px;
+        width:118px;
 
-        min-height:112px;
+        min-height:118px;
     }
-
-
-    .hero-circle{
-
-        right:0;
-
-        bottom:20px;
-
-        width:57px;
-
-        height:57px;
-    }
-
 
     .intro{
         padding:95px 0;
     }
 
+    .intro-grid{
 
-    .intro-title{
-        font-size:41px;
+        grid-template-columns:1fr;
+
+        gap:28px;
     }
 
+    .intro-title{
+        font-size:40px;
+    }
 
     .services{
         padding-bottom:90px;
     }
 
-
     .services-grid{
         grid-template-columns:1fr;
     }
-
 
     .service:last-child{
         grid-column:auto;
     }
 
-
     .process{
         padding:95px 0;
     }
-
 
     .steps{
 
@@ -2565,22 +2187,17 @@ footer{
         gap:45px;
     }
 
-
     .steps::before{
 
         left:31px;
-
         right:auto;
 
         top:31px;
-
         bottom:31px;
 
         width:1px;
-
         height:auto;
     }
-
 
     .step,
     .step:not(:first-child){
@@ -2592,61 +2209,57 @@ footer{
             94px;
     }
 
-
     .step-icon{
 
         position:absolute;
 
         left:0;
-
         top:0;
     }
-
 
     .about{
         padding:95px 0;
     }
 
+    .about-grid{
+        grid-template-columns:1fr;
+    }
 
     .about-photo{
-        height:480px;
+        height:470px;
     }
-
 
     .about-title{
-        font-size:41px;
+        font-size:40px;
     }
-
 
     .about-points{
         grid-template-columns:1fr;
     }
 
-
     .quote{
         padding:95px 0;
     }
-
 
     .quote h2{
         font-size:40px;
     }
 
+    .quote::before{
+        font-size:110px;
+    }
 
     .videos{
         padding:95px 0;
     }
 
-
     .videos-heading{
         display:block;
     }
 
-
     .videos-heading p{
         margin-top:20px;
     }
-
 
     .video-mosaic{
 
@@ -2658,59 +2271,41 @@ footer{
             190px;
     }
 
-
     .video-item:nth-child(1){
-
         grid-column:1/-1;
-
         grid-row:1;
     }
 
-
     .video-item:nth-child(2){
-
         grid-column:1;
-
         grid-row:2;
     }
-
 
     .video-item:nth-child(3){
-
         grid-column:2;
-
         grid-row:2;
     }
 
-
     .video-item:nth-child(4){
-
         grid-column:1/-1;
-
         grid-row:3;
     }
-
 
     .contact{
         padding:95px 0;
     }
 
-
     .contact h2{
-        font-size:41px;
+        font-size:40px;
     }
-
 
     .contact-form{
         padding:25px 20px;
     }
 
-
     .footer-grid{
-
         grid-template-columns:1fr 1fr;
     }
-
 
     .footer-brand{
         grid-column:1/-1;
@@ -2724,90 +2319,61 @@ footer{
 
 @media(max-width:520px){
 
-    .container{
-
-        width:calc(100% - 28px);
+    .logo{
+        width:70px;
     }
-
-
-    .logo,
-    .logo img{
-
-        width:68px;
-    }
-
-
-    .hero{
-
-        padding-top:82px;
-    }
-
 
     .hero h1{
-
-        font-size:40px;
+        font-size:42px;
     }
-
 
     .hero-visual{
-
-        height:430px;
-
-        min-height:430px;
+        min-height:500px;
+        height:500px;
     }
-
 
     .hero-photo{
-
-        height:430px;
+        height:500px;
     }
-
 
     .hero-name{
 
-        right:-5px;
+        right:-30px;
 
-        font-size:32px;
+        font-size:35px;
     }
-
 
     .hero-card{
 
-        width:103px;
+        left:15px;
+        bottom:20px;
 
-        min-height:103px;
+        width:110px;
+        min-height:110px;
 
-        padding:15px;
+        padding:17px;
     }
 
-
     .hero-card strong{
-
         font-size:14px;
     }
 
-
     .intro-title{
-        font-size:38px;
+        font-size:37px;
     }
-
 
     .about-photo{
         height:430px;
     }
 
-
     .about-title{
-        font-size:38px;
+        font-size:37px;
     }
-
 
     .form-row{
         grid-template-columns:1fr;
-
         gap:0;
     }
-
 
     .video-mosaic{
 
@@ -2820,54 +2386,33 @@ footer{
             220px;
     }
 
-
     .video-item:nth-child(1){
-
         grid-column:1;
-
         grid-row:1;
     }
 
-
     .video-item:nth-child(2){
-
         grid-column:1;
-
         grid-row:2;
     }
 
-
     .video-item:nth-child(3){
-
         grid-column:1;
-
         grid-row:3;
     }
 
-
     .video-item:nth-child(4){
-
         grid-column:1;
-
         grid-row:4;
     }
 
-
-    .contact h2{
-        font-size:39px;
-    }
-
-
     .footer-grid{
-
         grid-template-columns:1fr;
     }
-
 
     .footer-brand{
         grid-column:auto;
     }
-
 
     .footer-bottom{
 
@@ -2875,7 +2420,6 @@ footer{
 
         align-items:flex-start;
     }
-
 
     .whatsapp-float{
 
@@ -2914,13 +2458,13 @@ HEADER
 
 <img
     src="https://i.imgur.com/b2bgrDe.png"
-    alt="Logo Paula Borch"
+    alt="Paula Borch"
 >
 
 </a>
 
 
-<nav class="menu" id="menu">
+<div class="menu" id="menu">
 
 <a href="#inicio">Início</a>
 
@@ -2934,7 +2478,7 @@ HEADER
 
 <a href="#contato">Contato</a>
 
-</nav>
+</div>
 
 
 <a
@@ -2949,7 +2493,6 @@ HEADER
     class="menu-toggle"
     id="menuToggle"
     aria-label="Abrir menu"
-    aria-expanded="false"
 >
 
 <span></span>
@@ -2962,6 +2505,7 @@ HEADER
 </div>
 
 </header>
+
 
 
 <main>
@@ -2981,8 +2525,6 @@ HERO
 <div class="hero-grid">
 
 
-<!-- TEXTO -->
-
 <div class="hero-content reveal">
 
 <div class="hero-eyebrow">
@@ -2992,8 +2534,8 @@ HERO
 
 <h1>
 
-Cada pessoa<br>
-aprende de um<br>
+Cada pessoa
+aprende de um
 jeito <span>único.</span>
 
 </h1>
@@ -3001,9 +2543,10 @@ jeito <span>único.</span>
 
 <p class="hero-text">
 
-Um trabalho que considera cada história,
-cada processo e cada forma de aprender
-com atenção, acolhimento e individualidade.
+Um trabalho que considera cada
+história, cada processo e cada
+forma de aprender com atenção,
+acolhimento e individualidade.
 
 </p>
 
@@ -3030,7 +2573,6 @@ Como funciona →
 </div>
 
 
-<!-- FOTO -->
 
 <div class="hero-visual reveal">
 
@@ -3038,9 +2580,11 @@ Como funciona →
 <!-- NOME VERTICAL AO LADO DA FOTO -->
 
 <div class="hero-name">
-    Paula Borch
+Paula Borch
 </div>
 
+
+<!-- FOTO -->
 
 <div class="hero-photo">
 
@@ -3053,42 +2597,21 @@ Como funciona →
 </div>
 
 
-<!-- QUADRADO INFERIOR -->
+<!-- QUADRADO SOBRE A FOTO -->
 
 <div class="hero-card">
 
 <small>
-    Psicopedagogia
+Psicopedagogia
 </small>
 
 <strong>
-    Cada<br>
-    história<br>
-    importa.
+Cada história<br>
+importa.
 </strong>
 
 </div>
 
-
-<!-- ÍCONE -->
-
-<div class="hero-circle">
-
-<svg viewBox="0 0 48 48">
-
-<path d="M24 38V10"/>
-
-<path d="M24 16c-7-7-15-2-13 5 1 4 5 5 8 4"/>
-
-<path d="M24 21c7-7 15-2 13 5-1 4-5 5-8 4"/>
-
-<path d="M24 27c-6-5-12 0-10 5 1 3 4 4 7 3"/>
-
-<path d="M24 31c6-5 12 0 10 5-1 3-4 4-7 3"/>
-
-</svg>
-
-</div>
 
 </div>
 
@@ -3097,6 +2620,7 @@ Como funciona →
 </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -3119,7 +2643,7 @@ Um olhar individual
 </div>
 
 
-<div class="intro-content">
+<div>
 
 <h2 class="intro-title">
 
@@ -3166,6 +2690,7 @@ Cada história importa
 </section>
 
 
+
 <!-- =========================================================
 ATUAÇÃO
 ========================================================= -->
@@ -3205,13 +2730,15 @@ Desenvolvimento
 </h3>
 
 <p>
-Um olhar integrado para as necessidades
-e possibilidades de cada pessoa.
+Um olhar integrado para as
+necessidades e possibilidades
+de cada pessoa.
 </p>
 
 </div>
 
 </article>
+
 
 
 <article class="service reveal">
@@ -3239,13 +2766,15 @@ Aprendizagem
 </h3>
 
 <p>
-Estratégias que respeitam diferentes
-formas, ritmos e caminhos para aprender.
+Estratégias que respeitam
+diferentes formas, ritmos
+e caminhos para aprender.
 </p>
 
 </div>
 
 </article>
+
 
 
 <article class="service reveal">
@@ -3271,13 +2800,15 @@ Acolhimento
 </h3>
 
 <p>
-Um espaço de escuta, compreensão
-e construção de novas possibilidades.
+Um espaço de escuta,
+compreensão e construção
+de novas possibilidades.
 </p>
 
 </div>
 
 </article>
+
 
 </div>
 
@@ -3286,8 +2817,9 @@ e construção de novas possibilidades.
 </section>
 
 
+
 <!-- =========================================================
-PROCESSO
+COMO FUNCIONA
 ========================================================= -->
 
 <section
@@ -3296,6 +2828,7 @@ PROCESSO
 >
 
 <div class="container">
+
 
 <div class="process-header reveal">
 
@@ -3309,18 +2842,23 @@ Como funciona
 
 
 <h2>
+
 Um processo construído
 com calma e intenção.
+
 </h2>
 
 
 <p>
+
 Cada acompanhamento começa
 pela escuta e pela compreensão
 da realidade de cada pessoa.
+
 </p>
 
 </div>
+
 
 
 <div class="steps">
@@ -3355,12 +2893,14 @@ Escuta
 </h3>
 
 <p>
-Conhecer a história, compreender
-o contexto e ouvir aquilo que está
-por trás da dificuldade.
+Conhecer a história,
+compreender o contexto e
+ouvir aquilo que está por trás
+da dificuldade.
 </p>
 
 </article>
+
 
 
 <article class="step reveal">
@@ -3390,12 +2930,13 @@ Compreensão
 </h3>
 
 <p>
-Observar necessidades, contexto
-e diferentes formas de aprender
-e se desenvolver.
+Observar necessidades,
+contexto e diferentes formas
+de aprender e se desenvolver.
 </p>
 
 </article>
+
 
 
 <article class="step reveal">
@@ -3434,11 +2975,13 @@ adequadas a cada realidade.
 
 </article>
 
+
 </div>
 
 </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -3557,8 +3100,9 @@ Um espaço seguro para desenvolver.
 </section>
 
 
+
 <!-- =========================================================
-FRASE
+FRASE COM PALAVRA NO FUNDO
 ========================================================= -->
 
 <section class="quote">
@@ -3566,6 +3110,7 @@ FRASE
 <div class="container">
 
 <div class="quote-grid">
+
 
 <div class="reveal">
 
@@ -3592,17 +3137,19 @@ abrimos novos caminhos.
 <p class="reveal">
 
 Um olhar atento pode transformar
-a maneira como uma dificuldade
-é percebida — e também revelar
+a maneira como uma dificuldade é
+percebida — e também revelar
 possibilidades.
 
 </p>
+
 
 </div>
 
 </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -3615,6 +3162,7 @@ VÍDEOS
 >
 
 <div class="container">
+
 
 <div class="videos-heading reveal">
 
@@ -3630,8 +3178,10 @@ Conteúdos
 
 
 <h2>
+
 Conteúdos para
 aprender junto.
+
 </h2>
 
 </div>
@@ -3639,13 +3189,14 @@ aprender junto.
 
 <p>
 
-Vídeos da Paula sobre aprendizagem,
-desenvolvimento, educação
-e psicopedagogia.
+Vídeos da Paula sobre
+aprendizagem, desenvolvimento,
+educação e psicopedagogia.
 
 </p>
 
 </div>
+
 
 
 <div class="video-mosaic">
@@ -3668,6 +3219,7 @@ Destaque
 </article>
 
 
+
 <article class="video-item reveal">
 
 <span class="video-tag">
@@ -3683,6 +3235,7 @@ Conteúdo
 </iframe>
 
 </article>
+
 
 
 <article class="video-item reveal">
@@ -3702,6 +3255,7 @@ Conteúdo
 </article>
 
 
+
 <article class="video-item reveal">
 
 <span class="video-tag">
@@ -3718,7 +3272,9 @@ Short
 
 </article>
 
+
 </div>
+
 
 
 <div class="videos-button reveal">
@@ -3745,6 +3301,7 @@ Ver canal completo
 </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -3792,6 +3349,7 @@ o WhatsApp da Paula.
 </div>
 
 
+
 <form
     class="contact-form reveal"
     id="whatsappForm"
@@ -3804,15 +3362,15 @@ Vamos começar uma conversa
 </h3>
 
 <p>
-Os dados serão utilizados somente
-para entrar em contato com você.
+Preencha os campos abaixo para
+entrar em contato.
 </p>
 
 </div>
 
 
-<div class="form-row">
 
+<div class="form-row">
 
 <div class="form-group">
 
@@ -3823,13 +3381,13 @@ Seu nome
 <input
     type="text"
     id="nome"
-    name="nome"
     placeholder="Digite seu nome"
     autocomplete="name"
     required
 >
 
 </div>
+
 
 
 <div class="form-group">
@@ -3841,7 +3399,6 @@ Seu WhatsApp
 <input
     type="tel"
     id="telefone"
-    name="telefone"
     placeholder="(00) 00000-0000"
     autocomplete="tel"
     required
@@ -3852,6 +3409,7 @@ Seu WhatsApp
 </div>
 
 
+
 <div class="form-group">
 
 <label for="necessidade">
@@ -3860,12 +3418,12 @@ O que você precisa?
 
 <textarea
     id="necessidade"
-    name="necessidade"
     placeholder="Conte brevemente o que gostaria de conversar..."
     required
 ></textarea>
 
 </div>
+
 
 
 <button
@@ -3874,14 +3432,6 @@ O que você precisa?
 >
 
 Enviar pelo WhatsApp
-
-<svg viewBox="0 0 24 24">
-
-<path d="M4 4l16 7-16 7 3-7-3-7Z"/>
-
-<path d="M7 11h9"/>
-
-</svg>
 
 </button>
 
@@ -3894,13 +3444,16 @@ Você será direcionado para o WhatsApp após o envio.
 
 </form>
 
+
 </div>
 
 </div>
 
 </section>
 
+
 </main>
+
 
 
 <!-- =========================================================
@@ -3925,12 +3478,13 @@ FOOTER
 <p class="footer-description">
 
 Um espaço voltado à aprendizagem,
-desenvolvimento e construção
-de novas possibilidades.
+desenvolvimento e construção de
+novas possibilidades.
 
 </p>
 
 </div>
+
 
 
 <div>
@@ -3939,17 +3493,12 @@ de novas possibilidades.
 Navegação
 </div>
 
-
 <div class="footer-links">
 
 <a href="#inicio">Início</a>
-
 <a href="#sobre">Sobre</a>
-
 <a href="#atuacao">Atuação</a>
-
 <a href="#processo">Como funciona</a>
-
 <a href="#videos">Conteúdos</a>
 
 </div>
@@ -3957,12 +3506,12 @@ Navegação
 </div>
 
 
+
 <div>
 
 <div class="footer-title">
 Contato
 </div>
-
 
 <div class="footer-links">
 
@@ -3989,7 +3538,9 @@ YouTube
 
 </div>
 
+
 </div>
+
 
 
 <div class="footer-bottom">
@@ -4009,6 +3560,7 @@ Educação • Desenvolvimento • Aprendizagem
 </footer>
 
 
+
 <!-- =========================================================
 WHATSAPP
 ========================================================= -->
@@ -4019,138 +3571,63 @@ WHATSAPP
     aria-label="Entrar em contato pelo WhatsApp"
 >
 
-<svg viewBox="0 0 24 24">
-
-<path
-    d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L4 20l1.2-3.2A8.5 8.5 0 1 1 20 11.5Z"
-/>
-
-<path
-    d="M9.5 8.5c.3-.3.6-.3.9 0l1 1.2c.2.2.2.5.1.7l-.5.8c.7 1.3 1.7 2.3 3 3l.8-.5c.2-.1.5-.1.7.1l1.2 1c.3.3.3.6 0 .9-.5.5-1.2.8-1.9.6-3.6-1-6.4-3.8-7.4-7.4-.2-.7.1-1.4.6-1.9Z"
-/>
-
-</svg>
+<img
+    src="https://i.imgur.com/ZwtM8yo.png"
+    alt="WhatsApp"
+>
 
 </a>
+
 
 
 <script>
 
 /* =========================================================
-   CONFIGURAÇÃO DO WHATSAPP
+   WHATSAPP
 ========================================================= */
-
-/*
-   Número informado:
-   43 92003-6581
-
-   Com código do Brasil:
-   55 43 92003-6581
-*/
 
 const WHATSAPP_PAULA = "5543920036581";
 
 
-/* =========================================================
-   MENU MOBILE
-========================================================= */
-
-const menuToggle =
-    document.getElementById("menuToggle");
-
-const menu =
-    document.getElementById("menu");
+const form =
+document.getElementById("whatsappForm");
 
 
-menuToggle.addEventListener("click", () => {
+form.addEventListener("submit", function(e){
 
-    const opened =
-        menu.classList.toggle("open");
-
-    menuToggle.classList.toggle(
-        "active",
-        opened
-    );
-
-    menuToggle.setAttribute(
-        "aria-expanded",
-        opened
-    );
-
-});
+    e.preventDefault();
 
 
-document
-    .querySelectorAll(".menu a")
-    .forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            menu.classList.remove("open");
-
-            menuToggle.classList.remove("active");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-        });
-
-    });
+    const nome =
+        document
+        .getElementById("nome")
+        .value
+        .trim();
 
 
-/* =========================================================
-   WHATSAPP FORMULÁRIO
-========================================================= */
-
-const whatsappForm =
-    document.getElementById("whatsappForm");
-
-
-whatsappForm.addEventListener(
-    "submit",
-    function(event){
-
-        event.preventDefault();
+    const telefone =
+        document
+        .getElementById("telefone")
+        .value
+        .trim();
 
 
-        const nome =
-            document
-                .getElementById("nome")
-                .value
-                .trim();
+    const necessidade =
+        document
+        .getElementById("necessidade")
+        .value
+        .trim();
 
 
-        const telefone =
-            document
-                .getElementById("telefone")
-                .value
-                .trim();
+    if(!nome || !telefone || !necessidade){
+
+        alert("Preencha todos os campos.");
+
+        return;
+    }
 
 
-        const necessidade =
-            document
-                .getElementById("necessidade")
-                .value
-                .trim();
-
-
-        if(
-            !nome ||
-            !telefone ||
-            !necessidade
-        ){
-
-            alert(
-                "Por favor, preencha todos os campos."
-            );
-
-            return;
-        }
-
-
-        const mensagem =
+    const mensagem =
 `Olá, Paula!
 
 Meu nome é ${nome}.
@@ -4162,140 +3639,158 @@ Gostaria de conversar sobre:
 ${necessidade}`;
 
 
-        const url =
-            "https://wa.me/" +
-            WHATSAPP_PAULA +
-            "?text=" +
-            encodeURIComponent(mensagem);
+    const url =
+        "https://wa.me/" +
+        WHATSAPP_PAULA +
+        "?text=" +
+        encodeURIComponent(mensagem);
 
 
-        window.open(
-            url,
-            "_blank",
-            "noopener"
-        );
+    window.open(
+        url,
+        "_blank",
+        "noopener"
+    );
 
-    }
-);
+});
 
 
 /* =========================================================
    MÁSCARA TELEFONE
 ========================================================= */
 
-const telefoneInput =
-    document.getElementById("telefone");
+const telefone =
+document.getElementById("telefone");
 
 
-telefoneInput.addEventListener(
-    "input",
-    function(){
+telefone.addEventListener("input",function(){
 
-        let value =
-            this.value.replace(/\D/g, "");
+    let value =
+        this.value.replace(/\D/g,"");
 
 
-        if(value.length > 11){
-
-            value =
-                value.slice(0,11);
-
-        }
+    value =
+        value.substring(0,11);
 
 
-        if(value.length <= 10){
+    if(value.length <= 10){
 
-            value =
-                value.replace(
-                    /^(\d{2})(\d{4})(\d{0,4}).*/,
-                    "($1) $2-$3"
-                );
+        value =
+            value.replace(
+                /^(\d{2})(\d{4})(\d{0,4})/,
+                "($1) $2-$3"
+            );
 
-        }else{
+    }else{
 
-            value =
-                value.replace(
-                    /^(\d{2})(\d{5})(\d{0,4}).*/,
-                    "($1) $2-$3"
-                );
-
-        }
-
-
-        this.value = value;
+        value =
+            value.replace(
+                /^(\d{2})(\d{5})(\d{0,4})/,
+                "($1) $2-$3"
+            );
 
     }
-);
+
+
+    this.value = value;
+
+});
 
 
 /* =========================================================
-   ANIMAÇÃO REVEAL
+   MENU MOBILE
 ========================================================= */
 
-const revealObserver =
-    new IntersectionObserver(
+const menu =
+document.getElementById("menu");
 
-        (entries) => {
+const menuToggle =
+document.getElementById("menuToggle");
 
-            entries.forEach(entry => {
 
-                if(entry.isIntersecting){
+menuToggle.addEventListener("click",()=>{
 
-                    entry.target.classList.add(
-                        "visible"
-                    );
+    const open =
+        menu.classList.toggle("open");
 
-                    revealObserver.unobserve(
-                        entry.target
-                    );
 
-                }
-
-            });
-
-        },
-
-        {
-            threshold:.12
-        }
-
+    menuToggle.classList.toggle(
+        "active",
+        open
     );
+
+});
 
 
 document
-    .querySelectorAll(".reveal")
-    .forEach(element => {
+.querySelectorAll(".menu a")
+.forEach(link=>{
 
-        revealObserver.observe(element);
+    link.addEventListener("click",()=>{
+
+        menu.classList.remove("open");
+
+        menuToggle.classList.remove("active");
 
     });
+
+});
+
+
+/* =========================================================
+   ANIMAÇÃO DE ENTRADA
+========================================================= */
+
+const observer =
+new IntersectionObserver(
+
+(entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("visible");
+
+            observer.unobserve(entry.target);
+
+        }
+
+    });
+
+},
+{
+    threshold:.12
+});
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(element=>{
+
+    observer.observe(element);
+
+});
 
 
 /* =========================================================
    ESC FECHA MENU
 ========================================================= */
 
-document.addEventListener(
-    "keydown",
-    event => {
+document.addEventListener("keydown",(e)=>{
 
-        if(event.key === "Escape"){
+    if(e.key === "Escape"){
 
-            menu.classList.remove("open");
+        menu.classList.remove("open");
 
-            menuToggle.classList.remove("active");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-        }
+        menuToggle.classList.remove("active");
 
     }
-);
+
+});
 
 </script>
+
 
 </body>
 </html>
