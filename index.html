@@ -2,92 +2,56 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
         name="description"
-        content="Paula Borch | Psicopedagogia e Alfabetização"
+        content="Paula Borch — Psicopedagogia, Alfabetização e Desenvolvimento da Aprendizagem."
     >
 
-    <meta
-        name="theme-color"
-        content="#173b3d"
-    >
+    <meta name="theme-color" content="#183b3d">
 
-    <title>
-        Paula Borch | Psicopedagogia & Alfabetização
-    </title>
-
-
-    <!-- =========================================================
-         FONTES
-    ========================================================== -->
+    <title>Paula Borch | Psicopedagogia</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
         rel="stylesheet"
     >
-
 
     <style>
 
         /* =====================================================
-           VARIÁVEIS
-        ====================================================== */
+           BASE
+        ===================================================== */
 
         :root {
+            --green: #183b3d;
+            --green-dark: #102d2f;
+            --green-light: #e3ebe6;
 
-            --verde: #173b3d;
+            --cream: #f7f4ed;
+            --cream-dark: #eee9df;
 
-            --verde-escuro: #102f31;
+            --coral: #c98170;
+            --coral-light: #ead3cb;
 
-            --verde-medio: #31585a;
+            --white: #ffffff;
 
-            --verde-claro: #dfe9e1;
+            --text: #4d5958;
+            --muted: #7e8784;
 
-            --verde-suave: #edf2ec;
+            --line: rgba(24,59,61,.14);
 
-            --coral: #c98270;
+            --serif: "Playfair Display", Georgia, serif;
+            --sans: "DM Sans", Arial, sans-serif;
 
-            --coral-claro: #efd8d0;
-
-            --bege: #f7f4ed;
-
-            --bege-escuro: #eee8dc;
-
-            --branco: #ffffff;
-
-            --texto: #4c5756;
-
-            --texto-claro: #7c8582;
-
-            --linha: #dedfd9;
-
-            --dourado: #ad9360;
-
-            --sombra:
-                0 25px 70px rgba(23, 59, 61, .09);
-
+            --container: 1180px;
         }
 
-
-        /* =====================================================
-           RESET
-        ====================================================== */
 
         * {
             margin: 0;
@@ -102,43 +66,23 @@
 
 
         body {
-
-            margin: 0;
-
-            background:
-                var(--bege);
-
-            color:
-                var(--texto);
-
-            font-family:
-                "DM Sans",
-                Arial,
-                sans-serif;
-
-            line-height: 1.6;
-
-            overflow-x: hidden;
-
+            background: var(--cream);
+            color: var(--text);
+            font-family: var(--sans);
             -webkit-font-smoothing: antialiased;
-
-            text-rendering: optimizeLegibility;
+            overflow-x: hidden;
         }
 
 
         img {
-
             display: block;
-
             max-width: 100%;
-
-            height: auto;
         }
 
 
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
 
 
@@ -149,2867 +93,1422 @@
         }
 
 
-        button {
-            cursor: pointer;
-        }
-
-
-        ::selection {
-
-            background:
-                var(--coral);
-
-            color:
-                white;
-        }
-
-
-        /* =====================================================
-           CONTAINER
-        ====================================================== */
-
         .container {
-
-            width:
-                min(
-                    1180px,
-                    calc(100% - 50px)
-                );
-
-            margin:
-                0 auto;
+            width: min(var(--container), calc(100% - 48px));
+            margin: 0 auto;
         }
 
 
         /* =====================================================
            HEADER
-        ====================================================== */
+        ===================================================== */
 
-        .header {
-
-            position:
-                fixed;
-
-            top:
-                0;
-
-            left:
-                0;
-
-            width:
-                100%;
-
-            z-index:
-                1000;
-
-            padding:
-                20px 0;
-
-            transition:
-                .3s ease;
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 22px 0;
+            transition: .3s ease;
         }
 
 
-        .header.scrolled {
-
-            background:
-                rgba(247,244,237,.93);
-
-            backdrop-filter:
-                blur(18px);
-
-            -webkit-backdrop-filter:
-                blur(18px);
-
-            box-shadow:
-                0 8px 30px
-                rgba(23,59,61,.06);
-
-            padding:
-                13px 0;
+        header.scrolled {
+            background: rgba(247,244,237,.92);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 8px 30px rgba(24,59,61,.06);
+            padding: 13px 0;
         }
 
 
         .nav {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            gap:
-                30px;
-        }
-
-
-        /* =====================================================
-           LOGO
-        ====================================================== */
-
-        .logo {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            flex-shrink:
-                0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 35px;
         }
 
 
         .logo img {
-
-            width:
-                165px;
-
-            height:
-                auto;
-
-            /*
-                Sem filtros.
-                Sem transformações.
-                Mantém a imagem original.
-            */
-
-            image-rendering:
-                auto;
+            width: 155px;
+            height: auto;
         }
 
 
-        /* =====================================================
-           MENU
-        ====================================================== */
-
-        .menu {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                34px;
-
-            list-style:
-                none;
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+            list-style: none;
         }
 
 
-        .menu a {
-
-            position:
-                relative;
-
-            color:
-                var(--verde);
-
-            font-size:
-                12px;
-
-            font-weight:
-                500;
-
-            transition:
-                .25s;
+        .nav-links a {
+            position: relative;
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 600;
         }
 
 
-        .menu a::after {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            left:
-                0;
-
-            bottom:
-                -6px;
-
-            width:
-                0;
-
-            height:
-                1px;
-
-            background:
-                var(--coral);
-
-            transition:
-                .3s;
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 1px;
+            background: var(--coral);
+            transition: .3s;
         }
 
 
-        .menu a:hover {
-            color:
-                var(--coral);
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
 
-        .menu a:hover::after {
-            width:
-                100%;
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 21px;
+            border-radius: 100px;
+            background: var(--green);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            transition: .3s;
         }
 
 
-        /* =====================================================
-           BOTÃO HEADER
-        ====================================================== */
-
-        .header-cta {
-
-            display:
-                inline-flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            padding:
-                12px 20px;
-
-            border-radius:
-                50px;
-
-            background:
-                var(--verde);
-
-            color:
-                white;
-
-            font-size:
-                11px;
-
-            font-weight:
-                600;
-
-            transition:
-                .3s;
-
-            white-space:
-                nowrap;
+        .nav-button:hover {
+            background: var(--coral);
+            transform: translateY(-2px);
         }
 
 
-        .header-cta:hover {
-
-            background:
-                var(--coral);
-
-            transform:
-                translateY(-2px);
-        }
-
-
-        /* =====================================================
-           MENU MOBILE
-        ====================================================== */
-
-        .mobile-button {
-
-            display:
-                none;
-
-            width:
-                42px;
-
-            height:
-                42px;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            border:
-                1px solid
-                var(--linha);
-
-            border-radius:
-                50%;
-
-            background:
-                white;
-
-            color:
-                var(--verde);
-
-            font-size:
-                18px;
+        .mobile-menu {
+            display: none;
+            border: 1px solid var(--line);
+            background: white;
+            color: var(--green);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-size: 18px;
         }
 
 
         /* =====================================================
            HERO
-        ====================================================== */
+        ===================================================== */
 
         .hero {
-
-            min-height:
-                100vh;
-
-            position:
-                relative;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            padding:
-                135px 0 80px;
-
-            overflow:
-                hidden;
+            position: relative;
+            min-height: 100vh;
+            padding: 150px 0 85px;
+            overflow: hidden;
         }
 
 
         .hero::before {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            width:
-                700px;
-
-            height:
-                700px;
-
-            right:
-                -360px;
-
-            top:
-                -260px;
-
-            border:
-                1px solid
-                rgba(23,59,61,.07);
-
-            border-radius:
-                50%;
+            content: "";
+            position: absolute;
+            width: 650px;
+            height: 650px;
+            right: -330px;
+            top: -270px;
+            border: 1px solid rgba(24,59,61,.08);
+            border-radius: 50%;
         }
 
 
         .hero::after {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            width:
-                320px;
-
-            height:
-                320px;
-
-            left:
-                -180px;
-
-            bottom:
-                -180px;
-
-            border-radius:
-                50%;
-
-            background:
-                rgba(169,185,168,.16);
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            left: -300px;
+            bottom: -250px;
+            background: rgba(227,235,230,.65);
+            border-radius: 50%;
         }
 
 
         .hero-grid {
-
-            position:
-                relative;
-
-            z-index:
-                2;
-
-            display:
-                grid;
-
-            grid-template-columns:
-                .88fr 1.12fr;
-
-            align-items:
-                center;
-
-            gap:
-                40px;
+            position: relative;
+            z-index: 2;
+            min-height: calc(100vh - 235px);
+            display: grid;
+            grid-template-columns: .92fr 1.08fr;
+            align-items: center;
+            gap: 55px;
         }
 
 
-        /* =====================================================
-           HERO TEXTO
-        ====================================================== */
+        .hero-copy {
+            padding-bottom: 25px;
+        }
+
 
         .eyebrow {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                10px;
-
-            color:
-                var(--coral);
-
-            font-size:
-                10px;
-
-            font-weight:
-                700;
-
-            letter-spacing:
-                .18em;
-
-            text-transform:
-                uppercase;
-
-            margin-bottom:
-                20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--coral);
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .2em;
+            margin-bottom: 22px;
         }
 
 
         .eyebrow::before {
-
-            content:
-                "";
-
-            width:
-                30px;
-
-            height:
-                1px;
-
-            background:
-                currentColor;
+            content: "";
+            width: 30px;
+            height: 1px;
+            background: currentColor;
         }
 
 
         .hero h1 {
-
-            color:
-                var(--verde);
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(
-                    48px,
-                    6vw,
-                    78px
-                );
-
-            font-weight:
-                400;
-
-            line-height:
-                1.02;
-
-            letter-spacing:
-                -.045em;
+            color: var(--green);
+            font-family: var(--serif);
+            font-size: clamp(55px, 6vw, 80px);
+            font-weight: 400;
+            line-height: .98;
+            letter-spacing: -.05em;
         }
 
 
         .hero h1 em {
-
-            display:
-                block;
-
-            color:
-                var(--coral);
-
-            font-style:
-                italic;
+            display: block;
+            color: var(--coral);
+            font-style: italic;
         }
 
 
-        .hero-text {
-
-            max-width:
-                500px;
-
-            margin:
-                28px 0 30px;
-
-            color:
-                var(--texto-claro);
-
-            font-size:
-                14px;
-
-            line-height:
-                1.9;
+        .hero-description {
+            max-width: 490px;
+            margin: 30px 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.9;
         }
 
 
-        .hero-buttons {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                22px;
-
-            flex-wrap:
-                wrap;
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 24px;
         }
 
 
-        .button-primary {
-
-            display:
-                inline-flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            padding:
-                15px 23px;
-
-            border-radius:
-                100px;
-
-            background:
-                var(--verde);
-
-            color:
-                white;
-
-            font-size:
-                12px;
-
-            font-weight:
-                600;
-
-            transition:
-                .3s;
-
-            box-shadow:
-                0 12px 28px
-                rgba(23,59,61,.13);
+        .primary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 24px;
+            border-radius: 100px;
+            background: var(--green);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 12px 30px rgba(24,59,61,.13);
+            transition: .3s;
         }
 
 
-        .button-primary:hover {
-
-            background:
-                var(--coral);
-
-            transform:
-                translateY(-3px);
+        .primary-button:hover {
+            background: var(--coral);
+            transform: translateY(-3px);
         }
 
 
-        .button-secondary {
-
-            color:
-                var(--verde);
-
-            font-size:
-                12px;
-
-            font-weight:
-                600;
-
-            border-bottom:
-                1px solid
-                rgba(23,59,61,.25);
-
-            padding-bottom:
-                4px;
-
-            transition:
-                .25s;
-        }
-
-
-        .button-secondary:hover {
-
-            color:
-                var(--coral);
-
-            border-color:
-                var(--coral);
+        .text-button {
+            color: var(--green);
+            border-bottom: 1px solid rgba(24,59,61,.25);
+            padding-bottom: 4px;
+            font-size: 10px;
+            font-weight: 700;
         }
 
 
         /* =====================================================
-           HERO FOTO
-        ====================================================== */
+           HERO IMAGEM
+        ===================================================== */
 
-        .hero-photo {
+        .hero-visual {
+            position: relative;
+            min-height: 620px;
+        }
 
-            position:
-                relative;
 
-            min-height:
-                620px;
+        .hero-panel {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 480px;
+            height: 560px;
+            background: var(--green-light);
+            border-radius: 250px 250px 18px 18px;
+        }
 
-            display:
-                flex;
 
-            align-items:
-                flex-end;
-
-            justify-content:
-                center;
+        .hero-panel-border {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 480px;
+            height: 560px;
+            border: 1px solid rgba(24,59,61,.12);
+            border-radius: 250px 250px 18px 18px;
         }
 
 
         /*
-           Fundo da foto.
-           A pessoa continua sendo o PNG original.
+            IMPORTANTE:
+
+            A foto não recebe:
+            - filter
+            - blur
+            - transform
+            - opacity
+
+            Ela apenas fica sobre a composição.
+
+            O width abaixo é controlado para não ampliar
+            exageradamente o PNG.
         */
 
-        .hero-circle {
-
-            position:
-                absolute;
-
-            width:
-                500px;
-
-            height:
-                500px;
-
-            right:
-                40px;
-
-            top:
-                55px;
-
-            border-radius:
-                50%;
-
-            background:
-                var(--verde-claro);
-
-            z-index:
-                0;
+        .hero-person {
+            position: absolute;
+            z-index: 3;
+            right: 25px;
+            bottom: 0;
+            width: 470px;
+            height: auto;
         }
 
 
-        .hero-circle-line {
-
-            position:
-                absolute;
-
-            width:
-                500px;
-
-            height:
-                500px;
-
-            right:
-                15px;
-
-            top:
-                30px;
-
-            border:
-                1px solid
-                rgba(23,59,61,.11);
-
-            border-radius:
-                50%;
-
-            z-index:
-                0;
+        .hero-tag {
+            position: absolute;
+            z-index: 5;
+            left: 0;
+            bottom: 55px;
+            background: white;
+            padding: 17px 20px;
+            box-shadow: 0 15px 40px rgba(24,59,61,.09);
         }
 
 
-        .hero-photo img {
-
-            position:
-                relative;
-
-            z-index:
-                3;
-
-            /*
-                IMPORTANTE:
-
-                Não uso filter.
-                Não uso transform.
-                Não uso blur.
-                Não uso object-position.
-
-                O PNG é exibido proporcionalmente.
-            */
-
-            width:
-                590px;
-
-            max-width:
-                100%;
-
-            height:
-                auto;
-
-            object-fit:
-                contain;
-
-            image-rendering:
-                auto;
-
-            flex-shrink:
-                0;
+        .hero-tag strong {
+            display: block;
+            color: var(--green);
+            font-family: var(--serif);
+            font-size: 19px;
+            font-weight: 500;
         }
 
 
-        .hero-side-text {
+        .hero-tag span {
+            display: block;
+            margin-top: 2px;
+            color: var(--muted);
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: .13em;
+        }
 
-            position:
-                absolute;
 
-            right:
-                -10px;
-
-            top:
-                115px;
-
-            writing-mode:
-                vertical-rl;
-
-            color:
-                var(--texto-claro);
-
-            font-size:
-                8px;
-
-            letter-spacing:
-                .22em;
-
-            text-transform:
-                uppercase;
-
-            z-index:
-                4;
+        .vertical-label {
+            position: absolute;
+            right: -30px;
+            top: 110px;
+            color: rgba(24,59,61,.5);
+            writing-mode: vertical-rl;
+            text-transform: uppercase;
+            letter-spacing: .2em;
+            font-size: 8px;
         }
 
 
         /* =====================================================
-           BARRA
-        ====================================================== */
+           STRIP
+        ===================================================== */
 
-        .info-bar {
-
-            background:
-                var(--verde);
-
-            color:
-                white;
-
-            padding:
-                24px 0;
+        .strip {
+            background: var(--green);
+            color: white;
+            padding: 24px 0;
         }
 
 
-        .info-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(4,1fr);
-
-            gap:
-                15px;
+        .strip-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
         }
 
 
-        .info-item {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                10px;
-
-            padding-left:
-                18px;
-
-            border-left:
-                1px solid
-                rgba(255,255,255,.15);
+        .strip-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 25px;
+            border-left: 1px solid rgba(255,255,255,.14);
         }
 
 
-        .info-item:first-child {
-
-            padding-left:
-                0;
-
-            border-left:
-                0;
+        .strip-item:first-child {
+            border-left: 0;
+            padding-left: 0;
         }
 
 
-        .info-dot {
-
-            width:
-                7px;
-
-            height:
-                7px;
-
-            flex-shrink:
-                0;
-
-            border-radius:
-                50%;
-
-            background:
-                var(--coral);
+        .strip-dot {
+            width: 6px;
+            height: 6px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: var(--coral);
         }
 
 
-        .info-item span:last-child {
-
-            color:
-                rgba(255,255,255,.68);
-
-            font-size:
-                9px;
-
-            letter-spacing:
-                .12em;
-
-            text-transform:
-                uppercase;
+        .strip-item span:last-child {
+            color: rgba(255,255,255,.62);
+            font-size: 8px;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
         }
 
 
         /* =====================================================
-           MANIFESTO
-        ====================================================== */
+           INTRO
+        ===================================================== */
 
-        .manifesto {
-
-            padding:
-                125px 0;
+        .intro {
+            padding: 135px 0;
         }
 
 
-        .manifesto-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                .35fr 1.65fr;
-
-            gap:
-                70px;
+        .intro-grid {
+            display: grid;
+            grid-template-columns: .3fr 1.7fr;
+            gap: 80px;
         }
 
 
         .section-number {
-
-            color:
-                var(--coral);
-
-            font-size:
-                9px;
-
-            font-weight:
-                700;
-
-            letter-spacing:
-                .18em;
+            color: var(--coral);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .17em;
         }
 
 
-        .manifesto h2 {
-
-            max-width:
-                880px;
-
-            color:
-                var(--verde);
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(
-                    38px,
-                    5vw,
-                    62px
-                );
-
-            line-height:
-                1.08;
-
-            font-weight:
-                400;
-
-            letter-spacing:
-                -.035em;
+        .intro-title {
+            max-width: 900px;
+            color: var(--green);
+            font-family: var(--serif);
+            font-size: clamp(40px,5vw,65px);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -.04em;
         }
 
 
-        .manifesto h2 em {
-
-            color:
-                var(--coral);
-
-            font-style:
-                italic;
+        .intro-title em {
+            color: var(--coral);
+            font-style: italic;
         }
 
 
-        .manifesto-description {
-
-            max-width:
-                720px;
-
-            margin-top:
-                30px;
-
-            color:
-                var(--texto-claro);
-
-            font-size:
-                14px;
-
-            line-height:
-                1.95;
+        .intro-text {
+            max-width: 690px;
+            margin-top: 30px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.95;
         }
 
 
         /* =====================================================
            SOBRE
-        ====================================================== */
+        ===================================================== */
 
         .about {
-
-            padding:
-                125px 0;
-
-            background:
-                var(--bege-escuro);
+            background: var(--cream-dark);
+            padding: 125px 0;
         }
 
 
         .about-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            align-items:
-                center;
-
-            gap:
-                90px;
+            display: grid;
+            grid-template-columns: .95fr 1.05fr;
+            gap: 100px;
+            align-items: center;
         }
 
 
-        .about-photo {
-
-            position:
-                relative;
-
-            min-height:
-                580px;
-
-            display:
-                flex;
-
-            align-items:
-                flex-end;
-
-            justify-content:
-                center;
+        .about-visual {
+            position: relative;
+            min-height: 580px;
         }
 
 
-        .about-background {
-
-            position:
-                absolute;
-
-            width:
-                440px;
-
-            height:
-                440px;
-
-            left:
-                50%;
-
-            top:
-                65px;
-
-            transform:
-                translateX(-50%);
-
-            background:
-                var(--verde-claro);
-
-            border-radius:
-                50%;
-
-            opacity:
-                .9;
+        .about-card {
+            position: absolute;
+            left: 15px;
+            top: 25px;
+            width: 430px;
+            height: 500px;
+            background: #dfe8e1;
+            border-radius: 18px;
         }
 
 
-        .about-border {
-
-            position:
-                absolute;
-
-            width:
-                440px;
-
-            height:
-                440px;
-
-            left:
-                50%;
-
-            top:
-                40px;
-
-            transform:
-                translateX(-50%);
-
-            border:
-                1px solid
-                rgba(23,59,61,.11);
-
-            border-radius:
-                50%;
+        .about-card-line {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 430px;
+            height: 500px;
+            border: 1px solid rgba(24,59,61,.12);
+            border-radius: 18px;
         }
 
 
-        .about-photo img {
-
-            position:
-                relative;
-
-            z-index:
-                2;
-
-            width:
-                510px;
-
-            max-width:
-                100%;
-
-            height:
-                auto;
-
-            object-fit:
-                contain;
-
-            image-rendering:
-                auto;
+        .about-person {
+            position: absolute;
+            z-index: 3;
+            left: 20px;
+            bottom: 0;
+            width: 430px;
+            height: auto;
         }
 
 
-        .about-content .eyebrow {
-            margin-bottom:
-                18px;
+        .about-label {
+            position: absolute;
+            z-index: 5;
+            right: 0;
+            top: 100px;
+            background: var(--green);
+            color: white;
+            padding: 15px 18px;
         }
 
 
-        .about-content h2 {
-
-            color:
-                var(--verde);
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(
-                    39px,
-                    4.6vw,
-                    58px
-                );
-
-            font-weight:
-                400;
-
-            line-height:
-                1.05;
-
-            letter-spacing:
-                -.035em;
+        .about-label span {
+            display: block;
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: .15em;
+            color: rgba(255,255,255,.55);
         }
 
 
-        .about-content h2 em {
-
-            color:
-                var(--coral);
-
-            font-style:
-                italic;
+        .about-label strong {
+            display: block;
+            margin-top: 3px;
+            font-family: var(--serif);
+            font-size: 17px;
+            font-weight: 400;
         }
 
 
-        .about-content p {
-
-            max-width:
-                520px;
-
-            margin-top:
-                20px;
-
-            color:
-                var(--texto-claro);
-
-            font-size:
-                13px;
-
-            line-height:
-                1.9;
+        .about-copy .eyebrow {
+            margin-bottom: 18px;
         }
 
 
-        .about-line {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                12px;
-
-            margin-top:
-                30px;
-
-            padding-top:
-                22px;
-
-            border-top:
-                1px solid
-                rgba(23,59,61,.13);
+        .about-title {
+            color: var(--green);
+            font-family: var(--serif);
+            font-size: clamp(42px,5vw,60px);
+            line-height: 1;
+            font-weight: 400;
+            letter-spacing: -.04em;
         }
 
 
-        .about-line span:first-child {
-
-            width:
-                35px;
-
-            height:
-                1px;
-
-            background:
-                var(--coral);
+        .about-title em {
+            color: var(--coral);
+            font-style: italic;
         }
 
 
-        .about-line span:last-child {
+        .about-copy p {
+            max-width: 510px;
+            margin-top: 21px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.95;
+        }
 
-            color:
-                var(--verde);
 
-            font-size:
-                9px;
+        .signature-line {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 30px;
+            padding-top: 22px;
+            border-top: 1px solid rgba(24,59,61,.12);
+        }
 
-            font-weight:
-                700;
 
-            text-transform:
-                uppercase;
+        .signature-line i {
+            width: 34px;
+            height: 1px;
+            background: var(--coral);
+        }
 
-            letter-spacing:
-                .14em;
+
+        .signature-line span {
+            color: var(--green);
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: .13em;
+            text-transform: uppercase;
         }
 
 
         /* =====================================================
-           ESPECIALIDADES
-        ====================================================== */
+           SERVIÇOS
+        ===================================================== */
 
         .services {
-
-            padding:
-                125px 0;
+            padding: 130px 0;
         }
 
 
-        .services-header {
-
-            display:
-                flex;
-
-            align-items:
-                flex-end;
-
-            justify-content:
-                space-between;
-
-            gap:
-                60px;
-
-            margin-bottom:
-                55px;
+        .services-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 50px;
+            margin-bottom: 60px;
         }
 
 
-        .services-header h2 {
-
-            color:
-                var(--verde);
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(
-                    42px,
-                    5vw,
-                    62px
-                );
-
-            font-weight:
-                400;
-
-            line-height:
-                1;
+        .services-title {
+            color: var(--green);
+            font-family: var(--serif);
+            font-size: clamp(45px,5vw,65px);
+            font-weight: 400;
+            line-height: .95;
+            letter-spacing: -.04em;
         }
 
 
-        .services-header p {
-
-            max-width:
-                430px;
-
-            color:
-                var(--texto-claro);
-
-            font-size:
-                12px;
-
-            line-height:
-                1.9;
+        .services-description {
+            max-width: 410px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.9;
         }
 
 
         .services-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            gap:
-                15px;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 14px;
         }
 
 
         .service {
-
-            position:
-                relative;
-
-            min-height:
-                300px;
-
-            padding:
-                30px;
-
-            overflow:
-                hidden;
-
-            border:
-                1px solid
-                var(--linha);
-
-            border-radius:
-                18px;
-
-            background:
-                white;
-
-            transition:
-                .35s ease;
+            min-height: 315px;
+            position: relative;
+            overflow: hidden;
+            padding: 30px;
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            transition: .35s;
         }
 
 
         .service:hover {
-
-            transform:
-                translateY(-6px);
-
-            box-shadow:
-                var(--sombra);
-
-            border-color:
-                transparent;
-        }
-
-
-        .service::after {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            width:
-                150px;
-
-            height:
-                150px;
-
-            right:
-                -75px;
-
-            top:
-                -75px;
-
-            border-radius:
-                50%;
-
-            background:
-                var(--verde-suave);
-        }
-
-
-        .service:nth-child(2)::after,
-        .service:nth-child(5)::after {
-
-            background:
-                #f2e4df;
-        }
-
-
-        .service:nth-child(3)::after {
-
-            background:
-                #f0ebdf;
+            transform: translateY(-7px);
+            border-color: transparent;
+            box-shadow: 0 25px 60px rgba(24,59,61,.08);
         }
 
 
         .service-number {
-
-            position:
-                absolute;
-
-            right:
-                23px;
-
-            top:
-                16px;
-
-            z-index:
-                2;
-
-            color:
-                rgba(23,59,61,.08);
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                44px;
+            position: absolute;
+            right: 24px;
+            top: 17px;
+            color: rgba(24,59,61,.07);
+            font-family: var(--serif);
+            font-size: 50px;
         }
 
 
-        .service-symbol {
-
-            position:
-                relative;
-
-            z-index:
-                3;
-
-            width:
-                44px;
-
-            height:
-                44px;
-
-            display:
-                grid;
-
-            place-items:
-                center;
-
-            margin-bottom:
-                28px;
-
-            border-radius:
-                12px;
-
-            background:
-                var(--verde-suave);
-
-            color:
-                var(--verde);
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                17px;
+        .service-icon {
+            width: 43px;
+            height: 43px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            background: var(--green-light);
+            color: var(--green);
+            font-family: var(--serif);
+            font-size: 17px;
         }
 
 
-        .service:nth-child(2)
-        .service-symbol,
-        .service:nth-child(5)
-        .service-symbol {
-
-            background:
-                #f2e4df;
-
-            color:
-                var(--coral);
+        .service:nth-child(2) .service-icon,
+        .service:nth-child(5) .service-icon {
+            background: #f0dfd9;
+            color: var(--coral);
         }
 
 
-        .service:nth-child(3)
-        .service-symbol {
-
-            background:
-                #f0ebdf;
-
-            color:
-                var(--dourado);
+        .service:nth-child(3) .service-icon,
+        .service:nth-child(6) .service-icon {
+            background: #eee8d9;
+            color: #9c8251;
         }
 
 
         .service h3 {
-
-            position:
-                relative;
-
-            z-index:
-                3;
-
-            max-width:
-                250px;
-
-            color:
-                var(--verde);
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                23px;
-
-            font-weight:
-                500;
-
-            line-height:
-                1.15;
-
-            margin-bottom:
-                13px;
+            max-width: 250px;
+            color: var(--green);
+            font-family: var(--serif);
+            font-size: 23px;
+            line-height: 1.1;
+            font-weight: 500;
         }
 
 
         .service p {
-
-            position:
-                relative;
-
-            z-index:
-                3;
-
-            color:
-                var(--texto-claro);
-
-            font-size:
-                11px;
-
-            line-height:
-                1.8;
+            max-width: 270px;
+            margin-top: 13px;
+            color: var(--muted);
+            font-size: 10px;
+            line-height: 1.9;
         }
 
 
         /* =====================================================
-           ABORDAGEM
-        ====================================================== */
+           MÉTODO
+        ===================================================== */
 
         .method {
-
-            position:
-                relative;
-
-            padding:
-                125px 0;
-
-            overflow:
-                hidden;
-
-            background:
-                var(--verde);
-
-            color:
-                white;
+            position: relative;
+            overflow: hidden;
+            padding: 130px 0;
+            background: var(--green);
         }
 
 
-        .method::before {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            width:
-                700px;
-
-            height:
-                700px;
-
-            right:
-                -370px;
-
-            top:
-                -310px;
-
-            border:
-                1px solid
-                rgba(255,255,255,.07);
-
-            border-radius:
-                50%;
+        .method::after {
+            content: "";
+            position: absolute;
+            width: 650px;
+            height: 650px;
+            right: -400px;
+            top: -250px;
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 50%;
         }
 
 
         .method-grid {
-
-            position:
-                relative;
-
-            z-index:
-                2;
-
-            display:
-                grid;
-
-            grid-template-columns:
-                .8fr 1.2fr;
-
-            align-items:
-                center;
-
-            gap:
-                90px;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 100px;
+            align-items: center;
         }
 
 
         .method .eyebrow {
-
-            color:
-                #d9a294;
+            color: #d9a193;
         }
 
 
-        .method h2 {
-
-            max-width:
-                550px;
-
-            color:
-                white;
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(
-                    40px,
-                    5vw,
-                    62px
-                );
-
-            font-weight:
-                400;
-
-            line-height:
-                1.05;
-
-            letter-spacing:
-                -.03em;
+        .method-title {
+            max-width: 550px;
+            color: white;
+            font-family: var(--serif);
+            font-size: clamp(42px,5vw,63px);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: -.04em;
         }
 
 
         .method-text {
-
-            max-width:
-                480px;
-
-            margin-top:
-                25px;
-
-            color:
-                rgba(255,255,255,.55);
-
-            font-size:
-                13px;
-
-            line-height:
-                1.9;
+            max-width: 470px;
+            margin-top: 25px;
+            color: rgba(255,255,255,.54);
+            font-size: 12px;
+            line-height: 1.9;
         }
 
 
         .steps {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap:
-                35px 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
         }
 
 
         .step {
-
-            padding-top:
-                18px;
-
-            border-top:
-                1px solid
-                rgba(255,255,255,.16);
+            padding-top: 19px;
+            border-top: 1px solid rgba(255,255,255,.16);
         }
 
 
         .step-number {
-
-            color:
-                #d9a294;
-
-            font-size:
-                8px;
-
-            font-weight:
-                700;
-
-            letter-spacing:
-                .16em;
-
-            margin-bottom:
-                18px;
+            color: #d9a193;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: .15em;
         }
 
 
         .step h3 {
-
-            color:
-                white;
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                23px;
-
-            font-weight:
-                400;
-
-            margin-bottom:
-                7px;
+            margin-top: 17px;
+            color: white;
+            font-family: var(--serif);
+            font-size: 23px;
+            font-weight: 400;
         }
 
 
         .step p {
-
-            color:
-                rgba(255,255,255,.5);
-
-            font-size:
-                11px;
-
-            line-height:
-                1.8;
+            margin-top: 7px;
+            color: rgba(255,255,255,.47);
+            font-size: 10px;
+            line-height: 1.85;
         }
 
 
         /* =====================================================
-           FOTO 3
-        ====================================================== */
+           DESTAQUE / FOTO 3
+        ===================================================== */
 
         .highlight {
-
-            padding:
-                135px 0;
+            padding: 135px 0;
         }
 
 
         .highlight-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1.1fr .9fr;
-
-            align-items:
-                center;
-
-            gap:
-                70px;
+            display: grid;
+            grid-template-columns: 1fr .9fr;
+            align-items: center;
+            gap: 90px;
         }
 
 
-        .highlight-content {
-
-            padding-left:
-                45px;
+        .highlight-title {
+            max-width: 650px;
+            color: var(--green);
+            font-family: var(--serif);
+            font-size: clamp(43px,5vw,65px);
+            line-height: 1;
+            font-weight: 400;
+            letter-spacing: -.04em;
         }
 
 
-        .highlight-content h2 {
-
-            max-width:
-                650px;
-
-            color:
-                var(--verde);
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(
-                    40px,
-                    5vw,
-                    63px
-                );
-
-            font-weight:
-                400;
-
-            line-height:
-                1.05;
-
-            letter-spacing:
-                -.035em;
+        .highlight-title em {
+            color: var(--coral);
+            font-style: italic;
         }
 
 
-        .highlight-content h2 em {
-
-            color:
-                var(--coral);
-
-            font-style:
-                italic;
+        .highlight-text {
+            max-width: 480px;
+            margin: 25px 0 30px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.9;
         }
 
 
-        .highlight-content p {
-
-            max-width:
-                500px;
-
-            margin:
-                25px 0 30px;
-
-            color:
-                var(--texto-claro);
-
-            font-size:
-                13px;
-
-            line-height:
-                1.9;
+        .highlight-visual {
+            position: relative;
+            min-height: 560px;
         }
 
 
-        .highlight-photo {
-
-            position:
-                relative;
-
-            min-height:
-                570px;
-
-            display:
-                flex;
-
-            align-items:
-                flex-end;
-
-            justify-content:
-                center;
+        .highlight-block {
+            position: absolute;
+            right: 10px;
+            bottom: 0;
+            width: 390px;
+            height: 450px;
+            background: var(--coral-light);
+            border-radius: 200px 200px 18px 18px;
         }
 
 
-        .highlight-background {
-
-            position:
-                absolute;
-
-            width:
-                400px;
-
-            height:
-                470px;
-
-            right:
-                30px;
-
-            bottom:
-                0;
-
-            background:
-                var(--coral-claro);
-
-            border-radius:
-                210px 210px 20px 20px;
+        .highlight-block-border {
+            position: absolute;
+            right: 0;
+            bottom: 20px;
+            width: 390px;
+            height: 450px;
+            border: 1px solid rgba(24,59,61,.1);
+            border-radius: 200px 200px 18px 18px;
         }
 
 
-        .highlight-background::after {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            inset:
-                18px;
-
-            border:
-                1px solid
-                rgba(23,59,61,.1);
-
-            border-radius:
-                195px 195px 12px 12px;
+        .highlight-person {
+            position: absolute;
+            z-index: 3;
+            right: 0;
+            bottom: 0;
+            width: 430px;
+            height: auto;
         }
 
 
-        .highlight-photo img {
+        .highlight-note {
+            position: absolute;
+            z-index: 5;
+            left: 0;
+            top: 95px;
+            padding: 16px 18px;
+            background: white;
+            box-shadow: 0 15px 40px rgba(24,59,61,.08);
+        }
 
-            position:
-                relative;
 
-            z-index:
-                3;
+        .highlight-note strong {
+            display: block;
+            color: var(--green);
+            font-family: var(--serif);
+            font-size: 18px;
+            font-weight: 400;
+        }
 
-            width:
-                500px;
 
-            max-width:
-                100%;
-
-            height:
-                auto;
-
-            object-fit:
-                contain;
-
-            image-rendering:
-                auto;
+        .highlight-note span {
+            display: block;
+            margin-top: 3px;
+            color: var(--muted);
+            font-size: 7px;
+            text-transform: uppercase;
+            letter-spacing: .14em;
         }
 
 
         /* =====================================================
            FRASE
-        ====================================================== */
+        ===================================================== */
 
         .quote {
-
-            padding:
-                120px 0;
-
-            text-align:
-                center;
-
-            background:
-                var(--verde-claro);
+            padding: 120px 0;
+            background: var(--green-light);
+            text-align: center;
         }
 
 
-        .quote-container {
-
-            max-width:
-                880px;
-
-            margin:
-                0 auto;
+        .quote-content {
+            max-width: 870px;
+            margin: auto;
         }
 
 
-        .quote-mark {
-
-            color:
-                var(--coral);
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                70px;
-
-            line-height:
-                .4;
+        .quote-symbol {
+            color: var(--coral);
+            font-family: var(--serif);
+            font-size: 72px;
+            line-height: .35;
         }
 
 
-        .quote blockquote {
-
-            margin:
-                25px 0;
-
-            color:
-                var(--verde);
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(
-                    26px,
-                    3.8vw,
-                    42px
-                );
-
-            line-height:
-                1.3;
+        .quote-text {
+            margin: 30px 0 22px;
+            color: var(--green);
+            font-family: var(--serif);
+            font-size: clamp(27px,3.7vw,43px);
+            line-height: 1.3;
         }
 
 
-        .quote small {
-
-            color:
-                var(--texto-claro);
-
-            font-size:
-                9px;
-
-            font-weight:
-                700;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                .16em;
+        .quote-author {
+            color: var(--muted);
+            font-size: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .17em;
         }
 
 
         /* =====================================================
            FAQ
-        ====================================================== */
+        ===================================================== */
 
         .faq {
-
-            padding:
-                120px 0;
+            padding: 125px 0;
         }
 
 
         .faq-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                .55fr 1.45fr;
-
-            gap:
-                90px;
+            display: grid;
+            grid-template-columns: .55fr 1.45fr;
+            gap: 100px;
         }
 
 
-        .faq h2 {
-
-            color:
-                var(--verde);
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(
-                    40px,
-                    5vw,
-                    60px
-                );
-
-            font-weight:
-                400;
-
-            line-height:
-                1.05;
+        .faq-title {
+            color: var(--green);
+            font-family: var(--serif);
+            font-size: clamp(43px,5vw,62px);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: -.04em;
         }
 
 
         .faq-list {
-
-            border-top:
-                1px solid
-                var(--linha);
+            border-top: 1px solid var(--line);
         }
 
 
         details {
-
-            padding:
-                22px 0;
-
-            border-bottom:
-                1px solid
-                var(--linha);
+            padding: 22px 0;
+            border-bottom: 1px solid var(--line);
         }
 
 
         summary {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            gap:
-                20px;
-
-            color:
-                var(--verde);
-
-            font-size:
-                12px;
-
-            font-weight:
-                600;
-
-            cursor:
-                pointer;
-
-            list-style:
-                none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            list-style: none;
+            cursor: pointer;
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 700;
         }
 
 
         summary::-webkit-details-marker {
-            display:
-                none;
+            display: none;
         }
 
 
         summary::after {
-
-            content:
-                "+";
-
-            color:
-                var(--coral);
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                22px;
-
-            font-weight:
-                400;
+            content: "+";
+            color: var(--coral);
+            font-family: var(--serif);
+            font-size: 22px;
+            font-weight: 400;
         }
 
 
         details[open] summary::after {
-            content:
-                "−";
+            content: "−";
         }
 
 
         details p {
-
-            max-width:
-                700px;
-
-            padding-top:
-                13px;
-
-            color:
-                var(--texto-claro);
-
-            font-size:
-                11px;
-
-            line-height:
-                1.85;
+            max-width: 700px;
+            padding-top: 14px;
+            color: var(--muted);
+            font-size: 10px;
+            line-height: 1.9;
         }
 
 
         /* =====================================================
            CONTATO
-        ====================================================== */
+        ===================================================== */
 
         .contact {
-
-            padding:
-                120px 0;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #e6ede7,
-                    #f2e6df
-                );
+            padding: 125px 0;
+            background: linear-gradient(135deg,#e5ece6,#f2e7e1);
         }
 
 
         .contact-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            align-items:
-                center;
-
-            gap:
-                80px;
+            display: grid;
+            grid-template-columns: 1fr .85fr;
+            gap: 100px;
+            align-items: center;
         }
 
 
-        .contact h2 {
-
-            max-width:
-                650px;
-
-            color:
-                var(--verde);
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(
-                    40px,
-                    5vw,
-                    61px
-                );
-
-            font-weight:
-                400;
-
-            line-height:
-                1.05;
+        .contact-title {
+            max-width: 620px;
+            color: var(--green);
+            font-family: var(--serif);
+            font-size: clamp(44px,5vw,64px);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: -.04em;
         }
 
 
-        .contact-description {
-
-            max-width:
-                490px;
-
-            margin:
-                22px 0 28px;
-
-            color:
-                var(--texto-claro);
-
-            font-size:
-                13px;
-
-            line-height:
-                1.85;
+        .contact-text {
+            max-width: 480px;
+            margin: 23px 0 28px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.9;
         }
 
 
         .contact-links {
-
-            display:
-                grid;
-
-            gap:
-                12px;
+            display: grid;
+            gap: 10px;
         }
 
 
         .contact-link {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                12px;
-
-            color:
-                var(--verde);
-
-            font-size:
-                11px;
-
-            font-weight:
-                600;
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            color: var(--green);
+            font-size: 10px;
+            font-weight: 700;
         }
 
 
         .contact-icon {
-
-            width:
-                38px;
-
-            height:
-                38px;
-
-            display:
-                grid;
-
-            place-items:
-                center;
-
-            border-radius:
-                50%;
-
-            background:
-                white;
-
-            color:
-                var(--coral);
-
-            box-shadow:
-                0 8px 20px
-                rgba(23,59,61,.06);
+            width: 37px;
+            height: 37px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: white;
+            color: var(--coral);
+            box-shadow: 0 8px 20px rgba(24,59,61,.05);
         }
 
 
-        /* =====================================================
-           FORM
-        ====================================================== */
-
-        .contact-form {
-
-            padding:
-                38px;
-
-            background:
-                white;
-
-            border-radius:
-                20px;
-
-            box-shadow:
-                var(--sombra);
+        .form {
+            padding: 36px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 25px 70px rgba(24,59,61,.08);
         }
 
 
-        .contact-form h3 {
-
-            color:
-                var(--verde);
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                27px;
-
-            font-weight:
-                500;
-
-            margin-bottom:
-                23px;
+        .form h3 {
+            color: var(--green);
+            font-family: var(--serif);
+            font-size: 27px;
+            font-weight: 500;
+            margin-bottom: 24px;
         }
 
 
-        .form-group {
-
-            margin-bottom:
-                15px;
+        .field {
+            margin-bottom: 14px;
         }
 
 
-        .form-group label {
-
-            display:
-                block;
-
-            margin-bottom:
-                6px;
-
-            color:
-                var(--verde);
-
-            font-size:
-                9px;
-
-            font-weight:
-                700;
+        .field label {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--green);
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: .05em;
         }
 
 
-        .form-group input,
-        .form-group textarea {
-
-            width:
-                100%;
-
-            border:
-                1px solid
-                var(--linha);
-
-            border-radius:
-                9px;
-
-            outline:
-                none;
-
-            padding:
-                13px 14px;
-
-            background:
-                var(--bege);
-
-            color:
-                var(--texto);
-
-            font-size:
-                11px;
-
-            transition:
-                .25s;
+        .field input,
+        .field textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--cream);
+            color: var(--text);
+            outline: none;
+            font-size: 10px;
         }
 
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-
-            border-color:
-                var(--verde-medio);
-
-            background:
-                white;
+        .field input:focus,
+        .field textarea:focus {
+            border-color: var(--green);
+            background: white;
         }
 
 
-        .form-group textarea {
-
-            min-height:
-                105px;
-
-            resize:
-                vertical;
+        .field textarea {
+            min-height: 100px;
+            resize: vertical;
         }
 
 
-        .submit-button {
-
-            width:
-                100%;
-
-            border:
-                0;
-
-            margin-top:
-                2px;
+        .form-button {
+            width: 100%;
+            border: 0;
+            cursor: pointer;
+            margin-top: 3px;
         }
 
 
         /* =====================================================
            FOOTER
-        ====================================================== */
+        ===================================================== */
 
         footer {
-
-            padding:
-                65px 0 25px;
-
-            background:
-                var(--verde-escuro);
-
-            color:
-                white;
+            background: var(--green-dark);
+            color: white;
+            padding: 65px 0 25px;
         }
 
 
         .footer-top {
-
-            display:
-                flex;
-
-            justify-content:
-                space-between;
-
-            gap:
-                70px;
-
-            padding-bottom:
-                50px;
+            display: flex;
+            justify-content: space-between;
+            gap: 70px;
+            padding-bottom: 50px;
         }
 
 
         .footer-logo img {
-
-            width:
-                165px;
-
-            /*
-                Não alteramos a logo.
-                Se ela tiver fundo branco, ela continuará
-                com o fundo original.
-            */
+            width: 155px;
         }
 
 
         .footer-description {
-
-            max-width:
-                330px;
-
-            margin-top:
-                15px;
-
-            color:
-                rgba(255,255,255,.45);
-
-            font-size:
-                10px;
-
-            line-height:
-                1.8;
+            max-width: 330px;
+            margin-top: 15px;
+            color: rgba(255,255,255,.42);
+            font-size: 9px;
+            line-height: 1.9;
         }
 
 
         .footer-columns {
-
-            display:
-                flex;
-
-            gap:
-                70px;
+            display: flex;
+            gap: 75px;
         }
 
 
         .footer-column h4 {
-
-            margin-bottom:
-                16px;
-
-            color:
-                #d9a294;
-
-            font-size:
-                9px;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                .15em;
+            margin-bottom: 15px;
+            color: #d9a193;
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: .15em;
         }
 
 
         .footer-column a {
-
-            display:
-                block;
-
-            margin-bottom:
-                9px;
-
-            color:
-                rgba(255,255,255,.48);
-
-            font-size:
-                10px;
-
-            transition:
-                .2s;
+            display: block;
+            margin-bottom: 9px;
+            color: rgba(255,255,255,.46);
+            font-size: 9px;
         }
 
 
         .footer-column a:hover {
-
-            color:
-                white;
+            color: white;
         }
 
 
         .footer-bottom {
-
-            display:
-                flex;
-
-            justify-content:
-                space-between;
-
-            padding-top:
-                22px;
-
-            border-top:
-                1px solid
-                rgba(255,255,255,.1);
-
-            color:
-                rgba(255,255,255,.28);
-
-            font-size:
-                8px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding-top: 22px;
+            border-top: 1px solid rgba(255,255,255,.09);
+            color: rgba(255,255,255,.25);
+            font-size: 7px;
         }
 
 
         /* =====================================================
            WHATSAPP
-        ====================================================== */
+        ===================================================== */
 
         .whatsapp {
-
-            position:
-                fixed;
-
-            right:
-                24px;
-
-            bottom:
-                24px;
-
-            z-index:
-                900;
-
-            width:
-                54px;
-
-            height:
-                54px;
-
-            display:
-                grid;
-
-            place-items:
-                center;
-
-            border-radius:
-                50%;
-
-            background:
-                #218c62;
-
-            color:
-                white;
-
-            font-size:
-                19px;
-
-            box-shadow:
-                0 12px 30px
-                rgba(33,140,98,.25);
-
-            transition:
-                .3s;
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 900;
+            width: 53px;
+            height: 53px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #208b61;
+            color: white;
+            box-shadow: 0 12px 30px rgba(32,139,97,.25);
+            transition: .3s;
         }
 
 
         .whatsapp:hover {
-
-            transform:
-                translateY(-4px);
+            transform: translateY(-4px);
         }
 
 
         /* =====================================================
            ANIMAÇÕES
-        ====================================================== */
+        ===================================================== */
 
         .reveal {
-
-            opacity:
-                0;
-
-            transform:
-                translateY(22px);
-
+            opacity: 0;
+            transform: translateY(20px);
             transition:
                 opacity .8s ease,
                 transform .8s ease;
         }
 
 
-        .reveal.active {
-
-            opacity:
-                1;
-
-            transform:
-                translateY(0);
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
 
         /* =====================================================
            RESPONSIVO
-        ====================================================== */
+        ===================================================== */
 
-        @media(max-width: 1000px) {
-
-
-            .header-cta {
-                display:
-                    none;
-            }
-
+        @media (max-width: 1050px) {
 
             .hero-grid {
-
-                grid-template-columns:
-                    1fr 1fr;
-
-                gap:
-                    10px;
+                gap: 20px;
             }
 
-
-            .hero-photo {
-
-                min-height:
-                    540px;
+            .hero-panel,
+            .hero-panel-border {
+                width: 420px;
+                height: 520px;
             }
 
-
-            .hero-circle,
-            .hero-circle-line {
-
-                width:
-                    430px;
-
-                height:
-                    430px;
+            .hero-person {
+                width: 420px;
             }
 
-
-            .hero-photo img {
-
-                width:
-                    500px;
+            .about-grid,
+            .method-grid,
+            .highlight-grid,
+            .contact-grid {
+                gap: 55px;
             }
-
-
-            .about-grid {
-
-                gap:
-                    50px;
-            }
-
-
-            .method-grid {
-
-                gap:
-                    50px;
-            }
-
-
-            .highlight-content {
-
-                padding-left:
-                    0;
-            }
-
         }
 
 
-        @media(max-width: 820px) {
+        @media (max-width: 850px) {
 
-
-            .menu {
-
-                display:
-                    none;
-
-                position:
-                    fixed;
-
-                left:
-                    15px;
-
-                right:
-                    15px;
-
-                top:
-                    75px;
-
-                padding:
-                    25px;
-
-                flex-direction:
-                    column;
-
-                align-items:
-                    flex-start;
-
-                gap:
-                    22px;
-
-                border-radius:
-                    18px;
-
-                background:
-                    white;
-
-                box-shadow:
-                    var(--sombra);
+            .nav-links {
+                display: none;
+                position: fixed;
+                left: 15px;
+                right: 15px;
+                top: 75px;
+                padding: 25px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 22px;
+                background: white;
+                border-radius: 16px;
+                box-shadow: 0 20px 60px rgba(24,59,61,.12);
             }
 
 
-            .menu.open {
-                display:
-                    flex;
+            .nav-links.open {
+                display: flex;
             }
 
 
-            .mobile-button {
-                display:
-                    flex;
+            .nav-button {
+                display: none;
+            }
+
+
+            .mobile-menu {
+                display: block;
+            }
+
+
+            .hero {
+                padding-top: 120px;
             }
 
 
             .hero-grid {
-
-                grid-template-columns:
-                    1fr;
-
-                text-align:
-                    center;
+                grid-template-columns: 1fr;
+                text-align: center;
             }
 
 
             .hero .eyebrow {
-
-                justify-content:
-                    center;
+                justify-content: center;
             }
 
 
-            .hero-text {
-
-                margin-left:
-                    auto;
-
-                margin-right:
-                    auto;
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
             }
 
 
-            .hero-buttons {
-
-                justify-content:
-                    center;
+            .hero-actions {
+                justify-content: center;
             }
 
 
-            .hero-photo {
-
-                min-height:
-                    520px;
+            .hero-visual {
+                min-height: 570px;
             }
 
 
-            .hero-circle,
-            .hero-circle-line {
-
-                right:
-                    50%;
-
-                transform:
-                    translateX(50%);
+            .hero-panel,
+            .hero-panel-border {
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
             }
 
 
-            .hero-side-text {
-                display:
-                    none;
+            .hero-person {
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
             }
 
 
-            .info-grid {
-
-                grid-template-columns:
-                    1fr 1fr;
+            .hero-tag {
+                left: calc(50% - 280px);
             }
 
 
-            .info-item:nth-child(3),
-            .info-item:nth-child(4) {
-
-                border-top:
-                    1px solid
-                    rgba(255,255,255,.12);
-
-                padding-top:
-                    15px;
+            .vertical-label {
+                display: none;
             }
 
 
-            .manifesto-grid {
+            .strip-grid {
+                grid-template-columns: 1fr 1fr;
+                row-gap: 16px;
+            }
 
-                grid-template-columns:
-                    1fr;
 
-                gap:
-                    25px;
+            .strip-item:nth-child(3),
+            .strip-item:nth-child(4) {
+                border-top: 1px solid rgba(255,255,255,.1);
+                padding-top: 15px;
+            }
+
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
             }
 
 
@@ -3018,190 +1517,142 @@
             .highlight-grid,
             .contact-grid,
             .faq-grid {
-
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
             }
 
 
-            .about-photo {
-
-                min-height:
-                    500px;
+            .about-visual {
+                max-width: 500px;
+                margin: auto;
+                width: 100%;
             }
 
 
-            .method-content {
+            .about-copy {
+                text-align: center;
+            }
 
-                text-align:
-                    center;
+
+            .about-copy .eyebrow {
+                justify-content: center;
+            }
+
+
+            .about-copy p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+
+            .signature-line {
+                justify-content: center;
+            }
+
+
+            .method {
+                text-align: center;
             }
 
 
             .method .eyebrow {
-
-                justify-content:
-                    center;
+                justify-content: center;
             }
 
 
             .method-text {
-
-                margin-left:
-                    auto;
-
-                margin-right:
-                    auto;
+                margin-left: auto;
+                margin-right: auto;
             }
 
 
             .highlight-content {
-
-                text-align:
-                    center;
+                text-align: center;
             }
 
 
-            .highlight-content p {
-
-                margin-left:
-                    auto;
-
-                margin-right:
-                    auto;
+            .highlight-text {
+                margin-left: auto;
+                margin-right: auto;
             }
 
 
-            .highlight-photo {
-
-                min-height:
-                    500px;
+            .contact-copy {
+                text-align: center;
             }
 
 
-            .contact-content {
-
-                text-align:
-                    center;
-            }
-
-
-            .contact-description {
-
-                margin-left:
-                    auto;
-
-                margin-right:
-                    auto;
+            .contact-text {
+                margin-left: auto;
+                margin-right: auto;
             }
 
 
             .contact-links {
-
-                justify-items:
-                    center;
+                justify-items: center;
             }
 
 
             .footer-top {
-
-                flex-direction:
-                    column;
+                flex-direction: column;
             }
-
         }
 
 
-        @media(max-width: 600px) {
-
+        @media (max-width: 620px) {
 
             .container {
-
-                width:
-                    calc(100% - 30px);
+                width: calc(100% - 30px);
             }
 
 
-            .logo img {
-
-                width:
-                    135px;
-            }
-
-
-            .hero {
-
-                padding-top:
-                    115px;
+            .logo img,
+            .footer-logo img {
+                width: 135px;
             }
 
 
             .hero h1 {
-
-                font-size:
-                    47px;
+                font-size: 48px;
             }
 
 
-            .hero-photo {
-
-                min-height:
-                    430px;
+            .hero-visual {
+                min-height: 440px;
             }
 
 
-            .hero-circle,
-            .hero-circle-line {
-
-                width:
-                    315px;
-
-                height:
-                    315px;
+            .hero-panel,
+            .hero-panel-border {
+                width: 315px;
+                height: 370px;
             }
 
 
-            .hero-circle {
-
-                top:
-                    50px;
+            .hero-person {
+                width: 350px;
             }
 
 
-            .hero-circle-line {
-
-                top:
-                    30px;
+            .hero-tag {
+                left: 0;
+                bottom: 25px;
             }
 
 
-            .hero-photo img {
-
-                width:
-                    390px;
+            .strip-grid {
+                grid-template-columns: 1fr;
             }
 
 
-            .info-grid {
-
-                grid-template-columns:
-                    1fr;
+            .strip-item,
+            .strip-item:nth-child(3),
+            .strip-item:nth-child(4) {
+                border: 0;
+                padding: 0;
             }
 
 
-            .info-item,
-            .info-item:nth-child(3),
-            .info-item:nth-child(4) {
-
-                border:
-                    0;
-
-                padding:
-                    0;
-            }
-
-
-            .manifesto,
+            .intro,
             .about,
             .services,
             .method,
@@ -3209,170 +1660,110 @@
             .quote,
             .faq,
             .contact {
-
-                padding:
-                    80px 0;
+                padding: 85px 0;
             }
 
 
-            .manifesto h2,
-            .about-content h2,
-            .services-header h2,
-            .method h2,
-            .highlight-content h2,
-            .faq h2,
-            .contact h2 {
-
-                font-size:
-                    41px;
+            .intro-title,
+            .about-title,
+            .services-title,
+            .method-title,
+            .highlight-title,
+            .faq-title,
+            .contact-title {
+                font-size: 42px;
             }
 
 
-            .about-photo {
-
-                min-height:
-                    420px;
+            .services-top {
+                display: block;
             }
 
 
-            .about-background,
-            .about-border {
-
-                width:
-                    315px;
-
-                height:
-                    315px;
-            }
-
-
-            .about-background {
-
-                top:
-                    55px;
-            }
-
-
-            .about-border {
-
-                top:
-                    35px;
-            }
-
-
-            .about-photo img {
-
-                width:
-                    390px;
-            }
-
-
-            .services-header {
-
-                display:
-                    block;
-            }
-
-
-            .services-header p {
-
-                margin-top:
-                    20px;
+            .services-description {
+                margin-top: 20px;
             }
 
 
             .services-grid {
+                grid-template-columns: 1fr;
+            }
 
-                grid-template-columns:
-                    1fr;
+
+            .about-visual {
+                min-height: 450px;
+            }
+
+
+            .about-card,
+            .about-card-line {
+                width: 315px;
+                height: 380px;
+            }
+
+
+            .about-person {
+                width: 345px;
+            }
+
+
+            .about-label {
+                right: 0;
+                top: 75px;
             }
 
 
             .steps {
-
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
+                text-align: left;
             }
 
 
-            .highlight-photo {
-
-                min-height:
-                    430px;
+            .highlight-visual {
+                min-height: 440px;
             }
 
 
-            .highlight-background {
-
-                width:
-                    310px;
-
-                height:
-                    370px;
-
-                right:
-                    50%;
-
-                transform:
-                    translateX(50%);
+            .highlight-block,
+            .highlight-block-border {
+                width: 300px;
+                height: 370px;
             }
 
 
-            .highlight-photo img {
-
-                width:
-                    390px;
+            .highlight-person {
+                width: 350px;
             }
 
 
-            .contact-form {
+            .highlight-note {
+                top: 55px;
+            }
 
-                padding:
-                    25px;
+
+            .form {
+                padding: 25px;
             }
 
 
             .footer-columns {
-
-                gap:
-                    35px;
-
-                flex-wrap:
-                    wrap;
+                gap: 35px;
             }
 
 
             .footer-bottom {
-
-                flex-direction:
-                    column;
-
-                gap:
-                    8px;
+                flex-direction: column;
             }
 
 
             .whatsapp {
-
-                right:
-                    17px;
-
-                bottom:
-                    17px;
-
-                width:
-                    50px;
-
-                height:
-                    50px;
+                right: 16px;
+                bottom: 16px;
             }
-
         }
 
     </style>
-
 </head>
-
 
 
 <body>
@@ -3380,64 +1771,42 @@
 
     <!-- =====================================================
          HEADER
-    ====================================================== -->
+    ===================================================== -->
 
-    <header
-        class="header"
-        id="header"
-    >
+    <header id="header">
 
         <div class="container nav">
 
-
-            <a
-                href="#inicio"
-                class="logo"
-            >
-
+            <a href="#inicio" class="logo">
                 <img
                     src="https://i.imgur.com/b2bgrDe.png"
-                    alt="Paula Borch Psicopedagogia e Alfabetização"
+                    alt="Paula Borch Psicopedagogia"
                 >
-
             </a>
 
 
             <nav>
 
-                <ul
-                    class="menu"
-                    id="menu"
-                >
+                <ul class="nav-links" id="navLinks">
 
                     <li>
-                        <a href="#sobre">
-                            Sobre
-                        </a>
+                        <a href="#sobre">Sobre</a>
                     </li>
 
                     <li>
-                        <a href="#especialidades">
-                            Especialidades
-                        </a>
+                        <a href="#especialidades">Especialidades</a>
                     </li>
 
                     <li>
-                        <a href="#abordagem">
-                            Abordagem
-                        </a>
+                        <a href="#abordagem">Abordagem</a>
                     </li>
 
                     <li>
-                        <a href="#duvidas">
-                            Dúvidas
-                        </a>
+                        <a href="#duvidas">Dúvidas</a>
                     </li>
 
                     <li>
-                        <a href="#contato">
-                            Contato
-                        </a>
+                        <a href="#contato">Contato</a>
                     </li>
 
                 </ul>
@@ -3445,18 +1814,15 @@
             </nav>
 
 
-            <a
-                href="#contato"
-                class="header-cta"
-            >
+            <a href="#contato" class="nav-button">
                 Agendar conversa
             </a>
 
 
             <button
-                class="mobile-button"
-                id="mobileButton"
-                aria-label="Abrir menu"
+                class="mobile-menu"
+                id="mobileMenu"
+                aria-label="Menu"
             >
                 ☰
             </button>
@@ -3472,14 +1838,14 @@
 
         <!-- =====================================================
              HERO
-        ====================================================== -->
+        ===================================================== -->
 
         <section class="hero">
 
             <div class="container hero-grid">
 
 
-                <div class="reveal">
+                <div class="hero-copy reveal">
 
                     <div class="eyebrow">
                         Psicopedagogia · Alfabetização
@@ -3487,31 +1853,26 @@
 
 
                     <h1>
-
                         Aprender é
-
-                        <em>
-                            descobrir possibilidades.
-                        </em>
-
+                        <em>descobrir.</em>
                     </h1>
 
 
-                    <p class="hero-text">
+                    <p class="hero-description">
 
-                        Um olhar individualizado para os processos
-                        de aprendizagem, desenvolvimento e
-                        alfabetização, respeitando a singularidade
-                        de cada criança.
+                        Um acompanhamento individualizado para
+                        compreender os processos de aprendizagem,
+                        desenvolver potencialidades e construir
+                        novos caminhos para cada criança.
 
                     </p>
 
 
-                    <div class="hero-buttons">
+                    <div class="hero-actions">
 
                         <a
                             href="#contato"
-                            class="button-primary"
+                            class="primary-button"
                         >
                             Agendar uma conversa →
                         </a>
@@ -3519,7 +1880,7 @@
 
                         <a
                             href="#sobre"
-                            class="button-secondary"
+                            class="text-button"
                         >
                             Conheça meu trabalho
                         </a>
@@ -3530,16 +1891,16 @@
 
 
 
-                <!-- FOTO 1 -->
+                <div class="hero-visual reveal">
 
-                <div class="hero-photo reveal">
+                    <div class="hero-panel"></div>
+                    <div class="hero-panel-border"></div>
 
-                    <div class="hero-circle"></div>
 
-                    <div class="hero-circle-line"></div>
-
+                    <!-- FOTO 01 -->
 
                     <img
+                        class="hero-person"
                         src="https://i.imgur.com/ZzuMu1f.png"
                         alt="Paula Borch"
                         loading="eager"
@@ -3547,7 +1908,20 @@
                     >
 
 
-                    <span class="hero-side-text">
+                    <div class="hero-tag">
+
+                        <strong>
+                            Paula Borch
+                        </strong>
+
+                        <span>
+                            Psicopedagogia & Alfabetização
+                        </span>
+
+                    </div>
+
+
+                    <span class="vertical-label">
                         Desenvolvimento · Aprendizagem
                     </span>
 
@@ -3560,57 +1934,32 @@
 
 
         <!-- =====================================================
-             INFO BAR
-        ====================================================== -->
+             STRIP
+        ===================================================== -->
 
-        <section class="info-bar">
+        <section class="strip">
 
-            <div class="container info-grid">
+            <div class="container strip-grid">
 
-
-                <div class="info-item">
-
-                    <span class="info-dot"></span>
-
-                    <span>
-                        Atendimento individual
-                    </span>
-
+                <div class="strip-item">
+                    <span class="strip-dot"></span>
+                    <span>Atendimento individual</span>
                 </div>
 
-
-                <div class="info-item">
-
-                    <span class="info-dot"></span>
-
-                    <span>
-                        Psicopedagogia
-                    </span>
-
+                <div class="strip-item">
+                    <span class="strip-dot"></span>
+                    <span>Psicopedagogia</span>
                 </div>
 
-
-                <div class="info-item">
-
-                    <span class="info-dot"></span>
-
-                    <span>
-                        Alfabetização
-                    </span>
-
+                <div class="strip-item">
+                    <span class="strip-dot"></span>
+                    <span>Alfabetização</span>
                 </div>
 
-
-                <div class="info-item">
-
-                    <span class="info-dot"></span>
-
-                    <span>
-                        Família & escola
-                    </span>
-
+                <div class="strip-item">
+                    <span class="strip-dot"></span>
+                    <span>Família & escola</span>
                 </div>
-
 
             </div>
 
@@ -3619,50 +1968,43 @@
 
 
         <!-- =====================================================
-             MANIFESTO
-        ====================================================== -->
+             INTRO
+        ===================================================== -->
 
-        <section class="manifesto">
+        <section class="intro">
 
-            <div class="container manifesto-grid">
-
+            <div class="container intro-grid">
 
                 <div class="reveal">
-
                     <span class="section-number">
                         01 / PROPÓSITO
                     </span>
-
                 </div>
 
 
                 <div class="reveal">
 
-                    <h2>
+                    <h2 class="intro-title">
 
                         Antes de intervir,
                         é preciso
-
-                        <em>
-                            compreender.
-                        </em>
+                        <em>compreender.</em>
 
                     </h2>
 
 
-                    <p class="manifesto-description">
+                    <p class="intro-text">
 
                         Cada criança possui uma maneira própria
-                        de aprender. Por isso, o processo
+                        de aprender. O acompanhamento
                         psicopedagógico começa pela escuta,
                         observação e compreensão de sua história.
 
                         <br><br>
 
-                        O objetivo é transformar dificuldades em
-                        caminhos possíveis, valorizando aquilo
-                        que cada criança já sabe e construindo
-                        novas possibilidades a partir daí.
+                        A partir disso, construímos estratégias
+                        que valorizam suas potencialidades e
+                        respeitam seu ritmo de desenvolvimento.
 
                     </p>
 
@@ -3676,7 +2018,7 @@
 
         <!-- =====================================================
              SOBRE
-        ====================================================== -->
+        ===================================================== -->
 
         <section
             class="about"
@@ -3686,41 +2028,50 @@
             <div class="container about-grid">
 
 
-                <!-- FOTO 2 -->
+                <div class="about-visual reveal">
 
-                <div class="about-photo reveal">
+                    <div class="about-card"></div>
+                    <div class="about-card-line"></div>
 
-                    <div class="about-background"></div>
 
-                    <div class="about-border"></div>
-
+                    <!-- FOTO 02 -->
 
                     <img
+                        class="about-person"
                         src="https://i.imgur.com/w2k0Ar5.png"
-                        alt="Paula Borch Psicopedagoga"
+                        alt="Paula Borch"
                         loading="lazy"
                         decoding="async"
                     >
+
+
+                    <div class="about-label">
+
+                        <span>
+                            Olhar individual
+                        </span>
+
+                        <strong>
+                            Cada história importa.
+                        </strong>
+
+                    </div>
 
                 </div>
 
 
 
-                <div class="about-content reveal">
+                <div class="about-copy reveal">
 
                     <div class="eyebrow">
                         Sobre a profissional
                     </div>
 
 
-                    <h2>
+                    <h2 class="about-title">
 
                         Técnica,
-
-                        <em>
-                            escuta
-                        </em>
-
+                        <em>escuta</em>
                         e sensibilidade.
 
                     </h2>
@@ -3730,36 +2081,36 @@
 
                         Sou <strong>Paula Borch</strong>,
                         psicopedagoga dedicada ao acompanhamento
-                        de crianças em seus diferentes processos
-                        de aprendizagem.
+                        de crianças em seus processos de
+                        aprendizagem e desenvolvimento.
 
                     </p>
 
 
                     <p>
 
-                        Meu trabalho busca compreender não apenas
-                        aquilo que aparece como dificuldade, mas
-                        também a forma como cada criança pensa,
-                        aprende, se relaciona e desenvolve suas
-                        habilidades.
+                        Meu trabalho parte da compreensão de
+                        que cada criança possui uma história,
+                        um ritmo e uma maneira particular
+                        de aprender.
 
                     </p>
 
 
                     <p>
 
-                        O acompanhamento é construído de maneira
-                        individualizada, respeitando o ritmo,
-                        as potencialidades e as necessidades
-                        de cada criança.
+                        Por isso, cada acompanhamento é
+                        pensado de forma individualizada,
+                        com estratégias adequadas às
+                        necessidades e potencialidades
+                        encontradas.
 
                     </p>
 
 
-                    <div class="about-line">
+                    <div class="signature-line">
 
-                        <span></span>
+                        <i></i>
 
                         <span>
                             Um olhar para cada história
@@ -3777,7 +2128,7 @@
 
         <!-- =====================================================
              ESPECIALIDADES
-        ====================================================== -->
+        ===================================================== -->
 
         <section
             class="services"
@@ -3786,8 +2137,7 @@
 
             <div class="container">
 
-
-                <div class="services-header reveal">
+                <div class="services-top reveal">
 
                     <div>
 
@@ -3795,14 +2145,14 @@
                             Áreas de atuação
                         </div>
 
-                        <h2>
+                        <h2 class="services-title">
                             Especialidades
                         </h2>
 
                     </div>
 
 
-                    <p>
+                    <p class="services-description">
 
                         Um acompanhamento estruturado para
                         compreender dificuldades, desenvolver
@@ -3820,11 +2170,9 @@
 
                     <article class="service reveal">
 
-                        <span class="service-number">
-                            01
-                        </span>
+                        <span class="service-number">01</span>
 
-                        <div class="service-symbol">
+                        <div class="service-icon">
                             ◇
                         </div>
 
@@ -3833,11 +2181,9 @@
                         </h3>
 
                         <p>
-
                             Investigação dos processos envolvidos
                             na aprendizagem para compreender
                             dificuldades e potencialidades.
-
                         </p>
 
                     </article>
@@ -3846,11 +2192,9 @@
 
                     <article class="service reveal">
 
-                        <span class="service-number">
-                            02
-                        </span>
+                        <span class="service-number">02</span>
 
-                        <div class="service-symbol">
+                        <div class="service-icon">
                             —
                         </div>
 
@@ -3859,11 +2203,9 @@
                         </h3>
 
                         <p>
-
-                            Estratégias e atividades planejadas
-                            de acordo com as necessidades
-                            específicas de cada criança.
-
+                            Estratégias planejadas de acordo
+                            com as necessidades específicas
+                            de cada criança.
                         </p>
 
                     </article>
@@ -3872,11 +2214,9 @@
 
                     <article class="service reveal">
 
-                        <span class="service-number">
-                            03
-                        </span>
+                        <span class="service-number">03</span>
 
-                        <div class="service-symbol">
+                        <div class="service-icon">
                             Aa
                         </div>
 
@@ -3885,11 +2225,9 @@
                         </h3>
 
                         <p>
-
                             Acompanhamento do processo de
                             aquisição da leitura e da escrita,
                             respeitando o ritmo individual.
-
                         </p>
 
                     </article>
@@ -3898,11 +2236,9 @@
 
                     <article class="service reveal">
 
-                        <span class="service-number">
-                            04
-                        </span>
+                        <span class="service-number">04</span>
 
-                        <div class="service-symbol">
+                        <div class="service-icon">
                             +
                         </div>
 
@@ -3911,11 +2247,8 @@
                         </h3>
 
                         <p>
-
-                            Estímulo de habilidades relacionadas
-                            à atenção, memória, raciocínio,
-                            organização e autonomia.
-
+                            Estímulo de atenção, memória,
+                            raciocínio, organização e autonomia.
                         </p>
 
                     </article>
@@ -3924,11 +2257,9 @@
 
                     <article class="service reveal">
 
-                        <span class="service-number">
-                            05
-                        </span>
+                        <span class="service-number">05</span>
 
-                        <div class="service-symbol">
+                        <div class="service-icon">
                             /
                         </div>
 
@@ -3937,11 +2268,8 @@
                         </h3>
 
                         <p>
-
-                            Orientação para que família e
-                            profissional possam construir
-                            estratégias de apoio.
-
+                            Orientação para família e profissional
+                            construírem estratégias de apoio.
                         </p>
 
                     </article>
@@ -3950,11 +2278,9 @@
 
                     <article class="service reveal">
 
-                        <span class="service-number">
-                            06
-                        </span>
+                        <span class="service-number">06</span>
 
-                        <div class="service-symbol">
+                        <div class="service-icon">
                             ○
                         </div>
 
@@ -3963,11 +2289,9 @@
                         </h3>
 
                         <p>
-
-                            Quando necessário, diálogo com
-                            a escola para favorecer uma visão
+                            Quando necessário, diálogo com a
+                            escola para favorecer uma visão
                             integrada do desenvolvimento.
-
                         </p>
 
                     </article>
@@ -3983,7 +2307,7 @@
 
         <!-- =====================================================
              ABORDAGEM
-        ====================================================== -->
+        ===================================================== -->
 
         <section
             class="method"
@@ -4000,7 +2324,7 @@
                     </div>
 
 
-                    <h2>
+                    <h2 class="method-title">
                         Um processo construído com cuidado.
                     </h2>
 
@@ -4031,15 +2355,12 @@
                         </h3>
 
                         <p>
-
                             Conversamos com a família e
                             compreendemos a história, rotina
                             e principais demandas.
-
                         </p>
 
                     </div>
-
 
 
                     <div class="step reveal">
@@ -4053,15 +2374,12 @@
                         </h3>
 
                         <p>
-
                             Observamos os processos de
                             aprendizagem e identificamos
                             possibilidades de intervenção.
-
                         </p>
 
                     </div>
-
 
 
                     <div class="step reveal">
@@ -4075,15 +2393,11 @@
                         </h3>
 
                         <p>
-
                             Criamos estratégias de acordo
-                            com os objetivos e necessidades
-                            identificados.
-
+                            com os objetivos identificados.
                         </p>
 
                     </div>
-
 
 
                     <div class="step reveal">
@@ -4097,11 +2411,9 @@
                         </h3>
 
                         <p>
-
                             Acompanhamos os avanços e
-                            ajustamos o percurso sempre
-                            que necessário.
-
+                            ajustamos o percurso quando
+                            necessário.
                         </p>
 
                     </div>
@@ -4116,33 +2428,31 @@
 
 
         <!-- =====================================================
-             DESTAQUE + FOTO 3
-        ====================================================== -->
+             DESTAQUE
+        ===================================================== -->
 
         <section class="highlight">
 
             <div class="container highlight-grid">
 
 
-                <div class="highlight-content reveal">
+                <div class="reveal">
 
                     <div class="eyebrow">
                         Um olhar individual
                     </div>
 
 
-                    <h2>
+                    <h2 class="highlight-title">
 
-                        O processo importa tanto quanto
-
-                        <em>
-                            o resultado.
-                        </em>
+                        O processo importa
+                        tanto quanto
+                        <em>o resultado.</em>
 
                     </h2>
 
 
-                    <p>
+                    <p class="highlight-text">
 
                         Aprender não acontece da mesma forma
                         para todos. Um acompanhamento cuidadoso
@@ -4154,7 +2464,7 @@
 
                     <a
                         href="#contato"
-                        class="button-primary"
+                        class="primary-button"
                     >
                         Quero saber mais →
                     </a>
@@ -4163,19 +2473,34 @@
 
 
 
-                <!-- FOTO 3 -->
+                <div class="highlight-visual reveal">
 
-                <div class="highlight-photo reveal">
+                    <div class="highlight-block"></div>
+                    <div class="highlight-block-border"></div>
 
-                    <div class="highlight-background"></div>
 
+                    <!-- FOTO 03 -->
 
                     <img
+                        class="highlight-person"
                         src="https://i.imgur.com/vFnjZTE.png"
                         alt="Paula Borch"
                         loading="lazy"
                         decoding="async"
                     >
+
+
+                    <div class="highlight-note">
+
+                        <strong>
+                            Aprender com sentido.
+                        </strong>
+
+                        <span>
+                            Psicopedagogia
+                        </span>
+
+                    </div>
 
                 </div>
 
@@ -4187,18 +2512,18 @@
 
         <!-- =====================================================
              FRASE
-        ====================================================== -->
+        ===================================================== -->
 
         <section class="quote">
 
-            <div class="container quote-container reveal">
+            <div class="container quote-content reveal">
 
-                <div class="quote-mark">
+                <div class="quote-symbol">
                     “
                 </div>
 
 
-                <blockquote>
+                <blockquote class="quote-text">
 
                     Quando encontramos uma forma de compreender
                     como a criança aprende, abrimos espaço para
@@ -4207,9 +2532,9 @@
                 </blockquote>
 
 
-                <small>
+                <span class="quote-author">
                     Paula Borch · Psicopedagogia
-                </small>
+                </span>
 
             </div>
 
@@ -4219,7 +2544,7 @@
 
         <!-- =====================================================
              FAQ
-        ====================================================== -->
+        ===================================================== -->
 
         <section
             class="faq"
@@ -4235,13 +2560,11 @@
                         Perguntas frequentes
                     </div>
 
-
-                    <h2>
+                    <h2 class="faq-title">
                         Antes de começarmos.
                     </h2>
 
                 </div>
-
 
 
                 <div class="faq-list reveal">
@@ -4254,13 +2577,11 @@
                         </summary>
 
                         <p>
-
                             O acompanhamento pode ser indicado
                             para crianças e adolescentes que
                             apresentam dificuldades ou necessidades
                             relacionadas à aprendizagem,
                             alfabetização e desenvolvimento.
-
                         </p>
 
                     </details>
@@ -4273,12 +2594,10 @@
                         </summary>
 
                         <p>
-
                             O primeiro encontro é destinado à
                             compreensão da demanda e da história
                             da criança, permitindo definir os
-                            próximos passos do acompanhamento.
-
+                            próximos passos.
                         </p>
 
                     </details>
@@ -4291,12 +2610,10 @@
                         </summary>
 
                         <p>
-
                             Sim. As estratégias são planejadas
                             considerando as características,
                             necessidades e objetivos específicos
                             de cada criança.
-
                         </p>
 
                     </details>
@@ -4309,12 +2626,10 @@
                         </summary>
 
                         <p>
-
                             Quando necessário e autorizado pela
                             família, pode haver comunicação com
                             a escola para favorecer uma abordagem
                             integrada.
-
                         </p>
 
                     </details>
@@ -4327,11 +2642,9 @@
                         </summary>
 
                         <p>
-
                             Você pode utilizar o formulário abaixo
                             ou entrar diretamente em contato pelo
                             WhatsApp.
-
                         </p>
 
                     </details>
@@ -4347,7 +2660,7 @@
 
         <!-- =====================================================
              CONTATO
-        ====================================================== -->
+        ===================================================== -->
 
         <section
             class="contact"
@@ -4357,19 +2670,19 @@
             <div class="container contact-grid">
 
 
-                <div class="contact-content reveal">
+                <div class="contact-copy reveal">
 
                     <div class="eyebrow">
                         Entre em contato
                     </div>
 
 
-                    <h2>
+                    <h2 class="contact-title">
                         Vamos conversar sobre o próximo passo.
                     </h2>
 
 
-                    <p class="contact-description">
+                    <p class="contact-text">
 
                         Se você gostaria de entender melhor
                         como funciona o acompanhamento
@@ -4383,8 +2696,7 @@
 
                     <div class="contact-links">
 
-
-                        <!-- TROQUE PELO WHATSAPP REAL -->
+                        <!-- TROQUE PELO NÚMERO REAL -->
 
                         <a
                             href="https://wa.me/5500000000000"
@@ -4400,8 +2712,6 @@
 
                         </a>
 
-
-                        <!-- TROQUE PELO EMAIL REAL -->
 
                         <a
                             href="mailto:contato@paulaborch.com"
@@ -4436,9 +2746,7 @@
 
 
 
-                <!-- FORMULÁRIO -->
-
-                <div class="contact-form reveal">
+                <div class="form reveal">
 
                     <h3>
                         Agende uma conversa
@@ -4448,15 +2756,15 @@
                     <form id="contactForm">
 
 
-                        <div class="form-group">
+                        <div class="field">
 
-                            <label for="nome">
+                            <label for="name">
                                 SEU NOME
                             </label>
 
                             <input
+                                id="name"
                                 type="text"
-                                id="nome"
                                 placeholder="Digite seu nome"
                                 required
                             >
@@ -4464,15 +2772,15 @@
                         </div>
 
 
-                        <div class="form-group">
+                        <div class="field">
 
-                            <label for="telefone">
+                            <label for="phone">
                                 WHATSAPP
                             </label>
 
                             <input
+                                id="phone"
                                 type="tel"
-                                id="telefone"
                                 placeholder="(00) 00000-0000"
                                 required
                             >
@@ -4480,14 +2788,14 @@
                         </div>
 
 
-                        <div class="form-group">
+                        <div class="field">
 
-                            <label for="mensagem">
+                            <label for="message">
                                 COMO PODEMOS AJUDAR?
                             </label>
 
                             <textarea
-                                id="mensagem"
+                                id="message"
                                 placeholder="Conte brevemente o que você procura..."
                             ></textarea>
 
@@ -4495,12 +2803,11 @@
 
 
                         <button
+                            class="primary-button form-button"
                             type="submit"
-                            class="button-primary submit-button"
                         >
                             Enviar pelo WhatsApp →
                         </button>
-
 
                     </form>
 
@@ -4510,19 +2817,17 @@
 
         </section>
 
-
     </main>
 
 
 
     <!-- =====================================================
          FOOTER
-    ====================================================== -->
+    ===================================================== -->
 
     <footer>
 
         <div class="container">
-
 
             <div class="footer-top">
 
@@ -4583,7 +2888,6 @@
                     </div>
 
 
-
                     <div class="footer-column">
 
                         <h4>
@@ -4614,7 +2918,6 @@
             </div>
 
 
-
             <div class="footer-bottom">
 
                 <span>
@@ -4634,8 +2937,8 @@
 
 
     <!-- =====================================================
-         WHATSAPP FLUTUANTE
-    ====================================================== -->
+         WHATSAPP
+    ===================================================== -->
 
     <a
         href="https://wa.me/5500000000000"
@@ -4648,243 +2951,158 @@
 
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ====================================================== -->
-
     <script>
-
 
         /* =====================================================
            HEADER
-        ====================================================== */
+        ===================================================== */
 
         const header =
             document.getElementById("header");
 
 
-        window.addEventListener(
-            "scroll",
-            function () {
+        window.addEventListener("scroll", () => {
 
-                if (
-                    window.scrollY > 35
-                ) {
-
-                    header.classList.add(
-                        "scrolled"
-                    );
-
-                } else {
-
-                    header.classList.remove(
-                        "scrolled"
-                    );
-
-                }
-
+            if (window.scrollY > 30) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
             }
-        );
+
+        });
 
 
 
         /* =====================================================
            MENU MOBILE
-        ====================================================== */
+        ===================================================== */
 
-        const mobileButton =
-            document.getElementById(
-                "mobileButton"
-            );
+        const mobileMenu =
+            document.getElementById("mobileMenu");
 
-
-        const menu =
-            document.getElementById(
-                "menu"
-            );
+        const navLinks =
+            document.getElementById("navLinks");
 
 
-        mobileButton.addEventListener(
-            "click",
-            function () {
+        mobileMenu.addEventListener("click", () => {
 
-                menu.classList.toggle(
-                    "open"
-                );
+            navLinks.classList.toggle("open");
 
+            mobileMenu.textContent =
+                navLinks.classList.contains("open")
+                    ? "×"
+                    : "☰";
 
-                if (
-                    menu.classList.contains(
-                        "open"
-                    )
-                ) {
-
-                    mobileButton.textContent =
-                        "×";
-
-                } else {
-
-                    mobileButton.textContent =
-                        "☰";
-
-                }
-
-            }
-        );
+        });
 
 
-        document
-            .querySelectorAll(".menu a")
-            .forEach(
-                link => {
+        document.querySelectorAll(".nav-links a")
+            .forEach(link => {
 
-                    link.addEventListener(
-                        "click",
-                        function () {
+                link.addEventListener("click", () => {
 
-                            menu.classList.remove(
-                                "open"
-                            );
+                    navLinks.classList.remove("open");
 
-                            mobileButton.textContent =
-                                "☰";
+                    mobileMenu.textContent = "☰";
 
-                        }
-                    );
+                });
 
-                }
-            );
+            });
 
 
 
         /* =====================================================
            REVEAL
-        ====================================================== */
+        ===================================================== */
 
-        const elements =
-            document.querySelectorAll(
-                ".reveal"
-            );
+        const revealElements =
+            document.querySelectorAll(".reveal");
 
 
         const observer =
             new IntersectionObserver(
-                function (entries) {
+                entries => {
 
-                    entries.forEach(
-                        function (entry) {
+                    entries.forEach(entry => {
 
-                            if (
-                                entry.isIntersecting
-                            ) {
+                        if (entry.isIntersecting) {
 
-                                entry.target.classList.add(
-                                    "active"
-                                );
+                            entry.target.classList.add("visible");
 
-                                observer.unobserve(
-                                    entry.target
-                                );
-
-                            }
+                            observer.unobserve(entry.target);
 
                         }
-                    );
+
+                    });
 
                 },
                 {
-                    threshold: 0.12
+                    threshold: .12
                 }
             );
 
 
-        elements.forEach(
-            element => {
+        revealElements.forEach(element => {
 
-                observer.observe(
-                    element
-                );
+            observer.observe(element);
 
-            }
-        );
+        });
 
 
 
         /* =====================================================
-           FORMULÁRIO
-        ====================================================== */
+           FORMULÁRIO WHATSAPP
+        ===================================================== */
 
         const form =
-            document.getElementById(
-                "contactForm"
-            );
+            document.getElementById("contactForm");
 
 
-        form.addEventListener(
-            "submit",
-            function (event) {
+        form.addEventListener("submit", event => {
 
-                event.preventDefault();
+            event.preventDefault();
 
 
-                const nome =
-                    document.getElementById(
-                        "nome"
-                    ).value;
+            const name =
+                document.getElementById("name").value;
 
 
-                const telefone =
-                    document.getElementById(
-                        "telefone"
-                    ).value;
+            const phone =
+                document.getElementById("phone").value;
 
 
-                const mensagem =
-                    document.getElementById(
-                        "mensagem"
-                    ).value;
+            const message =
+                document.getElementById("message").value;
 
 
-                /*
+            /*
                 =================================================
-                TROQUE PELO WHATSAPP REAL
+                TROQUE AQUI PELO WHATSAPP REAL.
 
                 Exemplo:
-
                 5511999999999
                 =================================================
-                */
+            */
 
-                const whatsapp =
-                    "5500000000000";
-
-
-                const texto =
-
-                    `Olá, Paula! Meu nome é ${nome}.%0A%0A` +
-
-                    `Meu WhatsApp é ${telefone}.%0A%0A` +
-
-                    `Gostaria de saber mais sobre o atendimento psicopedagógico.%0A%0A` +
-
-                    `${mensagem || "Gostaria de conhecer melhor o trabalho."}`;
+            const whatsapp =
+                "5500000000000";
 
 
-                window.open(
+            const text =
+                `Olá, Paula! Meu nome é ${name}.%0A%0A` +
+                `Meu WhatsApp é ${phone}.%0A%0A` +
+                `Gostaria de saber mais sobre o atendimento psicopedagógico.%0A%0A` +
+                `${message || "Gostaria de conhecer melhor o trabalho."}`;
 
-                    `https://wa.me/${whatsapp}?text=${texto}`,
 
-                    "_blank"
+            window.open(
+                `https://wa.me/${whatsapp}?text=${text}`,
+                "_blank"
+            );
 
-                );
-
-            }
-        );
-
+        });
 
     </script>
 
-
 </body>
-
 </html>
