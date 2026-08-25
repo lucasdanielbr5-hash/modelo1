@@ -8,24 +8,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta
-    name="description"
-    content="Paula Borch — Psicopedagogia, desenvolvimento e aprendizagem."
+name="description"
+content="Paula Borch — Psicopedagogia, desenvolvimento e aprendizagem."
 >
 
 <title>Paula Borch | Psicopedagogia</title>
 
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
+href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
+rel="stylesheet"
 >
+
 
 <style>
 
 /* =========================================================
-   RESET
+RESET
 ========================================================= */
 
 *{
@@ -40,7 +43,7 @@ html{
 
 body{
     font-family:"DM Sans",sans-serif;
-    color:#343936;
+    color:#353936;
     background:#fff;
     overflow-x:hidden;
     -webkit-font-smoothing:antialiased;
@@ -52,8 +55,8 @@ img{
 }
 
 a{
-    color:inherit;
     text-decoration:none;
+    color:inherit;
 }
 
 button,
@@ -67,35 +70,38 @@ button{
 }
 
 ::selection{
-    background:#e9e4ed;
-    color:#343936;
+    background:#e8e2ed;
+    color:#353936;
 }
+
+
+/* =========================================================
+CORES
+========================================================= */
 
 :root{
 
-    --white:#fff;
+    --white:#ffffff;
 
-    --background:#fbfbfa;
+    --background:#fbfbf9;
 
-    --surface:#f5f6f4;
+    --surface:#f5f6f3;
 
     --surface-2:#eef0ed;
 
-    --line:#dfe3de;
+    --line:#e0e3de;
 
-    --text:#343936;
+    --text:#353936;
 
-    --soft:#747b76;
+    --soft:#777d79;
 
-    --muted:#999f9b;
+    --muted:#999f9a;
 
-    --purple:#76647f;
-
-    --purple-dark:#66566e;
+    --purple:#766480;
 
     --purple-soft:#eee9f1;
 
-    --sage:#e9efea;
+    --sage:#eaf0eb;
 
     --blue-soft:#edf2f3;
 
@@ -104,7 +110,7 @@ button{
 
 
 /* =========================================================
-   CONTAINER
+CONTAINER
 ========================================================= */
 
 .container{
@@ -114,10 +120,11 @@ button{
 
 
 /* =========================================================
-   LABEL
+LABEL
 ========================================================= */
 
 .section-label{
+
     display:flex;
     align-items:center;
     gap:10px;
@@ -128,22 +135,38 @@ button{
     text-transform:uppercase;
     letter-spacing:.18em;
 
-    color:#8c928e;
+    color:#8c928d;
 }
 
 .section-label i{
-    width:27px;
+
+    display:block;
+
+    width:26px;
     height:1px;
-    background:#a7aca8;
+
+    background:#a7aca7;
 }
 
 
 /* =========================================================
-   HEADER
+HEADER
 ========================================================= */
 
+/*
+IMPORTANTE:
+
+O header agora tem altura fixa.
+O hero começa exatamente depois dele.
+
+Isso elimina o espaço branco que estava
+aparecendo entre o menu e o conteúdo.
+*/
+
 header{
+
     position:fixed;
+
     z-index:1000;
 
     top:0;
@@ -151,52 +174,88 @@ header{
 
     width:100%;
 
-    padding:18px 0;
+    height:68px;
 
-    transition:.35s ease;
-}
+    padding:0;
 
-header.scrolled{
-    padding:10px 0;
+    background:rgba(255,255,255,.97);
 
-    background:rgba(255,255,255,.94);
+    border-bottom:1px solid rgba(40,45,42,.08);
 
     backdrop-filter:blur(18px);
 
-    box-shadow:0 1px 0 rgba(40,45,42,.06);
+    transition:.3s ease;
 }
 
+
+header.scrolled{
+
+    height:62px;
+
+    background:rgba(255,255,255,.98);
+
+    box-shadow:
+        0 8px 25px rgba(40,45,42,.04);
+}
+
+
 .nav{
-    height:48px;
+
+    height:100%;
 
     display:flex;
+
     align-items:center;
 }
 
+
+/* =========================================================
+LOGO
+========================================================= */
+
 .logo{
-    width:94px;
+
+    width:100px;
+
     flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
 }
 
 .logo img{
+
     width:100%;
+
     height:auto;
 }
 
+
+/* =========================================================
+MENU
+========================================================= */
+
 .menu{
+
     margin-left:auto;
+
     margin-right:30px;
 
     display:flex;
+
     align-items:center;
 
     gap:27px;
 }
 
+
 .menu a{
+
     position:relative;
 
     font-size:9px;
+
     font-weight:500;
 
     color:#737975;
@@ -205,10 +264,12 @@ header.scrolled{
 }
 
 .menu a:hover{
-    color:#343936;
+    color:#353936;
 }
 
+
 .menu a::after{
+
     content:"";
 
     position:absolute;
@@ -228,38 +289,56 @@ header.scrolled{
     width:100%;
 }
 
+
+/* =========================================================
+BOTÃO HEADER
+========================================================= */
+
 .header-button{
+
     height:38px;
 
-    padding:0 18px;
+    padding:0 19px;
 
     border-radius:50px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
-    background:#343936;
+    background:#353936;
+
     color:#fff;
 
     font-size:9px;
+
     font-weight:600;
 
     transition:.3s;
 }
 
 .header-button:hover{
+
     background:var(--purple);
+
     transform:translateY(-2px);
 }
 
+
+/* =========================================================
+MENU MOBILE
+========================================================= */
+
 .menu-toggle{
+
     display:none;
 
     width:40px;
     height:40px;
 
     border:1px solid var(--line);
+
     border-radius:50%;
 
     background:#fff;
@@ -267,7 +346,9 @@ header.scrolled{
     position:relative;
 }
 
+
 .menu-toggle span{
+
     position:absolute;
 
     left:12px;
@@ -275,7 +356,7 @@ header.scrolled{
     width:16px;
     height:1px;
 
-    background:#343936;
+    background:#353936;
 
     transition:.3s;
 }
@@ -289,38 +370,57 @@ header.scrolled{
 }
 
 .menu-toggle.active span:first-child{
+
     top:19px;
+
     transform:rotate(45deg);
 }
 
 .menu-toggle.active span:last-child{
+
     top:19px;
+
     transform:rotate(-45deg);
 }
 
 
 /* =========================================================
-   HERO
+HERO
 ========================================================= */
 
-.hero{
-    min-height:780px;
+/*
+AQUI ESTÁ A CORREÇÃO PRINCIPAL.
 
-    padding-top:120px;
+Antes:
+padding-top:120px;
+
+Agora:
+padding-top:68px;
+
+O conteúdo começa exatamente abaixo do header.
+*/
+
+.hero{
+
+    min-height:calc(100vh - 68px);
+
+    padding-top:68px;
 
     background:
         linear-gradient(
             100deg,
-            #fafaf9 0%,
-            #fff 67%,
+            #fafaf8 0%,
+            #ffffff 68%,
             #f7f7f5 100%
         );
 
     overflow:hidden;
 }
 
+
 .hero-grid{
-    min-height:650px;
+
+    min-height:calc(100vh - 68px);
 
     display:grid;
 
@@ -331,25 +431,39 @@ header.scrolled{
     align-items:center;
 }
 
+
+/* =========================================================
+HERO TEXTO
+========================================================= */
+
 .hero-content{
-    padding-bottom:30px;
+
+    padding-bottom:20px;
 }
 
+
 .hero-eyebrow{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
 
     font-size:8px;
+
     font-weight:600;
 
     letter-spacing:.18em;
+
     text-transform:uppercase;
 
     color:#8c928d;
 }
 
+
 .hero-eyebrow::before{
+
     content:"";
 
     width:26px;
@@ -358,7 +472,9 @@ header.scrolled{
     background:#a5aaa5;
 }
 
+
 .hero h1{
+
     max-width:620px;
 
     margin-top:25px;
@@ -374,11 +490,15 @@ header.scrolled{
     font-weight:500;
 }
 
+
 .hero h1 span{
+
     color:var(--purple);
 }
 
+
 .hero-text{
+
     max-width:450px;
 
     margin-top:28px;
@@ -390,8 +510,11 @@ header.scrolled{
     color:var(--soft);
 }
 
+
 .hero-actions{
+
     display:flex;
+
     align-items:center;
 
     gap:12px;
@@ -399,8 +522,10 @@ header.scrolled{
     margin-top:30px;
 }
 
+
 .button-main,
 .button-light{
+
     min-height:45px;
 
     padding:0 20px;
@@ -408,26 +533,35 @@ header.scrolled{
     border-radius:50px;
 
     display:inline-flex;
+
     align-items:center;
     justify-content:center;
 
     font-size:9px;
+
     font-weight:600;
 
     transition:.3s;
 }
 
+
 .button-main{
-    background:#343936;
+
+    background:#353936;
+
     color:#fff;
 }
 
 .button-main:hover{
+
     background:var(--purple);
+
     transform:translateY(-3px);
 }
 
+
 .button-light{
+
     border:1px solid var(--line);
 
     background:#fff;
@@ -436,6 +570,7 @@ header.scrolled{
 }
 
 .button-light:hover{
+
     transform:translateY(-3px);
 
     border-color:#cfd2cd;
@@ -443,51 +578,63 @@ header.scrolled{
 
 
 /* =========================================================
-   HERO VISUAL
+HERO FOTO
 ========================================================= */
 
 .hero-visual{
+
     position:relative;
 
-    height:650px;
+    height:calc(100vh - 68px);
+
+    min-height:600px;
 
     display:flex;
 
     align-items:flex-end;
+
     justify-content:center;
 }
 
+
 .hero-photo{
+
     position:relative;
 
     z-index:2;
 
     width:min(610px,100%);
-    height:650px;
+
+    height:100%;
 
     display:flex;
 
     align-items:flex-end;
+
     justify-content:center;
 }
 
+
 .hero-photo img{
+
     width:100%;
     height:100%;
 
     object-fit:contain;
-    object-position:center bottom;
 
-    /*
-       Mantém o fundo original/transparente da imagem.
-       Não cria fundo colorido sobre a foto.
-    */
+    object-position:center bottom;
 }
 
+
+/* =========================================================
+NOME VERTICAL
+========================================================= */
+
 .hero-name{
+
     position:absolute;
 
-    z-index:3;
+    z-index:1;
 
     right:-18px;
 
@@ -507,74 +654,51 @@ header.scrolled{
 
     letter-spacing:-.08em;
 
-    color:#e3e5e2;
+    color:#e5e7e4;
 
     pointer-events:none;
-
-    user-select:none;
 }
 
 
-/*
-   QUADRADO ABAIXO DA FOTO
-*/
+/* =========================================================
+QUADRADO SOBRE FOTO
+========================================================= */
 
-.hero-note{
+.hero-card{
+
     position:absolute;
 
-    z-index:5;
+    z-index:8;
 
-    left:4%;
-    bottom:30px;
+    left:20px;
+
+    bottom:34px;
 
     width:126px;
+
     min-height:126px;
 
-    padding:20px;
+    padding:19px;
 
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-
-    background:#343936;
-
-    color:#fff;
+    background:#353936;
 
     border-radius:4px;
 
+    color:#fff;
+
     box-shadow:
-        0 18px 40px rgba(40,45,42,.10);
+        0 15px 35px rgba(30,35,32,.15);
 
-    transition:.4s ease;
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
 }
 
-.hero-note:hover{
-    transform:translateY(-6px);
-}
 
-.hero-note small{
-    font-size:7px;
+.hero-card::before{
 
-    text-transform:uppercase;
-
-    letter-spacing:.16em;
-
-    color:rgba(255,255,255,.55);
-}
-
-.hero-note strong{
-    margin-top:8px;
-
-    font-family:"Manrope",sans-serif;
-
-    font-size:15px;
-
-    line-height:1.25;
-
-    font-weight:500;
-}
-
-.hero-note::after{
     content:"";
 
     position:absolute;
@@ -587,20 +711,98 @@ header.scrolled{
 
     border-radius:50%;
 
-    background:#c8b9cf;
+    background:#c9b8d0;
+}
+
+
+.hero-card small{
+
+    font-size:6px;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+
+    color:#c7cbc7;
+
+    margin-bottom:8px;
+}
+
+
+.hero-card strong{
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:15px;
+
+    line-height:1.08;
+
+    font-weight:500;
 }
 
 
 /* =========================================================
-   INTRO
+CÍRCULO HERO
+========================================================= */
+
+.hero-circle{
+
+    position:absolute;
+
+    right:5%;
+
+    bottom:35px;
+
+    width:68px;
+    height:68px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.9);
+
+    border:1px solid rgba(255,255,255,.95);
+
+    backdrop-filter:blur(12px);
+
+    z-index:5;
+}
+
+
+.hero-circle svg{
+
+    width:29px;
+    height:29px;
+
+    fill:none;
+
+    stroke:var(--purple);
+
+    stroke-width:1.4;
+
+    stroke-linecap:round;
+
+    stroke-linejoin:round;
+}
+
+
+/* =========================================================
+INTRO
 ========================================================= */
 
 .intro{
+
     padding:135px 0;
+
     background:#fff;
 }
 
+
 .intro-grid{
+
     display:grid;
 
     grid-template-columns:.38fr 1.62fr;
@@ -608,11 +810,14 @@ header.scrolled{
     gap:70px;
 }
 
+
 .intro-content{
     max-width:800px;
 }
 
+
 .intro-title{
+
     font-family:"Manrope",sans-serif;
 
     font-size:clamp(42px,5vw,64px);
@@ -624,12 +829,17 @@ header.scrolled{
     font-weight:500;
 }
 
+
 .intro-title span{
+
     display:block;
+
     color:#8b908c;
 }
 
+
 .intro-text{
+
     max-width:650px;
 
     margin-top:27px;
@@ -641,23 +851,30 @@ header.scrolled{
     color:var(--soft);
 }
 
+
 .intro-footer{
+
     margin-top:40px;
 
     display:flex;
+
     align-items:center;
 
     gap:15px;
 }
 
+
 .intro-footer-line{
+
     width:70px;
     height:1px;
 
     background:#d2d6d1;
 }
 
+
 .intro-footer span{
+
     font-size:8px;
 
     text-transform:uppercase;
@@ -669,15 +886,19 @@ header.scrolled{
 
 
 /* =========================================================
-   ATUAÇÃO
+SERVICES
 ========================================================= */
 
 .services{
+
     padding:0 0 135px;
+
     background:#fff;
 }
 
+
 .services-grid{
+
     display:grid;
 
     grid-template-columns:repeat(3,1fr);
@@ -685,7 +906,9 @@ header.scrolled{
     gap:15px;
 }
 
+
 .service{
+
     min-height:250px;
 
     position:relative;
@@ -699,12 +922,15 @@ header.scrolled{
     transition:.4s ease;
 }
 
+
 .service:hover{
+
     transform:translateY(-6px);
 
     box-shadow:
         0 20px 50px rgba(40,45,42,.08);
 }
+
 
 .service:nth-child(1){
     background:#eaf0eb;
@@ -718,19 +944,24 @@ header.scrolled{
     background:#edf2f3;
 }
 
+
 .service-icon{
+
     width:52px;
     height:52px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:15px;
 
-    background:rgba(255,255,255,.72);
+    background:rgba(255,255,255,.7);
 }
 
+
 .service-icon svg{
+
     width:27px;
     height:27px;
 
@@ -741,8 +972,10 @@ header.scrolled{
     stroke-width:1.4;
 
     stroke-linecap:round;
+
     stroke-linejoin:round;
 }
+
 
 .service:nth-child(2) .service-icon svg{
     stroke:var(--purple);
@@ -752,7 +985,9 @@ header.scrolled{
     stroke:#60777e;
 }
 
+
 .service-content{
+
     position:absolute;
 
     left:27px;
@@ -760,7 +995,9 @@ header.scrolled{
     bottom:27px;
 }
 
+
 .service h3{
+
     font-family:"Manrope",sans-serif;
 
     font-size:22px;
@@ -770,7 +1007,9 @@ header.scrolled{
     letter-spacing:-.045em;
 }
 
+
 .service p{
+
     max-width:310px;
 
     margin-top:9px;
@@ -784,20 +1023,27 @@ header.scrolled{
 
 
 /* =========================================================
-   PROCESSO
+PROCESSO
 ========================================================= */
 
 .process{
+
     padding:130px 0;
+
     background:#fafaf8;
 }
 
+
 .process-header{
+
     max-width:750px;
+
     margin-bottom:70px;
 }
 
+
 .process-header h2{
+
     margin-top:20px;
 
     font-family:"Manrope",sans-serif;
@@ -811,7 +1057,9 @@ header.scrolled{
     font-weight:500;
 }
 
+
 .process-header p{
+
     max-width:500px;
 
     margin-top:20px;
@@ -823,7 +1071,9 @@ header.scrolled{
     color:#7b817d;
 }
 
+
 .steps{
+
     display:grid;
 
     grid-template-columns:repeat(3,1fr);
@@ -831,7 +1081,9 @@ header.scrolled{
     position:relative;
 }
 
+
 .steps::before{
+
     content:"";
 
     position:absolute;
@@ -846,17 +1098,22 @@ header.scrolled{
     background:#dfe2dc;
 }
 
+
 .step{
+
     position:relative;
 
     padding-right:30px;
 }
 
+
 .step:not(:first-child){
     padding-left:30px;
 }
 
+
 .step-icon{
+
     position:relative;
 
     z-index:2;
@@ -865,6 +1122,7 @@ header.scrolled{
     height:63px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:50%;
@@ -876,12 +1134,17 @@ header.scrolled{
     transition:.4s;
 }
 
+
 .step:hover .step-icon{
+
     transform:scale(1.08);
+
     background:#efebf2;
 }
 
+
 .step-icon svg{
+
     width:27px;
     height:27px;
 
@@ -892,8 +1155,10 @@ header.scrolled{
     stroke-width:1.4;
 
     stroke-linecap:round;
+
     stroke-linejoin:round;
 }
+
 
 .step:nth-child(2) .step-icon svg{
     stroke:var(--purple);
@@ -903,7 +1168,9 @@ header.scrolled{
     stroke:#607980;
 }
 
+
 .step-number{
+
     margin-top:24px;
 
     font-size:8px;
@@ -915,7 +1182,9 @@ header.scrolled{
     color:#a0a59f;
 }
 
+
 .step h3{
+
     margin-top:9px;
 
     font-family:"Manrope",sans-serif;
@@ -927,7 +1196,9 @@ header.scrolled{
     letter-spacing:-.045em;
 }
 
+
 .step p{
+
     max-width:290px;
 
     margin-top:9px;
@@ -941,15 +1212,19 @@ header.scrolled{
 
 
 /* =========================================================
-   SOBRE
+SOBRE
 ========================================================= */
 
 .about{
+
     padding:140px 0;
+
     background:#fff;
 }
 
+
 .about-grid{
+
     display:grid;
 
     grid-template-columns:.9fr 1.1fr;
@@ -959,7 +1234,9 @@ header.scrolled{
     align-items:center;
 }
 
+
 .about-photo{
+
     height:570px;
 
     border-radius:30px;
@@ -971,10 +1248,13 @@ header.scrolled{
     display:flex;
 
     align-items:flex-end;
+
     justify-content:center;
 }
 
+
 .about-photo img{
+
     width:100%;
     height:100%;
 
@@ -983,7 +1263,9 @@ header.scrolled{
     object-position:center bottom;
 }
 
+
 .about-title{
+
     margin-top:20px;
 
     max-width:600px;
@@ -999,11 +1281,14 @@ header.scrolled{
     font-weight:500;
 }
 
+
 .about-title span{
     color:var(--purple);
 }
 
+
 .about-text{
+
     max-width:510px;
 
     margin-top:24px;
@@ -1015,7 +1300,9 @@ header.scrolled{
     color:#777d79;
 }
 
+
 .about-points{
+
     display:grid;
 
     grid-template-columns:1fr 1fr;
@@ -1025,7 +1312,9 @@ header.scrolled{
     margin-top:32px;
 }
 
+
 .about-point{
+
     padding:16px;
 
     border:1px solid #e5e7e3;
@@ -1035,20 +1324,27 @@ header.scrolled{
     transition:.3s;
 }
 
+
 .about-point:hover{
+
     background:#fafaf8;
 
     transform:translateY(-3px);
 }
 
+
 .about-point strong{
+
     display:block;
 
     font-size:10px;
+
     font-weight:600;
 }
 
+
 .about-point span{
+
     display:block;
 
     margin-top:5px;
@@ -1062,10 +1358,11 @@ header.scrolled{
 
 
 /* =========================================================
-   FRASE
+QUOTE
 ========================================================= */
 
 .quote{
+
     padding:115px 0;
 
     background:var(--purple);
@@ -1073,7 +1370,9 @@ header.scrolled{
     color:#fff;
 }
 
+
 .quote-grid{
+
     display:grid;
 
     grid-template-columns:1fr .55fr;
@@ -1083,7 +1382,9 @@ header.scrolled{
     align-items:end;
 }
 
+
 .quote h2{
+
     max-width:790px;
 
     margin-top:20px;
@@ -1099,13 +1400,16 @@ header.scrolled{
     font-weight:500;
 }
 
+
 .quote p{
+
     font-size:11px;
 
     line-height:1.85;
 
     color:rgba(255,255,255,.68);
 }
+
 
 .quote .section-label{
     color:rgba(255,255,255,.6);
@@ -1117,18 +1421,23 @@ header.scrolled{
 
 
 /* =========================================================
-   VÍDEOS — MOSAICO
+VIDEOS
 ========================================================= */
 
 .videos{
+
     padding:135px 0;
+
     background:#fff;
 }
 
+
 .videos-heading{
+
     display:flex;
 
     justify-content:space-between;
+
     align-items:flex-end;
 
     gap:60px;
@@ -1136,7 +1445,9 @@ header.scrolled{
     margin-bottom:55px;
 }
 
+
 .videos-heading h2{
+
     margin-top:19px;
 
     font-family:"Manrope",sans-serif;
@@ -1150,7 +1461,9 @@ header.scrolled{
     font-weight:500;
 }
 
+
 .videos-heading p{
+
     max-width:310px;
 
     margin-bottom:3px;
@@ -1162,7 +1475,9 @@ header.scrolled{
     color:#7d827e;
 }
 
+
 .video-mosaic{
+
     display:grid;
 
     grid-template-columns:1.45fr .8fr .8fr;
@@ -1172,7 +1487,9 @@ header.scrolled{
     gap:15px;
 }
 
+
 .video-item{
+
     position:relative;
 
     overflow:hidden;
@@ -1186,34 +1503,50 @@ header.scrolled{
     transition:.45s ease;
 }
 
+
 .video-item:hover{
+
     transform:translateY(-5px);
 
     box-shadow:
         0 20px 45px rgba(40,45,42,.09);
 }
 
+
 .video-item:nth-child(1){
+
     grid-column:1;
+
     grid-row:1 / 3;
 }
 
+
 .video-item:nth-child(2){
+
     grid-column:2;
+
     grid-row:1;
 }
+
 
 .video-item:nth-child(3){
+
     grid-column:3;
+
     grid-row:1;
 }
 
+
 .video-item:nth-child(4){
+
     grid-column:2 / 4;
+
     grid-row:2;
 }
 
+
 .video-item iframe{
+
     position:absolute;
 
     inset:0;
@@ -1224,7 +1557,9 @@ header.scrolled{
     border:0;
 }
 
+
 .video-tag{
+
     position:absolute;
 
     z-index:4;
@@ -1253,14 +1588,19 @@ header.scrolled{
     pointer-events:none;
 }
 
+
 .videos-button{
+
     margin-top:45px;
 
     display:flex;
+
     justify-content:center;
 }
 
+
 .youtube-button{
+
     min-height:45px;
 
     padding:0 20px;
@@ -1273,7 +1613,7 @@ header.scrolled{
 
     border-radius:50px;
 
-    background:#343936;
+    background:#353936;
 
     color:#fff;
 
@@ -1284,17 +1624,22 @@ header.scrolled{
     transition:.3s;
 }
 
+
 .youtube-button:hover{
+
     background:var(--purple);
 
     transform:translateY(-3px);
 }
 
+
 .youtube-button-icon{
+
     width:21px;
     height:21px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:6px;
@@ -1306,15 +1651,19 @@ header.scrolled{
 
 
 /* =========================================================
-   CONTATO
+CONTATO
 ========================================================= */
 
 .contact{
+
     padding:130px 0;
+
     background:#f5f6f3;
 }
 
+
 .contact-grid{
+
     display:grid;
 
     grid-template-columns:.82fr 1.18fr;
@@ -1324,7 +1673,9 @@ header.scrolled{
     align-items:center;
 }
 
+
 .contact h2{
+
     max-width:620px;
 
     margin-top:20px;
@@ -1340,11 +1691,14 @@ header.scrolled{
     font-weight:500;
 }
 
+
 .contact h2 span{
     color:var(--purple);
 }
 
+
 .contact-text{
+
     max-width:450px;
 
     margin-top:22px;
@@ -1358,10 +1712,11 @@ header.scrolled{
 
 
 /* =========================================================
-   FORM
+FORM
 ========================================================= */
 
 .contact-form{
+
     padding:35px;
 
     background:#fff;
@@ -1374,11 +1729,14 @@ header.scrolled{
         0 18px 55px rgba(40,45,42,.05);
 }
 
+
 .form-top{
     margin-bottom:28px;
 }
 
+
 .form-top h3{
+
     font-family:"Manrope",sans-serif;
 
     font-size:23px;
@@ -1388,7 +1746,9 @@ header.scrolled{
     letter-spacing:-.045em;
 }
 
+
 .form-top p{
+
     margin-top:7px;
 
     font-size:9px;
@@ -1398,7 +1758,9 @@ header.scrolled{
     color:#858b86;
 }
 
+
 .form-row{
+
     display:grid;
 
     grid-template-columns:1fr 1fr;
@@ -1406,11 +1768,14 @@ header.scrolled{
     gap:12px;
 }
 
+
 .form-group{
     margin-bottom:14px;
 }
 
+
 .form-group label{
+
     display:block;
 
     margin-bottom:7px;
@@ -1426,8 +1791,10 @@ header.scrolled{
     color:#777e79;
 }
 
+
 .form-group input,
 .form-group textarea{
+
     width:100%;
 
     border:1px solid #dfe2dd;
@@ -1436,14 +1803,16 @@ header.scrolled{
 
     background:#fafaf8;
 
-    color:#343936;
+    color:#353936;
 
     border-radius:13px;
 
     transition:.25s;
 }
 
+
 .form-group input{
+
     height:48px;
 
     padding:0 14px;
@@ -1451,7 +1820,9 @@ header.scrolled{
     font-size:10px;
 }
 
+
 .form-group textarea{
+
     min-height:125px;
 
     padding:14px;
@@ -1463,13 +1834,17 @@ header.scrolled{
     line-height:1.6;
 }
 
+
 .form-group input::placeholder,
 .form-group textarea::placeholder{
+
     color:#adb2ae;
 }
 
+
 .form-group input:focus,
 .form-group textarea:focus{
+
     background:#fff;
 
     border-color:#b8acbd;
@@ -1478,7 +1853,9 @@ header.scrolled{
         0 0 0 3px rgba(118,100,128,.08);
 }
 
+
 .form-submit{
+
     width:100%;
 
     min-height:48px;
@@ -1487,7 +1864,7 @@ header.scrolled{
 
     border-radius:50px;
 
-    background:#343936;
+    background:#353936;
 
     color:#fff;
 
@@ -1500,18 +1877,23 @@ header.scrolled{
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     gap:9px;
 }
 
+
 .form-submit:hover{
+
     background:var(--purple);
 
     transform:translateY(-2px);
 }
 
+
 .form-submit svg{
+
     width:16px;
     height:16px;
 
@@ -1522,10 +1904,13 @@ header.scrolled{
     stroke-width:1.5;
 
     stroke-linecap:round;
+
     stroke-linejoin:round;
 }
 
+
 .form-note{
+
     margin-top:11px;
 
     text-align:center;
@@ -1537,20 +1922,23 @@ header.scrolled{
 
 
 /* =========================================================
-   FOOTER
+FOOTER
 ========================================================= */
 
 footer{
+
     padding:58px 0 24px;
 
-    background:#f0f1ef;
+    background:#eceeea;
 
     color:#4d534f;
 
     border-top:1px solid #dfe2dd;
 }
 
+
 .footer-grid{
+
     display:grid;
 
     grid-template-columns:1.3fr .7fr .9fr;
@@ -1562,13 +1950,17 @@ footer{
     border-bottom:1px solid #d9ddd8;
 }
 
+
 .footer-logo{
+
     width:105px;
 
     margin-bottom:17px;
 }
 
+
 .footer-description{
+
     max-width:310px;
 
     font-size:9px;
@@ -1578,7 +1970,9 @@ footer{
     color:#7b817c;
 }
 
+
 .footer-title{
+
     margin-bottom:15px;
 
     font-size:8px;
@@ -1592,7 +1986,9 @@ footer{
     color:#929892;
 }
 
+
 .footer-links{
+
     display:flex;
 
     flex-direction:column;
@@ -1602,7 +1998,9 @@ footer{
     align-items:flex-start;
 }
 
+
 .footer-links a{
+
     font-size:9px;
 
     color:#68706b;
@@ -1610,11 +2008,14 @@ footer{
     transition:.25s;
 }
 
+
 .footer-links a:hover{
     color:var(--purple);
 }
 
+
 .footer-email{
+
     display:inline-block;
 
     margin-top:3px;
@@ -1626,15 +2027,11 @@ footer{
     color:#5e6560;
 
     word-break:break-word;
-
-    transition:.25s;
 }
 
-.footer-email:hover{
-    color:var(--purple);
-}
 
 .footer-bottom{
+
     padding-top:22px;
 
     display:flex;
@@ -1646,7 +2043,9 @@ footer{
     gap:20px;
 }
 
+
 .footer-bottom span{
+
     font-size:8px;
 
     color:#9aa09b;
@@ -1654,21 +2053,24 @@ footer{
 
 
 /* =========================================================
-   WHATSAPP
+WHATSAPP
 ========================================================= */
 
 .whatsapp-float{
+
     position:fixed;
 
     z-index:2000;
 
     right:24px;
+
     bottom:24px;
 
     width:57px;
     height:57px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:50%;
@@ -1678,25 +2080,39 @@ footer{
     color:#fff;
 
     box-shadow:
-        0 9px 28px rgba(37,211,102,.30);
+        0 9px 28px rgba(37,211,102,.3);
 
     transition:.3s;
 }
 
+
 .whatsapp-float:hover{
+
     transform:
         translateY(-5px)
         scale(1.04);
 }
 
-.whatsapp-float img{
-    width:30px;
-    height:30px;
 
-    object-fit:contain;
+.whatsapp-float svg{
+
+    width:26px;
+    height:26px;
+
+    fill:none;
+
+    stroke:#fff;
+
+    stroke-width:1.7;
+
+    stroke-linecap:round;
+
+    stroke-linejoin:round;
 }
 
+
 .whatsapp-float::before{
+
     content:"";
 
     position:absolute;
@@ -1709,6 +2125,7 @@ footer{
 
     animation:pulse 2.5s infinite;
 }
+
 
 @keyframes pulse{
 
@@ -1730,10 +2147,11 @@ footer{
 
 
 /* =========================================================
-   REVEAL
+REVEAL
 ========================================================= */
 
 .reveal{
+
     opacity:0;
 
     transform:translateY(25px);
@@ -1743,67 +2161,98 @@ footer{
         transform .8s cubic-bezier(.2,.8,.2,1);
 }
 
+
 .reveal.visible{
+
     opacity:1;
+
     transform:translateY(0);
 }
 
 
 /* =========================================================
-   TABLET
+TABLET
 ========================================================= */
 
 @media(max-width:1050px){
 
     .menu{
+
         gap:18px;
+
         margin-right:18px;
     }
 
+
     .hero-grid{
+
         grid-template-columns:1fr;
     }
+
 
     .hero-content{
-        padding-top:30px;
+
+        padding-top:55px;
     }
+
 
     .hero-visual{
+
         height:590px;
+
+        min-height:590px;
     }
+
 
     .hero-photo{
+
         height:590px;
     }
 
+
     .intro-grid{
+
         grid-template-columns:1fr;
+
         gap:30px;
     }
 
+
     .services-grid{
+
         grid-template-columns:1fr 1fr;
     }
 
+
     .service:last-child{
+
         grid-column:1/-1;
     }
 
+
     .about-grid{
+
         grid-template-columns:1fr;
+
         gap:55px;
     }
+
 
     .about-photo{
         height:540px;
     }
 
+
     .quote-grid{
+
         grid-template-columns:1fr;
+
         gap:30px;
     }
 
+
     .video-mosaic{
+
         grid-template-columns:1fr 1fr;
 
         grid-template-rows:
@@ -1812,47 +2261,78 @@ footer{
             210px;
     }
 
+
     .video-item:nth-child(1){
+
         grid-column:1/-1;
+
         grid-row:1;
     }
 
+
     .video-item:nth-child(2){
+
         grid-column:1;
+
         grid-row:2;
     }
+
 
     .video-item:nth-child(3){
+
         grid-column:2;
+
         grid-row:2;
     }
 
+
     .video-item:nth-child(4){
+
         grid-column:1/-1;
+
         grid-row:3;
     }
 
+
     .contact-grid{
+
         grid-template-columns:1fr;
+
         gap:45px;
     }
+
 }
 
 
 /* =========================================================
-   MOBILE
+MOBILE
 ========================================================= */
 
 @media(max-width:800px){
 
     .container{
+
         width:min(100% - 34px,650px);
     }
 
+
+    header{
+
+        height:64px;
+    }
+
+
+    header.scrolled{
+
+        height:60px;
+    }
+
+
     .menu{
+
         position:fixed;
 
-        top:72px;
+        top:74px;
 
         left:17px;
         right:17px;
@@ -1889,170 +2369,269 @@ footer{
         transition:.3s;
     }
 
+
     .menu.open{
+
         opacity:1;
+
         pointer-events:auto;
+
         transform:translateY(0);
     }
+
 
     .menu a{
         font-size:11px;
     }
 
+
     .header-button{
         display:none;
     }
 
+
     .menu-toggle{
+
         display:block;
+
         margin-left:auto;
     }
 
+
     .hero{
-        padding-top:110px;
 
         min-height:auto;
 
-        padding-bottom:60px;
+        padding-top:64px;
+
+        padding-bottom:0;
     }
 
+
+    .hero-grid{
+
+        min-height:auto;
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:0;
+    }
+
+
+    .hero-content{
+
+        padding-top:58px;
+
+        padding-bottom:35px;
+    }
+
+
     .hero h1{
+
         font-size:47px;
     }
 
+
     .hero-visual{
-        height:520px;
+
+        height:500px;
+
+        min-height:500px;
+
+        width:100%;
     }
+
 
     .hero-photo{
-        height:520px;
+
+        height:500px;
+
+        width:100%;
     }
 
+
     .hero-name{
+
         right:50%;
 
         top:auto;
 
-        bottom:32px;
+        bottom:15px;
 
         transform:translateX(50%);
 
         font-size:39px;
+
+        z-index:3;
     }
 
-    .hero-note{
-        left:0;
+
+    .hero-card{
+
+        left:10px;
+
         bottom:20px;
 
-        width:105px;
-        min-height:105px;
+        width:118px;
+
+        min-height:118px;
 
         padding:16px;
     }
 
-    .hero-note strong{
-        font-size:13px;
+
+    .hero-circle{
+
+        right:0;
+
+        bottom:20px;
+
+        width:60px;
+
+        height:60px;
     }
 
+
     .hero-actions{
+
         flex-direction:column;
+
         align-items:stretch;
     }
 
+
     .button-main,
     .button-light{
+
         width:100%;
     }
 
+
     .intro{
+
         padding:95px 0;
     }
+
 
     .intro-title{
         font-size:41px;
     }
 
+
     .services{
         padding-bottom:90px;
     }
+
 
     .services-grid{
         grid-template-columns:1fr;
     }
 
+
     .service:last-child{
         grid-column:auto;
     }
+
 
     .process{
         padding:95px 0;
     }
 
+
     .steps{
+
         grid-template-columns:1fr;
+
         gap:45px;
     }
 
+
     .steps::before{
+
         left:31px;
+
         right:auto;
 
         top:31px;
+
         bottom:31px;
 
         width:1px;
+
         height:auto;
     }
 
+
     .step,
     .step:not(:first-child){
-        padding:0 0 0 94px;
+
+        padding:
+            0
+            0
+            0
+            94px;
     }
 
+
     .step-icon{
+
         position:absolute;
 
         left:0;
+
         top:0;
     }
+
 
     .about{
         padding:95px 0;
     }
 
+
     .about-photo{
         height:480px;
     }
+
 
     .about-title{
         font-size:41px;
     }
 
+
     .about-points{
         grid-template-columns:1fr;
     }
+
 
     .quote{
         padding:95px 0;
     }
 
+
     .quote h2{
         font-size:40px;
     }
+
 
     .videos{
         padding:95px 0;
     }
 
+
     .videos-heading{
         display:block;
     }
+
 
     .videos-heading p{
         margin-top:20px;
     }
 
+
     .video-mosaic{
+
         grid-template-columns:1fr 1fr;
 
         grid-template-rows:
@@ -2061,50 +2640,69 @@ footer{
             190px;
     }
 
+
     .video-item:nth-child(1){
+
         grid-column:1/-1;
+
         grid-row:1;
     }
 
+
     .video-item:nth-child(2){
+
         grid-column:1;
+
         grid-row:2;
     }
+
 
     .video-item:nth-child(3){
+
         grid-column:2;
+
         grid-row:2;
     }
 
+
     .video-item:nth-child(4){
+
         grid-column:1/-1;
+
         grid-row:3;
     }
+
 
     .contact{
         padding:95px 0;
     }
 
+
     .contact h2{
         font-size:41px;
     }
+
 
     .contact-form{
         padding:25px 20px;
     }
 
+
     .footer-grid{
+
         grid-template-columns:1fr 1fr;
     }
+
 
     .footer-brand{
         grid-column:1/-1;
     }
+
 }
 
 
 /* =========================================================
-   MOBILE PEQUENO
+MOBILE PEQUENO
 ========================================================= */
 
 @media(max-width:520px){
@@ -2113,52 +2711,66 @@ footer{
         width:94px;
     }
 
+
     .hero h1{
         font-size:43px;
     }
 
+
     .hero-visual{
-        height:450px;
+
+        height:440px;
+
+        min-height:440px;
     }
 
+
     .hero-photo{
-        height:450px;
+        height:440px;
     }
+
 
     .hero-name{
         font-size:33px;
-        bottom:25px;
     }
 
-    .hero-note{
-        width:95px;
-        min-height:95px;
 
-        padding:14px;
+    .hero-card{
+
+        width:112px;
+
+        min-height:112px;
+
+        bottom:16px;
+
+        left:5px;
     }
 
-    .hero-note strong{
-        font-size:12px;
-    }
 
     .intro-title{
         font-size:38px;
     }
 
+
     .about-photo{
         height:430px;
     }
+
 
     .about-title{
         font-size:38px;
     }
 
+
     .form-row{
         grid-template-columns:1fr;
+
         gap:0;
     }
 
+
     .video-mosaic{
+
         grid-template-columns:1fr;
 
         grid-template-rows:
@@ -2168,50 +2780,73 @@ footer{
             220px;
     }
 
+
     .video-item:nth-child(1){
+
         grid-column:1;
+
         grid-row:1;
     }
 
+
     .video-item:nth-child(2){
+
         grid-column:1;
+
         grid-row:2;
     }
 
+
     .video-item:nth-child(3){
+
         grid-column:1;
+
         grid-row:3;
     }
 
+
     .video-item:nth-child(4){
+
         grid-column:1;
+
         grid-row:4;
     }
+
 
     .contact h2{
         font-size:39px;
     }
 
+
     .footer-grid{
         grid-template-columns:1fr;
     }
+
 
     .footer-brand{
         grid-column:auto;
     }
 
+
     .footer-bottom{
+
         flex-direction:column;
+
         align-items:flex-start;
     }
 
+
     .whatsapp-float{
+
         width:55px;
+
         height:55px;
 
         right:17px;
+
         bottom:17px;
     }
+
 }
 
 </style>
@@ -2234,14 +2869,14 @@ HEADER
 
 
 <a
-    href="#inicio"
-    class="logo"
-    aria-label="Paula Borch"
+href="#inicio"
+class="logo"
+aria-label="Paula Borch"
 >
 
 <img
-    src="https://i.imgur.com/b2bgrDe.png"
-    alt="Paula Borch"
+src="https://i.imgur.com/b2bgrDe.png"
+alt="Paula Borch"
 >
 
 </a>
@@ -2265,21 +2900,22 @@ HEADER
 
 
 <a
-    href="#contato"
-    class="header-button"
+href="#contato"
+class="header-button"
 >
-    Vamos conversar
+Vamos conversar
 </a>
 
 
 <button
-    class="menu-toggle"
-    id="menuToggle"
-    aria-label="Abrir menu"
-    aria-expanded="false"
+class="menu-toggle"
+id="menuToggle"
+aria-label="Abrir menu"
+aria-expanded="false"
 >
 
 <span></span>
+
 <span></span>
 
 </button>
@@ -2301,8 +2937,8 @@ HERO
 ========================================================= -->
 
 <section
-    class="hero"
-    id="inicio"
+class="hero"
+id="inicio"
 >
 
 <div class="container">
@@ -2314,14 +2950,18 @@ HERO
 
 
 <div class="hero-eyebrow">
-    Educação & Desenvolvimento
+
+Educação & Desenvolvimento
+
 </div>
 
 
 <h1>
 
-Cada pessoa
-aprende de um
+Cada pessoa<br>
+
+aprende de um<br>
+
 jeito <span>único.</span>
 
 </h1>
@@ -2329,10 +2969,9 @@ jeito <span>único.</span>
 
 <p class="hero-text">
 
-Um trabalho que considera cada
-história, cada processo e cada
-forma de aprender com atenção,
-acolhimento e individualidade.
+Um trabalho que considera cada história,
+cada processo e cada forma de aprender
+com atenção, acolhimento e individualidade.
 
 </p>
 
@@ -2340,16 +2979,16 @@ acolhimento e individualidade.
 <div class="hero-actions">
 
 <a
-    href="#sobre"
-    class="button-main"
+href="#sobre"
+class="button-main"
 >
 Conheça o trabalho
 </a>
 
 
 <a
-    href="#processo"
-    class="button-light"
+href="#processo"
+class="button-light"
 >
 Como funciona →
 </a>
@@ -2364,34 +3003,57 @@ Como funciona →
 
 
 <div class="hero-name">
+
 Paula Borch
+
 </div>
 
 
 <div class="hero-photo">
 
 <img
-    src="https://i.imgur.com/1QDxDPB.png"
-    alt="Paula Borch"
-    fetchpriority="high"
+src="https://i.imgur.com/1QDxDPB.png"
+alt="Paula Borch"
+fetchpriority="high"
 >
 
 </div>
 
 
-<div class="hero-note">
+<div class="hero-card">
 
 <small>
 Psicopedagogia
 </small>
 
 <strong>
-Cada história
+
+Cada<br>
+história<br>
 importa.
+
 </strong>
 
 </div>
 
+
+<div class="hero-circle">
+
+<svg viewBox="0 0 48 48">
+
+<path d="M24 38V10"/>
+
+<path d="M24 16c-7-7-15-2-13 5 1 4 5 5 8 4"/>
+
+<path d="M24 21c7-7 15-2 13 5-1 4-5 5-8 4"/>
+
+<path d="M24 27c-6-5-12 0-10 5 1 3 4 4 7 3"/>
+
+<path d="M24 31c6-5 12 0 10 5-1 3-4 4-7 3"/>
+
+</svg>
+
+</div>
 
 </div>
 
@@ -2404,7 +3066,7 @@ importa.
 
 
 <!-- =========================================================
-INTRO — UM OLHAR INDIVIDUAL
+INTRO
 ========================================================= -->
 
 <section class="intro">
@@ -2477,8 +3139,8 @@ ATUAÇÃO
 ========================================================= -->
 
 <section
-    class="services"
-    id="atuacao"
+class="services"
+id="atuacao"
 >
 
 <div class="container">
@@ -2512,11 +3174,9 @@ Desenvolvimento
 </h3>
 
 <p>
-
 Um olhar integrado para
 as necessidades e
 possibilidades de cada pessoa.
-
 </p>
 
 </div>
@@ -2551,11 +3211,9 @@ Aprendizagem
 </h3>
 
 <p>
-
 Estratégias que respeitam
 diferentes formas, ritmos
 e caminhos para aprender.
-
 </p>
 
 </div>
@@ -2588,11 +3246,9 @@ Acolhimento
 </h3>
 
 <p>
-
 Um espaço de escuta,
 compreensão e construção
 de novas possibilidades.
-
 </p>
 
 </div>
@@ -2613,8 +3269,8 @@ COMO FUNCIONA
 ========================================================= -->
 
 <section
-    class="process"
-    id="processo"
+class="process"
+id="processo"
 >
 
 <div class="container">
@@ -2791,12 +3447,12 @@ adequadas a cada realidade.
 
 
 <!-- =========================================================
-SOBRE — SEGUNDA FOTO
+SOBRE
 ========================================================= -->
 
 <section
-    class="about"
-    id="sobre"
+class="about"
+id="sobre"
 >
 
 <div class="container">
@@ -2807,9 +3463,9 @@ SOBRE — SEGUNDA FOTO
 <div class="about-photo reveal">
 
 <img
-    src="https://i.imgur.com/bwXelIG.png"
-    alt="Paula Borch"
-    loading="lazy"
+src="https://i.imgur.com/bwXelIG.png"
+alt="Paula Borch"
+loading="lazy"
 >
 
 </div>
@@ -2972,12 +3628,12 @@ possibilidades.
 
 
 <!-- =========================================================
-VÍDEOS
+VIDEOS
 ========================================================= -->
 
 <section
-    class="videos"
-    id="videos"
+class="videos"
+id="videos"
 >
 
 <div class="container">
@@ -3029,11 +3685,11 @@ Destaque
 </span>
 
 <iframe
-    src="https://www.youtube.com/embed/G-WHLWXXQrg"
-    title="Paula Borch — vídeo"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
+src="https://www.youtube.com/embed/G-WHLWXXQrg"
+title="Paula Borch"
+loading="lazy"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen>
 </iframe>
 
 </article>
@@ -3047,11 +3703,11 @@ Conteúdo
 </span>
 
 <iframe
-    src="https://www.youtube.com/embed/FAuZXncvy5o"
-    title="Paula Borch — vídeo"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
+src="https://www.youtube.com/embed/FAuZXncvy5o"
+title="Paula Borch"
+loading="lazy"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen>
 </iframe>
 
 </article>
@@ -3065,11 +3721,11 @@ Conteúdo
 </span>
 
 <iframe
-    src="https://www.youtube.com/embed/ocwri6_0fHY"
-    title="Paula Borch — vídeo"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
+src="https://www.youtube.com/embed/ocwri6_0fHY"
+title="Paula Borch"
+loading="lazy"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen>
 </iframe>
 
 </article>
@@ -3083,11 +3739,11 @@ Short
 </span>
 
 <iframe
-    src="https://www.youtube.com/embed/bfmsMIZ-hPc"
-    title="Paula Borch — Short"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
+src="https://www.youtube.com/embed/bfmsMIZ-hPc"
+title="Paula Borch"
+loading="lazy"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen>
 </iframe>
 
 </article>
@@ -3100,10 +3756,10 @@ Short
 <div class="videos-button reveal">
 
 <a
-    href="https://www.youtube.com/@prof.paulaborch8774"
-    target="_blank"
-    rel="noopener"
-    class="youtube-button"
+href="https://www.youtube.com/@prof.paulaborch8774"
+target="_blank"
+rel="noopener"
+class="youtube-button"
 >
 
 <span class="youtube-button-icon">
@@ -3129,8 +3785,8 @@ CONTATO
 ========================================================= -->
 
 <section
-    class="contact"
-    id="contato"
+class="contact"
+id="contato"
 >
 
 <div class="container">
@@ -3172,8 +3828,8 @@ o WhatsApp da Paula.
 
 
 <form
-    class="contact-form reveal"
-    id="whatsappForm"
+class="contact-form reveal"
+id="whatsappForm"
 >
 
 
@@ -3202,12 +3858,12 @@ Seu nome
 </label>
 
 <input
-    type="text"
-    id="nome"
-    name="nome"
-    placeholder="Digite seu nome"
-    autocomplete="name"
-    required
+type="text"
+id="nome"
+name="nome"
+placeholder="Digite seu nome"
+autocomplete="name"
+required
 >
 
 </div>
@@ -3221,12 +3877,12 @@ Seu WhatsApp
 </label>
 
 <input
-    type="tel"
-    id="telefone"
-    name="telefone"
-    placeholder="(00) 00000-0000"
-    autocomplete="tel"
-    required
+type="tel"
+id="telefone"
+name="telefone"
+placeholder="(43) 92003-6581"
+autocomplete="tel"
+required
 >
 
 </div>
@@ -3243,10 +3899,10 @@ O que você precisa?
 </label>
 
 <textarea
-    id="necessidade"
-    name="necessidade"
-    placeholder="Conte brevemente o que gostaria de conversar..."
-    required
+id="necessidade"
+name="necessidade"
+placeholder="Conte brevemente o que gostaria de conversar..."
+required
 ></textarea>
 
 </div>
@@ -3254,8 +3910,8 @@ O que você precisa?
 
 
 <button
-    type="submit"
-    class="form-submit"
+type="submit"
+class="form-submit"
 >
 
 Enviar pelo WhatsApp
@@ -3303,12 +3959,12 @@ FOOTER
 <div class="footer-grid">
 
 
-<div class="footer-brand">
+<div>
 
 <img
-    class="footer-logo"
-    src="https://i.imgur.com/b2bgrDe.png"
-    alt="Paula Borch"
+class="footer-logo"
+src="https://i.imgur.com/b2bgrDe.png"
+alt="Paula Borch"
 >
 
 
@@ -3333,25 +3989,15 @@ Navegação
 
 <div class="footer-links">
 
-<a href="#inicio">
-Início
-</a>
+<a href="#inicio">Início</a>
 
-<a href="#sobre">
-Sobre
-</a>
+<a href="#sobre">Sobre</a>
 
-<a href="#atuacao">
-Atuação
-</a>
+<a href="#atuacao">Atuação</a>
 
-<a href="#processo">
-Como funciona
-</a>
+<a href="#processo">Como funciona</a>
 
-<a href="#videos">
-Conteúdos
-</a>
+<a href="#videos">Conteúdos</a>
 
 </div>
 
@@ -3373,16 +4019,16 @@ Fale conosco
 </a>
 
 <a
-    href="mailto:contato@paulaborch.com.br"
-    class="footer-email"
+href="mailto:contato@paulaborch.com.br"
+class="footer-email"
 >
 contato@paulaborch.com.br
 </a>
 
 <a
-    href="https://www.youtube.com/@prof.paulaborch8774"
-    target="_blank"
-    rel="noopener"
+href="https://www.youtube.com/@prof.paulaborch8774"
+target="_blank"
+rel="noopener"
 >
 YouTube
 </a>
@@ -3416,24 +4062,26 @@ Educação • Desenvolvimento • Aprendizagem
 
 
 <!-- =========================================================
-WHATSAPP FLUTUANTE
+WHATSAPP
 ========================================================= -->
 
 <a
-    href="#contato"
-    class="whatsapp-float"
-    aria-label="Entrar em contato pelo WhatsApp"
+href="#contato"
+class="whatsapp-float"
+aria-label="Entrar em contato"
 >
 
-<!--
-    Caso queira usar a imagem personalizada do WhatsApp que
-    você enviou anteriormente, basta trocar o src abaixo.
--->
+<svg viewBox="0 0 24 24">
 
-<img
-    src="https://i.imgur.com/ZwtM8yo.png"
-    alt="WhatsApp"
->
+<path
+d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L4 20l1.2-3.2A8.5 8.5 0 1 1 20 11.5Z"
+/>
+
+<path
+d="M9.5 8.5c.3-.3.6-.3.9 0l1 1.2c.2.2.2.5.1.7l-.5.8c.7 1.3 1.7 2.3 3 3l.8-.5c.2-.1.5-.1.7.1l1.2 1c.3.3.3.6 0 .9-.5.5-1.2.8-1.9.6-3.6-1-6.4-3.8-7.4-7.4-.2-.7.1-1.4.6-1.9Z"
+/>
+
+</svg>
 
 </a>
 
@@ -3442,33 +4090,31 @@ WHATSAPP FLUTUANTE
 <script>
 
 /* =========================================================
-   CONFIGURAÇÃO DO WHATSAPP
+WHATSAPP DA PAULA
 ========================================================= */
 
 /*
-    Número informado:
+Número informado:
+(43) 92003-6581
 
-    43 92003-6581
-
-    Com código do Brasil:
-    55 43 92003-6581
-
-    O WhatsApp precisa receber somente números.
+Para o WhatsApp:
+55 + DDD + número
 */
 
 const WHATSAPP_PAULA = "5543920036581";
 
 
 /* =========================================================
-   HEADER
+HEADER
 ========================================================= */
 
 const header =
 document.getElementById("header");
 
+
 window.addEventListener("scroll",()=>{
 
-    if(window.scrollY > 30){
+    if(window.scrollY > 25){
 
         header.classList.add("scrolled");
 
@@ -3482,7 +4128,7 @@ window.addEventListener("scroll",()=>{
 
 
 /* =========================================================
-   MENU MOBILE
+MENU MOBILE
 ========================================================= */
 
 const menuToggle =
@@ -3490,6 +4136,7 @@ document.getElementById("menuToggle");
 
 const menu =
 document.getElementById("menu");
+
 
 menuToggle.addEventListener("click",()=>{
 
@@ -3530,77 +4177,52 @@ document
 
 
 /* =========================================================
-   FECHAR MENU AO CLICAR FORA
-========================================================= */
-
-document.addEventListener("click",(event)=>{
-
-    if(
-        menu.classList.contains("open") &&
-        !menu.contains(event.target) &&
-        !menuToggle.contains(event.target)
-    ){
-
-        menu.classList.remove("open");
-
-        menuToggle.classList.remove("active");
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    }
-
-});
-
-
-/* =========================================================
-   FORMULÁRIO → WHATSAPP
+FORMULÁRIO WHATSAPP
 ========================================================= */
 
 const whatsappForm =
 document.getElementById("whatsappForm");
 
+
 whatsappForm.addEventListener(
-    "submit",
-    function(event){
+"submit",
+function(event){
 
-        event.preventDefault();
-
-
-        const nome =
-            document
-            .getElementById("nome")
-            .value
-            .trim();
+    event.preventDefault();
 
 
-        const telefone =
-            document
-            .getElementById("telefone")
-            .value
-            .trim();
+    const nome =
+    document
+    .getElementById("nome")
+    .value
+    .trim();
 
 
-        const necessidade =
-            document
-            .getElementById("necessidade")
-            .value
-            .trim();
+    const telefone =
+    document
+    .getElementById("telefone")
+    .value
+    .trim();
 
 
-        if(!nome || !telefone || !necessidade){
-
-            alert(
-                "Por favor, preencha todos os campos."
-            );
-
-            return;
-        }
+    const necessidade =
+    document
+    .getElementById("necessidade")
+    .value
+    .trim();
 
 
-        const mensagem =
+    if(!nome || !telefone || !necessidade){
+
+        alert(
+            "Por favor, preencha todos os campos."
+        );
+
+        return;
+    }
+
+
+    const mensagem =
 `Olá, Paula!
 
 Meu nome é ${nome}.
@@ -3612,70 +4234,69 @@ Gostaria de conversar sobre:
 ${necessidade}`;
 
 
-        const url =
-            "https://wa.me/" +
-            WHATSAPP_PAULA +
-            "?text=" +
-            encodeURIComponent(mensagem);
+    const url =
+    "https://wa.me/" +
+    WHATSAPP_PAULA +
+    "?text=" +
+    encodeURIComponent(mensagem);
 
 
-        window.open(
-            url,
-            "_blank",
-            "noopener"
-        );
+    window.open(
+        url,
+        "_blank",
+        "noopener"
+    );
 
-    }
-);
+});
 
 
 /* =========================================================
-   MÁSCARA TELEFONE
+MÁSCARA TELEFONE
 ========================================================= */
 
 const telefoneInput =
 document.getElementById("telefone");
 
+
 telefoneInput.addEventListener(
-    "input",
-    function(){
+"input",
+function(){
 
-        let value =
-            this.value.replace(/\D/g,"");
-
-
-        if(value.length > 11){
-            value = value.slice(0,11);
-        }
+    let value =
+    this.value.replace(/\D/g,"");
 
 
-        if(value.length <= 10){
-
-            value =
-                value.replace(
-                    /^(\d{2})(\d{4})(\d{0,4}).*/,
-                    "($1) $2-$3"
-                );
-
-        }else{
-
-            value =
-                value.replace(
-                    /^(\d{2})(\d{5})(\d{0,4}).*/,
-                    "($1) $2-$3"
-                );
-
-        }
+    if(value.length > 11){
+        value = value.slice(0,11);
+    }
 
 
-        this.value = value;
+    if(value.length <= 10){
+
+        value =
+        value.replace(
+            /^(\d{2})(\d{4})(\d{0,4}).*/,
+            "($1) $2-$3"
+        );
+
+    }else{
+
+        value =
+        value.replace(
+            /^(\d{2})(\d{5})(\d{0,4}).*/,
+            "($1) $2-$3"
+        );
 
     }
-);
+
+
+    this.value = value;
+
+});
 
 
 /* =========================================================
-   REVEAL ANIMATION
+REVEAL
 ========================================================= */
 
 const revealObserver =
@@ -3702,8 +4323,7 @@ new IntersectionObserver(
 },
 {
     threshold:.12
-}
-);
+});
 
 
 document
@@ -3716,30 +4336,30 @@ document
 
 
 /* =========================================================
-   ESC — FECHA MENU
+ESC
 ========================================================= */
 
 document.addEventListener(
-    "keydown",
-    event=>{
+"keydown",
+event=>{
 
-        if(event.key === "Escape"){
+    if(event.key === "Escape"){
 
-            menu.classList.remove("open");
+        menu.classList.remove("open");
 
-            menuToggle.classList.remove("active");
+        menuToggle.classList.remove("active");
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-        }
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
 
     }
-);
+
+});
 
 </script>
+
 
 </body>
 
