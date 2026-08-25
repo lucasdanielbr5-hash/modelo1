@@ -15,15 +15,23 @@
     content="Paula Borch — Psicopedagogia, desenvolvimento e aprendizagem."
 >
 
+<meta name="theme-color" content="#ffffff">
+
 <title>Paula Borch | Psicopedagogia</title>
+
+
+<!-- =========================================================
+FONTES
+========================================================= -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
     rel="stylesheet"
 >
+
 
 <style>
 
@@ -42,8 +50,8 @@ html{
 }
 
 body{
-    font-family:"DM Sans",sans-serif;
-    color:#353936;
+    font-family:"DM Sans", sans-serif;
+    color:#343735;
     background:#fff;
     overflow-x:hidden;
     -webkit-font-smoothing:antialiased;
@@ -55,8 +63,8 @@ img{
 }
 
 a{
-    text-decoration:none;
     color:inherit;
+    text-decoration:none;
 }
 
 button,
@@ -70,37 +78,49 @@ button{
 }
 
 ::selection{
-    background:#e8e2ed;
-    color:#353936;
+    background:#e7e0eb;
+    color:#343735;
 }
+
+
+/* =========================================================
+VARIÁVEIS
+========================================================= */
 
 :root{
 
-    --white:#fff;
+    --white:#ffffff;
 
-    --background:#fbfbf9;
+    --bg:#fbfbfa;
 
-    --surface:#f5f6f3;
+    --surface:#f5f6f4;
 
     --surface-2:#eef0ed;
 
-    --line:#e0e3de;
+    --line:#e0e3df;
 
-    --text:#353936;
+    --line-dark:#d5d9d4;
+
+    --text:#343735;
 
     --soft:#777d79;
 
-    --muted:#999f9a;
+    --muted:#9a9f9b;
 
-    --purple:#766480;
+    --purple:#76647f;
+
+    --purple-dark:#67556f;
 
     --purple-soft:#eee9f1;
+
+    --purple-light:#f5f1f6;
 
     --sage:#eaf0eb;
 
     --blue-soft:#edf2f3;
 
     --whatsapp:#25D366;
+
 }
 
 
@@ -109,34 +129,43 @@ CONTAINER
 ========================================================= */
 
 .container{
-    width:min(1180px,calc(100% - 48px));
-    margin:auto;
+    width:min(1180px, calc(100% - 48px));
+    margin:0 auto;
 }
 
 
 /* =========================================================
-LABEL
+LABELS
 ========================================================= */
 
 .section-label{
+
     display:flex;
     align-items:center;
     gap:10px;
 
     font-size:8px;
+
     font-weight:600;
 
-    text-transform:uppercase;
     letter-spacing:.18em;
+
+    text-transform:uppercase;
 
     color:#8c928d;
 }
 
 .section-label i{
+
     display:block;
-    width:26px;
+
+    width:27px;
+
     height:1px;
-    background:#a7aca7;
+
+    background:#aeb3ae;
+
+    flex-shrink:0;
 }
 
 
@@ -145,7 +174,9 @@ HEADER
 ========================================================= */
 
 header{
+
     position:fixed;
+
     z-index:1000;
 
     top:0;
@@ -153,65 +184,103 @@ header{
 
     width:100%;
 
-    padding:18px 0;
+    padding:16px 0;
 
-    transition:.35s ease;
+    transition:
+        padding .35s ease,
+        background .35s ease,
+        box-shadow .35s ease;
 }
 
 header.scrolled{
-    padding:10px 0;
+
+    padding:8px 0;
 
     background:rgba(255,255,255,.94);
 
     backdrop-filter:blur(18px);
 
+    -webkit-backdrop-filter:blur(18px);
+
     box-shadow:
         0 1px 0 rgba(40,45,42,.06);
 }
 
+
 .nav{
-    height:48px;
+
+    height:50px;
 
     display:flex;
+
     align-items:center;
+
+    background:transparent;
 }
 
+
+/* =========================================================
+LOGO
+========================================================= */
+
 .logo{
-    width:100px;
+
+    width:88px;
+
     flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
 }
 
 .logo img{
-    width:100%;
+
+    width:88px;
+
     height:auto;
+
+    object-fit:contain;
 }
 
+
+/* =========================================================
+MENU
+========================================================= */
+
 .menu{
+
     margin-left:auto;
-    margin-right:30px;
+
+    margin-right:27px;
 
     display:flex;
+
     align-items:center;
 
-    gap:27px;
+    gap:25px;
 }
 
 .menu a{
+
     position:relative;
 
     font-size:9px;
+
     font-weight:500;
 
-    color:#737975;
+    color:#707672;
 
-    transition:.25s;
+    transition:
+        color .25s ease;
 }
 
 .menu a:hover{
-    color:#353936;
+    color:#343735;
 }
 
 .menu a::after{
+
     content:"";
 
     position:absolute;
@@ -220,46 +289,71 @@ header.scrolled{
     bottom:-7px;
 
     width:0;
+
     height:1px;
 
     background:var(--purple);
 
-    transition:.3s;
+    transition:
+        width .3s ease;
 }
 
 .menu a:hover::after{
     width:100%;
 }
 
-.header-button{
-    height:38px;
 
-    padding:0 18px;
+/* =========================================================
+BOTÃO HEADER
+========================================================= */
+
+.header-button{
+
+    height:37px;
+
+    padding:0 17px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 
     border-radius:50px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    background:#343735;
 
-    background:#353936;
     color:#fff;
 
     font-size:9px;
+
     font-weight:600;
 
-    transition:.3s;
+    transition:
+        transform .3s ease,
+        background .3s ease;
 }
 
 .header-button:hover{
+
     background:var(--purple);
+
     transform:translateY(-2px);
 }
 
+
+/* =========================================================
+MENU MOBILE
+========================================================= */
+
 .menu-toggle{
+
     display:none;
 
+    position:relative;
+
     width:40px;
+
     height:40px;
 
     border:1px solid var(--line);
@@ -267,19 +361,19 @@ header.scrolled{
     border-radius:50%;
 
     background:#fff;
-
-    position:relative;
 }
 
 .menu-toggle span{
+
     position:absolute;
 
     left:12px;
 
     width:16px;
+
     height:1px;
 
-    background:#353936;
+    background:#343735;
 
     transition:.3s;
 }
@@ -293,12 +387,16 @@ header.scrolled{
 }
 
 .menu-toggle.active span:first-child{
+
     top:19px;
+
     transform:rotate(45deg);
 }
 
 .menu-toggle.active span:last-child{
+
     top:19px;
+
     transform:rotate(-45deg);
 }
 
@@ -308,70 +406,81 @@ HERO
 ========================================================= */
 
 .hero{
-    min-height:780px;
 
-    padding-top:120px;
+    min-height:760px;
 
-    background:
-        linear-gradient(
-            100deg,
-            #fafaf8 0%,
-            #ffffff 67%,
-            #f7f7f5 100%
-        );
+    padding-top:115px;
+
+    background:#fff;
 
     overflow:hidden;
 }
 
 .hero-grid{
-    min-height:650px;
+
+    min-height:645px;
 
     display:grid;
 
-    grid-template-columns:.92fr 1.08fr;
+    grid-template-columns:.9fr 1.1fr;
 
     gap:35px;
 
     align-items:center;
 }
 
+
+/* =========================================================
+HERO TEXTO
+========================================================= */
+
 .hero-content{
-    padding-bottom:30px;
+
+    padding-bottom:20px;
 }
 
 .hero-eyebrow{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
 
     font-size:8px;
+
     font-weight:600;
 
     letter-spacing:.18em;
+
     text-transform:uppercase;
 
-    color:#8c928d;
+    color:#8d938e;
 }
 
 .hero-eyebrow::before{
+
     content:"";
 
-    width:26px;
+    width:27px;
+
     height:1px;
 
-    background:#a5aaa5;
+    background:#aab0ab;
 }
 
+
 .hero h1{
-    max-width:620px;
+
+    max-width:580px;
 
     margin-top:25px;
 
-    font-family:"Manrope",sans-serif;
+    font-family:"Manrope", sans-serif;
 
-    font-size:clamp(48px,6vw,75px);
+    font-size:clamp(47px, 5.7vw, 72px);
 
-    line-height:.98;
+    line-height:.99;
 
     letter-spacing:-.075em;
 
@@ -382,10 +491,12 @@ HERO
     color:var(--purple);
 }
 
-.hero-text{
-    max-width:450px;
 
-    margin-top:28px;
+.hero-text{
+
+    max-width:435px;
+
+    margin-top:27px;
 
     font-size:12px;
 
@@ -394,101 +505,141 @@ HERO
     color:var(--soft);
 }
 
+
 .hero-actions{
+
     display:flex;
+
     align-items:center;
 
-    gap:12px;
+    gap:11px;
 
-    margin-top:30px;
+    margin-top:29px;
 }
+
 
 .button-main,
 .button-light{
-    min-height:45px;
+
+    min-height:44px;
 
     padding:0 20px;
-
-    border-radius:50px;
 
     display:inline-flex;
 
     align-items:center;
+
     justify-content:center;
 
+    border-radius:50px;
+
     font-size:9px;
+
     font-weight:600;
 
     transition:.3s;
 }
 
+
 .button-main{
-    background:#353936;
+
+    background:#343735;
+
     color:#fff;
 }
 
 .button-main:hover{
+
     background:var(--purple);
+
     transform:translateY(-3px);
 }
 
+
 .button-light{
+
     border:1px solid var(--line);
 
     background:#fff;
 
-    color:#666d68;
+    color:#676e69;
 }
 
 .button-light:hover{
+
+    border-color:#c9cdc8;
+
     transform:translateY(-3px);
-    border-color:#cfd2cd;
 }
 
 
 /* =========================================================
-HERO FOTO + NOME LATERAL
+HERO FOTO
 ========================================================= */
 
 .hero-visual{
+
     position:relative;
 
-    height:650px;
+    height:645px;
 
     display:flex;
 
     align-items:flex-end;
+
     justify-content:center;
 }
 
+
+/*
+   IMPORTANTE:
+   A foto não recebe fundo, não recebe card
+   e não é cortada.
+*/
+
 .hero-photo{
+
     position:relative;
 
-    z-index:2;
+    z-index:3;
 
-    width:min(610px,100%);
-    height:650px;
+    width:min(575px, 100%);
+
+    height:645px;
 
     display:flex;
 
     align-items:flex-end;
+
     justify-content:center;
 }
 
 .hero-photo img{
+
     width:100%;
+
     height:100%;
 
     object-fit:contain;
+
     object-position:center bottom;
+
+    image-rendering:auto;
 }
 
+
+/* =========================================================
+NOME VERTICAL
+========================================================= */
+
 .hero-name{
+
     position:absolute;
 
-    z-index:1;
+    z-index:2;
 
-    right:-20px;
+    right:-8px;
+
     top:50%;
 
     transform:
@@ -497,9 +648,11 @@ HERO FOTO + NOME LATERAL
 
     white-space:nowrap;
 
-    font-family:"Manrope",sans-serif;
+    font-family:"Manrope", sans-serif;
 
-    font-size:clamp(48px,5vw,70px);
+    font-size:clamp(43px, 4.8vw, 68px);
+
+    line-height:1;
 
     font-weight:600;
 
@@ -508,34 +661,126 @@ HERO FOTO + NOME LATERAL
     color:#e6e7e4;
 
     pointer-events:none;
+
+    user-select:none;
 }
 
-.hero-circle{
+
+/* =========================================================
+QUADRADO / DETALHE DA HERO
+========================================================= */
+
+.hero-square{
+
     position:absolute;
 
-    right:5%;
-    bottom:35px;
+    z-index:5;
 
-    width:68px;
-    height:68px;
+    left:5px;
+
+    bottom:45px;
+
+    width:122px;
+
+    min-height:95px;
+
+    padding:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    background:var(--purple);
+
+    color:#fff;
+
+    border-radius:3px;
+
+    box-shadow:
+        0 14px 35px rgba(72,60,79,.13);
+
+    animation:
+        squareFloat 5s ease-in-out infinite;
+}
+
+.hero-square small{
+
+    font-size:7px;
+
+    font-weight:600;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+
+    color:rgba(255,255,255,.65);
+}
+
+.hero-square strong{
+
+    max-width:90px;
+
+    font-family:"Manrope", sans-serif;
+
+    font-size:13px;
+
+    line-height:1.25;
+
+    font-weight:500;
+}
+
+@keyframes squareFloat{
+
+    0%,
+    100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+}
+
+
+/* =========================================================
+CÍRCULO HERO
+========================================================= */
+
+.hero-circle{
+
+    position:absolute;
+
+    z-index:6;
+
+    right:1%;
+
+    bottom:28px;
+
+    width:64px;
+
+    height:64px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:50%;
 
-    background:rgba(255,255,255,.9);
+    background:#fff;
 
-    border:1px solid rgba(255,255,255,.95);
+    border:1px solid #e5e7e3;
 
-    backdrop-filter:blur(12px);
-
-    z-index:5;
+    box-shadow:
+        0 10px 30px rgba(40,45,42,.06);
 }
 
 .hero-circle svg{
-    width:29px;
-    height:29px;
+
+    width:27px;
+
+    height:27px;
 
     fill:none;
 
@@ -544,6 +789,7 @@ HERO FOTO + NOME LATERAL
     stroke-width:1.4;
 
     stroke-linecap:round;
+
     stroke-linejoin:round;
 }
 
@@ -553,14 +799,17 @@ INTRO
 ========================================================= */
 
 .intro{
-    padding:135px 0;
+
+    padding:130px 0;
+
     background:#fff;
 }
 
 .intro-grid{
+
     display:grid;
 
-    grid-template-columns:.38fr 1.62fr;
+    grid-template-columns:.37fr 1.63fr;
 
     gap:70px;
 }
@@ -570,11 +819,12 @@ INTRO
 }
 
 .intro-title{
-    font-family:"Manrope",sans-serif;
 
-    font-size:clamp(42px,5vw,64px);
+    font-family:"Manrope", sans-serif;
 
-    line-height:1.03;
+    font-size:clamp(41px, 4.8vw, 62px);
+
+    line-height:1.04;
 
     letter-spacing:-.07em;
 
@@ -582,14 +832,22 @@ INTRO
 }
 
 .intro-title span{
+
     display:block;
-    color:#8b908c;
+
+    color:#8c928d;
 }
 
+
+/* =========================================================
+EFEITO OLHAR INDIVIDUAL
+========================================================= */
+
 .intro-text{
+
     max-width:650px;
 
-    margin-top:27px;
+    margin-top:26px;
 
     font-size:12px;
 
@@ -599,30 +857,34 @@ INTRO
 }
 
 .intro-footer{
-    margin-top:40px;
+
+    margin-top:39px;
 
     display:flex;
 
     align-items:center;
 
-    gap:15px;
+    gap:14px;
 }
 
 .intro-footer-line{
-    width:70px;
+
+    width:68px;
+
     height:1px;
 
-    background:#d2d6d1;
+    background:#d1d5d0;
 }
 
 .intro-footer span{
-    font-size:8px;
 
-    text-transform:uppercase;
+    font-size:8px;
 
     letter-spacing:.14em;
 
-    color:#9da39e;
+    text-transform:uppercase;
+
+    color:#9ca29d;
 }
 
 
@@ -631,11 +893,14 @@ ATUAÇÃO
 ========================================================= */
 
 .services{
-    padding:0 0 135px;
+
+    padding:0 0 130px;
+
     background:#fff;
 }
 
 .services-grid{
+
     display:grid;
 
     grid-template-columns:repeat(3,1fr);
@@ -644,20 +909,24 @@ ATUAÇÃO
 }
 
 .service{
-    min-height:250px;
+
+    min-height:235px;
 
     position:relative;
 
-    padding:26px;
+    padding:25px;
 
     overflow:hidden;
 
-    border-radius:25px;
+    border-radius:24px;
 
-    transition:.4s ease;
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
 }
 
 .service:hover{
+
     transform:translateY(-6px);
 
     box-shadow:
@@ -665,40 +934,46 @@ ATUAÇÃO
 }
 
 .service:nth-child(1){
-    background:#eaf0eb;
+    background:#eef1ed;
 }
 
 .service:nth-child(2){
-    background:#eee9f1;
+    background:#f0edf2;
 }
 
 .service:nth-child(3){
-    background:#edf2f3;
+    background:#eef2f3;
 }
 
 .service-icon{
-    width:52px;
-    height:52px;
+
+    width:49px;
+
+    height:49px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:15px;
 
-    background:rgba(255,255,255,.7);
+    background:rgba(255,255,255,.75);
 }
 
 .service-icon svg{
-    width:27px;
-    height:27px;
+
+    width:25px;
+
+    height:25px;
 
     fill:none;
 
-    stroke:#647169;
+    stroke:#657069;
 
     stroke-width:1.4;
 
     stroke-linecap:round;
+
     stroke-linejoin:round;
 }
 
@@ -707,21 +982,27 @@ ATUAÇÃO
 }
 
 .service:nth-child(3) .service-icon svg{
-    stroke:#60777e;
+    stroke:#61767b;
 }
 
 .service-content{
+
     position:absolute;
 
-    left:27px;
-    right:27px;
-    bottom:27px;
+    left:26px;
+
+    right:26px;
+
+    bottom:25px;
 }
 
 .service h3{
-    font-family:"Manrope",sans-serif;
 
-    font-size:22px;
+    font-family:"Manrope", sans-serif;
+
+    font-size:21px;
+
+    line-height:1.1;
 
     font-weight:500;
 
@@ -729,9 +1010,10 @@ ATUAÇÃO
 }
 
 .service p{
-    max-width:310px;
 
-    margin-top:9px;
+    max-width:300px;
+
+    margin-top:8px;
 
     font-size:10px;
 
@@ -746,23 +1028,28 @@ PROCESSO
 ========================================================= */
 
 .process{
-    padding:130px 0;
+
+    padding:125px 0;
+
     background:#fafaf8;
 }
 
 .process-header{
+
     max-width:750px;
-    margin-bottom:70px;
+
+    margin-bottom:67px;
 }
 
 .process-header h2{
-    margin-top:20px;
 
-    font-family:"Manrope",sans-serif;
+    margin-top:19px;
 
-    font-size:clamp(40px,4.8vw,60px);
+    font-family:"Manrope", sans-serif;
 
-    line-height:1.04;
+    font-size:clamp(40px, 4.7vw, 58px);
+
+    line-height:1.05;
 
     letter-spacing:-.07em;
 
@@ -770,18 +1057,20 @@ PROCESSO
 }
 
 .process-header p{
+
     max-width:500px;
 
-    margin-top:20px;
+    margin-top:19px;
 
     font-size:11px;
 
     line-height:1.85;
 
-    color:#7b817d;
+    color:#7c827e;
 }
 
 .steps{
+
     display:grid;
 
     grid-template-columns:repeat(3,1fr);
@@ -790,6 +1079,7 @@ PROCESSO
 }
 
 .steps::before{
+
     content:"";
 
     position:absolute;
@@ -797,6 +1087,7 @@ PROCESSO
     top:31px;
 
     left:8%;
+
     right:8%;
 
     height:1px;
@@ -805,7 +1096,9 @@ PROCESSO
 }
 
 .step{
+
     position:relative;
+
     padding-right:30px;
 }
 
@@ -814,14 +1107,17 @@ PROCESSO
 }
 
 .step-icon{
+
     position:relative;
 
     z-index:2;
 
-    width:63px;
-    height:63px;
+    width:62px;
+
+    height:62px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:50%;
@@ -834,21 +1130,26 @@ PROCESSO
 }
 
 .step:hover .step-icon{
-    transform:scale(1.08);
-    background:#efebf2;
+
+    transform:scale(1.07);
+
+    background:#f0ebf2;
 }
 
 .step-icon svg{
-    width:27px;
-    height:27px;
+
+    width:26px;
+
+    height:26px;
 
     fill:none;
 
-    stroke:#657168;
+    stroke:#647069;
 
     stroke-width:1.4;
 
     stroke-linecap:round;
+
     stroke-linejoin:round;
 }
 
@@ -857,11 +1158,12 @@ PROCESSO
 }
 
 .step:nth-child(3) .step-icon svg{
-    stroke:#607980;
+    stroke:#61787d;
 }
 
 .step-number{
-    margin-top:24px;
+
+    margin-top:23px;
 
     font-size:8px;
 
@@ -873,11 +1175,12 @@ PROCESSO
 }
 
 .step h3{
-    margin-top:9px;
 
-    font-family:"Manrope",sans-serif;
+    margin-top:8px;
 
-    font-size:23px;
+    font-family:"Manrope", sans-serif;
+
+    font-size:22px;
 
     font-weight:500;
 
@@ -885,6 +1188,7 @@ PROCESSO
 }
 
 .step p{
+
     max-width:290px;
 
     margin-top:9px;
@@ -902,11 +1206,14 @@ SOBRE
 ========================================================= */
 
 .about{
-    padding:140px 0;
+
+    padding:135px 0;
+
     background:#fff;
 }
 
 .about-grid{
+
     display:grid;
 
     grid-template-columns:.9fr 1.1fr;
@@ -916,37 +1223,49 @@ SOBRE
     align-items:center;
 }
 
+
+/*
+    SEM CARD COLORIDO ATRÁS DA FOTO.
+    A imagem permanece limpa.
+*/
+
 .about-photo{
-    height:570px;
 
-    border-radius:30px;
-
-    overflow:hidden;
-
-    background:#f6f6f3;
+    height:550px;
 
     display:flex;
 
     align-items:flex-end;
+
     justify-content:center;
+
+    overflow:hidden;
+
+    background:#fff;
+
+    border-radius:0;
 }
 
 .about-photo img{
+
     width:100%;
+
     height:100%;
 
     object-fit:contain;
+
     object-position:center bottom;
 }
 
 .about-title{
-    margin-top:20px;
+
+    margin-top:19px;
 
     max-width:600px;
 
-    font-family:"Manrope",sans-serif;
+    font-family:"Manrope", sans-serif;
 
-    font-size:clamp(40px,4.7vw,58px);
+    font-size:clamp(39px, 4.6vw, 57px);
 
     line-height:1.04;
 
@@ -960,9 +1279,10 @@ SOBRE
 }
 
 .about-text{
+
     max-width:510px;
 
-    margin-top:24px;
+    margin-top:23px;
 
     font-size:11px;
 
@@ -972,31 +1292,38 @@ SOBRE
 }
 
 .about-points{
+
     display:grid;
 
     grid-template-columns:1fr 1fr;
 
     gap:12px;
 
-    margin-top:32px;
+    margin-top:30px;
 }
 
 .about-point{
-    padding:16px;
+
+    padding:15px;
 
     border:1px solid #e5e7e3;
 
-    border-radius:15px;
+    border-radius:14px;
 
-    transition:.3s;
+    transition:
+        background .3s ease,
+        transform .3s ease;
 }
 
 .about-point:hover{
+
     background:#fafaf8;
+
     transform:translateY(-3px);
 }
 
 .about-point strong{
+
     display:block;
 
     font-size:10px;
@@ -1005,6 +1332,7 @@ SOBRE
 }
 
 .about-point span{
+
     display:block;
 
     margin-top:5px;
@@ -1018,11 +1346,67 @@ SOBRE
 
 
 /* =========================================================
-FRASE
+FOTO FINAL
+========================================================= */
+
+.final-photo{
+
+    padding:0 0 130px;
+
+    background:#fff;
+}
+
+.final-photo-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+
+    align-items:end;
+}
+
+.final-photo-item{
+
+    height:300px;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:#fff;
+}
+
+.final-photo-item img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    object-position:center bottom;
+}
+
+.final-photo-item:last-child{
+
+    height:250px;
+
+}
+
+
+/* =========================================================
+QUOTE
 ========================================================= */
 
 .quote{
-    padding:115px 0;
+
+    padding:110px 0;
 
     background:var(--purple);
 
@@ -1030,6 +1414,7 @@ FRASE
 }
 
 .quote-grid{
+
     display:grid;
 
     grid-template-columns:1fr .55fr;
@@ -1040,15 +1425,16 @@ FRASE
 }
 
 .quote h2{
-    max-width:790px;
 
-    margin-top:20px;
+    max-width:780px;
 
-    font-family:"Manrope",sans-serif;
+    margin-top:19px;
 
-    font-size:clamp(38px,5vw,62px);
+    font-family:"Manrope", sans-serif;
 
-    line-height:1.04;
+    font-size:clamp(38px, 4.8vw, 60px);
+
+    line-height:1.05;
 
     letter-spacing:-.07em;
 
@@ -1056,6 +1442,7 @@ FRASE
 }
 
 .quote p{
+
     font-size:11px;
 
     line-height:1.85;
@@ -1077,11 +1464,14 @@ VÍDEOS
 ========================================================= */
 
 .videos{
-    padding:135px 0;
+
+    padding:130px 0;
+
     background:#fff;
 }
 
 .videos-heading{
+
     display:flex;
 
     justify-content:space-between;
@@ -1090,15 +1480,16 @@ VÍDEOS
 
     gap:60px;
 
-    margin-bottom:55px;
+    margin-bottom:52px;
 }
 
 .videos-heading h2{
-    margin-top:19px;
 
-    font-family:"Manrope",sans-serif;
+    margin-top:18px;
 
-    font-size:clamp(40px,4.8vw,59px);
+    font-family:"Manrope", sans-serif;
+
+    font-size:clamp(40px, 4.7vw, 58px);
 
     line-height:1.04;
 
@@ -1108,9 +1499,10 @@ VÍDEOS
 }
 
 .videos-heading p{
+
     max-width:310px;
 
-    margin-bottom:3px;
+    margin-bottom:2px;
 
     font-size:11px;
 
@@ -1119,7 +1511,13 @@ VÍDEOS
     color:#7d827e;
 }
 
+
+/* =========================================================
+MOSAICO YOUTUBE
+========================================================= */
+
 .video-mosaic{
+
     display:grid;
 
     grid-template-columns:1.45fr .8fr .8fr;
@@ -1130,20 +1528,24 @@ VÍDEOS
 }
 
 .video-item{
+
     position:relative;
 
     overflow:hidden;
 
-    border-radius:22px;
+    border-radius:20px;
 
     background:#f0f1ee;
 
     border:1px solid #e4e6e2;
 
-    transition:.45s ease;
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease;
 }
 
 .video-item:hover{
+
     transform:translateY(-5px);
 
     box-shadow:
@@ -1151,49 +1553,61 @@ VÍDEOS
 }
 
 .video-item:nth-child(1){
+
     grid-column:1;
+
     grid-row:1 / 3;
 }
 
 .video-item:nth-child(2){
+
     grid-column:2;
+
     grid-row:1;
 }
 
 .video-item:nth-child(3){
+
     grid-column:3;
+
     grid-row:1;
 }
 
 .video-item:nth-child(4){
+
     grid-column:2 / 4;
+
     grid-row:2;
 }
 
 .video-item iframe{
+
     position:absolute;
 
     inset:0;
 
     width:100%;
+
     height:100%;
 
     border:0;
 }
 
 .video-tag{
+
     position:absolute;
 
-    z-index:4;
+    z-index:5;
 
-    top:13px;
-    left:13px;
+    top:12px;
+
+    left:12px;
 
     padding:7px 10px;
 
     border-radius:30px;
 
-    background:rgba(255,255,255,.87);
+    background:rgba(255,255,255,.88);
 
     backdrop-filter:blur(8px);
 
@@ -1211,16 +1625,19 @@ VÍDEOS
 }
 
 .videos-button{
-    margin-top:45px;
+
+    margin-top:42px;
 
     display:flex;
+
     justify-content:center;
 }
 
 .youtube-button{
-    min-height:45px;
 
-    padding:0 20px;
+    min-height:44px;
+
+    padding:0 19px;
 
     display:inline-flex;
 
@@ -1230,7 +1647,7 @@ VÍDEOS
 
     border-radius:50px;
 
-    background:#353936;
+    background:#343735;
 
     color:#fff;
 
@@ -1242,15 +1659,20 @@ VÍDEOS
 }
 
 .youtube-button:hover{
+
     background:var(--purple);
+
     transform:translateY(-3px);
 }
 
 .youtube-button-icon{
+
     width:21px;
+
     height:21px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:6px;
@@ -1266,11 +1688,14 @@ CONTATO
 ========================================================= */
 
 .contact{
-    padding:130px 0;
+
+    padding:125px 0;
+
     background:#f5f6f3;
 }
 
 .contact-grid{
+
     display:grid;
 
     grid-template-columns:.82fr 1.18fr;
@@ -1281,15 +1706,16 @@ CONTATO
 }
 
 .contact h2{
-    max-width:620px;
 
-    margin-top:20px;
+    max-width:610px;
 
-    font-family:"Manrope",sans-serif;
+    margin-top:19px;
 
-    font-size:clamp(40px,5vw,63px);
+    font-family:"Manrope", sans-serif;
 
-    line-height:1.01;
+    font-size:clamp(39px, 4.8vw, 61px);
+
+    line-height:1.02;
 
     letter-spacing:-.075em;
 
@@ -1301,7 +1727,8 @@ CONTATO
 }
 
 .contact-text{
-    max-width:450px;
+
+    max-width:445px;
 
     margin-top:22px;
 
@@ -1314,30 +1741,33 @@ CONTATO
 
 
 /* =========================================================
-FORM
+FORMULÁRIO
 ========================================================= */
 
 .contact-form{
-    padding:35px;
+
+    padding:34px;
 
     background:#fff;
 
     border:1px solid #e1e4df;
 
-    border-radius:28px;
+    border-radius:27px;
 
     box-shadow:
         0 18px 55px rgba(40,45,42,.05);
 }
 
 .form-top{
-    margin-bottom:28px;
+
+    margin-bottom:27px;
 }
 
 .form-top h3{
-    font-family:"Manrope",sans-serif;
 
-    font-size:23px;
+    font-family:"Manrope", sans-serif;
+
+    font-size:22px;
 
     font-weight:500;
 
@@ -1345,6 +1775,7 @@ FORM
 }
 
 .form-top p{
+
     margin-top:7px;
 
     font-size:9px;
@@ -1355,6 +1786,7 @@ FORM
 }
 
 .form-row{
+
     display:grid;
 
     grid-template-columns:1fr 1fr;
@@ -1367,6 +1799,7 @@ FORM
 }
 
 .form-group label{
+
     display:block;
 
     margin-bottom:7px;
@@ -1384,6 +1817,7 @@ FORM
 
 .form-group input,
 .form-group textarea{
+
     width:100%;
 
     border:1px solid #dfe2dd;
@@ -1392,7 +1826,7 @@ FORM
 
     background:#fafaf8;
 
-    color:#353936;
+    color:#343735;
 
     border-radius:13px;
 
@@ -1400,7 +1834,8 @@ FORM
 }
 
 .form-group input{
-    height:48px;
+
+    height:47px;
 
     padding:0 14px;
 
@@ -1408,7 +1843,8 @@ FORM
 }
 
 .form-group textarea{
-    min-height:125px;
+
+    min-height:120px;
 
     padding:14px;
 
@@ -1426,6 +1862,7 @@ FORM
 
 .form-group input:focus,
 .form-group textarea:focus{
+
     background:#fff;
 
     border-color:#b8acbd;
@@ -1435,6 +1872,7 @@ FORM
 }
 
 .form-submit{
+
     width:100%;
 
     min-height:48px;
@@ -1443,7 +1881,7 @@ FORM
 
     border-radius:50px;
 
-    background:#353936;
+    background:#343735;
 
     color:#fff;
 
@@ -1456,18 +1894,23 @@ FORM
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     gap:9px;
 }
 
 .form-submit:hover{
+
     background:var(--purple);
+
     transform:translateY(-2px);
 }
 
 .form-submit svg{
+
     width:16px;
+
     height:16px;
 
     fill:none;
@@ -1477,11 +1920,13 @@ FORM
     stroke-width:1.5;
 
     stroke-linecap:round;
+
     stroke-linejoin:round;
 }
 
 .form-note{
-    margin-top:11px;
+
+    margin-top:10px;
 
     text-align:center;
 
@@ -1496,34 +1941,41 @@ FOOTER
 ========================================================= */
 
 footer{
-    padding:58px 0 24px;
 
-    background:#eceeea;
+    padding:55px 0 23px;
+
+    background:#f1f2ef;
 
     color:#4d534f;
 
-    border-top:1px solid #dfe2dd;
+    border-top:1px solid #e1e3df;
 }
 
 .footer-grid{
+
     display:grid;
 
     grid-template-columns:1.3fr .7fr .9fr;
 
     gap:50px;
 
-    padding-bottom:45px;
+    padding-bottom:42px;
 
-    border-bottom:1px solid #d9ddd8;
+    border-bottom:1px solid #dfe2dd;
 }
 
 .footer-logo{
-    width:105px;
-    margin-bottom:17px;
+
+    width:92px;
+
+    height:auto;
+
+    margin-bottom:16px;
 }
 
 .footer-description{
-    max-width:310px;
+
+    max-width:300px;
 
     font-size:9px;
 
@@ -1533,7 +1985,8 @@ footer{
 }
 
 .footer-title{
-    margin-bottom:15px;
+
+    margin-bottom:14px;
 
     font-size:8px;
 
@@ -1547,16 +2000,18 @@ footer{
 }
 
 .footer-links{
+
     display:flex;
 
     flex-direction:column;
 
-    gap:10px;
-
     align-items:flex-start;
+
+    gap:10px;
 }
 
 .footer-links a{
+
     font-size:9px;
 
     color:#68706b;
@@ -1569,27 +2024,19 @@ footer{
 }
 
 .footer-email{
+
     display:inline-block;
 
-    margin-top:3px;
+    max-width:100%;
 
-    font-size:10px;
-
-    line-height:1.5;
-
-    color:#5e6560;
+    font-size:10px !important;
 
     word-break:break-word;
-
-    transition:.25s;
-}
-
-.footer-email:hover{
-    color:var(--purple);
 }
 
 .footer-bottom{
-    padding-top:22px;
+
+    padding-top:21px;
 
     display:flex;
 
@@ -1601,56 +2048,70 @@ footer{
 }
 
 .footer-bottom span{
+
     font-size:8px;
+
     color:#9aa09b;
 }
 
 
 /* =========================================================
 WHATSAPP FLUTUANTE
-PNG REAL ENVIADO
 ========================================================= */
 
 .whatsapp-float{
+
     position:fixed;
 
     z-index:2000;
 
-    right:24px;
-    bottom:24px;
+    right:22px;
 
-    width:62px;
-    height:62px;
+    bottom:22px;
+
+    width:58px;
+
+    height:58px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:50%;
 
     background:#fff;
 
-    box-shadow:
-        0 10px 30px rgba(40,45,42,.18);
+    border:1px solid #e4e7e2;
 
-    transition:.3s;
+    box-shadow:
+        0 10px 30px rgba(40,45,42,.13);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
 .whatsapp-float img{
-    width:62px;
-    height:62px;
+
+    width:33px;
+
+    height:33px;
 
     object-fit:contain;
-
-    border-radius:50%;
 }
 
 .whatsapp-float:hover{
+
     transform:
-        translateY(-5px)
-        scale(1.05);
+        translateY(-4px)
+        scale(1.04);
+
+    box-shadow:
+        0 15px 35px rgba(40,45,42,.17);
 }
 
 .whatsapp-float::before{
+
     content:"";
 
     position:absolute;
@@ -1659,25 +2120,25 @@ PNG REAL ENVIADO
 
     border-radius:50%;
 
-    border:1px solid rgba(37,211,102,.18);
+    border:1px solid rgba(37,211,102,.16);
 
-    animation:pulse 2.5s infinite;
+    animation:pulse 2.7s infinite;
 }
 
 @keyframes pulse{
 
     0%{
         transform:scale(.9);
-        opacity:.8;
+        opacity:.7;
     }
 
     70%{
-        transform:scale(1.16);
+        transform:scale(1.14);
         opacity:0;
     }
 
     100%{
-        transform:scale(1.16);
+        transform:scale(1.14);
         opacity:0;
     }
 }
@@ -1688,9 +2149,10 @@ REVEAL
 ========================================================= */
 
 .reveal{
+
     opacity:0;
 
-    transform:translateY(25px);
+    transform:translateY(24px);
 
     transition:
         opacity .8s ease,
@@ -1698,7 +2160,9 @@ REVEAL
 }
 
 .reveal.visible{
+
     opacity:1;
+
     transform:translateY(0);
 }
 
@@ -1710,7 +2174,7 @@ TABLET
 @media(max-width:1050px){
 
     .menu{
-        gap:18px;
+        gap:17px;
         margin-right:18px;
     }
 
@@ -1731,7 +2195,9 @@ TABLET
     }
 
     .intro-grid{
+
         grid-template-columns:1fr;
+
         gap:30px;
     }
 
@@ -1744,20 +2210,25 @@ TABLET
     }
 
     .about-grid{
+
         grid-template-columns:1fr;
+
         gap:55px;
     }
 
     .about-photo{
-        height:540px;
+        height:520px;
     }
 
     .quote-grid{
+
         grid-template-columns:1fr;
+
         gap:30px;
     }
 
     .video-mosaic{
+
         grid-template-columns:1fr 1fr;
 
         grid-template-rows:
@@ -1767,29 +2238,40 @@ TABLET
     }
 
     .video-item:nth-child(1){
+
         grid-column:1/-1;
+
         grid-row:1;
     }
 
     .video-item:nth-child(2){
+
         grid-column:1;
+
         grid-row:2;
     }
 
     .video-item:nth-child(3){
+
         grid-column:2;
+
         grid-row:2;
     }
 
     .video-item:nth-child(4){
+
         grid-column:1/-1;
+
         grid-row:3;
     }
 
     .contact-grid{
+
         grid-template-columns:1fr;
+
         gap:45px;
     }
+
 }
 
 
@@ -1800,15 +2282,17 @@ MOBILE
 @media(max-width:800px){
 
     .container{
-        width:min(100% - 34px,650px);
+        width:min(100% - 34px, 650px);
     }
 
     .menu{
+
         position:fixed;
 
-        top:72px;
+        top:70px;
 
         left:17px;
+
         right:17px;
 
         margin:0;
@@ -1821,11 +2305,13 @@ MOBILE
 
         align-items:flex-start;
 
-        gap:20px;
+        gap:19px;
 
         background:rgba(255,255,255,.97);
 
         backdrop-filter:blur(18px);
+
+        -webkit-backdrop-filter:blur(18px);
 
         border:1px solid #e3e5e1;
 
@@ -1844,6 +2330,7 @@ MOBILE
     }
 
     .menu.open{
+
         opacity:1;
 
         pointer-events:auto;
@@ -1860,20 +2347,23 @@ MOBILE
     }
 
     .menu-toggle{
+
         display:block;
+
         margin-left:auto;
     }
 
     .hero{
-        padding-top:110px;
+
+        padding-top:105px;
 
         min-height:auto;
 
-        padding-bottom:60px;
+        padding-bottom:55px;
     }
 
     .hero h1{
-        font-size:47px;
+        font-size:46px;
     }
 
     .hero-visual{
@@ -1885,28 +2375,50 @@ MOBILE
     }
 
     .hero-name{
+
         right:50%;
 
         top:auto;
 
-        bottom:10px;
+        bottom:15px;
 
         transform:translateX(50%);
 
-        font-size:39px;
+        font-size:38px;
+    }
+
+    .hero-square{
+
+        left:0;
+
+        bottom:20px;
+
+        width:108px;
+
+        min-height:86px;
+
+        padding:15px;
+    }
+
+    .hero-square strong{
+        font-size:11px;
     }
 
     .hero-circle{
+
         right:0;
 
-        bottom:24px;
+        bottom:20px;
 
-        width:60px;
-        height:60px;
+        width:57px;
+
+        height:57px;
     }
 
     .hero-actions{
+
         flex-direction:column;
+
         align-items:stretch;
     }
 
@@ -1916,11 +2428,11 @@ MOBILE
     }
 
     .intro{
-        padding:95px 0;
+        padding:90px 0;
     }
 
     .intro-title{
-        font-size:41px;
+        font-size:40px;
     }
 
     .services{
@@ -1936,67 +2448,89 @@ MOBILE
     }
 
     .process{
-        padding:95px 0;
+        padding:90px 0;
     }
 
     .steps{
+
         grid-template-columns:1fr;
-        gap:45px;
+
+        gap:44px;
     }
 
     .steps::before{
+
         left:31px;
+
         right:auto;
 
         top:31px;
+
         bottom:31px;
 
         width:1px;
+
         height:auto;
     }
 
     .step,
     .step:not(:first-child){
+
         padding:
             0
             0
             0
-            94px;
+            92px;
     }
 
     .step-icon{
+
         position:absolute;
 
         left:0;
+
         top:0;
     }
 
     .about{
-        padding:95px 0;
+        padding:90px 0;
     }
 
     .about-photo{
-        height:480px;
+        height:470px;
     }
 
     .about-title{
-        font-size:41px;
+        font-size:40px;
     }
 
     .about-points{
         grid-template-columns:1fr;
     }
 
+    .final-photo{
+        padding-bottom:90px;
+    }
+
+    .final-photo-grid{
+        grid-template-columns:1fr;
+    }
+
+    .final-photo-item,
+    .final-photo-item:last-child{
+        height:420px;
+    }
+
     .quote{
-        padding:95px 0;
+        padding:90px 0;
     }
 
     .quote h2{
-        font-size:40px;
+        font-size:39px;
     }
 
     .videos{
-        padding:95px 0;
+        padding:90px 0;
     }
 
     .videos-heading{
@@ -2004,10 +2538,11 @@ MOBILE
     }
 
     .videos-heading p{
-        margin-top:20px;
+        margin-top:19px;
     }
 
     .video-mosaic{
+
         grid-template-columns:1fr 1fr;
 
         grid-template-rows:
@@ -2017,31 +2552,39 @@ MOBILE
     }
 
     .video-item:nth-child(1){
+
         grid-column:1/-1;
+
         grid-row:1;
     }
 
     .video-item:nth-child(2){
+
         grid-column:1;
+
         grid-row:2;
     }
 
     .video-item:nth-child(3){
+
         grid-column:2;
+
         grid-row:2;
     }
 
     .video-item:nth-child(4){
+
         grid-column:1/-1;
+
         grid-row:3;
     }
 
     .contact{
-        padding:95px 0;
+        padding:90px 0;
     }
 
     .contact h2{
-        font-size:41px;
+        font-size:40px;
     }
 
     .contact-form{
@@ -2049,12 +2592,16 @@ MOBILE
     }
 
     .footer-grid{
+
         grid-template-columns:1fr 1fr;
+
+        gap:35px 25px;
     }
 
     .footer-brand{
         grid-column:1/-1;
     }
+
 }
 
 
@@ -2064,44 +2611,82 @@ MOBILE PEQUENO
 
 @media(max-width:520px){
 
-    .logo{
-        width:94px;
+    .logo,
+    .logo img{
+        width:86px;
     }
 
     .hero h1{
-        font-size:43px;
+        font-size:42px;
     }
 
     .hero-visual{
-        height:440px;
-    }
-
-    .hero-photo{
-        height:440px;
-    }
-
-    .hero-name{
-        font-size:33px;
-    }
-
-    .intro-title{
-        font-size:38px;
-    }
-
-    .about-photo{
         height:430px;
     }
 
+    .hero-photo{
+        height:430px;
+    }
+
+    .hero-name{
+        font-size:32px;
+
+        bottom:8px;
+    }
+
+    .hero-square{
+
+        width:98px;
+
+        min-height:80px;
+
+        bottom:14px;
+
+        padding:13px;
+    }
+
+    .hero-square small{
+        font-size:6px;
+    }
+
+    .hero-square strong{
+        font-size:10px;
+    }
+
+    .hero-circle{
+
+        width:52px;
+
+        height:52px;
+
+        bottom:14px;
+    }
+
+    .hero-circle svg{
+        width:23px;
+        height:23px;
+    }
+
+    .intro-title{
+        font-size:37px;
+    }
+
+    .about-photo{
+        height:400px;
+    }
+
     .about-title{
-        font-size:38px;
+        font-size:37px;
     }
 
     .form-row{
         grid-template-columns:1fr;
+
         gap:0;
     }
 
     .video-mosaic{
+
         grid-template-columns:1fr;
 
         grid-template-rows:
@@ -2112,27 +2697,35 @@ MOBILE PEQUENO
     }
 
     .video-item:nth-child(1){
+
         grid-column:1;
+
         grid-row:1;
     }
 
     .video-item:nth-child(2){
+
         grid-column:1;
+
         grid-row:2;
     }
 
     .video-item:nth-child(3){
+
         grid-column:1;
+
         grid-row:3;
     }
 
     .video-item:nth-child(4){
+
         grid-column:1;
+
         grid-row:4;
     }
 
     .contact h2{
-        font-size:39px;
+        font-size:37px;
     }
 
     .footer-grid{
@@ -2144,22 +2737,61 @@ MOBILE PEQUENO
     }
 
     .footer-bottom{
+
         flex-direction:column;
+
         align-items:flex-start;
     }
 
     .whatsapp-float{
-        width:55px;
-        height:55px;
 
-        right:17px;
-        bottom:17px;
+        width:54px;
+
+        height:54px;
+
+        right:16px;
+
+        bottom:16px;
     }
 
     .whatsapp-float img{
-        width:55px;
-        height:55px;
+
+        width:31px;
+
+        height:31px;
     }
+
+}
+
+
+/* =========================================================
+REDUÇÃO DE MOVIMENTO
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+    }
+
+    .reveal{
+
+        opacity:1;
+
+        transform:none;
+    }
+
 }
 
 </style>
@@ -2180,6 +2812,7 @@ HEADER
 
 <nav class="nav">
 
+
 <a
     href="#inicio"
     class="logo"
@@ -2188,25 +2821,40 @@ HEADER
 
 <img
     src="https://i.imgur.com/b2bgrDe.png"
-    alt="Paula Borch"
+    alt="Logo Paula Borch"
 >
 
 </a>
 
 
-<div class="menu" id="menu">
+<div
+    class="menu"
+    id="menu"
+>
 
-<a href="#inicio">Início</a>
+<a href="#inicio">
+Início
+</a>
 
-<a href="#sobre">Sobre</a>
+<a href="#sobre">
+Sobre
+</a>
 
-<a href="#atuacao">Atuação</a>
+<a href="#atuacao">
+Atuação
+</a>
 
-<a href="#processo">Como funciona</a>
+<a href="#processo">
+Como funciona
+</a>
 
-<a href="#videos">Conteúdos</a>
+<a href="#videos">
+Conteúdos
+</a>
 
-<a href="#contato">Contato</a>
+<a href="#contato">
+Contato
+</a>
 
 </div>
 
@@ -2220,6 +2868,7 @@ HEADER
 
 
 <button
+    type="button"
     class="menu-toggle"
     id="menuToggle"
     aria-label="Abrir menu"
@@ -2231,11 +2880,13 @@ HEADER
 
 </button>
 
+
 </nav>
 
 </div>
 
 </header>
+
 
 
 <main>
@@ -2257,9 +2908,11 @@ HERO
 
 <div class="hero-content reveal">
 
+
 <div class="hero-eyebrow">
     Educação & Desenvolvimento
 </div>
+
 
 <h1>
 
@@ -2268,6 +2921,7 @@ aprende de um
 jeito <span>único.</span>
 
 </h1>
+
 
 <p class="hero-text">
 
@@ -2278,6 +2932,7 @@ acolhimento e individualidade.
 
 </p>
 
+
 <div class="hero-actions">
 
 <a
@@ -2286,6 +2941,7 @@ acolhimento e individualidade.
 >
 Conheça o trabalho
 </a>
+
 
 <a
     href="#processo"
@@ -2299,11 +2955,18 @@ Como funciona →
 </div>
 
 
+
 <div class="hero-visual reveal">
+
+
+<!-- NOME AO LADO DA FOTO -->
 
 <div class="hero-name">
 Paula Borch
 </div>
+
+
+<!-- FOTO PRINCIPAL -->
 
 <div class="hero-photo">
 
@@ -2315,14 +2978,36 @@ Paula Borch
 
 </div>
 
+
+<!-- QUADRADO ABAIXO DA FOTO -->
+
+<div class="hero-square">
+
+<small>
+Psicopedagogia
+</small>
+
+<strong>
+Um olhar atento para cada história.
+</strong>
+
+</div>
+
+
+<!-- DETALHE CIRCULAR -->
+
 <div class="hero-circle">
 
 <svg viewBox="0 0 48 48">
 
 <path d="M24 38V10"/>
+
 <path d="M24 16c-7-7-15-2-13 5 1 4 5 5 8 4"/>
+
 <path d="M24 21c7-7 15-2 13 5-1 4-5 5-8 4"/>
+
 <path d="M24 27c-6-5-12 0-10 5 1 3 4 4 7 3"/>
+
 <path d="M24 31c6-5 12 0 10 5-1 3-4 4-7 3"/>
 
 </svg>
@@ -2338,8 +3023,9 @@ Paula Borch
 </section>
 
 
+
 <!-- =========================================================
-INTRO
+UM OLHAR INDIVIDUAL
 ========================================================= -->
 
 <section class="intro">
@@ -2359,6 +3045,7 @@ Um olhar individual
 
 
 <div class="intro-content">
+
 
 <h2 class="intro-title">
 
@@ -2405,6 +3092,7 @@ Cada história importa
 </section>
 
 
+
 <!-- =========================================================
 ATUAÇÃO
 ========================================================= -->
@@ -2426,8 +3114,11 @@ ATUAÇÃO
 <svg viewBox="0 0 48 48">
 
 <circle cx="24" cy="17" r="6"/>
+
 <path d="M12 38c1-7 5-11 12-11s11 4 12 11"/>
+
 <path d="M10 24c-3 0-5 2-5 5s2 5 5 5"/>
+
 <path d="M38 24c3 0 5 2 5 5s-2 5-5 5"/>
 
 </svg>
@@ -2442,16 +3133,15 @@ Desenvolvimento
 </h3>
 
 <p>
-
-Um olhar integrado para
-as necessidades e
-possibilidades de cada pessoa.
-
+Um olhar integrado para as
+necessidades e possibilidades
+de cada pessoa.
 </p>
 
 </div>
 
 </article>
+
 
 
 <article class="service reveal">
@@ -2461,8 +3151,11 @@ possibilidades de cada pessoa.
 <svg viewBox="0 0 48 48">
 
 <path d="M8 12h32v25H8z"/>
+
 <path d="M15 19h18"/>
+
 <path d="M15 25h12"/>
+
 <path d="M15 31h8"/>
 
 </svg>
@@ -2477,16 +3170,15 @@ Aprendizagem
 </h3>
 
 <p>
-
 Estratégias que respeitam
 diferentes formas, ritmos
 e caminhos para aprender.
-
 </p>
 
 </div>
 
 </article>
+
 
 
 <article class="service reveal">
@@ -2496,7 +3188,9 @@ e caminhos para aprender.
 <svg viewBox="0 0 48 48">
 
 <circle cx="24" cy="24" r="15"/>
+
 <path d="M24 15v9l6 5"/>
+
 <path d="M15 38h18"/>
 
 </svg>
@@ -2511,11 +3205,9 @@ Acolhimento
 </h3>
 
 <p>
-
 Um espaço de escuta,
 compreensão e construção
 de novas possibilidades.
-
 </p>
 
 </div>
@@ -2528,6 +3220,7 @@ de novas possibilidades.
 </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -2543,6 +3236,7 @@ COMO FUNCIONA
 
 
 <div class="process-header reveal">
+
 
 <div class="section-label">
 
@@ -2572,6 +3266,7 @@ da realidade de cada pessoa.
 </div>
 
 
+
 <div class="steps">
 
 
@@ -2582,22 +3277,29 @@ da realidade de cada pessoa.
 <svg viewBox="0 0 48 48">
 
 <path d="M24 39c-8.2 0-15-5.4-15-12.5C9 19.1 15.7 13 24 13s15 6.1 15 13.5C39 33.6 32.2 39 24 39Z"/>
+
 <path d="M17 23c2-2 4-2 6 0s4 2 6 0"/>
+
 <path d="M19 29c1.7 1.5 4.3 1.5 6 0"/>
+
 <circle cx="19" cy="20" r="1.2"/>
+
 <circle cx="29" cy="20" r="1.2"/>
 
 </svg>
 
 </div>
 
+
 <div class="step-number">
 ETAPA 01
 </div>
 
+
 <h3>
 Escuta
 </h3>
+
 
 <p>
 
@@ -2611,6 +3313,7 @@ da dificuldade.
 </article>
 
 
+
 <article class="step reveal">
 
 <div class="step-icon">
@@ -2618,21 +3321,27 @@ da dificuldade.
 <svg viewBox="0 0 48 48">
 
 <circle cx="22" cy="22" r="10"/>
+
 <path d="M29 29l9 9"/>
+
 <path d="M17 22h10"/>
+
 <path d="M22 17v10"/>
 
 </svg>
 
 </div>
 
+
 <div class="step-number">
 ETAPA 02
 </div>
 
+
 <h3>
 Compreensão
 </h3>
+
 
 <p>
 
@@ -2645,6 +3354,7 @@ de aprender e se desenvolver.
 </article>
 
 
+
 <article class="step reveal">
 
 <div class="step-icon">
@@ -2652,22 +3362,29 @@ de aprender e se desenvolver.
 <svg viewBox="0 0 48 48">
 
 <path d="M9 34c7-1 11-5 14-11 3-6 7-9 16-10"/>
+
 <path d="M31 10h8v8"/>
+
 <circle cx="10" cy="34" r="3"/>
+
 <circle cx="24" cy="23" r="3"/>
+
 <circle cx="39" cy="13" r="3"/>
 
 </svg>
 
 </div>
 
+
 <div class="step-number">
 ETAPA 03
 </div>
 
+
 <h3>
 Caminhos
 </h3>
+
 
 <p>
 
@@ -2687,6 +3404,7 @@ adequadas a cada realidade.
 </section>
 
 
+
 <!-- =========================================================
 SOBRE
 ========================================================= -->
@@ -2701,6 +3419,8 @@ SOBRE
 <div class="about-grid">
 
 
+<!-- SEGUNDA FOTO: BWXELIG -->
+
 <div class="about-photo reveal">
 
 <img
@@ -2712,7 +3432,9 @@ SOBRE
 </div>
 
 
+
 <div class="reveal">
+
 
 <div class="section-label">
 
@@ -2748,6 +3470,7 @@ possibilidades.
 
 
 <div class="about-points">
+
 
 <div class="about-point">
 
@@ -2800,6 +3523,7 @@ Um espaço seguro para desenvolver.
 
 </div>
 
+
 </div>
 
 </div>
@@ -2811,8 +3535,37 @@ Um espaço seguro para desenvolver.
 </section>
 
 
+
 <!-- =========================================================
-FRASE
+ÚLTIMA FOTO
+========================================================= -->
+
+<section class="final-photo">
+
+<div class="container">
+
+<div class="final-photo-grid">
+
+<div class="final-photo-item">
+
+<img
+    src="https://i.imgur.com/xT4wqfg.png"
+    alt="Paula Borch"
+    loading="lazy"
+>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+FRASE ROXA
 ========================================================= -->
 
 <section class="quote">
@@ -2821,7 +3574,9 @@ FRASE
 
 <div class="quote-grid">
 
+
 <div class="reveal">
+
 
 <div class="section-label">
 
@@ -2830,6 +3585,7 @@ FRASE
 Psicopedagogia
 
 </div>
+
 
 <h2>
 
@@ -2851,11 +3607,13 @@ possibilidades.
 
 </p>
 
+
 </div>
 
 </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -2871,6 +3629,7 @@ VÍDEOS
 
 
 <div class="videos-heading reveal">
+
 
 <div>
 
@@ -2904,8 +3663,13 @@ educação e psicopedagogia.
 </div>
 
 
+
+<!-- MOSAICO -->
+
 <div class="video-mosaic">
 
+
+<!-- VÍDEO GRANDE -->
 
 <article class="video-item reveal">
 
@@ -2915,7 +3679,7 @@ Destaque
 
 <iframe
     src="https://www.youtube.com/embed/G-WHLWXXQrg"
-    title="Paula Borch"
+    title="Paula Borch — Conteúdo"
     loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
@@ -2923,6 +3687,9 @@ Destaque
 
 </article>
 
+
+
+<!-- VÍDEO PEQUENO -->
 
 <article class="video-item reveal">
 
@@ -2932,7 +3699,7 @@ Conteúdo
 
 <iframe
     src="https://www.youtube.com/embed/FAuZXncvy5o"
-    title="Paula Borch"
+    title="Paula Borch — Conteúdo"
     loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
@@ -2940,6 +3707,9 @@ Conteúdo
 
 </article>
 
+
+
+<!-- VÍDEO PEQUENO -->
 
 <article class="video-item reveal">
 
@@ -2949,7 +3719,7 @@ Conteúdo
 
 <iframe
     src="https://www.youtube.com/embed/ocwri6_0fHY"
-    title="Paula Borch"
+    title="Paula Borch — Conteúdo"
     loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
@@ -2957,6 +3727,9 @@ Conteúdo
 
 </article>
 
+
+
+<!-- VÍDEO HORIZONTAL -->
 
 <article class="video-item reveal">
 
@@ -2966,7 +3739,7 @@ Short
 
 <iframe
     src="https://www.youtube.com/embed/bfmsMIZ-hPc"
-    title="Paula Borch"
+    title="Paula Borch — Short"
     loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
@@ -2978,12 +3751,13 @@ Short
 </div>
 
 
+
 <div class="videos-button reveal">
 
 <a
     href="https://www.youtube.com/@prof.paulaborch8774"
     target="_blank"
-    rel="noopener"
+    rel="noopener noreferrer"
     class="youtube-button"
 >
 
@@ -2993,7 +3767,9 @@ Short
 
 Ver canal completo
 
-<span>→</span>
+<span>
+→
+</span>
 
 </a>
 
@@ -3002,6 +3778,7 @@ Ver canal completo
 </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -3019,6 +3796,7 @@ CONTATO
 
 
 <div class="reveal">
+
 
 <div class="section-label">
 
@@ -3049,10 +3827,12 @@ o WhatsApp da Paula.
 </div>
 
 
+
 <form
     class="contact-form reveal"
     id="whatsappForm"
 >
+
 
 <div class="form-top">
 
@@ -3061,14 +3841,16 @@ Vamos começar uma conversa
 </h3>
 
 <p>
-Os dados serão utilizados somente
-para entrar em contato com você.
+Preencha seus dados e conte
+brevemente o que precisa.
 </p>
 
 </div>
 
 
+
 <div class="form-row">
+
 
 <div class="form-group">
 
@@ -3088,6 +3870,7 @@ Seu nome
 </div>
 
 
+
 <div class="form-group">
 
 <label for="telefone">
@@ -3105,7 +3888,9 @@ Seu WhatsApp
 
 </div>
 
+
 </div>
+
 
 
 <div class="form-group">
@@ -3124,6 +3909,7 @@ O que você precisa?
 </div>
 
 
+
 <button
     type="submit"
     class="form-submit"
@@ -3134,6 +3920,7 @@ Enviar pelo WhatsApp
 <svg viewBox="0 0 24 24">
 
 <path d="M4 4l16 7-16 7 3-7-3-7Z"/>
+
 <path d="M7 11h9"/>
 
 </svg>
@@ -3147,6 +3934,7 @@ Você será direcionado para o WhatsApp após o envio.
 
 </div>
 
+
 </form>
 
 
@@ -3158,6 +3946,7 @@ Você será direcionado para o WhatsApp após o envio.
 
 
 </main>
+
 
 
 <!-- =========================================================
@@ -3176,7 +3965,7 @@ FOOTER
 <img
     class="footer-logo"
     src="https://i.imgur.com/b2bgrDe.png"
-    alt="Paula Borch"
+    alt="Logo Paula Borch"
 >
 
 
@@ -3189,6 +3978,7 @@ novas possibilidades.
 </p>
 
 </div>
+
 
 
 <div>
@@ -3220,9 +4010,14 @@ Como funciona
 Conteúdos
 </a>
 
+<a href="#contato">
+Contato
+</a>
+
 </div>
 
 </div>
+
 
 
 <div>
@@ -3250,7 +4045,7 @@ contato@paulaborch.com.br
 <a
     href="https://www.youtube.com/@prof.paulaborch8774"
     target="_blank"
-    rel="noopener"
+    rel="noopener noreferrer"
 >
 YouTube
 </a>
@@ -3261,6 +4056,7 @@ YouTube
 
 
 </div>
+
 
 
 <div class="footer-bottom">
@@ -3281,6 +4077,7 @@ Educação • Desenvolvimento • Aprendizagem
 </footer>
 
 
+
 <!-- =========================================================
 WHATSAPP FLUTUANTE
 ========================================================= -->
@@ -3299,6 +4096,7 @@ WHATSAPP FLUTUANTE
 </a>
 
 
+
 <script>
 
 /* =========================================================
@@ -3306,16 +4104,23 @@ CONFIGURAÇÃO
 ========================================================= */
 
 /*
-    COLOQUE AQUI O WHATSAPP DA PAULA.
+===========================================================
+COLOQUE AQUI O NÚMERO DA PAULA
+===========================================================
 
-    FORMATO:
+Somente números.
 
-    55 + DDD + NÚMERO
+Exemplo:
 
-    Exemplo:
-    5511999999999
+const WHATSAPP_PAULA = "5511999999999";
 
-    SOMENTE NÚMEROS.
+Não use:
++
+espaços
+parênteses
+hífen
+
+===========================================================
 */
 
 const WHATSAPP_PAULA = "55XXXXXXXXXXX";
@@ -3329,9 +4134,9 @@ const header =
 document.getElementById("header");
 
 
-window.addEventListener("scroll",()=>{
+window.addEventListener("scroll", () => {
 
-    if(window.scrollY > 30){
+    if(window.scrollY > 25){
 
         header.classList.add("scrolled");
 
@@ -3341,7 +4146,7 @@ window.addEventListener("scroll",()=>{
 
     }
 
-});
+}, { passive:true });
 
 
 /* =========================================================
@@ -3355,7 +4160,7 @@ const menu =
 document.getElementById("menu");
 
 
-menuToggle.addEventListener("click",()=>{
+menuToggle.addEventListener("click", () => {
 
     const opened =
         menu.classList.toggle("open");
@@ -3367,7 +4172,7 @@ menuToggle.addEventListener("click",()=>{
 
     menuToggle.setAttribute(
         "aria-expanded",
-        opened
+        opened ? "true" : "false"
     );
 
 });
@@ -3375,9 +4180,9 @@ menuToggle.addEventListener("click",()=>{
 
 document
 .querySelectorAll(".menu a")
-.forEach(link=>{
+.forEach(link => {
 
-    link.addEventListener("click",()=>{
+    link.addEventListener("click", () => {
 
         menu.classList.remove("open");
 
@@ -3389,6 +4194,31 @@ document
         );
 
     });
+
+});
+
+
+/* =========================================================
+FECHAR MENU CLICANDO FORA
+========================================================= */
+
+document.addEventListener("click", event => {
+
+    if(
+        !menu.contains(event.target) &&
+        !menuToggle.contains(event.target)
+    ){
+
+        menu.classList.remove("open");
+
+        menuToggle.classList.remove("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
 
 });
 
@@ -3429,18 +4259,24 @@ whatsappForm.addEventListener(
             .trim();
 
 
-        if(!nome || !telefone || !necessidade){
+        if(
+            !nome ||
+            !telefone ||
+            !necessidade
+        ){
 
             alert(
                 "Por favor, preencha todos os campos."
             );
 
             return;
+
         }
 
 
         /*
-            Mensagem enviada para a Paula.
+            Mensagem que será enviada
+            para a Paula.
         */
 
         const mensagem =
@@ -3455,9 +4291,38 @@ Gostaria de conversar sobre:
 ${necessidade}`;
 
 
+        /*
+            Remove espaços e caracteres
+            indevidos do número da Paula.
+        */
+
+        const numero =
+            WHATSAPP_PAULA.replace(/\D/g, "");
+
+
+        /*
+            Verificação para evitar
+            abrir um WhatsApp inválido
+            enquanto o número não for configurado.
+        */
+
+        if(
+            !numero ||
+            numero.includes("XXXXXXXX")
+        ){
+
+            alert(
+                "Configure o número de WhatsApp da Paula na constante WHATSAPP_PAULA, no final do código."
+            );
+
+            return;
+
+        }
+
+
         const url =
             "https://wa.me/" +
-            WHATSAPP_PAULA +
+            numero +
             "?text=" +
             encodeURIComponent(mensagem);
 
@@ -3465,7 +4330,7 @@ ${necessidade}`;
         window.open(
             url,
             "_blank",
-            "noopener"
+            "noopener,noreferrer"
         );
 
     }
@@ -3473,7 +4338,7 @@ ${necessidade}`;
 
 
 /* =========================================================
-MÁSCARA TELEFONE
+MÁSCARA WHATSAPP DO VISITANTE
 ========================================================= */
 
 const telefoneInput =
@@ -3485,11 +4350,14 @@ telefoneInput.addEventListener(
     function(){
 
         let value =
-            this.value.replace(/\D/g,"");
+            this.value.replace(/\D/g, "");
 
 
         if(value.length > 11){
-            value = value.slice(0,11);
+
+            value =
+                value.slice(0, 11);
+
         }
 
 
@@ -3519,53 +4387,69 @@ telefoneInput.addEventListener(
 
 
 /* =========================================================
-REVEAL ANIMATION
+ANIMAÇÃO DE ENTRADA
 ========================================================= */
 
-const revealObserver =
-new IntersectionObserver(
+const revealElements =
+document.querySelectorAll(".reveal");
 
-(entries)=>{
 
-    entries.forEach(entry=>{
+if("IntersectionObserver" in window){
 
-        if(entry.isIntersecting){
+    const revealObserver =
+        new IntersectionObserver(
 
-            entry.target.classList.add(
-                "visible"
-            );
+            (entries, observer) => {
 
-            revealObserver.unobserve(
-                entry.target
-            );
+                entries.forEach(entry => {
 
-        }
+                    if(entry.isIntersecting){
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold:.10
+            }
+
+        );
+
+
+    revealElements.forEach(element => {
+
+        revealObserver.observe(element);
 
     });
 
-},
-{
-    threshold:.12
+}else{
+
+    revealElements.forEach(element => {
+
+        element.classList.add("visible");
+
+    });
+
 }
-);
-
-
-document
-.querySelectorAll(".reveal")
-.forEach(element=>{
-
-    revealObserver.observe(element);
-
-});
 
 
 /* =========================================================
-ESC
+ESC FECHA MENU
 ========================================================= */
 
 document.addEventListener(
     "keydown",
-    event=>{
+    event => {
 
         if(event.key === "Escape"){
 
@@ -3583,7 +4467,72 @@ document.addEventListener(
     }
 );
 
+
+/* =========================================================
+ROLAGEM SUAVE PARA ÂNCORAS
+========================================================= */
+
+document
+.querySelectorAll('a[href^="#"]')
+.forEach(link => {
+
+    link.addEventListener("click", event => {
+
+        const targetId =
+            link.getAttribute("href");
+
+
+        if(
+            !targetId ||
+            targetId === "#"
+        ){
+
+            return;
+
+        }
+
+
+        const target =
+            document.querySelector(targetId);
+
+
+        if(!target){
+
+            return;
+
+        }
+
+
+        event.preventDefault();
+
+
+        const headerHeight =
+            header.offsetHeight;
+
+
+        const targetPosition =
+            target.getBoundingClientRect().top +
+            window.scrollY -
+            headerHeight -
+            15;
+
+
+        window.scrollTo({
+
+            top:targetPosition,
+
+            behavior:"smooth"
+
+        });
+
+    });
+
+});
+
+
 </script>
 
+
 </body>
+
 </html>
