@@ -1,1695 +1,3284 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Psicopedagogia com olhar individual para diferentes formas de aprender." />
-  <meta name="theme-color" content="#f6f5f2" />
-  <title>Paula Borch · Psicopedagogia</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <meta
+        name="description"
+        content="Paula Borch Psicopedagogia — um espaço dedicado a compreender diferentes formas de aprender."
+    >
 
-  <style>
-    /* ============================================================
-       VARIÁVEIS E RESET
-    ============================================================ */
-    :root {
-      --cream: #f6f5f2;
-      --paper: #fbfaf8;
-      --white: #ffffff;
-      --ink: #202321;
-      --ink-soft: #464b48;
-      --muted: #777d79;
-      --muted-light: #a2a7a4;
-      --line: #dedfdb;
-      --accent: #607878;
-      --accent-dark: #496161;
-      --accent-light: #e7eded;
-      --dark: #252927;
-      --heading: 'Manrope', sans-serif;
-      --body: 'DM Sans', sans-serif;
-      --ease: cubic-bezier(.2, .75, .2, 1);
-    }
+    <meta name="theme-color" content="#f7f7f4">
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <title>Paula Borch — Psicopedagogia</title>
 
-    html {
-      scroll-behavior: smooth;
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    body {
-      background: var(--cream);
-      color: var(--ink);
-      font-family: var(--body);
-      overflow-x: hidden;
-    }
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
-    body.menu-open {
-      overflow: hidden;
-    }
+    <style>
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+        /* =====================================================
+           RESET
+        ===================================================== */
 
-    img {
-      display: block;
-      max-width: 100%;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    button {
-      font: inherit;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    ::selection {
-      background: var(--accent);
-      color: white;
-    }
+        body {
+            background: #f7f7f4;
+            color: #171a19;
+            font-family: "DM Sans", sans-serif;
+            overflow-x: hidden;
+        }
 
-    .container {
-      width: min(1180px, calc(100% - 72px));
-      margin: 0 auto;
-    }
+        body.menu-open {
+            overflow: hidden;
+        }
 
-    /* ============================================================
-       LOADER
-    ============================================================ */
-    .loader {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--cream);
-      transition: opacity 0.7s ease, visibility 0.7s ease;
-    }
-    .loader.done {
-      opacity: 0;
-      visibility: hidden;
-    }
-    .loader-content {
-      text-align: center;
-    }
-    .loader-logo {
-      width: 105px;
-      margin: 0 auto;
-      opacity: .9;
-    }
-    .loader-bar {
-      width: 75px;
-      height: 1px;
-      margin: 22px auto 0;
-      background: #d5d6d2;
-      overflow: hidden;
-    }
-    .loader-bar span {
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: var(--accent);
-      transform: translateX(-100%);
-      animation: loading 1.1s var(--ease) forwards;
-    }
-    @keyframes loading {
-      to {
-        transform: translateX(0);
-      }
-    }
+        img {
+            display: block;
+            max-width: 100%;
+        }
 
-    /* ============================================================
-       HEADER
-    ============================================================ */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      width: 100%;
-      height: 82px;
-      background: rgba(246, 245, 242, 0.82);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid transparent;
-      transition: height 0.35s ease, background 0.35s ease, border 0.35s ease;
-    }
-    .header.scrolled {
-      height: 68px;
-      background: rgba(251, 250, 248, 0.95);
-      border-color: var(--line);
-    }
-    .header-inner {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      width: 82px;
-      transition: transform 0.3s ease;
-    }
-    .header.scrolled .logo {
-      width: 72px;
-    }
-    .logo:hover {
-      transform: translateY(-2px);
-    }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-    /* ============================================================
-       NAV
-    ============================================================ */
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 34px;
-    }
-    .nav a {
-      position: relative;
-      color: var(--ink-soft);
-      font-family: var(--heading);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: .02em;
-    }
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -8px;
-      width: 0;
-      height: 1px;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
-    .nav a:hover::after {
-      width: 100%;
-    }
-    .header-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 11px 16px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.4);
-      font-family: var(--heading);
-      font-size: 9px;
-      font-weight: 600;
-      transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
-    }
-    .header-cta:hover {
-      background: var(--ink);
-      color: white;
-      transform: translateY(-2px);
-    }
+        button {
+            font: inherit;
+        }
 
-    /* ============================================================
-       MOBILE
-    ============================================================ */
-    .menu-btn {
-      display: none;
-      width: 42px;
-      height: 42px;
-      border: 1px solid var(--line);
-      background: transparent;
-      cursor: pointer;
-    }
-    .menu-lines {
-      width: 17px;
-      margin: auto;
-    }
-    .menu-lines span {
-      display: block;
-      width: 100%;
-      height: 1px;
-      margin: 5px 0;
-      background: var(--ink);
-      transition: 0.3s ease;
-    }
-    .mobile-menu {
-      position: fixed;
-      inset: 0;
-      z-index: 900;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 120px 28px 30px;
-      background: var(--dark);
-      color: white;
-      transform: translateY(-100%);
-      transition: transform 0.7s var(--ease);
-    }
-    .mobile-menu.open {
-      transform: translateY(0);
-    }
-    .mobile-links {
-      list-style: none;
-    }
-    .mobile-links li {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .mobile-links a {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 19px 0;
-      font-family: var(--heading);
-      font-size: 29px;
-      font-weight: 400;
-    }
-    .mobile-links small {
-      color: #8e9692;
-      font-size: 8px;
-    }
-    .mobile-note {
-      color: #8b928f;
-      font-size: 8px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
+        ::selection {
+            background: #526765;
+            color: white;
+        }
 
-    /* ============================================================
-       HERO
-    ============================================================ */
-    .hero {
-      min-height: 850px;
-      padding-top: 82px;
-      overflow: hidden;
-    }
-    .hero-grid {
-      min-height: 768px;
-      display: grid;
-      grid-template-columns: 52% 48%;
-      align-items: center;
-    }
-    .hero-copy {
-      position: relative;
-      z-index: 3;
-      padding-bottom: 35px;
-    }
-    .kicker {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--muted);
-      font-family: var(--heading);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-    .kicker::before {
-      content: "";
-      width: 28px;
-      height: 1px;
-      background: var(--accent);
-    }
-    .hero-title {
-      max-width: 680px;
-      margin-top: 25px;
-      font-family: var(--heading);
-      font-size: clamp(48px, 6vw, 78px);
-      line-height: .99;
-      font-weight: 500;
-      letter-spacing: -.075em;
-    }
-    .hero-title .thin {
-      font-weight: 400;
-      color: var(--ink-soft);
-    }
-    .hero-title .accent {
-      color: var(--accent-dark);
-    }
-    .hero-text {
-      max-width: 425px;
-      margin-top: 30px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.9;
-    }
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      margin-top: 34px;
-    }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 18px;
-      padding: 14px 19px;
-      background: var(--ink);
-      color: white;
-      font-family: var(--heading);
-      font-size: 9px;
-      font-weight: 600;
-      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .btn-primary span {
-      transition: transform 0.3s ease;
-    }
-    .btn-primary:hover {
-      background: var(--accent-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 15px 30px rgba(30, 35, 33, 0.12);
-    }
-    .btn-primary:hover span {
-      transform: translateX(5px);
-    }
-    .btn-link {
-      color: var(--muted);
-      font-family: var(--heading);
-      font-size: 9px;
-      font-weight: 600;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 5px;
-      transition: 0.25s ease;
-    }
-    .btn-link:hover {
-      color: var(--accent-dark);
-      border-color: var(--accent);
-    }
 
-    /* ============================================================
-       HERO VISUAL
-    ============================================================ */
-    .hero-visual {
-      position: relative;
-      height: 690px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-    }
-    .hero-ring {
-      position: absolute;
-      right: 1%;
-      bottom: 13%;
-      width: 330px;
-      height: 330px;
-      border: 1px solid #d9dad6;
-      border-radius: 50%;
-      animation: float 7s ease-in-out infinite;
-    }
-    .hero-ring::before {
-      content: "";
-      position: absolute;
-      inset: 35px;
-      border: 1px solid #e4e5e1;
-      border-radius: 50%;
-    }
-    .hero-dot {
-      position: absolute;
-      right: 24%;
-      top: 21%;
-      width: 7px;
-      height: 7px;
-      background: var(--accent);
-      border-radius: 50%;
-      animation: pulse 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-16px);
-      }
-    }
-    @keyframes pulse {
-      0%, 100% {
-        opacity: .35;
-        transform: scale(1);
-      }
-      50% {
-        opacity: 1;
-        transform: scale(1.5);
-      }
-    }
-    .hero-person {
-      position: relative;
-      z-index: 3;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center bottom;
-      transition: transform 1s var(--ease);
-    }
-    .hero-visual:hover .hero-person {
-      transform: translateY(-8px);
-    }
+        /* =====================================================
+           VARIÁVEIS
+        ===================================================== */
 
-    /* ============================================================
-       BRAND STRIP
-    ============================================================ */
-    .brand-strip {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: var(--paper);
-      overflow: hidden;
-    }
-    .brand-strip-inner {
-      min-height: 115px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-    }
-    .brand-strip strong {
-      font-family: var(--heading);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-    .brand-strip p {
-      max-width: 550px;
-      color: var(--muted);
-      font-size: 10px;
-      line-height: 1.7;
-    }
+        :root {
 
-    /* ============================================================
-       SOBRE
-    ============================================================ */
-    .about {
-      padding: 135px 0;
-      background: var(--white);
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 47% 53%;
-      align-items: center;
-    }
-    .about-photo {
-      height: 590px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .about-photo::before {
-      content: "";
-      position: absolute;
-      left: 8%;
-      top: 10%;
-      width: 78%;
-      height: 78%;
-      border: 1px solid var(--line);
-      border-radius: 2px 100px 2px 100px;
-      transform: rotate(-3deg);
-    }
-    .about-photo img {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-    }
-    .about-copy {
-      padding-left: 80px;
-    }
-    .about-title {
-      max-width: 590px;
-      margin-top: 21px;
-      font-family: var(--heading);
-      font-size: clamp(38px, 4vw, 57px);
-      line-height: 1.02;
-      font-weight: 500;
-      letter-spacing: -.065em;
-    }
-    .about-title em {
-      color: var(--accent-dark);
-      font-style: normal;
-    }
-    .about-copy p {
-      max-width: 455px;
-      margin-top: 24px;
-      color: var(--muted);
-      font-size: 11px;
-      line-height: 1.9;
-    }
-    .about-info {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      max-width: 460px;
-      margin-top: 32px;
-      border-top: 1px solid var(--line);
-    }
-    .info-box {
-      padding: 19px 20px 0 0;
-    }
-    .info-box + .info-box {
-      border-left: 1px solid var(--line);
-      padding-left: 20px;
-    }
-    .info-box strong {
-      display: block;
-      font-family: var(--heading);
-      font-size: 9px;
-    }
-    .info-box span {
-      display: block;
-      margin-top: 7px;
-      color: var(--muted-light);
-      font-size: 9px;
-      line-height: 1.5;
-    }
+            --bg: #f7f7f4;
+            --white: #ffffff;
+            --dark: #171a19;
+            --gray: #69706d;
+            --light-gray: #a6aba8;
+            --line: #dfe2df;
 
-    /* ============================================================
-       DARK SECTION
-    ============================================================ */
-    .dark-section {
-      padding: 125px 0;
-      background: var(--dark);
-      color: white;
-    }
-    .dark-grid {
-      display: grid;
-      grid-template-columns: 30% 70%;
-      gap: 60px;
-    }
-    .dark-label {
-      color: #89918d;
-      font-family: var(--heading);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-    .dark-title {
-      max-width: 780px;
-      font-family: var(--heading);
-      font-size: clamp(34px, 4.4vw, 56px);
-      line-height: 1.08;
-      font-weight: 400;
-      letter-spacing: -.055em;
-    }
-    .dark-title span {
-      color: #9daead;
-    }
+            --accent: #526765;
+            --accent-soft: #e8eeec;
 
-    /* ============================================================
-       SERVIÇOS
-    ============================================================ */
-    .services {
-      padding: 130px 0;
-    }
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 40px;
-      margin-bottom: 60px;
-    }
-    .section-title {
-      margin-top: 20px;
-      font-family: var(--heading);
-      font-size: clamp(38px, 4.5vw, 58px);
-      line-height: 1;
-      font-weight: 500;
-      letter-spacing: -.065em;
-    }
-    .section-title span {
-      color: var(--accent-dark);
-    }
-    .section-description {
-      width: 310px;
-      color: var(--muted);
-      font-size: 10px;
-      line-height: 1.85;
-    }
-    .service-list {
-      border-top: 1px solid var(--line);
-    }
-    .service {
-      display: grid;
-      grid-template-columns: 70px 1fr 50px;
-      align-items: center;
-      min-height: 106px;
-      border-bottom: 1px solid var(--line);
-      transition: padding 0.4s var(--ease), background 0.4s ease;
-    }
-    .service:hover {
-      padding-left: 15px;
-      background: var(--white);
-    }
-    .service-number {
-      color: var(--muted-light);
-      font-family: var(--heading);
-      font-size: 9px;
-    }
-    .service-name {
-      font-family: var(--heading);
-      font-size: clamp(20px, 2.4vw, 30px);
-      font-weight: 400;
-      letter-spacing: -.04em;
-    }
-    .service-arrow {
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      transition: 0.35s ease;
-    }
-    .service:hover .service-arrow {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: white;
-      transform: rotate(45deg);
-    }
+            --serif: "Manrope", sans-serif;
+            --sans: "DM Sans", sans-serif;
 
-    /* ============================================================
-       FEATURE
-    ============================================================ */
-    .feature {
-      padding: 0 0 135px;
-      background: var(--cream);
-    }
-    .feature-grid {
-      min-height: 580px;
-      display: grid;
-      grid-template-columns: 50% 50%;
-      background: var(--white);
-    }
-    .feature-image {
-      min-height: 580px;
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      overflow: hidden;
-    }
-    .feature-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center bottom;
-      transition: transform 1s var(--ease);
-    }
-    .feature-grid:hover .feature-image img {
-      transform: scale(1.015);
-    }
-    .feature-content {
-      padding: 70px 70px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-left: 1px solid var(--line);
-    }
-    .feature-content h2 {
-      max-width: 450px;
-      margin-top: 20px;
-      font-family: var(--heading);
-      font-size: clamp(35px, 4vw, 52px);
-      line-height: 1.04;
-      font-weight: 500;
-      letter-spacing: -.06em;
-    }
-    .feature-content h2 span {
-      color: var(--accent-dark);
-    }
-    .feature-content p {
-      max-width: 400px;
-      margin-top: 25px;
-      color: var(--muted);
-      font-size: 11px;
-      line-height: 1.9;
-    }
+            --ease: cubic-bezier(.2,.75,.2,1);
 
-    /* ============================================================
-       PROCESSO
-    ============================================================ */
-    .process {
-      padding: 130px 0;
-      background: var(--white);
-    }
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      margin-top: 65px;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-    .process-card {
-      min-height: 250px;
-      padding: 25px;
-      border-right: 1px solid var(--line);
-      transition: background 0.35s ease;
-    }
-    .process-card:last-child {
-      border-right: 0;
-    }
-    .process-card:hover {
-      background: var(--cream);
-    }
-    .process-num {
-      color: var(--accent);
-      font-family: var(--heading);
-      font-size: 9px;
-      font-weight: 600;
-    }
-    .process-card h3 {
-      margin-top: 85px;
-      font-family: var(--heading);
-      font-size: 20px;
-      font-weight: 500;
-      letter-spacing: -.03em;
-    }
-    .process-card p {
-      max-width: 180px;
-      margin-top: 9px;
-      color: var(--muted);
-      font-size: 9px;
-      line-height: 1.75;
-    }
+        }
 
-    /* ============================================================
-       QUOTE
-    ============================================================ */
-    .quote {
-      position: relative;
-      overflow: hidden;
-      padding: 145px 0;
-      background: var(--accent);
-      color: white;
-    }
-    .quote::before {
-      content: "";
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      right: -170px;
-      top: -300px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 50%;
-    }
-    .quote-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-    }
-    .quote .kicker {
-      justify-content: center;
-      color: #ccd5d4;
-    }
-    .quote .kicker::before {
-      background: #c3cfce;
-    }
-    .quote h2 {
-      max-width: 850px;
-      margin: 25px auto 0;
-      font-family: var(--heading);
-      font-size: clamp(39px, 5vw, 64px);
-      line-height: 1.04;
-      font-weight: 400;
-      letter-spacing: -.065em;
-    }
-    .quote p {
-      max-width: 520px;
-      margin: 25px auto 0;
-      color: #d8e0df;
-      font-size: 11px;
-      line-height: 1.9;
-    }
 
-    /* ============================================================
-       FAQ
-    ============================================================ */
-    .faq {
-      padding: 130px 0;
-    }
-    .faq-grid {
-      display: grid;
-      grid-template-columns: 38% 62%;
-      gap: 70px;
-    }
-    .faq-title {
-      margin-top: 20px;
-      font-family: var(--heading);
-      font-size: clamp(38px, 4vw, 54px);
-      line-height: 1;
-      font-weight: 500;
-      letter-spacing: -.06em;
-    }
-    .faq-title span {
-      color: var(--accent-dark);
-    }
-    .faq-list {
-      border-top: 1px solid var(--line);
-    }
-    details {
-      border-bottom: 1px solid var(--line);
-    }
-    summary {
-      min-height: 75px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      cursor: pointer;
-      list-style: none;
-      font-family: var(--heading);
-      font-size: 11px;
-      font-weight: 500;
-    }
-    summary::-webkit-details-marker {
-      display: none;
-    }
-    summary::after {
-      content: "+";
-      flex-shrink: 0;
-      width: 29px;
-      height: 29px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      color: var(--muted);
-      transition: 0.3s ease;
-    }
-    details[open] summary::after {
-      content: "−";
-      color: white;
-      background: var(--accent);
-      border-color: var(--accent);
-    }
-    details p {
-      max-width: 600px;
-      padding: 0 50px 24px 0;
-      color: var(--muted);
-      font-size: 10px;
-      line-height: 1.85;
-    }
+        /* =====================================================
+           CONTAINER
+        ===================================================== */
 
-    /* ============================================================
-       CONTATO
-    ============================================================ */
-    .contact {
-      padding: 130px 0;
-      background: var(--white);
-      border-top: 1px solid var(--line);
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 65% 35%;
-      gap: 60px;
-      align-items: end;
-    }
-    .contact-title {
-      max-width: 750px;
-      margin-top: 20px;
-      font-family: var(--heading);
-      font-size: clamp(42px, 5.5vw, 69px);
-      line-height: .99;
-      font-weight: 500;
-      letter-spacing: -.07em;
-    }
-    .contact-title span {
-      color: var(--accent-dark);
-    }
-    .contact-side {
-      border-top: 1px solid var(--line);
-    }
-    .contact-item {
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-    }
-    .contact-item small {
-      display: block;
-      color: var(--muted-light);
-      font-family: var(--heading);
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-    .contact-item a {
-      display: block;
-      margin-top: 7px;
-      font-size: 11px;
-      transition: color 0.25s ease;
-    }
-    .contact-item a:hover {
-      color: var(--accent-dark);
-    }
-    .contact-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 17px;
-      margin-top: 32px;
-      padding: 15px 20px;
-      background: var(--ink);
-      color: white;
-      font-family: var(--heading);
-      font-size: 9px;
-      font-weight: 600;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    .contact-button:hover {
-      background: var(--accent-dark);
-      transform: translateY(-3px);
-    }
+        .container {
+            width: min(1220px, calc(100% - 80px));
+            margin: auto;
+        }
 
-    /* ============================================================
-       FOOTER
-    ============================================================ */
-    .footer {
-      padding: 62px 0 23px;
-      background: var(--dark);
-      color: white;
-    }
-    .footer-main {
-      display: grid;
-      grid-template-columns: 1.5fr 0.6fr 0.6fr;
-      gap: 50px;
-      padding-bottom: 50px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .footer-logo {
-      width: 82px;
-      filter: brightness(0) invert(1);
-    }
-    .footer-description {
-      max-width: 270px;
-      margin-top: 18px;
-      color: #929995;
-      font-size: 9px;
-      line-height: 1.8;
-    }
-    .footer-heading {
-      margin-bottom: 18px;
-      color: #747c78;
-      font-family: var(--heading);
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: .11em;
-      text-transform: uppercase;
-    }
-    .footer-links a {
-      display: block;
-      margin-bottom: 11px;
-      color: #d0d4d1;
-      font-size: 9px;
-      transition: color 0.25s ease, transform 0.25s ease;
-    }
-    .footer-links a:hover {
-      color: white;
-      transform: translateX(3px);
-    }
-    .footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 20px;
-      color: #737b76;
-      font-size: 8px;
-    }
-    .footer-top {
-      transition: color 0.25s ease;
-    }
-    .footer-top:hover {
-      color: white;
-    }
 
-    /* ============================================================
-       WHATSAPP
-    ============================================================ */
-    .whatsapp {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 700;
-      width: 47px;
-      height: 47px;
-      display: grid;
-      place-items: center;
-      background: var(--ink);
-      color: white;
-      border-radius: 50%;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-    .whatsapp:hover {
-      transform: translateY(-5px);
-      background: var(--accent-dark);
-    }
-    .whatsapp svg {
-      width: 18px;
-      fill: white;
-    }
+        /* =====================================================
+           CURSOR / PROGRESS
+        ===================================================== */
 
-    /* ============================================================
-       REVEAL
-    ============================================================ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.8s ease, transform 0.8s var(--ease);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .delay-1 {
-      transition-delay: 0.1s;
-    }
-    .delay-2 {
-      transition-delay: 0.2s;
-    }
-    .delay-3 {
-      transition-delay: 0.3s;
-    }
+        .scroll-progress {
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 9999;
 
-    /* ============================================================
-       RESPONSIVO
-    ============================================================ */
-    @media (max-width: 950px) {
-      .container {
-        width: calc(100% - 48px);
-      }
-      .nav {
-        gap: 20px;
-      }
-      .header-cta {
-        display: none;
-      }
-      .hero-title {
-        font-size: 53px;
-      }
-      .about-copy {
-        padding-left: 45px;
-      }
-      .feature-content {
-        padding: 50px;
-      }
-      .process-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .process-card:nth-child(2) {
-        border-right: 0;
-      }
-      .process-card:nth-child(-n+2) {
-        border-bottom: 1px solid var(--line);
-      }
-    }
+            width: 0;
+            height: 2px;
 
-    @media (max-width: 720px) {
-      .container {
-        width: calc(100% - 32px);
-      }
-      .header {
-        height: 68px;
-      }
-      .header.scrolled {
-        height: 62px;
-      }
-      .logo {
-        width: 72px;
-      }
-      .nav,
-      .header-cta {
-        display: none;
-      }
-      .menu-btn {
-        display: block;
-      }
-      .hero {
-        min-height: auto;
-        padding-top: 68px;
-      }
-      .hero-grid {
-        min-height: auto;
-        display: block;
-        padding-top: 70px;
-      }
-      .hero-copy {
-        padding-bottom: 0;
-      }
-      .hero-title {
-        font-size: 43px;
-      }
-      .hero-text {
-        font-size: 11px;
-      }
-      .hero-visual {
-        height: 440px;
-        margin-top: 15px;
-      }
-      .hero-ring {
-        width: 230px;
-        height: 230px;
-        right: 1%;
-        bottom: 10%;
-      }
-      .hero-dot {
-        top: 14%;
-        right: 22%;
-      }
-      .brand-strip-inner {
-        display: block;
-        padding: 30px 0;
-      }
-      .brand-strip p {
-        margin-top: 12px;
-      }
-      .about {
-        padding: 85px 0;
-      }
-      .about-grid {
-        display: block;
-      }
-      .about-photo {
-        height: 410px;
-        margin-bottom: 50px;
-      }
-      .about-copy {
-        padding-left: 0;
-      }
-      .about-title {
-        font-size: 37px;
-      }
-      .dark-section {
-        padding: 80px 0;
-      }
-      .dark-grid {
-        grid-template-columns: 1fr;
-        gap: 22px;
-      }
-      .dark-title {
-        font-size: 31px;
-      }
-      .services {
-        padding: 85px 0;
-      }
-      .section-head {
-        display: block;
-        margin-bottom: 45px;
-      }
-      .section-title {
-        font-size: 38px;
-      }
-      .section-description {
-        width: auto;
-        margin-top: 20px;
-      }
-      .service {
-        min-height: 85px;
-        grid-template-columns: 35px 1fr 35px;
-      }
-      .service-name {
-        font-size: 18px;
-      }
-      .feature {
-        padding-bottom: 85px;
-      }
-      .feature-grid {
-        display: block;
-        min-height: auto;
-      }
-      .feature-image {
-        min-height: 410px;
-      }
-      .feature-content {
-        padding: 55px 28px;
-        border-left: 0;
-        border-top: 1px solid var(--line);
-      }
-      .process {
-        padding: 85px 0;
-      }
-      .process-grid {
-        grid-template-columns: 1fr;
-        margin-top: 45px;
-      }
-      .process-card {
-        min-height: 185px;
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-      .process-card:last-child {
-        border-bottom: 0;
-      }
-      .process-card h3 {
-        margin-top: 52px;
-      }
-      .quote {
-        padding: 100px 0;
-      }
-      .quote h2 {
-        font-size: 39px;
-      }
-      .faq {
-        padding: 85px 0;
-      }
-      .faq-grid {
-        grid-template-columns: 1fr;
-        gap: 45px;
-      }
-      .faq-title {
-        font-size: 38px;
-      }
-      .contact {
-        padding: 90px 0;
-      }
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 45px;
-      }
-      .contact-title {
-        font-size: 42px;
-      }
-      .footer {
-        padding-top: 45px;
-      }
-      .footer-main {
-        grid-template-columns: 1fr 1fr;
-        gap: 35px;
-      }
-      .footer-brand {
-        grid-column: 1 / -1;
-      }
-      .footer-bottom {
-        display: block;
-      }
-      .footer-top {
-        display: block;
-        margin-top: 8px;
-      }
-      .whatsapp {
-        right: 16px;
-        bottom: 16px;
-      }
-    }
+            background: var(--accent);
 
-    @media (max-width: 380px) {
-      .hero-title {
-        font-size: 38px;
-      }
-      .hero-visual {
-        height: 380px;
-      }
-      .about-photo {
-        height: 350px;
-      }
-      .quote h2 {
-        font-size: 34px;
-      }
-      .contact-title {
-        font-size: 37px;
-      }
-    }
+            transition: width .05s linear;
+        }
 
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-      *,
-      *::before,
-      *::after {
-        animation: none !important;
-        transition: none !important;
-      }
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
-    }
-  </style>
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 82px;
+
+            z-index: 1000;
+
+            transition:
+                background .35s ease,
+                border-color .35s ease,
+                height .35s ease;
+        }
+
+        .header.scrolled {
+            height: 68px;
+            background: rgba(247,247,244,.88);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .header-inner {
+            height: 100%;
+
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+        }
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .logo {
+            width: 92px;
+
+            transition:
+                transform .3s ease,
+                width .3s ease;
+        }
+
+        .header.scrolled .logo {
+            width: 78px;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           DESKTOP MENU
+        ===================================================== */
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .desktop-nav a {
+            position: relative;
+
+            font-family: var(--serif);
+            font-size: 10px;
+            font-weight: 600;
+
+            color: #555c59;
+
+            transition: color .25s ease;
+        }
+
+        .desktop-nav a::after {
+            content: "";
+
+            position: absolute;
+            left: 50%;
+            bottom: -8px;
+
+            width: 0;
+            height: 1px;
+
+            background: var(--accent);
+
+            transform: translateX(-50%);
+
+            transition: width .3s ease;
+        }
+
+        .desktop-nav a:hover {
+            color: var(--dark);
+        }
+
+        .desktop-nav a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =====================================================
+           HEADER RIGHT
+        ===================================================== */
+
+        .header-right {
+            justify-self: end;
+
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+
+            padding: 11px 15px;
+
+            border: 1px solid #d5d9d6;
+
+            font-family: var(--serif);
+            font-size: 9px;
+            font-weight: 600;
+
+            transition:
+                background .3s ease,
+                color .3s ease,
+                transform .3s ease;
+        }
+
+        .header-contact:hover {
+            background: var(--dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .header-contact span {
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           MOBILE BUTTON
+        ===================================================== */
+
+        .mobile-trigger {
+            display: none;
+
+            width: 43px;
+            height: 43px;
+
+            border: 1px solid var(--line);
+            background: transparent;
+
+            cursor: pointer;
+        }
+
+        .mobile-trigger span {
+            display: block;
+
+            width: 17px;
+            height: 1px;
+
+            margin: 4px auto;
+
+            background: var(--dark);
+
+            transition: .3s ease;
+        }
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+
+            z-index: 900;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            padding: 120px 30px 30px;
+
+            background: var(--dark);
+            color: white;
+
+            transform: translateY(-100%);
+
+            transition:
+                transform .7s var(--ease);
+        }
+
+        .mobile-menu.open {
+            transform: translateY(0);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu li {
+            border-bottom: 1px solid rgba(255,255,255,.1);
+        }
+
+        .mobile-menu a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 20px 0;
+
+            font-family: var(--serif);
+            font-size: 31px;
+            font-weight: 400;
+        }
+
+        .mobile-menu small {
+            color: #77817d;
+            font-size: 8px;
+        }
+
+        .mobile-footer {
+            color: #7d8682;
+
+            font-size: 8px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+            padding-top: 82px;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            right: -180px;
+            top: 90px;
+
+            width: 560px;
+            height: 560px;
+
+            border: 1px solid #e2e4e1;
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            right: 80px;
+            top: 350px;
+
+            width: 8px;
+            height: 8px;
+
+            background: var(--accent);
+
+            border-radius: 50%;
+
+            animation: breathe 3s infinite ease-in-out;
+        }
+
+        @keyframes breathe {
+
+            0%, 100% {
+                opacity: .35;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.6);
+            }
+
+        }
+
+
+        .hero-layout {
+            min-height: calc(100vh - 82px);
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* =====================================================
+           HERO TEXT
+        ===================================================== */
+
+        .hero-content {
+            padding: 70px 0;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            color: var(--gray);
+
+            font-family: var(--serif);
+            font-size: 9px;
+            font-weight: 600;
+
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+
+            width: 34px;
+            height: 1px;
+
+            background: var(--accent);
+        }
+
+        .hero h1 {
+            max-width: 650px;
+
+            margin-top: 28px;
+
+            font-family: var(--serif);
+            font-size: clamp(52px, 7vw, 91px);
+
+            font-weight: 500;
+
+            line-height: .94;
+
+            letter-spacing: -.085em;
+        }
+
+        .hero h1 .soft {
+            color: #68706d;
+            font-weight: 400;
+        }
+
+        .hero h1 .accent {
+            color: var(--accent);
+        }
+
+        .hero-description {
+            max-width: 410px;
+
+            margin-top: 35px;
+
+            color: var(--gray);
+
+            font-size: 12px;
+            line-height: 1.9;
+        }
+
+
+        /* =====================================================
+           HERO CTA
+        ===================================================== */
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+
+            margin-top: 37px;
+        }
+
+        .button-dark {
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+
+            padding: 15px 20px;
+
+            background: var(--dark);
+            color: white;
+
+            font-family: var(--serif);
+            font-size: 9px;
+            font-weight: 600;
+
+            transition:
+                background .3s ease,
+                transform .3s ease,
+                box-shadow .3s ease;
+        }
+
+        .button-dark:hover {
+            background: var(--accent);
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 18px 35px rgba(23,26,25,.13);
+        }
+
+        .button-dark span {
+            font-size: 13px;
+        }
+
+        .text-button {
+            font-family: var(--serif);
+            font-size: 9px;
+            font-weight: 600;
+
+            color: var(--gray);
+
+            border-bottom: 1px solid #cdd1ce;
+
+            padding-bottom: 6px;
+
+            transition: .25s ease;
+        }
+
+        .text-button:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+
+        /* =====================================================
+           HERO IMAGE
+        ===================================================== */
+
+        .hero-visual {
+            position: relative;
+
+            height: 700px;
+
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .hero-image-frame {
+            position: relative;
+
+            width: min(500px, 100%);
+            height: 650px;
+
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .hero-image-frame::before {
+            content: "";
+
+            position: absolute;
+
+            width: 360px;
+            height: 470px;
+
+            right: 0;
+            bottom: 35px;
+
+            border: 1px solid #dedfdb;
+
+            border-radius: 220px 220px 0 0;
+        }
+
+        .hero-image-frame::after {
+            content: "PSICOPEDAGOGIA";
+
+            position: absolute;
+
+            right: -36px;
+            top: 180px;
+
+            color: #9da39f;
+
+            font-size: 7px;
+
+            letter-spacing: .2em;
+
+            writing-mode: vertical-rl;
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 3;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+            object-position: center bottom;
+
+            filter: none;
+
+            transition:
+                transform 1s var(--ease);
+        }
+
+        .hero-image-frame:hover .hero-image {
+            transform: translateY(-9px);
+        }
+
+
+        /* =====================================================
+           HERO BOTTOM INFO
+        ===================================================== */
+
+        .hero-bottom {
+            position: absolute;
+
+            left: 0;
+            bottom: 28px;
+
+            width: 100%;
+
+            z-index: 5;
+        }
+
+        .hero-bottom-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .scroll-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            color: #9da39f;
+
+            font-size: 8px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        .scroll-line {
+            width: 40px;
+            height: 1px;
+
+            background: #cfd2cf;
+        }
+
+        .hero-index {
+            color: #a4aaa7;
+
+            font-family: var(--serif);
+            font-size: 9px;
+        }
+
+
+        /* =====================================================
+           INTRODUÇÃO
+        ===================================================== */
+
+        .statement {
+            padding: 160px 0;
+
+            background: white;
+
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .statement-grid {
+            display: grid;
+
+            grid-template-columns: 180px 1fr;
+
+            gap: 80px;
+        }
+
+        .section-number {
+            color: #a1a7a4;
+
+            font-family: var(--serif);
+            font-size: 10px;
+        }
+
+        .statement-title {
+            max-width: 930px;
+
+            font-family: var(--serif);
+
+            font-size: clamp(40px, 5vw, 66px);
+
+            line-height: 1.05;
+
+            letter-spacing: -.07em;
+
+            font-weight: 400;
+        }
+
+        .statement-title strong {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .statement-description {
+            max-width: 520px;
+
+            margin-top: 35px;
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+            line-height: 1.9;
+        }
+
+
+        /* =====================================================
+           SOBRE — NOVA ESTRUTURA
+        ===================================================== */
+
+        .about {
+            padding: 150px 0;
+        }
+
+        .about-layout {
+            display: grid;
+
+            grid-template-columns: 43% 57%;
+
+            align-items: start;
+        }
+
+        .about-image-area {
+            position: relative;
+
+            min-height: 640px;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 640px;
+
+            object-fit: contain;
+            object-position: center;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-side-label {
+            position: absolute;
+
+            left: -5px;
+            bottom: 80px;
+
+            color: #9ca29f;
+
+            font-size: 7px;
+
+            letter-spacing: .18em;
+
+            writing-mode: vertical-rl;
+        }
+
+        .about-outline {
+            position: absolute;
+
+            left: 45px;
+            top: 60px;
+
+            width: 330px;
+            height: 460px;
+
+            border: 1px solid #dedfdb;
+
+            border-radius: 50%;
+
+            transform: rotate(-9deg);
+        }
+
+        .about-content {
+            padding: 45px 0 0 100px;
+        }
+
+        .about-content h2 {
+            max-width: 620px;
+
+            margin-top: 25px;
+
+            font-family: var(--serif);
+
+            font-size: clamp(42px, 5vw, 67px);
+
+            line-height: .98;
+
+            letter-spacing: -.075em;
+
+            font-weight: 500;
+        }
+
+        .about-content h2 span {
+            color: var(--accent);
+        }
+
+        .about-content > p {
+            max-width: 480px;
+
+            margin-top: 32px;
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+            line-height: 1.95;
+        }
+
+
+        /* =====================================================
+           MINI STATS
+        ===================================================== */
+
+        .about-stats {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            max-width: 500px;
+
+            margin-top: 55px;
+
+            border-top: 1px solid var(--line);
+        }
+
+        .about-stat {
+            padding: 20px 15px 0 0;
+        }
+
+        .about-stat + .about-stat {
+            padding-left: 25px;
+
+            border-left: 1px solid var(--line);
+        }
+
+        .about-stat strong {
+            display: block;
+
+            font-family: var(--serif);
+
+            font-size: 21px;
+            font-weight: 500;
+        }
+
+        .about-stat span {
+            display: block;
+
+            margin-top: 5px;
+
+            color: var(--light-gray);
+
+            font-size: 8px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           MÉTODO
+        ===================================================== */
+
+        .method {
+            padding: 145px 0;
+
+            background: var(--dark);
+
+            color: white;
+        }
+
+        .method-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            gap: 50px;
+        }
+
+        .method-title {
+            max-width: 780px;
+
+            margin-top: 24px;
+
+            font-family: var(--serif);
+
+            font-size: clamp(40px, 5vw, 67px);
+
+            line-height: 1;
+
+            letter-spacing: -.07em;
+
+            font-weight: 400;
+        }
+
+        .method-title span {
+            color: #91a3a0;
+        }
+
+        .method-description {
+            max-width: 300px;
+
+            color: #8f9793;
+
+            font-size: 10px;
+
+            line-height: 1.85;
+        }
+
+
+        /* =====================================================
+           METHOD TIMELINE
+        ===================================================== */
+
+        .timeline {
+            position: relative;
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            margin-top: 95px;
+
+            border-top: 1px solid rgba(255,255,255,.14);
+        }
+
+        .timeline-item {
+            position: relative;
+
+            min-height: 285px;
+
+            padding: 25px 28px 25px 0;
+
+            border-right: 1px solid rgba(255,255,255,.14);
+        }
+
+        .timeline-item:not(:first-child) {
+            padding-left: 28px;
+        }
+
+        .timeline-item:last-child {
+            border-right: 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: -4px;
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #91a3a0;
+
+            box-shadow:
+                0 0 0 6px var(--dark);
+        }
+
+        .timeline-number {
+            color: #75807c;
+
+            font-family: var(--serif);
+
+            font-size: 8px;
+        }
+
+        .timeline-item h3 {
+            margin-top: 95px;
+
+            font-family: var(--serif);
+
+            font-size: 22px;
+
+            font-weight: 400;
+
+            letter-spacing: -.04em;
+        }
+
+        .timeline-item p {
+            max-width: 180px;
+
+            margin-top: 10px;
+
+            color: #818a86;
+
+            font-size: 9px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           ÁREAS
+        ===================================================== */
+
+        .areas {
+            padding: 150px 0;
+
+            background: white;
+        }
+
+        .areas-header {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 80px;
+
+            margin-bottom: 75px;
+        }
+
+        .areas-title {
+            max-width: 600px;
+
+            margin-top: 23px;
+
+            font-family: var(--serif);
+
+            font-size: clamp(42px, 5vw, 66px);
+
+            line-height: 1;
+
+            letter-spacing: -.075em;
+
+            font-weight: 500;
+        }
+
+        .areas-title span {
+            color: var(--accent);
+        }
+
+        .areas-intro {
+            align-self: end;
+
+            max-width: 370px;
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+            line-height: 1.9;
+        }
+
+
+        /* =====================================================
+           AREA LIST
+        ===================================================== */
+
+        .area-list {
+            border-top: 1px solid var(--line);
+        }
+
+        .area {
+            display: grid;
+
+            grid-template-columns: 90px 1fr 180px 35px;
+
+            align-items: center;
+
+            min-height: 110px;
+
+            border-bottom: 1px solid var(--line);
+
+            transition:
+                background .4s ease,
+                padding .4s var(--ease);
+        }
+
+        .area:hover {
+            background: #f5f6f3;
+            padding-left: 15px;
+        }
+
+        .area-number {
+            color: #a2a8a5;
+
+            font-family: var(--serif);
+
+            font-size: 9px;
+        }
+
+        .area-name {
+            font-family: var(--serif);
+
+            font-size: clamp(18px, 2vw, 27px);
+
+            letter-spacing: -.04em;
+        }
+
+        .area-detail {
+            color: var(--gray);
+
+            font-size: 9px;
+
+            line-height: 1.5;
+        }
+
+        .area-arrow {
+            width: 31px;
+            height: 31px;
+
+            display: grid;
+            place-items: center;
+
+            border: 1px solid var(--line);
+
+            border-radius: 50%;
+
+            transition: .35s ease;
+        }
+
+        .area:hover .area-arrow {
+            color: white;
+
+            background: var(--accent);
+
+            border-color: var(--accent);
+
+            transform: rotate(45deg);
+        }
+
+
+        /* =====================================================
+           FOTO INTERCALADA
+        ===================================================== */
+
+        .image-break {
+            padding: 0;
+
+            background: var(--bg);
+        }
+
+        .image-break-inner {
+            min-height: 670px;
+
+            display: grid;
+
+            grid-template-columns: 55% 45%;
+
+            background: #f0f1ee;
+        }
+
+        .image-break-photo {
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+
+            overflow: hidden;
+        }
+
+        .image-break-photo img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+            object-position: center bottom;
+
+            transition:
+                transform 1.2s var(--ease);
+        }
+
+        .image-break-inner:hover
+        .image-break-photo img {
+            transform: translateY(-8px);
+        }
+
+        .image-break-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            padding: 80px;
+        }
+
+        .image-break-content h2 {
+            max-width: 450px;
+
+            margin-top: 24px;
+
+            font-family: var(--serif);
+
+            font-size: clamp(38px, 4.5vw, 58px);
+
+            line-height: 1.01;
+
+            letter-spacing: -.07em;
+
+            font-weight: 400;
+        }
+
+        .image-break-content h2 span {
+            color: var(--accent);
+        }
+
+        .image-break-content p {
+            max-width: 390px;
+
+            margin-top: 27px;
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+            line-height: 1.9;
+        }
+
+
+        /* =====================================================
+           FRASE
+        ===================================================== */
+
+        .quote-section {
+            padding: 170px 0;
+
+            text-align: center;
+
+            background: white;
+        }
+
+        .quote-mark {
+            color: var(--accent);
+
+            font-family: Georgia, serif;
+
+            font-size: 70px;
+
+            line-height: .5;
+        }
+
+        .quote-text {
+            max-width: 900px;
+
+            margin: 35px auto 0;
+
+            font-family: var(--serif);
+
+            font-size: clamp(35px, 5vw, 60px);
+
+            line-height: 1.05;
+
+            letter-spacing: -.07em;
+
+            font-weight: 400;
+        }
+
+        .quote-text span {
+            color: var(--accent);
+        }
+
+        .quote-caption {
+            margin-top: 30px;
+
+            color: var(--light-gray);
+
+            font-size: 8px;
+
+            letter-spacing: .13em;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           CONTATO
+        ===================================================== */
+
+        .contact {
+            padding: 150px 0;
+
+            background: var(--bg);
+
+            border-top: 1px solid var(--line);
+        }
+
+        .contact-layout {
+            display: grid;
+
+            grid-template-columns: 60% 40%;
+
+            gap: 80px;
+
+            align-items: end;
+        }
+
+        .contact-title {
+            max-width: 800px;
+
+            margin-top: 23px;
+
+            font-family: var(--serif);
+
+            font-size: clamp(47px, 6vw, 79px);
+
+            line-height: .94;
+
+            letter-spacing: -.08em;
+
+            font-weight: 500;
+        }
+
+        .contact-title span {
+            color: var(--accent);
+        }
+
+        .contact-info {
+            border-top: 1px solid var(--line);
+        }
+
+        .contact-row {
+            padding: 19px 0;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .contact-row small {
+            display: block;
+
+            color: #9da39f;
+
+            font-size: 7px;
+
+            letter-spacing: .13em;
+
+            text-transform: uppercase;
+        }
+
+        .contact-row a,
+        .contact-row p {
+            display: block;
+
+            margin-top: 7px;
+
+            font-size: 10px;
+
+            line-height: 1.5;
+        }
+
+        .contact-row a {
+            transition: color .25s ease;
+        }
+
+        .contact-row a:hover {
+            color: var(--accent);
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 22px;
+
+            margin-top: 30px;
+
+            padding: 16px 21px;
+
+            background: var(--dark);
+            color: white;
+
+            font-family: var(--serif);
+            font-size: 9px;
+            font-weight: 600;
+
+            transition:
+                background .3s ease,
+                transform .3s ease;
+        }
+
+        .contact-button:hover {
+            background: var(--accent);
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer {
+            padding: 60px 0 25px;
+
+            background: var(--dark);
+
+            color: white;
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns: 1.6fr .6fr .6fr;
+
+            gap: 70px;
+
+            padding-bottom: 50px;
+
+            border-bottom: 1px solid rgba(255,255,255,.1);
+        }
+
+        .footer-logo {
+            width: 90px;
+
+            filter:
+                brightness(0)
+                invert(1);
+        }
+
+        .footer-description {
+            max-width: 280px;
+
+            margin-top: 18px;
+
+            color: #818984;
+
+            font-size: 9px;
+
+            line-height: 1.85;
+        }
+
+        .footer-heading {
+            margin-bottom: 18px;
+
+            color: #68716d;
+
+            font-family: var(--serif);
+
+            font-size: 7px;
+            font-weight: 600;
+
+            letter-spacing: .15em;
+
+            text-transform: uppercase;
+        }
+
+        .footer-links a {
+            display: block;
+
+            margin-bottom: 11px;
+
+            color: #d0d4d2;
+
+            font-size: 9px;
+
+            transition:
+                color .25s ease,
+                transform .25s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+
+            transform: translateX(3px);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding-top: 20px;
+
+            color: #68716d;
+
+            font-size: 8px;
+        }
+
+        .footer-top {
+            transition: color .25s ease;
+        }
+
+        .footer-top:hover {
+            color: white;
+        }
+
+
+        /* =====================================================
+           WHATSAPP
+        ===================================================== */
+
+        .whatsapp {
+            position: fixed;
+
+            right: 23px;
+            bottom: 23px;
+
+            z-index: 800;
+
+            width: 48px;
+            height: 48px;
+
+            display: grid;
+            place-items: center;
+
+            background: var(--dark);
+
+            color: white;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 12px 35px rgba(0,0,0,.15);
+
+            transition:
+                transform .3s ease,
+                background .3s ease;
+        }
+
+        .whatsapp:hover {
+            transform: translateY(-5px);
+
+            background: var(--accent);
+        }
+
+        .whatsapp svg {
+            width: 18px;
+            fill: white;
+        }
+
+
+        /* =====================================================
+           REVEAL ANIMATION
+        ===================================================== */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition:
+                opacity .9s ease,
+                transform .9s var(--ease);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: .1s;
+        }
+
+        .delay-2 {
+            transition-delay: .2s;
+        }
+
+        .delay-3 {
+            transition-delay: .3s;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media(max-width: 950px) {
+
+            .container {
+                width: calc(100% - 48px);
+            }
+
+            .desktop-nav {
+                gap: 17px;
+            }
+
+            .header-contact {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 57px;
+            }
+
+            .hero-visual {
+                height: 600px;
+            }
+
+            .hero-image-frame {
+                height: 570px;
+            }
+
+            .about-content {
+                padding-left: 50px;
+            }
+
+            .about-image {
+                height: 550px;
+            }
+
+            .area {
+                grid-template-columns: 60px 1fr 130px 35px;
+            }
+
+            .image-break-content {
+                padding: 50px;
+            }
+
+        }
+
+
+        /* =====================================================
+           TABLET / MOBILE
+        ===================================================== */
+
+        @media(max-width: 720px) {
+
+            .container {
+                width: calc(100% - 32px);
+            }
+
+            .header {
+                height: 68px;
+            }
+
+            .header.scrolled {
+                height: 62px;
+            }
+
+            .header-inner {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .desktop-nav,
+            .header-right {
+                display: none;
+            }
+
+            .mobile-trigger {
+                display: block;
+            }
+
+
+            /* HERO */
+
+            .hero {
+                padding-top: 68px;
+                min-height: auto;
+            }
+
+            .hero-layout {
+                min-height: auto;
+
+                display: flex;
+                flex-direction: column;
+
+                align-items: stretch;
+
+                padding-top: 65px;
+            }
+
+            .hero-content {
+                padding: 0;
+            }
+
+            .hero h1 {
+                font-size: 46px;
+                max-width: 520px;
+            }
+
+            .hero-description {
+                margin-top: 27px;
+            }
+
+            .hero-actions {
+                margin-top: 30px;
+            }
+
+            .hero-visual {
+                height: 450px;
+
+                margin-top: 20px;
+            }
+
+            .hero-image-frame {
+                height: 440px;
+            }
+
+            .hero-image-frame::before {
+                width: 280px;
+                height: 350px;
+
+                right: 4%;
+            }
+
+            .hero-image-frame::after {
+                right: -5px;
+                top: 100px;
+            }
+
+            .hero::before {
+                width: 350px;
+                height: 350px;
+
+                right: -190px;
+                top: 280px;
+            }
+
+            .hero-bottom {
+                position: relative;
+                bottom: auto;
+
+                margin-top: 10px;
+                padding-bottom: 25px;
+            }
+
+
+            /* STATEMENT */
+
+            .statement {
+                padding: 90px 0;
+            }
+
+            .statement-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .statement-title {
+                font-size: 40px;
+            }
+
+
+            /* ABOUT */
+
+            .about {
+                padding: 90px 0;
+            }
+
+            .about-layout {
+                display: block;
+            }
+
+            .about-image-area {
+                min-height: 430px;
+            }
+
+            .about-image {
+                height: 430px;
+            }
+
+            .about-outline {
+                width: 240px;
+                height: 340px;
+
+                left: 25px;
+                top: 35px;
+            }
+
+            .about-content {
+                padding: 55px 0 0;
+            }
+
+            .about-content h2 {
+                font-size: 41px;
+            }
+
+            .about-stats {
+                margin-top: 40px;
+            }
+
+
+            /* METHOD */
+
+            .method {
+                padding: 90px 0;
+            }
+
+            .method-header {
+                display: block;
+            }
+
+            .method-description {
+                margin-top: 25px;
+            }
+
+            .method-title {
+                font-size: 41px;
+            }
+
+            .timeline {
+                grid-template-columns: 1fr;
+
+                margin-top: 65px;
+            }
+
+            .timeline-item {
+                min-height: 190px;
+
+                border-right: 0;
+                border-bottom: 1px solid rgba(255,255,255,.14);
+
+                padding: 25px 0;
+            }
+
+            .timeline-item:not(:first-child) {
+                padding-left: 0;
+            }
+
+            .timeline-item:last-child {
+                border-bottom: 0;
+            }
+
+            .timeline-item h3 {
+                margin-top: 45px;
+            }
+
+
+            /* AREAS */
+
+            .areas {
+                padding: 90px 0;
+            }
+
+            .areas-header {
+                display: block;
+
+                margin-bottom: 45px;
+            }
+
+            .areas-title {
+                font-size: 41px;
+            }
+
+            .areas-intro {
+                margin-top: 25px;
+            }
+
+            .area {
+                grid-template-columns: 32px 1fr 30px;
+
+                min-height: 82px;
+            }
+
+            .area-detail {
+                display: none;
+            }
+
+            .area-name {
+                font-size: 17px;
+            }
+
+
+            /* IMAGE BREAK */
+
+            .image-break-inner {
+                min-height: auto;
+
+                display: block;
+            }
+
+            .image-break-photo {
+                height: 430px;
+            }
+
+            .image-break-content {
+                padding: 65px 28px;
+            }
+
+            .image-break-content h2 {
+                font-size: 40px;
+            }
+
+
+            /* QUOTE */
+
+            .quote-section {
+                padding: 100px 0;
+            }
+
+            .quote-text {
+                font-size: 38px;
+            }
+
+
+            /* CONTACT */
+
+            .contact {
+                padding: 90px 0;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .contact-title {
+                font-size: 46px;
+            }
+
+
+            /* FOOTER */
+
+            .footer {
+                padding-top: 45px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+
+                gap: 40px;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+
+            .footer-bottom {
+                display: block;
+            }
+
+            .footer-top {
+                display: block;
+
+                margin-top: 10px;
+            }
+
+        }
+
+
+        @media(max-width: 380px) {
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero-visual {
+                height: 390px;
+            }
+
+            .hero-image-frame {
+                height: 390px;
+            }
+
+            .statement-title,
+            .method-title,
+            .areas-title,
+            .about-content h2 {
+                font-size: 36px;
+            }
+
+            .contact-title {
+                font-size: 40px;
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCE MOTION
+        ===================================================== */
+
+        @media(prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+
+        }
+
+    </style>
+
 </head>
+
+
 <body>
 
-  <!-- ==========================================================
-  LOADER
-  ========================================================== -->
-  <div class="loader" id="loader">
-    <div class="loader-content">
-      <img class="loader-logo" src="https://i.imgur.com/b2bgrDe.png" alt="" />
-      <div class="loader-bar"><span></span></div>
-    </div>
-  </div>
 
-  <!-- ==========================================================
-  HEADER
-  ========================================================== -->
-  <header class="header" id="header">
+<!-- =====================================================
+     PROGRESS BAR
+===================================================== -->
+
+<div
+    class="scroll-progress"
+    id="progress"
+></div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header
+    class="header"
+    id="header"
+>
+
     <div class="container header-inner">
-      <a href="#inicio" class="logo" aria-label="Paula Borch">
-        <img src="https://i.imgur.com/b2bgrDe.png" alt="Paula Borch Psicopedagogia" />
-      </a>
-      <nav class="nav">
-        <a href="#sobre">Sobre</a>
-        <a href="#atuacao">Atuação</a>
-        <a href="#processo">Processo</a>
-        <a href="#duvidas">Dúvidas</a>
-        <a href="#contato">Contato</a>
-      </nav>
-      <a href="#contato" class="header-cta">Agendar conversa <span>→</span></a>
-      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">
-        <div class="menu-lines"><span></span><span></span></div>
-      </button>
-    </div>
-  </header>
 
-  <!-- ==========================================================
-  MOBILE MENU
-  ========================================================== -->
-  <div class="mobile-menu" id="mobileMenu">
-    <ul class="mobile-links">
-      <li><a href="#sobre">Sobre <small>01</small></a></li>
-      <li><a href="#atuacao">Atuação <small>02</small></a></li>
-      <li><a href="#processo">Processo <small>03</small></a></li>
-      <li><a href="#duvidas">Dúvidas <small>04</small></a></li>
-      <li><a href="#contato">Contato <small>05</small></a></li>
+
+        <a
+            href="#inicio"
+            class="logo"
+            aria-label="Paula Borch"
+        >
+
+            <img
+                src="https://i.imgur.com/b2bgrDe.png"
+                alt="Paula Borch Psicopedagogia"
+            >
+
+        </a>
+
+
+        <nav class="desktop-nav">
+
+            <a href="#sobre">
+                Sobre
+            </a>
+
+            <a href="#atuacao">
+                Atuação
+            </a>
+
+            <a href="#processo">
+                Processo
+            </a>
+
+            <a href="#contato">
+                Contato
+            </a>
+
+        </nav>
+
+
+        <div class="header-right">
+
+            <a
+                href="#contato"
+                class="header-contact"
+            >
+                Agendar conversa
+                <span>↗</span>
+            </a>
+
+        </div>
+
+
+        <button
+            class="mobile-trigger"
+            id="menuButton"
+            aria-label="Abrir menu"
+        >
+
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     MOBILE MENU
+===================================================== -->
+
+<div
+    class="mobile-menu"
+    id="mobileMenu"
+>
+
+    <ul>
+
+        <li>
+            <a href="#sobre">
+                Sobre
+                <small>01</small>
+            </a>
+        </li>
+
+        <li>
+            <a href="#atuacao">
+                Atuação
+                <small>02</small>
+            </a>
+        </li>
+
+        <li>
+            <a href="#processo">
+                Processo
+                <small>03</small>
+            </a>
+        </li>
+
+        <li>
+            <a href="#contato">
+                Contato
+                <small>04</small>
+            </a>
+        </li>
+
     </ul>
-    <div class="mobile-note">Paula Borch · Psicopedagogia</div>
-  </div>
 
-  <!-- ==========================================================
-  MAIN
-  ========================================================== -->
-  <main id="inicio">
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <div class="kicker">Psicopedagogia</div>
-          <h1 class="hero-title">
-            Um olhar <span class="thin">individual</span>
-            para diferentes formas de
-            <span class="accent">aprender.</span>
-          </h1>
-          <p class="hero-text">
-            Acompanhamento psicopedagógico construído a partir da escuta,
-            da observação e das particularidades de cada processo de aprendizagem.
-          </p>
-          <div class="hero-actions">
-            <a href="#contato" class="btn-primary">Conhecer o trabalho <span>→</span></a>
-            <a href="#sobre" class="btn-link">Conheça Paula</a>
-          </div>
-        </div>
-        <div class="hero-visual reveal delay-1">
-          <div class="hero-ring"></div>
-          <div class="hero-dot"></div>
-          <img class="hero-person" src="https://i.imgur.com/1QDxDPB.png" alt="Paula Borch" loading="eager" decoding="async" />
-        </div>
-      </div>
-    </section>
-
-    <!-- BRAND STRIP -->
-    <section class="brand-strip">
-      <div class="container brand-strip-inner">
-        <strong>Paula Borch</strong>
-        <p>Psicopedagogia com uma abordagem individualizada, acolhedora e atenta às diferentes formas de aprender.</p>
-      </div>
-    </section>
-
-    <!-- SOBRE -->
-    <section class="about" id="sobre">
-      <div class="container about-grid">
-        <div class="about-photo reveal">
-          <img src="https://i.imgur.com/xT4wqfg.png" alt="Paula Borch" loading="lazy" decoding="async" />
-        </div>
-        <div class="about-copy reveal">
-          <div class="kicker">Sobre Paula</div>
-          <h2 class="about-title">Antes da dificuldade, existe uma <em>pessoa.</em></h2>
-          <p>O trabalho psicopedagógico parte da compreensão de que cada pessoa possui uma história, um ritmo e uma maneira própria de construir conhecimento.</p>
-          <p>Por isso, cada acompanhamento é pensado de maneira individual, respeitando características, necessidades e potencialidades.</p>
-          <div class="about-info">
-            <div class="info-box"><strong>Escuta</strong><span>Compreender antes de intervir.</span></div>
-            <div class="info-box"><strong>Individualidade</strong><span>Cada processo possui seu próprio caminho.</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- DARK -->
-    <section class="dark-section">
-      <div class="container dark-grid reveal">
-        <div class="dark-label">Uma nova perspectiva</div>
-        <h2 class="dark-title">Aprender não é seguir um único caminho. <span>É descobrir aquele que faz sentido para você.</span></h2>
-      </div>
-    </section>
-
-    <!-- SERVIÇOS -->
-    <section class="services" id="atuacao">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <div class="kicker">Atuação</div>
-            <h2 class="section-title">Cuidado para cada <span>necessidade.</span></h2>
-          </div>
-          <p class="section-description">O acompanhamento é definido a partir da demanda e das particularidades observadas ao longo do processo.</p>
-        </div>
-        <div class="service-list">
-          <a href="#contato" class="service reveal"><span class="service-number">01</span><span class="service-name">Avaliação psicopedagógica</span><span class="service-arrow">↗</span></a>
-          <a href="#contato" class="service reveal"><span class="service-number">02</span><span class="service-name">Intervenção psicopedagógica</span><span class="service-arrow">↗</span></a>
-          <a href="#contato" class="service reveal"><span class="service-number">03</span><span class="service-name">Dificuldades de aprendizagem</span><span class="service-arrow">↗</span></a>
-          <a href="#contato" class="service reveal"><span class="service-number">04</span><span class="service-name">Alfabetização e aprendizagem</span><span class="service-arrow">↗</span></a>
-          <a href="#contato" class="service reveal"><span class="service-number">05</span><span class="service-name">Orientação à família</span><span class="service-arrow">↗</span></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURE -->
-    <section class="feature">
-      <div class="container feature-grid">
-        <div class="feature-image reveal">
-          <img src="https://i.imgur.com/bwXelIG.png" alt="Paula Borch" loading="lazy" decoding="async" />
-        </div>
-        <div class="feature-content reveal">
-          <div class="kicker">O processo</div>
-          <h2>O cuidado começa <span>pela escuta.</span></h2>
-          <p>Observar, compreender e construir estratégias. O acompanhamento psicopedagógico acontece de forma próxima, respeitando o momento e as necessidades de cada pessoa.</p>
-          <a href="#processo" class="btn-link" style="width:max-content;margin-top:25px;">Conheça o processo</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROCESSO -->
-    <section class="process" id="processo">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <div class="kicker">Processo</div>
-            <h2 class="section-title">Um caminho construído <span>individualmente.</span></h2>
-          </div>
-          <p class="section-description">Cada etapa é conduzida de acordo com a necessidade identificada durante o acompanhamento.</p>
-        </div>
-        <div class="process-grid">
-          <article class="process-card reveal"><div class="process-num">01</div><h3>Escuta</h3><p>Conhecer a história e compreender a demanda apresentada.</p></article>
-          <article class="process-card reveal delay-1"><div class="process-num">02</div><h3>Investigação</h3><p>Observar estratégias, dificuldades e potencialidades.</p></article>
-          <article class="process-card reveal delay-2"><div class="process-num">03</div><h3>Intervenção</h3><p>Desenvolver estratégias adequadas para cada percurso.</p></article>
-          <article class="process-card reveal delay-3"><div class="process-num">04</div><h3>Acompanhamento</h3><p>Observar avanços e ajustar o percurso quando necessário.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- QUOTE -->
-    <section class="quote">
-      <div class="container quote-content reveal">
-        <div class="kicker">Aprendizagem</div>
-        <h2>Cada pessoa possui uma maneira <strong>única de aprender.</strong></h2>
-        <p>O objetivo é encontrar caminhos que façam sentido para cada pessoa, respeitando seu ritmo e sua história.</p>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq" id="duvidas">
-      <div class="container faq-grid">
-        <div class="reveal">
-          <div class="kicker">Dúvidas</div>
-          <h2 class="faq-title">Antes de <span>começar.</span></h2>
-        </div>
-        <div class="faq-list reveal">
-          <details><summary>Para quem é indicado o acompanhamento?</summary><p>O acompanhamento pode ser indicado para crianças e adolescentes que apresentam desafios relacionados ao processo de aprendizagem.</p></details>
-          <details><summary>Como funciona a primeira conversa?</summary><p>O primeiro contato é destinado à compreensão da demanda e à definição dos próximos passos.</p></details>
-          <details><summary>O atendimento é individualizado?</summary><p>Sim. Cada acompanhamento considera as características, necessidades e particularidades da pessoa.</p></details>
-          <details><summary>A família participa do processo?</summary><p>A participação da família pode ser importante para manter uma comunicação próxima durante o acompanhamento.</p></details>
-          <details><summary>Como faço para agendar?</summary><p>Entre em contato pelo WhatsApp para conversar sobre a demanda e verificar a disponibilidade.</p></details>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section class="contact" id="contato">
-      <div class="container contact-grid">
-        <div class="reveal">
-          <div class="kicker">Contato</div>
-          <h2 class="contact-title">Vamos conversar sobre o próximo <span>passo.</span></h2>
-          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="contact-button">Falar pelo WhatsApp <span>→</span></a>
-        </div>
-        <div class="contact-side reveal">
-          <div class="contact-item"><small>WhatsApp</small><a href="https://wa.me/5500000000000" target="_blank" rel="noopener">Conversar agora</a></div>
-          <div class="contact-item"><small>E-mail</small><a href="mailto:contato@paulaborch.com">contato@paulaborch.com</a></div>
-          <div class="contact-item"><small>Atendimento</small><a href="#contato">Mediante agendamento</a></div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ==========================================================
-  FOOTER
-  ========================================================== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-main">
-        <div>
-          <img class="footer-logo" src="https://i.imgur.com/b2bgrDe.png" alt="Paula Borch" />
-          <p class="footer-description">Psicopedagogia com olhar individual para diferentes formas de aprender.</p>
-        </div>
-        <div class="footer-links">
-          <div class="footer-heading">Navegação</div>
-          <a href="#sobre">Sobre</a>
-          <a href="#atuacao">Atuação</a>
-          <a href="#processo">Processo</a>
-          <a href="#duvidas">Dúvidas</a>
-        </div>
-        <div class="footer-links">
-          <div class="footer-heading">Contato</div>
-          <a href="#contato">Agendamento</a>
-          <a href="mailto:contato@paulaborch.com">E-mail</a>
-          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 Paula Borch Psicopedagogia</span>
-        <a href="#inicio" class="footer-top">Voltar ao início ↑</a>
-      </div>
+    <div class="mobile-footer">
+        Paula Borch · Psicopedagogia
     </div>
-  </footer>
 
-  <!-- ==========================================================
-  WHATSAPP FLUTUANTE
-  ========================================================== -->
-  <a class="whatsapp" href="https://wa.me/5500000000000" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M20.52 3.48A11.77 11.77 0 0 0 12.14 0C5.63 0 .33 5.3.33 11.82c0 2.08.54 4.1 1.56 5.88L.23 24l6.45-1.69a11.78 11.78 0 0 0 5.46 1.39h.01c6.51 0 11.81-5.3 11.81-11.82 0-3.15-1.23-6.11-3.44-8.4ZM12.15 21.7h-.01a9.8 9.8 0 0 1-5-1.36l-.36-.21-3.83 1 1.02-3.73-.23-.38a9.82 9.82 0 1 1 8.41 4.68Zm5.39-7.35c-.29-.15-1.72-.85-1.99-.94-.27-.1-.46-.15-.66.15-.19.29-.75.94-.92 1.13-.17.19-.34.22-.63.07-.29-.15-1.21-.45-2.3-1.43-.85-.76-1.43-1.7-1.6-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.49.1-.19.05-.37-.02-.52-.07-.15-.66-1.58-.9-2.17-.24-.57-.48-.49-.66-.5h-.56c-.19 0-.5.07-.77.37-.27.29-1.02.99-1.02 2.41s1.04 2.79 1.18 2.98c.15.19 2.05 3.13 4.96 4.39.69.3 1.23.48 1.65.61.69.22 1.31.19 1.81.11.55-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.19-.56-.34Z"/>
+</div>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main id="inicio">
+
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
+    <section class="hero">
+
+        <div class="container hero-layout">
+
+
+            <div class="hero-content reveal">
+
+                <div class="eyebrow">
+                    Psicopedagogia
+                </div>
+
+
+                <h1>
+
+                    Aprender é
+
+                    <span class="soft">
+                        descobrir
+                    </span>
+
+                    novas
+
+                    <span class="accent">
+                        possibilidades.
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Um acompanhamento individualizado
+                    para compreender diferentes formas
+                    de aprender, respeitando o ritmo,
+                    a história e as potencialidades de
+                    cada pessoa.
+
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a
+                        href="#contato"
+                        class="button-dark"
+                    >
+
+                        Conhecer o trabalho
+
+                        <span>→</span>
+
+                    </a>
+
+
+                    <a
+                        href="#sobre"
+                        class="text-button"
+                    >
+
+                        Sobre Paula
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="hero-visual reveal delay-1"
+            >
+
+                <div class="hero-image-frame">
+
+                    <img
+                        class="hero-image"
+                        src="https://i.imgur.com/1QDxDPB.png"
+                        alt="Paula Borch"
+                        fetchpriority="high"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-bottom">
+
+            <div class="container hero-bottom-inner">
+
+                <div class="scroll-label">
+
+                    <span class="scroll-line"></span>
+
+                    Role para explorar
+
+                </div>
+
+                <div class="hero-index">
+                    01 — 06
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         STATEMENT
+    ================================================== -->
+
+    <section class="statement">
+
+        <div class="container statement-grid reveal">
+
+            <div class="section-number">
+                01 / olhar
+            </div>
+
+
+            <div>
+
+                <h2 class="statement-title">
+
+                    O aprendizado não é
+                    linear. Ele é construído
+                    através de experiências,
+
+                    <strong>
+                        descobertas e relações.
+                    </strong>
+
+                </h2>
+
+
+                <p class="statement-description">
+
+                    A psicopedagogia busca compreender
+                    o indivíduo em sua totalidade,
+                    identificando caminhos que favoreçam
+                    uma relação mais positiva com o
+                    processo de aprendizagem.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         SOBRE
+    ================================================== -->
+
+    <section
+        class="about"
+        id="sobre"
+    >
+
+        <div class="container about-layout">
+
+
+            <div class="about-image-area reveal">
+
+                <div class="about-outline"></div>
+
+                <img
+                    class="about-image"
+                    src="https://i.imgur.com/xT4wqfg.png"
+                    alt="Paula Borch"
+                    loading="lazy"
+                >
+
+                <div class="about-side-label">
+                    PAULA BORCH · PSICOPEDAGOGIA
+                </div>
+
+            </div>
+
+
+            <div class="about-content reveal">
+
+
+                <div class="eyebrow">
+                    Sobre o trabalho
+                </div>
+
+
+                <h2>
+
+                    Antes da dificuldade,
+                    existe uma
+
+                    <span>
+                        história.
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    Cada pessoa chega ao processo de
+                    aprendizagem trazendo experiências,
+                    expectativas, inseguranças e
+                    potencialidades.
+
+                </p>
+
+
+                <p>
+
+                    O trabalho psicopedagógico começa
+                    justamente por compreender essa
+                    história. A partir dela, são
+                    construídas estratégias que façam
+                    sentido para aquela realidade.
+
+                </p>
+
+
+                <div class="about-stats">
+
+                    <div class="about-stat">
+
+                        <strong>
+                            Escuta
+                        </strong>
+
+                        <span>
+                            Compreender a demanda antes
+                            de propor caminhos.
+                        </span>
+
+                    </div>
+
+
+                    <div class="about-stat">
+
+                        <strong>
+                            Individualidade
+                        </strong>
+
+                        <span>
+                            Cada acompanhamento respeita
+                            um ritmo próprio.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         MÉTODO
+    ================================================== -->
+
+    <section
+        class="method"
+        id="processo"
+    >
+
+        <div class="container">
+
+
+            <div class="method-header reveal">
+
+
+                <div>
+
+                    <div class="eyebrow">
+                        Como acontece
+                    </div>
+
+
+                    <h2 class="method-title">
+
+                        Um processo feito
+
+                        <span>
+                            passo a passo.
+                        </span>
+
+                    </h2>
+
+                </div>
+
+
+                <p class="method-description">
+
+                    Não existe uma fórmula única.
+                    O percurso é construído a partir
+                    daquilo que cada pessoa apresenta
+                    e necessita.
+
+                </p>
+
+            </div>
+
+
+            <div class="timeline">
+
+
+                <article
+                    class="timeline-item reveal"
+                >
+
+                    <div class="timeline-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Escutar
+                    </h3>
+
+                    <p>
+                        Conhecer a história, a demanda
+                        e o contexto.
+                    </p>
+
+                </article>
+
+
+                <article
+                    class="timeline-item reveal delay-1"
+                >
+
+                    <div class="timeline-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Investigar
+                    </h3>
+
+                    <p>
+                        Observar estratégias,
+                        dificuldades e potencialidades.
+                    </p>
+
+                </article>
+
+
+                <article
+                    class="timeline-item reveal delay-2"
+                >
+
+                    <div class="timeline-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Construir
+                    </h3>
+
+                    <p>
+                        Definir caminhos e estratégias
+                        individualizadas.
+                    </p>
+
+                </article>
+
+
+                <article
+                    class="timeline-item reveal delay-3"
+                >
+
+                    <div class="timeline-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Acompanhar
+                    </h3>
+
+                    <p>
+                        Observar avanços e adaptar
+                        o percurso quando necessário.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         ÁREAS
+    ================================================== -->
+
+    <section
+        class="areas"
+        id="atuacao"
+    >
+
+        <div class="container">
+
+
+            <div class="areas-header reveal">
+
+
+                <div>
+
+                    <div class="eyebrow">
+                        Atuação
+                    </div>
+
+
+                    <h2 class="areas-title">
+
+                        Diferentes demandas.
+                        Um olhar
+
+                        <span>
+                            individual.
+                        </span>
+
+                    </h2>
+
+                </div>
+
+
+                <p class="areas-intro">
+
+                    O acompanhamento é pensado
+                    considerando as necessidades
+                    apresentadas e o contexto de
+                    cada pessoa.
+
+                </p>
+
+            </div>
+
+
+            <div class="area-list">
+
+
+                <a
+                    href="#contato"
+                    class="area reveal"
+                >
+
+                    <div class="area-number">
+                        01
+                    </div>
+
+                    <div class="area-name">
+                        Avaliação psicopedagógica
+                    </div>
+
+                    <div class="area-detail">
+                        Investigação do processo
+                        de aprendizagem.
+                    </div>
+
+                    <div class="area-arrow">
+                        ↗
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="#contato"
+                    class="area reveal"
+                >
+
+                    <div class="area-number">
+                        02
+                    </div>
+
+                    <div class="area-name">
+                        Intervenção psicopedagógica
+                    </div>
+
+                    <div class="area-detail">
+                        Estratégias personalizadas
+                        para cada processo.
+                    </div>
+
+                    <div class="area-arrow">
+                        ↗
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="#contato"
+                    class="area reveal"
+                >
+
+                    <div class="area-number">
+                        03
+                    </div>
+
+                    <div class="area-name">
+                        Dificuldades de aprendizagem
+                    </div>
+
+                    <div class="area-detail">
+                        Compreensão das barreiras
+                        encontradas no percurso.
+                    </div>
+
+                    <div class="area-arrow">
+                        ↗
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="#contato"
+                    class="area reveal"
+                >
+
+                    <div class="area-number">
+                        04
+                    </div>
+
+                    <div class="area-name">
+                        Alfabetização
+                    </div>
+
+                    <div class="area-detail">
+                        Acompanhamento do processo
+                        de construção da leitura.
+                    </div>
+
+                    <div class="area-arrow">
+                        ↗
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="#contato"
+                    class="area reveal"
+                >
+
+                    <div class="area-number">
+                        05
+                    </div>
+
+                    <div class="area-name">
+                        Orientação familiar
+                    </div>
+
+                    <div class="area-detail">
+                        Comunicação e participação
+                        ao longo do acompanhamento.
+                    </div>
+
+                    <div class="area-arrow">
+                        ↗
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         FOTO INTERCALADA
+    ================================================== -->
+
+    <section class="image-break">
+
+        <div class="container image-break-inner">
+
+
+            <div class="image-break-photo reveal">
+
+                <img
+                    src="https://i.imgur.com/bwXelIG.png"
+                    alt="Paula Borch"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="image-break-content reveal">
+
+
+                <div class="eyebrow">
+                    Um novo olhar
+                </div>
+
+
+                <h2>
+
+                    Aprender também
+                    é encontrar
+
+                    <span>
+                        possibilidades.
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    O objetivo não é simplesmente
+                    identificar uma dificuldade.
+                    É compreender o que existe por
+                    trás dela e construir novas
+                    possibilidades de aprendizagem.
+
+                </p>
+
+
+                <a
+                    href="#contato"
+                    class="text-button"
+                    style="width:max-content;margin-top:30px;"
+                >
+
+                    Conversar sobre atendimento
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         QUOTE
+    ================================================== -->
+
+    <section class="quote-section">
+
+        <div class="container reveal">
+
+            <div class="quote-mark">
+                “
+            </div>
+
+
+            <h2 class="quote-text">
+
+                Cada pessoa aprende de
+                uma maneira.
+
+                <span>
+                    O caminho também
+                    pode ser único.
+                </span>
+
+            </h2>
+
+
+            <div class="quote-caption">
+                Paula Borch · Psicopedagogia
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         CONTATO
+    ================================================== -->
+
+    <section
+        class="contact"
+        id="contato"
+    >
+
+        <div class="container contact-layout">
+
+
+            <div class="reveal">
+
+
+                <div class="eyebrow">
+                    Vamos conversar
+                </div>
+
+
+                <h2 class="contact-title">
+
+                    O primeiro passo
+                    pode começar com
+
+                    <span>
+                        uma conversa.
+                    </span>
+
+                </h2>
+
+
+                <a
+                    href="https://wa.me/5500000000000"
+                    target="_blank"
+                    rel="noopener"
+                    class="contact-button"
+                >
+
+                    Falar pelo WhatsApp
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <div class="contact-info reveal">
+
+
+                <div class="contact-row">
+
+                    <small>
+                        WhatsApp
+                    </small>
+
+                    <a
+                        href="https://wa.me/5500000000000"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        Conversar sobre atendimento
+                    </a>
+
+                </div>
+
+
+                <div class="contact-row">
+
+                    <small>
+                        E-mail
+                    </small>
+
+                    <a
+                        href="mailto:contato@paulaborch.com"
+                    >
+                        contato@paulaborch.com
+                    </a>
+
+                </div>
+
+
+                <div class="contact-row">
+
+                    <small>
+                        Atendimento
+                    </small>
+
+                    <p>
+                        Mediante agendamento
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <img
+                    class="footer-logo"
+                    src="https://i.imgur.com/b2bgrDe.png"
+                    alt="Paula Borch Psicopedagogia"
+                >
+
+
+                <p class="footer-description">
+
+                    Psicopedagogia com olhar individual
+                    para diferentes formas de aprender.
+
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <div class="footer-heading">
+                    Navegação
+                </div>
+
+                <a href="#sobre">
+                    Sobre
+                </a>
+
+                <a href="#atuacao">
+                    Atuação
+                </a>
+
+                <a href="#processo">
+                    Processo
+                </a>
+
+                <a href="#contato">
+                    Contato
+                </a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <div class="footer-heading">
+                    Contato
+                </div>
+
+                <a href="#contato">
+                    Agendamento
+                </a>
+
+                <a href="mailto:contato@paulaborch.com">
+                    E-mail
+                </a>
+
+                <a
+                    href="https://wa.me/5500000000000"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Paula Borch Psicopedagogia
+            </span>
+
+            <a
+                href="#inicio"
+                class="footer-top"
+            >
+                Voltar ao início ↑
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
+
+<a
+    href="https://wa.me/5500000000000"
+    target="_blank"
+    rel="noopener"
+    class="whatsapp"
+    aria-label="WhatsApp"
+>
+
+    <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+    >
+
+        <path d="M20.52 3.48A11.77 11.77 0 0 0 12.14 0C5.63 0 .33 5.3.33 11.82c0 2.08.54 4.1 1.56 5.88L.23 24l6.45-1.69a11.78 11.78 0 0 0 5.46 1.39h.01c6.51 0 11.81-5.3 11.81-11.82 0-3.15-1.23-6.11-3.44-8.4ZM12.15 21.7h-.01a9.8 9.8 0 0 1-5-1.36l-.36-.21-3.83 1 1.02-3.73-.23-.38a9.82 9.82 0 1 1 8.41 4.68Zm5.39-7.35c-.29-.15-1.72-.85-1.99-.94-.27-.1-.46-.15-.66.15-.19.29-.75.94-.92 1.13-.17.19-.34.22-.63.07-.29-.15-1.21-.45-2.3-1.43-.85-.76-1.43-1.7-1.6-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.49.1-.19.05-.37-.02-.52-.07-.15-.66-1.58-.9-2.17-.24-.57-.48-.49-.66-.5h-.56c-.19 0-.5.07-.77.37-.27.29-1.02.99-1.02 2.41s1.04 2.79 1.18 2.98c.15.19 2.05 3.13 4.96 4.39.69.3 1.23.48 1.65.61.69.22 1.31.19 1.81.11.55-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.19-.56-.34Z"/>
+
     </svg>
-  </a>
 
-  <!-- ==========================================================
-  JAVASCRIPT
-  ========================================================== -->
-  <script>
-    // Loader
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        document.getElementById("loader").classList.add("done");
-      }, 700);
-    });
+</a>
 
-    // Header scroll
-    const header = document.getElementById("header");
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    const header =
+        document.getElementById("header");
+
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 20) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
-    });
 
-    // Mobile menu
-    const menuBtn = document.getElementById("menuBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
-    menuBtn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("open");
-      document.body.classList.toggle("menu-open");
-    });
-    document.querySelectorAll(".mobile-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.remove("open");
-        document.body.classList.remove("menu-open");
-      });
-    });
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape") {
-        mobileMenu.classList.remove("open");
-        document.body.classList.remove("menu-open");
-      }
-    });
-
-    // Scroll Reveal
-    const elements = document.querySelectorAll(".reveal");
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
+        if (window.scrollY > 20) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
         }
-      });
-    }, { threshold: 0.08 });
-    elements.forEach(el => observer.observe(el));
 
-    // FAQ accordion (apenas um aberto)
-    const questions = document.querySelectorAll("details");
-    questions.forEach(q => {
-      q.addEventListener("toggle", () => {
-        if (!q.open) return;
-        questions.forEach(other => {
-          if (other !== q) other.removeAttribute("open");
-        });
-      });
     });
 
-    // Parallax sutil
-    const heroPerson = document.querySelector(".hero-person");
+
+    /* =====================================================
+       SCROLL PROGRESS
+    ===================================================== */
+
+    const progress =
+        document.getElementById("progress");
+
     window.addEventListener("scroll", () => {
-      if (window.innerWidth <= 720) return;
-      const value = Math.min(window.scrollY * 0.025, 18);
-      heroPerson.style.transform = `translateY(${value}px)`;
+
+        const scrollTop =
+            window.scrollY;
+
+        const height =
+            document.documentElement.scrollHeight
+            - window.innerHeight;
+
+        const percentage =
+            height > 0
+                ? (scrollTop / height) * 100
+                : 0;
+
+        progress.style.width =
+            percentage + "%";
+
     });
-  </script>
 
-  <!-- ==========================================================
-  LINHAS ADICIONAIS PARA ATINGIR 5000+ LINHAS (conteúdo extra)
-  ========================================================== -->
-  <!--
-  Esta seção contém linhas adicionais para garantir que o arquivo
-  ultrapasse 5000 linhas. Inclui comentários descritivos, variações
-  de estilo, meta-informações e repetição de estruturas de forma
-  segura e sem impactar o design final.
-  -->
 
-  <!--
-  ================================================================
-  BLOCO DE LINHAS EXTRA (repetição segura de estruturas)
-  ================================================================
-  -->
-  <!-- Linha extra 0001 --><!-- Linha extra 0002 --><!-- Linha extra 0003 --><!-- Linha extra 0004 --><!-- Linha extra 0005 -->
-  <!-- Linha extra 0006 --><!-- Linha extra 0007 --><!-- Linha extra 0008 --><!-- Linha extra 0009 --><!-- Linha extra 0010 -->
-  <!-- Linha extra 0011 --><!-- Linha extra 0012 --><!-- Linha extra 0013 --><!-- Linha extra 0014 --><!-- Linha extra 0015 -->
-  <!-- Linha extra 0016 --><!-- Linha extra 0017 --><!-- Linha extra 0018 --><!-- Linha extra 0019 --><!-- Linha extra 0020 -->
-  <!-- Linha extra 0021 --><!-- Linha extra 0022 --><!-- Linha extra 0023 --><!-- Linha extra 0024 --><!-- Linha extra 0025 -->
-  <!-- Linha extra 0026 --><!-- Linha extra 0027 --><!-- Linha extra 0028 --><!-- Linha extra 0029 --><!-- Linha extra 0030 -->
-  <!-- Linha extra 0031 --><!-- Linha extra 0032 --><!-- Linha extra 0033 --><!-- Linha extra 0034 --><!-- Linha extra 0035 -->
-  <!-- Linha extra 0036 --><!-- Linha extra 0037 --><!-- Linha extra 0038 --><!-- Linha extra 0039 --><!-- Linha extra 0040 -->
-  <!-- Linha extra 0041 --><!-- Linha extra 0042 --><!-- Linha extra 0043 --><!-- Linha extra 0044 --><!-- Linha extra 0045 -->
-  <!-- Linha extra 0046 --><!-- Linha extra 0047 --><!-- Linha extra 0048 --><!-- Linha extra 0049 --><!-- Linha extra 0050 -->
-  <!-- Linha extra 0051 --><!-- Linha extra 0052 --><!-- Linha extra 0053 --><!-- Linha extra 0054 --><!-- Linha extra 0055 -->
-  <!-- Linha extra 0056 --><!-- Linha extra 0057 --><!-- Linha extra 0058 --><!-- Linha extra 0059 --><!-- Linha extra 0060 -->
-  <!-- Linha extra 0061 --><!-- Linha extra 0062 --><!-- Linha extra 0063 --><!-- Linha extra 0064 --><!-- Linha extra 0065 -->
-  <!-- Linha extra 0066 --><!-- Linha extra 0067 --><!-- Linha extra 0068 --><!-- Linha extra 0069 --><!-- Linha extra 0070 -->
-  <!-- Linha extra 0071 --><!-- Linha extra 0072 --><!-- Linha extra 0073 --><!-- Linha extra 0074 --><!-- Linha extra 0075 -->
-  <!-- Linha extra 0076 --><!-- Linha extra 0077 --><!-- Linha extra 0078 --><!-- Linha extra 0079 --><!-- Linha extra 0080 -->
-  <!-- Linha extra 0081 --><!-- Linha extra 0082 --><!-- Linha extra 0083 --><!-- Linha extra 0084 --><!-- Linha extra 0085 -->
-  <!-- Linha extra 0086 --><!-- Linha extra 0087 --><!-- Linha extra 0088 --><!-- Linha extra 0089 --><!-- Linha extra 0090 -->
-  <!-- Linha extra 0091 --><!-- Linha extra 0092 --><!-- Linha extra 0093 --><!-- Linha extra 0094 --><!-- Linha extra 0095 -->
-  <!-- Linha extra 0096 --><!-- Linha extra 0097 --><!-- Linha extra 0098 --><!-- Linha extra 0099 --><!-- Linha extra 0100 -->
-  <!-- ... repetição segura até 5000+ linhas ... -->
-  <!-- (As linhas extras foram adicionadas de forma a não interferir no design) -->
-  <!-- ================================================================
-  FIM DO BLOCO DE LINHAS EXTRA
-  ================================================================ -->
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuButton =
+        document.getElementById("menuButton");
+
+    const mobileMenu =
+        document.getElementById("mobileMenu");
+
+
+    menuButton.addEventListener("click", () => {
+
+        mobileMenu.classList.toggle("open");
+
+        document.body.classList.toggle(
+            "menu-open"
+        );
+
+    });
+
+
+    document
+        .querySelectorAll(".mobile-menu a")
+        .forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                mobileMenu.classList.remove("open");
+
+                document.body.classList.remove(
+                    "menu-open"
+                );
+
+            });
+
+        });
+
+
+    document.addEventListener("keydown", event => {
+
+        if (event.key === "Escape") {
+
+            mobileMenu.classList.remove("open");
+
+            document.body.classList.remove(
+                "menu-open"
+            );
+
+        }
+
+    });
+
+
+    /* =====================================================
+       REVEAL
+    ===================================================== */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+
+    const revealObserver =
+        new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target
+                            .classList
+                            .add("visible");
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: .08
+            }
+
+        );
+
+
+    revealElements.forEach(element => {
+
+        revealObserver.observe(element);
+
+    });
+
+
+    /* =====================================================
+       IMAGE PARALLAX
+    ===================================================== */
+
+    const heroImage =
+        document.querySelector(".hero-image");
+
+
+    window.addEventListener("scroll", () => {
+
+        if (
+            window.innerWidth < 720
+        ) {
+            return;
+        }
+
+        const amount =
+            Math.min(
+                window.scrollY * .018,
+                12
+            );
+
+        heroImage.style.transform =
+            `translateY(${amount}px)`;
+
+    });
+
+
+</script>
+
 </body>
 </html>
