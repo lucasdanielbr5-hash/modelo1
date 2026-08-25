@@ -1178,3 +1178,1968 @@ blockquote {
     background: var(--sand);
 
     padding: 110px 0;
+}
+
+.faq-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        .65fr 1.35fr;
+
+    gap: 90px;
+}
+
+.faq-list {
+
+    border-top:
+        1px solid
+        rgba(23,56,61,.15);
+}
+
+details {
+
+    border-bottom:
+        1px solid
+        rgba(23,56,61,.15);
+
+    padding: 22px 0;
+}
+
+summary {
+
+    cursor: pointer;
+
+    list-style: none;
+
+    color: var(--navy);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+
+    content: "+";
+
+    color: var(--terracotta);
+
+    font-size: 20px;
+
+    font-weight: 400;
+}
+
+details[open] summary::after {
+    content: "−";
+}
+
+details p {
+
+    padding-top: 15px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
+
+    padding: 120px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e9eee8,
+            #f7f1eb
+        );
+}
+
+.contact-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 90px;
+
+    align-items: center;
+}
+
+.contact-description {
+
+    color: var(--muted);
+
+    max-width: 470px;
+
+    line-height: 1.8;
+
+    margin: 20px 0 30px;
+}
+
+.contact-info {
+
+    display: grid;
+
+    gap: 15px;
+}
+
+.contact-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    font-size: 13px;
+
+    color: var(--navy);
+}
+
+.contact-icon {
+
+    width: 41px;
+    height: 41px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    display: grid;
+
+    place-items: center;
+
+    color: var(--terracotta);
+}
+
+
+/* FORM */
+
+.form {
+
+    background: white;
+
+    padding: 38px;
+
+    border-radius: 20px;
+
+    box-shadow: var(--shadow);
+}
+
+.form h3 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    color: var(--navy);
+
+    font-size: 27px;
+
+    font-weight: 500;
+
+    margin-bottom: 22px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+
+    display: block;
+
+    color: var(--navy);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+
+    width: 100%;
+
+    border: 1px solid var(--border);
+
+    background: var(--cream);
+
+    padding: 13px;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    transition: .25s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+
+    border-color: var(--sage);
+
+    background: white;
+}
+
+.form-group textarea {
+
+    min-height: 110px;
+
+    resize: vertical;
+}
+
+.form button {
+
+    width: 100%;
+
+    border: 0;
+
+    cursor: pointer;
+
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    background: #102e32;
+
+    color: white;
+
+    padding: 60px 0 25px;
+}
+
+.footer-grid {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 60px;
+
+    padding-bottom: 50px;
+}
+
+.footer-brand {
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: .14em;
+}
+
+.footer-description {
+
+    color:
+        rgba(255,255,255,.52);
+
+    max-width: 310px;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    margin-top: 15px;
+}
+
+.footer-links {
+
+    display: flex;
+
+    gap: 75px;
+}
+
+.footer-links h4 {
+
+    color: #d6a08c;
+
+    text-transform: uppercase;
+
+    font-size: 9px;
+
+    letter-spacing: .15em;
+
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+
+    display: block;
+
+    color:
+        rgba(255,255,255,.58);
+
+    font-size: 12px;
+
+    margin-bottom: 8px;
+
+    transition: .2s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.12);
+
+    padding-top: 22px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color:
+        rgba(255,255,255,.35);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   ANIMAÇÕES
+========================================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width: 950px) {
+
+    nav ul,
+    .header-cta {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    nav.active {
+
+        position: absolute;
+
+        top: 72px;
+
+        left: 20px;
+        right: 20px;
+
+        background: white;
+
+        padding: 25px;
+
+        border-radius: 15px;
+
+        box-shadow: var(--shadow);
+    }
+
+    nav.active ul {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .method-grid,
+    .faq-grid,
+    .contact-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero .eyebrow {
+        justify-content: center;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .hero-photo-area {
+        min-height: 540px;
+    }
+
+    .hero-photo {
+        right: 50%;
+
+        transform:
+            translateX(50%);
+    }
+
+    .hero-card {
+        left: 10%;
+    }
+
+    .trust-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .steps {
+        margin-top: 20px;
+    }
+
+    .footer-grid {
+        flex-direction: column;
+    }
+}
+
+
+@media(max-width: 600px) {
+
+    .container {
+        width:
+            calc(100% - 30px);
+    }
+
+    .hero {
+        padding-top: 120px;
+    }
+
+    h1 {
+        font-size: 49px;
+    }
+
+    .hero-photo-area {
+        min-height: 450px;
+    }
+
+    .hero-photo {
+
+        width: 300px;
+
+        height: 410px;
+    }
+
+    .hero-card {
+        left: 0;
+
+        bottom: 5px;
+
+        width: 180px;
+    }
+
+    .photo-label {
+        display: none;
+    }
+
+    .trust-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .trust-item {
+        border-left: 0;
+        padding-left: 0;
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,.15);
+
+        padding-bottom: 12px;
+    }
+
+    .intro,
+    .about,
+    .services,
+    .method,
+    .testimonial,
+    .faq,
+    .contact {
+        padding: 80px 0;
+    }
+
+    .intro-grid {
+        gap: 35px;
+    }
+
+    .about-images {
+        height: 430px;
+    }
+
+    .about-photo-main {
+        width: 290px;
+        height: 390px;
+    }
+
+    .about-photo-small {
+        width: 145px;
+        height: 190px;
+    }
+
+    .credentials {
+        grid-template-columns: 1fr;
+    }
+
+    .services-heading {
+        display: block;
+    }
+
+    .services-heading p {
+        margin-top: 20px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-grid {
+        gap: 40px;
+    }
+
+    .form {
+        padding: 25px;
+    }
+
+    .footer-links {
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header id="header">
+
+<div class="container nav">
+
+
+    <a href="#inicio" class="brand">
+
+        <span class="brand-symbol"></span>
+
+        <span>
+
+            <span class="brand-name">
+                PAULA BORCH
+            </span>
+
+            <span class="brand-sub">
+                PSICOPEDAGOGIA & ALFABETIZAÇÃO
+            </span>
+
+        </span>
+
+    </a>
+
+
+    <nav id="nav">
+
+        <ul>
+
+            <li>
+                <a href="#sobre">
+                    Sobre
+                </a>
+            </li>
+
+            <li>
+                <a href="#especialidades">
+                    Especialidades
+                </a>
+            </li>
+
+            <li>
+                <a href="#metodo">
+                    Abordagem
+                </a>
+            </li>
+
+            <li>
+                <a href="#faq">
+                    Dúvidas
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <a
+        href="#contato"
+        class="header-cta"
+    >
+        Agendar conversa
+    </a>
+
+
+    <button
+        class="menu"
+        id="menu"
+    >
+        ☰
+    </button>
+
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="inicio">
+
+<div class="container hero-grid">
+
+
+    <div class="reveal">
+
+        <div class="eyebrow">
+            Psicopedagogia & Alfabetização
+        </div>
+
+
+        <h1>
+
+            Aprender é descobrir
+            <em>novas possibilidades.</em>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            Atendimento psicopedagógico individualizado,
+            com olhar atento ao desenvolvimento, à
+            aprendizagem e à singularidade de cada criança.
+
+        </p>
+
+
+        <div class="buttons">
+
+            <a
+                href="#contato"
+                class="btn btn-primary"
+            >
+                Agendar uma conversa →
+            </a>
+
+
+            <a
+                href="#sobre"
+                class="btn btn-secondary"
+            >
+                Conheça meu trabalho
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="hero-photo-area reveal">
+
+
+        <!-- FOTO 1 -->
+
+        <img
+            src="https://i.imgur.com/xT4wqfg.png"
+            class="hero-photo"
+            alt="Paula Borch - Psicopedagoga"
+        >
+
+
+        <div class="photo-label">
+            Psicopedagogia • Alfabetização
+        </div>
+
+
+        <div class="hero-card">
+
+            <small>
+                Atendimento individual
+            </small>
+
+            <strong>
+                Um olhar atento para cada história.
+            </strong>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TRUST
+===================================================== -->
+
+<section class="trust">
+
+<div class="container trust-grid">
+
+
+    <div class="trust-item">
+
+        <strong>
+            Atendimento individual
+        </strong>
+
+        <span>
+            Olhar personalizado
+        </span>
+
+    </div>
+
+
+    <div class="trust-item">
+
+        <strong>
+            Psicopedagogia
+        </strong>
+
+        <span>
+            Desenvolvimento e aprendizagem
+        </span>
+
+    </div>
+
+
+    <div class="trust-item">
+
+        <strong>
+            Alfabetização
+        </strong>
+
+        <span>
+            Leitura e escrita
+        </span>
+
+    </div>
+
+
+    <div class="trust-item">
+
+        <strong>
+            Família & escola
+        </strong>
+
+        <span>
+            Trabalho integrado
+        </span>
+
+    </div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro">
+
+<div class="container intro-grid">
+
+
+    <div class="reveal">
+
+        <span class="section-index">
+            01 / PROPÓSITO
+        </span>
+
+    </div>
+
+
+    <div class="reveal">
+
+        <h2>
+            Compreender antes de intervir.
+        </h2>
+
+        <br>
+
+        <p>
+
+            Cada criança possui uma maneira própria
+            de aprender. Antes de buscar respostas
+            prontas, é preciso compreender sua história,
+            seu contexto e suas potencialidades.
+
+        </p>
+
+
+        <p>
+
+            A psicopedagogia possibilita olhar para
+            as dificuldades de aprendizagem com
+            profundidade, construindo estratégias
+            que façam sentido para cada indivíduo.
+
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SOBRE / PROFESSORA
+===================================================== -->
+
+<section class="about" id="sobre">
+
+<div class="container about-grid">
+
+
+    <div class="about-images reveal">
+
+
+        <!-- FOTO 2 -->
+
+        <img
+            src="https://i.imgur.com/1QDxDPB.png"
+            class="about-photo-main"
+            alt="Paula Borch"
+        >
+
+
+        <!-- FOTO 1 -->
+
+        <img
+            src="https://i.imgur.com/xT4wqfg.png"
+            class="about-photo-small"
+            alt="Paula Borch Psicopedagoga"
+        >
+
+    </div>
+
+
+    <div class="about-content reveal">
+
+        <div class="eyebrow">
+            Sobre a profissional
+        </div>
+
+
+        <h2>
+            Conhecimento técnico,
+            <em>escuta e presença.</em>
+        </h2>
+
+
+        <p>
+
+            Sou <strong>Paula Borch</strong>,
+            psicopedagoga dedicada ao acompanhamento
+            de crianças em seus diferentes processos
+            de aprendizagem.
+
+        </p>
+
+
+        <p>
+
+            Meu trabalho busca compreender não apenas
+            o que a criança apresenta como dificuldade,
+            mas principalmente como ela pensa, aprende,
+            se relaciona e desenvolve suas habilidades.
+
+        </p>
+
+
+        <p>
+
+            O acompanhamento é construído de forma
+            individualizada, com diálogo próximo com
+            a família e, quando necessário, com a escola.
+
+        </p>
+
+
+        <div class="credentials">
+
+
+            <div class="credential">
+
+                <strong>
+                    Psicopedagogia
+                </strong>
+
+                <span>
+                    Formação profissional
+                </span>
+
+            </div>
+
+
+            <div class="credential">
+
+                <strong>
+                    Alfabetização
+                </strong>
+
+                <span>
+                    Leitura e escrita
+                </span>
+
+            </div>
+
+
+            <div class="credential">
+
+                <strong>
+                    Desenvolvimento
+                </strong>
+
+                <span>
+                    Olhar integral
+                </span>
+
+            </div>
+
+
+            <div class="credential">
+
+                <strong>
+                    Atendimento individual
+                </strong>
+
+                <span>
+                    Estratégias personalizadas
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ESPECIALIDADES
+===================================================== -->
+
+<section
+    class="services"
+    id="especialidades"
+>
+
+<div class="container">
+
+
+    <div class="services-heading reveal">
+
+        <div>
+
+            <div class="eyebrow">
+                Áreas de atuação
+            </div>
+
+            <h2>
+                Especialidades
+            </h2>
+
+        </div>
+
+
+        <p>
+
+            Um acompanhamento estruturado
+            para compreender dificuldades,
+            desenvolver habilidades e favorecer
+            uma relação mais positiva com a aprendizagem.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="service-grid">
+
+
+        <article class="service reveal">
+
+            <span class="service-number">
+                01
+            </span>
+
+            <div class="service-icon">
+                ◇
+            </div>
+
+            <h3>
+                Avaliação Psicopedagógica
+            </h3>
+
+            <p>
+
+                Investigação dos processos envolvidos
+                na aprendizagem para compreender
+                dificuldades e potencialidades.
+
+            </p>
+
+        </article>
+
+
+
+        <article class="service reveal">
+
+            <span class="service-number">
+                02
+            </span>
+
+            <div class="service-icon">
+                —
+            </div>
+
+            <h3>
+                Intervenção Psicopedagógica
+            </h3>
+
+            <p>
+
+                Estratégias e atividades planejadas
+                de acordo com as necessidades
+                específicas de cada criança.
+
+            </p>
+
+        </article>
+
+
+
+        <article class="service reveal">
+
+            <span class="service-number">
+                03
+            </span>
+
+            <div class="service-icon">
+                Aa
+            </div>
+
+            <h3>
+                Alfabetização
+            </h3>
+
+            <p>
+
+                Acompanhamento do processo de
+                aquisição da leitura e da escrita,
+                respeitando o ritmo individual.
+
+            </p>
+
+        </article>
+
+
+
+        <article class="service reveal">
+
+            <span class="service-number">
+                04
+            </span>
+
+            <div class="service-icon">
+                +
+            </div>
+
+            <h3>
+                Desenvolvimento Cognitivo
+            </h3>
+
+            <p>
+
+                Estímulo de habilidades relacionadas
+                à atenção, memória, raciocínio,
+                organização e autonomia.
+
+            </p>
+
+        </article>
+
+
+
+        <article class="service reveal">
+
+            <span class="service-number">
+                05
+            </span>
+
+            <div class="service-icon">
+                /
+            </div>
+
+            <h3>
+                Orientação Familiar
+            </h3>
+
+            <p>
+
+                Orientação para que família e
+                profissional possam construir
+                juntos estratégias de apoio.
+
+            </p>
+
+        </article>
+
+
+
+        <article class="service reveal">
+
+            <span class="service-number">
+                06
+            </span>
+
+            <div class="service-icon">
+                ○
+            </div>
+
+            <h3>
+                Acompanhamento Escolar
+            </h3>
+
+            <p>
+
+                Quando necessário, diálogo com
+                a escola para favorecer uma visão
+                integrada do desenvolvimento.
+
+            </p>
+
+        </article>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MÉTODO
+===================================================== -->
+
+<section
+    class="method"
+    id="metodo"
+>
+
+<div class="container method-grid">
+
+
+    <div class="method-intro reveal">
+
+        <div class="eyebrow">
+            Como funciona
+        </div>
+
+
+        <h2>
+            Um processo
+            construído com cuidado.
+        </h2>
+
+
+        <p>
+
+            O acompanhamento começa pela escuta.
+            A partir dela, são definidos os caminhos
+            mais adequados para cada criança.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="steps">
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                01 / ESCUTA
+            </div>
+
+            <h3>
+                Conhecer
+            </h3>
+
+            <p>
+
+                Conversamos com a família e
+                compreendemos a história,
+                rotina e principais demandas.
+
+            </p>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                02 / INVESTIGAÇÃO
+            </div>
+
+            <h3>
+                Compreender
+            </h3>
+
+            <p>
+
+                Observamos os processos de
+                aprendizagem e identificamos
+                possibilidades de intervenção.
+
+            </p>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                03 / PLANEJAMENTO
+            </div>
+
+            <h3>
+                Estruturar
+            </h3>
+
+            <p>
+
+                Criamos estratégias de acordo
+                com os objetivos e necessidades
+                identificados.
+
+            </p>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                04 / ACOMPANHAMENTO
+            </div>
+
+            <h3>
+                Evoluir
+            </h3>
+
+            <p>
+
+                Acompanhamos os avanços e
+                ajustamos o percurso sempre
+                que necessário.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DEPOIMENTO
+===================================================== -->
+
+<section class="testimonial">
+
+<div class="container testimonial-inner reveal">
+
+    <div class="quote-mark">
+        “
+    </div>
+
+    <blockquote>
+
+        “Quando encontramos uma forma de
+        compreender como a criança aprende,
+        abrimos espaço para que ela descubra
+        do que é capaz.”
+
+    </blockquote>
+
+    <small>
+        Paula Borch · Psicopedagogia
+    </small>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
+
+<section class="faq" id="faq">
+
+<div class="container faq-grid">
+
+
+    <div class="reveal">
+
+        <div class="eyebrow">
+            Perguntas frequentes
+        </div>
+
+        <h2>
+            Antes de
+            começarmos.
+        </h2>
+
+    </div>
+
+
+    <div class="faq-list reveal">
+
+
+        <details>
+
+            <summary>
+                Para quem é indicado o atendimento?
+            </summary>
+
+            <p>
+
+                O acompanhamento pode ser indicado
+                para crianças e adolescentes que
+                apresentam dificuldades ou necessidades
+                relacionadas à aprendizagem,
+                alfabetização e desenvolvimento.
+
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Como funciona a primeira consulta?
+            </summary>
+
+            <p>
+
+                O primeiro encontro é destinado à
+                compreensão da demanda e da história
+                da criança, permitindo definir os
+                próximos passos do acompanhamento.
+
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                O atendimento é individual?
+            </summary>
+
+            <p>
+
+                Sim. As estratégias são planejadas
+                considerando as características,
+                necessidades e objetivos específicos
+                de cada criança.
+
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Existe contato com a escola?
+            </summary>
+
+            <p>
+
+                Quando necessário e autorizado pela
+                família, pode haver comunicação com
+                a escola para favorecer uma abordagem
+                integrada.
+
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Como agendar?
+            </summary>
+
+            <p>
+
+                Você pode preencher o formulário de
+                contato ou entrar diretamente em
+                contato pelo WhatsApp.
+
+            </p>
+
+        </details>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTATO
+===================================================== -->
+
+<section
+    class="contact"
+    id="contato"
+>
+
+<div class="container contact-grid">
+
+
+    <div class="reveal">
+
+        <div class="eyebrow">
+            Entre em contato
+        </div>
+
+
+        <h2>
+            Vamos conversar
+            sobre o próximo passo.
+        </h2>
+
+
+        <p class="contact-description">
+
+            Se você gostaria de entender melhor
+            como funciona o acompanhamento
+            psicopedagógico, entre em contato.
+
+            Será um prazer conhecer sua história
+            e sua necessidade.
+
+        </p>
+
+
+        <div class="contact-info">
+
+
+            <a
+                href="https://wa.me/5500000000000"
+                target="_blank"
+                class="contact-item"
+            >
+
+                <span class="contact-icon">
+                    ↗
+                </span>
+
+                WhatsApp
+
+            </a>
+
+
+            <a
+                href="mailto:contato@paulaborch.com"
+                class="contact-item"
+            >
+
+                <span class="contact-icon">
+                    @
+                </span>
+
+                contato@paulaborch.com
+
+            </a>
+
+
+            <div class="contact-item">
+
+                <span class="contact-icon">
+                    +
+                </span>
+
+                Sua cidade · Seu estado
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <div class="form reveal">
+
+        <h3>
+            Agende uma conversa
+        </h3>
+
+
+        <form id="contactForm">
+
+
+            <div class="form-group">
+
+                <label>
+                    Nome
+                </label>
+
+                <input
+                    type="text"
+                    id="nome"
+                    placeholder="Seu nome"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    WhatsApp
+                </label>
+
+                <input
+                    type="tel"
+                    id="telefone"
+                    placeholder="(00) 00000-0000"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Mensagem
+                </label>
+
+                <textarea
+                    id="mensagem"
+                    placeholder="Como posso ajudar?"
+                ></textarea>
+
+            </div>
+
+
+            <button
+                class="btn btn-primary"
+                type="submit"
+            >
+                Enviar pelo WhatsApp →
+            </button>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="container">
+
+
+    <div class="footer-grid">
+
+
+        <div>
+
+            <div class="footer-brand">
+                PAULA BORCH
+            </div>
+
+            <p class="footer-description">
+
+                Psicopedagogia & Alfabetização.
+                Um trabalho baseado em escuta,
+                conhecimento e respeito à
+                singularidade de cada criança.
+
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+
+            <div>
+
+                <h4>
+                    Navegação
+                </h4>
+
+                <a href="#inicio">
+                    Início
+                </a>
+
+                <a href="#sobre">
+                    Sobre
+                </a>
+
+                <a href="#especialidades">
+                    Especialidades
+                </a>
+
+                <a href="#contato">
+                    Contato
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Contato
+                </h4>
+
+                <a href="#">
+                    WhatsApp
+                </a>
+
+                <a href="#">
+                    Instagram
+                </a>
+
+                <a href="mailto:contato@paulaborch.com">
+                    E-mail
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 Paula Borch Psicopedagogia.
+        </span>
+
+        <span>
+            Todos os direitos reservados.
+        </span>
+
+    </div>
+
+</div>
+
+</footer>
+
+
+
+<script>
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+const header =
+    document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 30) {
+
+        header.classList.add("scrolled");
+
+    } else {
+
+        header.classList.remove("scrolled");
+
+    }
+
+});
+
+
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+const menu =
+    document.getElementById("menu");
+
+const nav =
+    document.getElementById("nav");
+
+
+menu.addEventListener("click", () => {
+
+    nav.classList.toggle("active");
+
+});
+
+
+document
+.querySelectorAll("nav a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        nav.classList.remove("active");
+
+    });
+
+});
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target
+                        .classList
+                        .add("visible");
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .12
+        }
+    );
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+document
+.getElementById("contactForm")
+.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const nome =
+            document
+            .getElementById("nome")
+            .value;
+
+
+        const telefone =
+            document
+            .getElementById("telefone")
+            .value;
+
+
+        const mensagem =
+            document
+            .getElementById("mensagem")
+            .value;
+
+
+        /*
+        =====================================================
+        COLOQUE AQUI O WHATSAPP REAL
+
+        Formato:
+
+        55 + DDD + número
+
+        Exemplo:
+
+        5543999999999
+        =====================================================
+        */
+
+        const whatsapp =
+            "5500000000000";
+
+
+        const texto =
+
+            `Olá, Paula! Meu nome é ${nome}.%0A%0A` +
+
+            `Meu WhatsApp é ${telefone}.%0A%0A` +
+
+            `Gostaria de saber mais sobre o atendimento psicopedagógico.%0A%0A` +
+
+            `${mensagem}`;
+
+
+        window.open(
+
+            `https://wa.me/${whatsapp}?text=${texto}`,
+
+            "_blank"
+
+        );
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
