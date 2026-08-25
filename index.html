@@ -2,14 +2,12 @@
 <html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta
 name="description"
-content="Paula Borch Psicopedagogia — aprendizagem, desenvolvimento e acompanhamento individualizado."
+content="Paula Borch — Psicopedagogia. Um olhar individual para aprendizagem, desenvolvimento e educação."
 >
 
 <title>Paula Borch | Psicopedagogia</title>
@@ -18,10 +16,9 @@ content="Paula Borch Psicopedagogia — aprendizagem, desenvolvimento e acompanh
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link
-href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
 rel="stylesheet"
 >
-
 
 <style>
 
@@ -30,40 +27,40 @@ RESET
 ========================================================= */
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-font-family:"DM Sans",sans-serif;
-background:#fff;
-color:#363936;
-overflow-x:hidden;
--webkit-font-smoothing:antialiased;
+    font-family:"DM Sans", sans-serif;
+    background:#fff;
+    color:#353936;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
 }
 
 img{
-display:block;
-max-width:100%;
+    display:block;
+    max-width:100%;
 }
 
 a{
-text-decoration:none;
-color:inherit;
+    color:inherit;
+    text-decoration:none;
 }
 
 button{
-font:inherit;
+    font:inherit;
 }
 
 ::selection{
-background:#e9e3ee;
-color:#363936;
+    background:#e9e3ef;
+    color:#353936;
 }
 
 
@@ -73,40 +70,60 @@ CORES
 
 :root{
 
---white:#fff;
+    --white:#ffffff;
 
---background:#f8f8f6;
+    --off-white:#fafaf8;
 
---text:#363936;
+    --light:#f4f5f2;
 
---soft-text:#717771;
+    --gray:#e5e7e3;
 
---muted:#949994;
+    --text:#353936;
 
---line:#e3e5e1;
+    --text-soft:#777d79;
 
---sage:#e8efe9;
+    --muted:#a1a6a2;
 
---lilac:#eeeaf2;
+    --purple:#766480;
 
---blue:#eaf1f3;
+    --purple-light:#eeebf2;
 
---purple:#756381;
+    --sage:#e9f0ea;
 
---dark:#363b38;
+    --blue:#edf3f4;
 
---whatsapp:#25D366;
+    --whatsapp:#25D366;
 
 }
 
 
 /* =========================================================
-CONTAINER
+UTILITÁRIOS
 ========================================================= */
 
 .container{
-width:min(1180px,calc(100% - 48px));
-margin:auto;
+    width:min(1180px, calc(100% - 48px));
+    margin:auto;
+}
+
+.section-label{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-size:8px;
+    font-weight:600;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+
+    color:#8b918c;
+}
+
+.section-label i{
+    display:block;
+    width:24px;
+    height:1px;
+    background:#a4aaa5;
 }
 
 
@@ -114,215 +131,160 @@ margin:auto;
 HEADER
 ========================================================= */
 
-.header{
+header{
+    position:fixed;
+    z-index:1000;
 
-position:fixed;
+    top:0;
+    left:0;
+    width:100%;
 
-z-index:1000;
+    padding:18px 0;
 
-top:0;
-left:0;
-
-width:100%;
-
-padding:17px 0;
-
-transition:.35s ease;
-
+    transition:.35s ease;
 }
 
-.header.scrolled{
+header.scrolled{
+    padding:10px 0;
 
-padding:10px 0;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(20px);
 
-background:rgba(255,255,255,.92);
-
-backdrop-filter:blur(18px);
-
-box-shadow:
-0 1px 0 rgba(30,35,32,.06);
-
+    box-shadow:
+        0 1px 0 rgba(40,45,42,.06);
 }
 
 .nav{
+    height:48px;
 
-height:52px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
-
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
 .logo{
-
-width:105px;
-
+    width:103px;
 }
 
 .logo img{
-
-width:100%;
-
-height:auto;
-
-object-fit:contain;
-
+    width:100%;
+    height:auto;
 }
 
 .menu{
+    margin-left:auto;
+    margin-right:30px;
 
-display:flex;
-
-align-items:center;
-
-gap:30px;
-
-margin-left:auto;
-
-margin-right:32px;
-
+    display:flex;
+    align-items:center;
+    gap:28px;
 }
 
 .menu a{
+    position:relative;
 
-position:relative;
+    font-size:9px;
+    font-weight:500;
 
-font-size:10px;
+    color:#727873;
 
-font-weight:500;
-
-color:#707671;
-
-transition:.25s;
-
+    transition:.25s;
 }
 
-.menu a:after{
+.menu a::after{
+    content:"";
 
-content:"";
+    position:absolute;
 
-position:absolute;
+    left:0;
+    bottom:-7px;
 
-left:0;
+    width:0;
+    height:1px;
 
-bottom:-7px;
+    background:#766480;
 
-height:1px;
-
-width:0;
-
-background:#59635d;
-
-transition:.3s;
-
+    transition:.3s;
 }
 
 .menu a:hover{
-
-color:#343936;
-
+    color:#353936;
 }
 
-.menu a:hover:after{
-
-width:100%;
-
+.menu a:hover::after{
+    width:100%;
 }
 
-.nav-cta{
+.header-button{
+    height:38px;
 
-height:38px;
+    padding:0 18px;
 
-padding:0 17px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-border-radius:50px;
+    border-radius:50px;
 
-display:flex;
+    background:#353936;
+    color:#fff;
 
-align-items:center;
+    font-size:9px;
+    font-weight:600;
 
-justify-content:center;
-
-background:#363b38;
-
-color:#fff;
-
-font-size:9px;
-
-font-weight:600;
-
-transition:.3s;
-
+    transition:.3s;
 }
 
-.nav-cta:hover{
-
-background:#66726a;
-
-transform:translateY(-2px);
-
+.header-button:hover{
+    background:#766480;
+    transform:translateY(-2px);
 }
 
 .menu-toggle{
+    display:none;
 
-display:none;
+    width:40px;
+    height:40px;
 
-width:40px;
-height:40px;
+    border:1px solid #e1e3df;
+    border-radius:50%;
 
-border-radius:50%;
+    background:#fff;
 
-border:1px solid #e1e3df;
+    position:relative;
 
-background:#fff;
-
-position:relative;
-
-cursor:pointer;
-
+    cursor:pointer;
 }
 
 .menu-toggle span{
+    position:absolute;
 
-position:absolute;
+    left:12px;
 
-left:12px;
+    width:16px;
+    height:1px;
 
-width:16px;
+    background:#353936;
 
-height:1px;
-
-background:#414642;
-
-transition:.3s;
-
+    transition:.3s;
 }
 
 .menu-toggle span:first-child{
-top:15px;
+    top:15px;
 }
 
 .menu-toggle span:last-child{
-top:22px;
+    top:22px;
 }
 
 .menu-toggle.active span:first-child{
-
-top:19px;
-
-transform:rotate(45deg);
-
+    top:19px;
+    transform:rotate(45deg);
 }
 
 .menu-toggle.active span:last-child{
-
-top:19px;
-
-transform:rotate(-45deg);
-
+    top:19px;
+    transform:rotate(-45deg);
 }
 
 
@@ -331,176 +293,140 @@ HERO
 ========================================================= */
 
 .hero{
+    min-height:790px;
 
-min-height:800px;
+    padding-top:120px;
 
-padding-top:140px;
+    background:
+        linear-gradient(
+            100deg,
+            #fafaf8 0%,
+            #fff 62%,
+            #f7f7f4 100%
+        );
 
-background:#f8f8f6;
-
-overflow:hidden;
-
+    overflow:hidden;
 }
 
 .hero-grid{
+    min-height:650px;
 
-min-height:650px;
+    display:grid;
 
-display:grid;
+    grid-template-columns:.92fr 1.08fr;
 
-grid-template-columns:.88fr 1.12fr;
+    align-items:center;
 
-gap:45px;
-
-align-items:center;
-
+    gap:40px;
 }
 
-.eyebrow,
-.section-label{
-
-display:flex;
-
-align-items:center;
-
-gap:10px;
-
-font-size:8px;
-
-font-weight:600;
-
-letter-spacing:.17em;
-
-text-transform:uppercase;
-
-color:#7c827d;
-
+.hero-content{
+    padding-bottom:30px;
 }
 
-.eyebrow i,
-.section-label i{
+.hero-eyebrow{
+    display:flex;
+    align-items:center;
+    gap:10px;
 
-width:24px;
+    font-size:8px;
+    font-weight:600;
+    letter-spacing:.18em;
+    text-transform:uppercase;
 
-height:1px;
+    color:#8b918c;
+}
 
-background:#858b86;
+.hero-eyebrow::before{
+    content:"";
 
+    width:26px;
+    height:1px;
+
+    background:#a5aaa5;
 }
 
 .hero h1{
+    max-width:650px;
 
-max-width:610px;
+    margin-top:25px;
 
-margin-top:25px;
+    font-family:"Manrope",sans-serif;
 
-font-family:"Plus Jakarta Sans",sans-serif;
+    font-size:clamp(48px,6vw,76px);
 
-font-size:clamp(48px,6vw,76px);
+    line-height:.98;
 
-line-height:.99;
+    letter-spacing:-.075em;
 
-letter-spacing:-.075em;
+    font-weight:500;
 
-font-weight:500;
-
-color:#343936;
-
+    color:#353936;
 }
 
-.hero h1 em{
-
-font-style:normal;
-
-color:#756381;
-
+.hero h1 span{
+    color:#766480;
 }
 
-.hero-description{
+.hero-text{
+    max-width:430px;
 
-max-width:430px;
+    margin-top:29px;
 
-margin-top:29px;
+    font-size:12px;
+    line-height:1.9;
 
-font-size:12px;
-
-line-height:1.9;
-
-color:#767c78;
-
+    color:#777d79;
 }
 
 .hero-actions{
+    display:flex;
+    align-items:center;
+    gap:12px;
 
-display:flex;
-
-align-items:center;
-
-gap:12px;
-
-margin-top:33px;
-
+    margin-top:32px;
 }
 
-.btn-primary,
-.btn-secondary{
+.button-main,
+.button-light{
+    min-height:46px;
 
-min-height:47px;
+    padding:0 20px;
 
-border-radius:50px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
 
-display:inline-flex;
+    border-radius:50px;
 
-align-items:center;
+    font-size:9px;
+    font-weight:600;
 
-justify-content:center;
-
-font-size:9px;
-
-font-weight:600;
-
-transition:.3s;
-
+    transition:.3s;
 }
 
-.btn-primary{
-
-padding:0 22px;
-
-background:#363b38;
-
-color:#fff;
-
+.button-main{
+    background:#353936;
+    color:#fff;
 }
 
-.btn-primary:hover{
-
-background:#68736c;
-
-transform:translateY(-3px);
-
+.button-main:hover{
+    background:#766480;
+    transform:translateY(-3px);
 }
 
-.btn-secondary{
+.button-light{
+    gap:8px;
 
-gap:9px;
+    border:1px solid #e0e2de;
 
-padding:0 19px;
-
-border:1px solid #dfe1dd;
-
-background:rgba(255,255,255,.5);
-
-color:#555b57;
-
+    color:#626863;
+    background:#fff;
 }
 
-.btn-secondary:hover{
-
-background:#fff;
-
-transform:translateY(-3px);
-
+.button-light:hover{
+    transform:translateY(-3px);
+    border-color:#cfcfd0;
 }
 
 
@@ -509,1117 +435,858 @@ HERO FOTO
 ========================================================= */
 
 .hero-visual{
+    position:relative;
 
-position:relative;
+    height:650px;
 
-min-height:650px;
-
-display:flex;
-
-align-items:flex-end;
-
-justify-content:center;
-
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
 }
 
 .hero-photo{
+    position:relative;
+    z-index:2;
 
-position:relative;
+    width:min(610px,100%);
+    height:650px;
 
-z-index:3;
-
-width:min(590px,100%);
-
-height:650px;
-
-display:flex;
-
-align-items:flex-end;
-
-justify-content:center;
-
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
 }
 
 .hero-photo img{
+    width:100%;
+    height:100%;
 
-width:100%;
-height:100%;
-
-object-fit:contain;
-
-object-position:center bottom;
-
+    object-fit:contain;
+    object-position:center bottom;
 }
 
 .hero-name{
+    position:absolute;
 
-position:absolute;
+    z-index:1;
 
-z-index:1;
+    right:-25px;
+    top:50%;
 
-right:-28px;
+    transform:
+        translateY(-50%)
+        rotate(90deg);
 
-top:50%;
+    white-space:nowrap;
 
-transform:
-translateY(-50%)
-rotate(90deg);
+    font-family:"Manrope",sans-serif;
 
-white-space:nowrap;
+    font-size:clamp(48px,5vw,72px);
 
-font-family:"Plus Jakarta Sans",sans-serif;
+    font-weight:600;
 
-font-size:clamp(45px,5vw,68px);
+    letter-spacing:-.08em;
 
-font-weight:600;
+    color:#e7e8e5;
 
-letter-spacing:-.075em;
-
-color:#e0e2de;
-
-pointer-events:none;
-
+    pointer-events:none;
 }
 
-.hero-mark{
+.hero-circle{
+    position:absolute;
 
-position:absolute;
+    right:5%;
+    bottom:35px;
 
-z-index:5;
+    width:70px;
+    height:70px;
 
-right:35px;
+    border-radius:50%;
 
-bottom:35px;
+    background:rgba(255,255,255,.85);
 
-width:72px;
-height:72px;
+    border:1px solid rgba(255,255,255,.9);
 
-display:grid;
-place-items:center;
+    backdrop-filter:blur(12px);
 
-border-radius:50%;
+    display:grid;
+    place-items:center;
 
-background:rgba(255,255,255,.84);
-
-backdrop-filter:blur(12px);
-
-border:1px solid rgba(255,255,255,.95);
-
+    z-index:5;
 }
 
-.hero-mark svg{
+.hero-circle svg{
+    width:30px;
+    height:30px;
 
-width:31px;
-height:31px;
+    fill:none;
 
-fill:none;
+    stroke:#766480;
 
-stroke:#69746d;
+    stroke-width:1.4;
 
-stroke-width:1.4;
-
-stroke-linecap:round;
-
-stroke-linejoin:round;
-
+    stroke-linecap:round;
+    stroke-linejoin:round;
 }
 
 
 /* =========================================================
-UM OLHAR INDIVIDUAL
-SEM CARDS
+INTRO
 ========================================================= */
 
-.editorial{
+.intro{
+    padding:140px 0;
 
-padding:145px 0 130px;
-
-background:#fff;
-
-overflow:hidden;
-
+    background:#fff;
 }
 
-.editorial-layout{
+.intro-grid{
+    display:grid;
 
-display:grid;
+    grid-template-columns:.38fr 1.62fr;
 
-grid-template-columns:.42fr 1.58fr;
-
-gap:70px;
-
-align-items:start;
-
+    gap:70px;
 }
 
-.editorial-copy{
-
-position:relative;
-
-padding-left:0;
-
+.intro-content{
+    max-width:800px;
 }
 
-.editorial-copy:before{
+.intro-title{
+    font-family:"Manrope",sans-serif;
 
-content:"";
+    font-size:clamp(42px,5vw,64px);
 
-position:absolute;
+    line-height:1.03;
 
-left:-90px;
+    letter-spacing:-.07em;
 
-top:-70px;
-
-width:250px;
-
-height:250px;
-
-border-radius:50%;
-
-background:#f3f3ef;
-
-z-index:0;
-
+    font-weight:500;
 }
 
-.editorial-copy>*{
-
-position:relative;
-
-z-index:1;
-
+.intro-title span{
+    display:block;
+    color:#8b8f8b;
 }
 
-.editorial-title{
+.intro-text{
+    max-width:650px;
 
-max-width:830px;
+    margin-top:28px;
 
-font-family:"Plus Jakarta Sans",sans-serif;
+    font-size:12px;
+    line-height:1.95;
 
-font-size:clamp(40px,5vw,64px);
-
-line-height:1.02;
-
-letter-spacing:-.07em;
-
-font-weight:500;
-
-color:#353a37;
-
+    color:#777d79;
 }
 
-.editorial-title span{
+.intro-footer{
+    margin-top:42px;
 
-display:block;
-
-color:#858b86;
-
+    display:flex;
+    align-items:center;
+    gap:15px;
 }
 
-.editorial-text{
-
-max-width:650px;
-
-margin-top:30px;
-
-font-size:12px;
-
-line-height:1.95;
-
-color:#7b817d;
-
+.intro-footer-line{
+    width:70px;
+    height:1px;
+    background:#d3d6d1;
 }
 
-.editorial-bottom{
+.intro-footer span{
+    font-size:8px;
 
-margin-top:46px;
+    text-transform:uppercase;
+    letter-spacing:.14em;
 
-display:flex;
-
-align-items:center;
-
-gap:20px;
-
-}
-
-.editorial-line{
-
-width:80px;
-
-height:1px;
-
-background:#cfd2cd;
-
-}
-
-.editorial-note{
-
-font-size:8px;
-
-letter-spacing:.12em;
-
-text-transform:uppercase;
-
-color:#a0a49f;
-
+    color:#9da29e;
 }
 
 
 /* =========================================================
-ÁREAS
+ATUAÇÃO
 ========================================================= */
 
 .areas{
+    padding:0 0 135px;
 
-padding:0 0 130px;
-
-background:#fff;
-
+    background:#fff;
 }
 
 .areas-grid{
+    display:grid;
 
-display:grid;
+    grid-template-columns:repeat(3,1fr);
 
-grid-template-columns:repeat(3,1fr);
-
-gap:16px;
-
+    gap:15px;
 }
 
-.area-card{
+.area{
+    min-height:250px;
 
-min-height:250px;
+    position:relative;
 
-padding:27px;
+    padding:26px;
 
-border-radius:24px;
+    overflow:hidden;
 
-position:relative;
+    border-radius:25px;
 
-overflow:hidden;
-
-transition:.4s ease;
-
+    transition:.4s ease;
 }
 
-.area-card:hover{
+.area:hover{
+    transform:translateY(-6px);
 
-transform:translateY(-7px);
-
-box-shadow:
-0 20px 45px rgba(45,50,47,.08);
-
+    box-shadow:
+        0 20px 50px rgba(40,45,42,.08);
 }
 
-.area-one{
-background:#e8f0e8;
+.area:nth-child(1){
+    background:#eaf1eb;
 }
 
-.area-two{
-background:#eeeaf3;
+.area:nth-child(2){
+    background:#efecf3;
 }
 
-.area-three{
-background:#eaf1f3;
+.area:nth-child(3){
+    background:#edf2f3;
 }
 
 .area-icon{
+    width:52px;
+    height:52px;
 
-width:54px;
-height:54px;
+    display:grid;
+    place-items:center;
 
-display:grid;
-place-items:center;
+    border-radius:15px;
 
-border-radius:16px;
-
-background:rgba(255,255,255,.65);
-
+    background:rgba(255,255,255,.68);
 }
 
 .area-icon svg{
+    width:27px;
+    height:27px;
 
-width:27px;
-height:27px;
+    fill:none;
 
-fill:none;
+    stroke:#617067;
 
-stroke:#5d6d63;
+    stroke-width:1.4;
 
-stroke-width:1.5;
-
-stroke-linecap:round;
-stroke-linejoin:round;
-
+    stroke-linecap:round;
+    stroke-linejoin:round;
 }
 
-.area-two .area-icon svg{
-stroke:#776581;
+.area:nth-child(2) .area-icon svg{
+    stroke:#766480;
 }
 
-.area-three .area-icon svg{
-stroke:#637b83;
+.area:nth-child(3) .area-icon svg{
+    stroke:#60777e;
 }
 
 .area-content{
+    position:absolute;
 
-position:absolute;
-
-left:28px;
-right:28px;
-bottom:28px;
-
+    left:27px;
+    right:27px;
+    bottom:27px;
 }
 
-.area-content h3{
+.area h3{
+    font-family:"Manrope",sans-serif;
 
-font-family:"Plus Jakarta Sans",sans-serif;
+    font-size:22px;
 
-font-size:22px;
+    font-weight:500;
 
-letter-spacing:-.04em;
-
-font-weight:500;
-
+    letter-spacing:-.045em;
 }
 
-.area-content p{
+.area p{
+    max-width:310px;
 
-max-width:300px;
+    margin-top:9px;
 
-margin-top:10px;
+    font-size:10px;
+    line-height:1.75;
 
-font-size:10px;
-
-line-height:1.75;
-
-color:#737a75;
-
+    color:#747a76;
 }
 
 
 /* =========================================================
-COMO FUNCIONA
+PROCESSO
 ========================================================= */
 
 .process{
+    padding:130px 0;
 
-padding:125px 0;
-
-background:#fafaf7;
-
+    background:#fafaf8;
 }
 
-.process-heading{
+.process-header{
+    max-width:750px;
 
-max-width:720px;
-
-margin-bottom:70px;
-
+    margin-bottom:70px;
 }
 
-.process-heading h2{
+.process-header h2{
+    margin-top:20px;
 
-margin-top:19px;
+    font-family:"Manrope",sans-serif;
 
-font-family:"Plus Jakarta Sans",sans-serif;
+    font-size:clamp(40px,4.8vw,60px);
 
-font-size:clamp(37px,4.8vw,58px);
+    line-height:1.04;
 
-line-height:1.05;
+    letter-spacing:-.07em;
 
-letter-spacing:-.065em;
-
-font-weight:500;
-
+    font-weight:500;
 }
 
-.process-heading p{
+.process-header p{
+    max-width:500px;
 
-max-width:520px;
+    margin-top:20px;
 
-margin-top:21px;
+    font-size:11px;
 
-font-size:11px;
+    line-height:1.85;
 
-line-height:1.85;
-
-color:#7c827e;
-
+    color:#7b817d;
 }
 
 .steps{
+    display:grid;
 
-position:relative;
+    grid-template-columns:repeat(3,1fr);
 
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
+    position:relative;
 }
 
-.steps:before{
+.steps::before{
+    content:"";
 
-content:"";
+    position:absolute;
 
-position:absolute;
+    top:31px;
 
-left:8%;
-right:8%;
+    left:8%;
+    right:8%;
 
-top:31px;
+    height:1px;
 
-height:1px;
-
-background:#dfe2dc;
-
+    background:#dfe2dc;
 }
 
 .step{
+    position:relative;
 
-position:relative;
-
-padding-right:35px;
-
+    padding-right:30px;
 }
 
 .step:not(:first-child){
-
-padding-left:35px;
-
+    padding-left:30px;
 }
 
-.step-dot{
+.step-icon{
+    position:relative;
+    z-index:2;
 
-position:relative;
+    width:63px;
+    height:63px;
 
-z-index:2;
+    display:grid;
+    place-items:center;
 
-width:63px;
-height:63px;
+    border-radius:50%;
 
-display:grid;
-place-items:center;
+    background:#fff;
 
-border-radius:50%;
+    border:1px solid #dfe2dc;
 
-background:#fff;
-
-border:1px solid #dfe2da;
-
-transition:.4s;
-
+    transition:.4s;
 }
 
-.step:hover .step-dot{
+.step:hover .step-icon{
+    transform:scale(1.08);
 
-transform:scale(1.08);
-
-background:#eeeaf3;
-
+    background:#efebf2;
 }
 
-.step-dot svg{
+.step-icon svg{
+    width:27px;
+    height:27px;
 
-width:27px;
-height:27px;
+    fill:none;
 
-fill:none;
+    stroke:#657168;
 
-stroke:#647168;
+    stroke-width:1.4;
 
-stroke-width:1.4;
-
-stroke-linecap:round;
-stroke-linejoin:round;
-
+    stroke-linecap:round;
+    stroke-linejoin:round;
 }
 
-.step:nth-child(2) .step-dot svg{
-stroke:#786582;
+.step:nth-child(2) .step-icon svg{
+    stroke:#766480;
 }
 
-.step:nth-child(3) .step-dot svg{
-stroke:#657c84;
+.step:nth-child(3) .step-icon svg{
+    stroke:#607980;
 }
 
 .step-number{
+    margin-top:24px;
 
-margin-top:26px;
+    font-size:8px;
 
-font-size:8px;
+    font-weight:600;
 
-font-weight:600;
+    letter-spacing:.16em;
 
-letter-spacing:.16em;
-
-color:#a0a49f;
-
+    color:#a0a59f;
 }
 
 .step h3{
+    margin-top:9px;
 
-margin-top:10px;
+    font-family:"Manrope",sans-serif;
 
-font-family:"Plus Jakarta Sans",sans-serif;
+    font-size:23px;
 
-font-size:23px;
+    font-weight:500;
 
-font-weight:500;
-
-letter-spacing:-.04em;
-
+    letter-spacing:-.045em;
 }
 
 .step p{
+    max-width:290px;
 
-max-width:280px;
+    margin-top:9px;
 
-margin-top:10px;
+    font-size:10px;
 
-font-size:10px;
+    line-height:1.8;
 
-line-height:1.75;
-
-color:#7b817c;
-
+    color:#7a807b;
 }
 
 
 /* =========================================================
-SOBRE — SEGUNDA FOTO
+SOBRE
+ÚNICA FOTO PRINCIPAL DA PAULA
 ========================================================= */
 
 .about{
+    padding:140px 0;
 
-padding:135px 0;
-
-background:#fff;
-
+    background:#fff;
 }
 
 .about-grid{
+    display:grid;
 
-display:grid;
+    grid-template-columns:.9fr 1.1fr;
 
-grid-template-columns:.85fr 1.15fr;
+    gap:85px;
 
-gap:95px;
-
-align-items:center;
-
+    align-items:center;
 }
 
 .about-photo{
+    height:570px;
 
-height:570px;
+    border-radius:30px;
 
-display:flex;
+    overflow:hidden;
 
-align-items:flex-end;
+    background:#f6f6f3;
 
-justify-content:center;
-
-background:#f7f7f4;
-
-border-radius:30px;
-
-overflow:hidden;
-
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
 }
 
 .about-photo img{
+    width:100%;
+    height:100%;
 
-width:100%;
-height:100%;
-
-object-fit:contain;
-
-object-position:center bottom;
-
+    object-fit:contain;
+    object-position:center bottom;
 }
 
-.about-copy h2{
+.about-title{
+    margin-top:20px;
 
-max-width:590px;
+    max-width:600px;
 
-margin-top:20px;
+    font-family:"Manrope",sans-serif;
 
-font-family:"Plus Jakarta Sans",sans-serif;
+    font-size:clamp(40px,4.7vw,58px);
 
-font-size:clamp(37px,4.7vw,57px);
+    line-height:1.04;
 
-line-height:1.05;
+    letter-spacing:-.07em;
 
-letter-spacing:-.065em;
-
-font-weight:500;
-
+    font-weight:500;
 }
 
-.about-copy h2 span{
-color:#82778a;
+.about-title span{
+    color:#766480;
 }
 
-.about-copy>p{
+.about-text{
+    max-width:510px;
 
-max-width:510px;
+    margin-top:24px;
 
-margin-top:25px;
+    font-size:11px;
 
-font-size:11px;
+    line-height:1.9;
 
-line-height:1.9;
-
-color:#777d79;
-
+    color:#777d79;
 }
 
-.about-list{
+.about-points{
+    display:grid;
 
-display:grid;
+    grid-template-columns:1fr 1fr;
 
-grid-template-columns:1fr 1fr;
+    gap:12px;
 
-gap:12px;
-
-margin-top:33px;
-
+    margin-top:32px;
 }
 
-.about-item{
+.about-point{
+    padding:16px;
 
-padding:16px;
+    border:1px solid #e5e7e3;
 
-border:1px solid #e6e8e3;
+    border-radius:15px;
 
-border-radius:15px;
-
-transition:.3s;
-
+    transition:.3s;
 }
 
-.about-item:hover{
+.about-point:hover{
+    background:#fafaf8;
 
-transform:translateY(-4px);
-
-background:#fafaf8;
-
+    transform:translateY(-3px);
 }
 
-.about-item strong{
+.about-point strong{
+    display:block;
 
-display:block;
+    font-size:10px;
 
-font-size:10px;
-
-font-weight:600;
-
+    font-weight:600;
 }
 
-.about-item span{
+.about-point span{
+    display:block;
 
-display:block;
+    margin-top:5px;
 
-margin-top:5px;
+    font-size:9px;
 
-font-size:9px;
+    line-height:1.55;
 
-line-height:1.5;
-
-color:#858a86;
-
+    color:#878c88;
 }
 
 
 /* =========================================================
-NOVA COMPOSIÇÃO DE FOTOS
-ÚLTIMA FOTO NO CANTO DIREITO
-========================================================= */
-
-.photo-strip{
-
-padding:0 0 135px;
-
-background:#fff;
-
-}
-
-.photo-strip-grid{
-
-display:grid;
-
-grid-template-columns:1.05fr .7fr .7fr;
-
-gap:14px;
-
-height:440px;
-
-}
-
-.strip-photo{
-
-position:relative;
-
-overflow:hidden;
-
-border-radius:24px;
-
-background:#f5f5f2;
-
-}
-
-.strip-photo img{
-
-width:100%;
-height:100%;
-
-object-fit:contain;
-
-object-position:center bottom;
-
-transition:transform .7s cubic-bezier(.2,.8,.2,1);
-
-}
-
-.strip-photo:hover img{
-
-transform:scale(1.025);
-
-}
-
-.strip-photo:first-child{
-
-background:#edf1ec;
-
-}
-
-.strip-photo:nth-child(2){
-
-background:#f0edf3;
-
-}
-
-.strip-photo:last-child{
-
-background:#eef2f3;
-
-}
-
-
-/* =========================================================
-FRASE ROXA
+FRASE
 ========================================================= */
 
 .quote{
+    padding:115px 0;
 
-padding:110px 0;
+    background:#766480;
 
-background:#756381;
-
-color:#fff;
-
+    color:#fff;
 }
 
-.quote-inner{
+.quote-grid{
+    display:grid;
 
-display:grid;
+    grid-template-columns:1fr .55fr;
 
-grid-template-columns:1fr .65fr;
+    gap:80px;
 
-align-items:end;
-
-gap:75px;
-
-}
-
-.quote-label{
-
-display:flex;
-
-align-items:center;
-
-gap:10px;
-
-font-size:8px;
-
-font-weight:600;
-
-letter-spacing:.17em;
-
-text-transform:uppercase;
-
-color:rgba(255,255,255,.62);
-
-}
-
-.quote-label i{
-
-width:24px;
-height:1px;
-
-background:rgba(255,255,255,.5);
-
+    align-items:end;
 }
 
 .quote h2{
+    max-width:790px;
 
-max-width:780px;
+    margin-top:20px;
 
-margin-top:21px;
+    font-family:"Manrope",sans-serif;
 
-font-family:"Plus Jakarta Sans",sans-serif;
+    font-size:clamp(38px,5vw,62px);
 
-font-size:clamp(36px,4.9vw,60px);
+    line-height:1.04;
 
-line-height:1.04;
+    letter-spacing:-.07em;
 
-letter-spacing:-.065em;
-
-font-weight:500;
-
+    font-weight:500;
 }
 
 .quote p{
+    font-size:11px;
 
-font-size:11px;
+    line-height:1.85;
 
-line-height:1.8;
+    color:rgba(255,255,255,.68);
+}
 
-color:rgba(255,255,255,.67);
+.quote .section-label{
+    color:rgba(255,255,255,.6);
+}
 
+.quote .section-label i{
+    background:rgba(255,255,255,.5);
 }
 
 
 /* =========================================================
 VÍDEOS
+MOSAICO ASSIMÉTRICO
 ========================================================= */
 
 .videos{
+    padding:135px 0;
 
-padding:125px 0 135px;
+    background:#fff;
+}
 
-background:#fff;
+.videos-heading{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:flex-end;
+
+    gap:60px;
+
+    margin-bottom:55px;
+}
+
+.videos-heading h2{
+    margin-top:19px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:clamp(40px,4.8vw,59px);
+
+    line-height:1.04;
+
+    letter-spacing:-.07em;
+
+    font-weight:500;
+}
+
+.videos-heading p{
+    max-width:310px;
+
+    margin-bottom:3px;
+
+    font-size:11px;
+
+    line-height:1.85;
+
+    color:#7d827e;
+}
+
+
+/* =========================================================
+MOSAICO
+========================================================= */
+
+.video-mosaic{
+
+    display:grid;
+
+    grid-template-columns:1.45fr .8fr .8fr;
+
+    grid-template-rows:270px 210px;
+
+    gap:15px;
+}
+
+
+/* VÍDEO 1 GRANDE */
+
+.video-item:nth-child(1){
+
+    grid-column:1;
+
+    grid-row:1 / 3;
 
 }
 
-.video-heading{
 
-display:flex;
+/* VÍDEO 2 */
 
-align-items:flex-end;
+.video-item:nth-child(2){
 
-justify-content:space-between;
+    grid-column:2;
 
-gap:50px;
-
-margin-bottom:52px;
+    grid-row:1;
 
 }
 
-.video-heading h2{
 
-max-width:650px;
+/* VÍDEO 3 */
 
-margin-top:19px;
+.video-item:nth-child(3){
 
-font-family:"Plus Jakarta Sans",sans-serif;
+    grid-column:3;
 
-font-size:clamp(37px,4.8vw,58px);
-
-line-height:1.04;
-
-letter-spacing:-.065em;
-
-font-weight:500;
+    grid-row:1 / 2;
 
 }
 
-.video-heading p{
 
-max-width:310px;
+/* VÍDEO 4 */
 
-margin-bottom:3px;
+.video-item:nth-child(4){
 
-font-size:11px;
+    grid-column:2 / 4;
 
-line-height:1.85;
-
-color:#7d827e;
+    grid-row:2;
 
 }
 
-.video-grid{
 
-display:grid;
+.video-item{
 
-grid-template-columns:repeat(4,1fr);
+    position:relative;
 
-gap:16px;
+    overflow:hidden;
 
-}
+    border-radius:22px;
 
-.video-card{
+    background:#f0f1ee;
 
-overflow:hidden;
+    border:1px solid #e4e6e2;
 
-background:#fff;
-
-border:1px solid #e5e7e2;
-
-border-radius:21px;
-
-box-shadow:0 10px 30px rgba(40,45,42,.035);
-
-transition:.4s;
+    transition:.45s ease;
 
 }
 
-.video-card:hover{
+.video-item:hover{
 
-transform:translateY(-7px);
+    transform:translateY(-5px);
 
-box-shadow:
-0 22px 45px rgba(40,45,42,.09);
-
-}
-
-.video-frame{
-
-position:relative;
-
-width:100%;
-
-aspect-ratio:16/10;
-
-overflow:hidden;
-
-background:#eceeea;
+    box-shadow:
+        0 20px 45px rgba(40,45,42,.09);
 
 }
 
-.video-frame iframe{
+.video-item iframe{
 
-position:absolute;
+    position:absolute;
 
-inset:0;
+    inset:0;
 
-width:100%;
-height:100%;
+    width:100%;
+    height:100%;
 
-border:0;
-
+    border:0;
 }
 
-.video-info{
 
-padding:16px 17px 18px;
+/* pequeno detalhe */
 
-min-height:112px;
+.video-tag{
 
+    position:absolute;
+
+    z-index:4;
+
+    top:13px;
+    left:13px;
+
+    padding:7px 10px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.87);
+
+    backdrop-filter:blur(8px);
+
+    font-size:7px;
+
+    font-weight:600;
+
+    letter-spacing:.13em;
+
+    text-transform:uppercase;
+
+    color:#676d68;
+
+    pointer-events:none;
 }
 
-.video-label{
+.videos-button{
 
-font-size:7px;
+    margin-top:45px;
 
-font-weight:600;
+    display:flex;
 
-letter-spacing:.15em;
-
-text-transform:uppercase;
-
-color:#a0a49f;
-
+    justify-content:center;
 }
 
-.video-info h3{
+.youtube-button{
 
-margin-top:7px;
+    min-height:45px;
 
-font-family:"Plus Jakarta Sans",sans-serif;
+    padding:0 20px;
 
-font-size:15px;
+    display:inline-flex;
 
-line-height:1.2;
+    align-items:center;
 
-letter-spacing:-.035em;
+    gap:10px;
 
-font-weight:500;
+    border-radius:50px;
 
+    background:#353936;
+
+    color:#fff;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    transition:.3s;
 }
 
-.video-info p{
+.youtube-button:hover{
 
-margin-top:7px;
+    background:#766480;
 
-font-size:8.5px;
-
-line-height:1.6;
-
-color:#858a86;
-
+    transform:translateY(-3px);
 }
 
-.videos-footer{
+.youtube-button-icon{
 
-display:flex;
+    width:21px;
+    height:21px;
 
-justify-content:center;
+    display:grid;
+    place-items:center;
 
-margin-top:40px;
+    border-radius:6px;
 
-}
+    background:#ff0000;
 
-.youtube-link{
-
-display:inline-flex;
-
-align-items:center;
-
-gap:11px;
-
-min-height:44px;
-
-padding:0 19px;
-
-border-radius:50px;
-
-background:#363b38;
-
-color:#fff;
-
-font-size:9px;
-
-font-weight:600;
-
-transition:.3s;
-
-}
-
-.youtube-link:hover{
-
-transform:translateY(-3px);
-
-background:#756381;
-
-}
-
-.youtube-icon{
-
-width:22px;
-height:22px;
-
-display:grid;
-place-items:center;
-
-border-radius:7px;
-
-background:#ff0000;
-
-font-size:8px;
-
+    font-size:7px;
 }
 
 
@@ -1629,134 +1296,120 @@ CONTATO
 
 .contact{
 
-padding:125px 0;
+    padding:130px 0;
 
-background:#f7f7f4;
-
+    background:#f7f7f4;
 }
 
-.contact-box{
+.contact-grid{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:1fr .65fr;
+    grid-template-columns:1fr .6fr;
 
-gap:80px;
+    gap:80px;
 
-align-items:end;
-
+    align-items:end;
 }
 
 .contact h2{
 
-max-width:720px;
+    max-width:750px;
 
-margin-top:20px;
+    margin-top:20px;
 
-font-family:"Plus Jakarta Sans",sans-serif;
+    font-family:"Manrope",sans-serif;
 
-font-size:clamp(40px,5.2vw,65px);
+    font-size:clamp(40px,5vw,63px);
 
-line-height:1;
+    line-height:1.01;
 
-letter-spacing:-.07em;
+    letter-spacing:-.075em;
 
-font-weight:500;
-
+    font-weight:500;
 }
 
 .contact h2 span{
-
-color:#817689;
-
+    color:#766480;
 }
 
-.contact-description{
+.contact-text{
 
-max-width:460px;
+    max-width:470px;
 
-margin-top:22px;
+    margin-top:22px;
 
-font-size:11px;
+    font-size:11px;
 
-line-height:1.85;
+    line-height:1.85;
 
-color:#7c827e;
-
+    color:#7c827d;
 }
 
 .contact-side{
 
-display:flex;
+    display:flex;
 
-flex-direction:column;
+    flex-direction:column;
 
-align-items:flex-start;
-
+    align-items:flex-start;
 }
 
-.whatsapp{
+.whatsapp-button{
 
-display:inline-flex;
+    min-height:49px;
 
-align-items:center;
+    padding:0 21px;
 
-justify-content:center;
+    display:inline-flex;
 
-gap:11px;
+    align-items:center;
 
-min-height:49px;
+    gap:10px;
 
-padding:0 21px;
+    border-radius:50px;
 
-border-radius:50px;
+    background:#25D366;
 
-background:#25D366;
+    color:#fff;
 
-color:#fff;
+    font-size:9px;
 
-font-size:9px;
+    font-weight:600;
 
-font-weight:600;
-
-transition:.3s;
-
+    transition:.3s;
 }
 
-.whatsapp:hover{
+.whatsapp-button:hover{
 
-transform:translateY(-3px);
+    transform:translateY(-3px);
 
-box-shadow:
-0 15px 35px rgba(37,211,102,.2);
-
+    box-shadow:
+        0 15px 35px rgba(37,211,102,.2);
 }
 
-.whatsapp svg{
+.whatsapp-button svg{
 
-width:17px;
-height:17px;
+    width:18px;
+    height:18px;
 
-fill:none;
+    fill:none;
 
-stroke:#fff;
+    stroke:#fff;
 
-stroke-width:1.7;
+    stroke-width:1.7;
 
-stroke-linecap:round;
-
-stroke-linejoin:round;
-
+    stroke-linecap:round;
+    stroke-linejoin:round;
 }
 
 .contact-note{
 
-margin-top:17px;
+    margin-top:15px;
 
-font-size:8px;
+    font-size:8px;
 
-color:#959a96;
-
+    color:#979c97;
 }
 
 
@@ -1766,99 +1419,85 @@ WHATSAPP FLUTUANTE
 
 .whatsapp-float{
 
-position:fixed;
+    position:fixed;
 
-z-index:2000;
+    z-index:2000;
 
-right:25px;
+    right:24px;
+    bottom:24px;
 
-bottom:25px;
+    width:57px;
+    height:57px;
 
-width:58px;
-height:58px;
+    display:grid;
+    place-items:center;
 
-display:flex;
+    border-radius:50%;
 
-align-items:center;
+    background:#25D366;
 
-justify-content:center;
+    color:#fff;
 
-border-radius:50%;
+    box-shadow:
+        0 9px 28px rgba(37,211,102,.3);
 
-background:#25D366;
-
-color:#fff;
-
-box-shadow:
-0 8px 25px rgba(37,211,102,.28);
-
-transition:
-transform .3s ease,
-box-shadow .3s ease;
-
+    transition:.3s;
 }
 
 .whatsapp-float:hover{
 
-transform:
-translateY(-5px)
-scale(1.04);
+    transform:translateY(-5px) scale(1.04);
 
-box-shadow:
-0 14px 32px rgba(37,211,102,.35);
-
+    box-shadow:
+        0 15px 34px rgba(37,211,102,.35);
 }
 
 .whatsapp-float svg{
 
-width:27px;
-height:27px;
+    width:26px;
+    height:26px;
 
-fill:none;
+    fill:none;
 
-stroke:#fff;
+    stroke:#fff;
 
-stroke-width:1.7;
+    stroke-width:1.7;
 
-stroke-linecap:round;
-
-stroke-linejoin:round;
-
+    stroke-linecap:round;
+    stroke-linejoin:round;
 }
 
-.whatsapp-float:before{
+.whatsapp-float::before{
 
-content:"";
+    content:"";
 
-position:absolute;
+    position:absolute;
 
-inset:-5px;
+    inset:-5px;
 
-border-radius:50%;
+    border-radius:50%;
 
-border:1px solid rgba(37,211,102,.18);
+    border:1px solid rgba(37,211,102,.18);
 
-animation:whatsappPulse 2.3s infinite;
-
+    animation:pulse 2.5s infinite;
 }
 
-@keyframes whatsappPulse{
+@keyframes pulse{
 
-0%{
-transform:scale(.92);
-opacity:.7;
-}
+    0%{
+        transform:scale(.9);
+        opacity:.8;
+    }
 
-70%{
-transform:scale(1.15);
-opacity:0;
-}
+    70%{
+        transform:scale(1.16);
+        opacity:0;
+    }
 
-100%{
-transform:scale(1.15);
-opacity:0;
-}
-
+    100%{
+        transform:scale(1.16);
+        opacity:0;
+    }
 }
 
 
@@ -1866,150 +1505,133 @@ opacity:0;
 FOOTER
 ========================================================= */
 
-.footer{
+footer{
 
-padding:55px 0 25px;
+    padding:55px 0 24px;
 
-background:#363b38;
+    background:#353936;
 
-color:#fff;
-
+    color:#fff;
 }
 
-.footer-top{
+.footer-grid{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:1.2fr .8fr .8fr;
+    grid-template-columns:1.3fr .7fr .7fr;
 
-gap:50px;
+    gap:50px;
 
-padding-bottom:48px;
+    padding-bottom:45px;
 
-border-bottom:1px solid rgba(255,255,255,.1);
-
-}
-
-.footer-brand{
-
-max-width:310px;
-
+    border-bottom:1px solid rgba(255,255,255,.1);
 }
 
 .footer-logo{
 
-width:105px;
+    width:103px;
 
-margin-bottom:18px;
+    margin-bottom:17px;
 
-filter:
-brightness(0)
-invert(1);
+    filter:
+        brightness(0)
+        invert(1);
 
-opacity:.94;
-
+    opacity:.95;
 }
 
-.footer-brand p{
+.footer-description{
 
-font-size:9px;
+    max-width:300px;
 
-line-height:1.8;
+    font-size:9px;
 
-color:rgba(255,255,255,.52);
+    line-height:1.8;
 
+    color:rgba(255,255,255,.52);
 }
 
 .footer-title{
 
-margin-bottom:16px;
+    margin-bottom:15px;
 
-font-size:8px;
+    font-size:8px;
 
-font-weight:600;
+    font-weight:600;
 
-letter-spacing:.15em;
+    letter-spacing:.15em;
 
-text-transform:uppercase;
+    text-transform:uppercase;
 
-color:rgba(255,255,255,.42);
-
+    color:rgba(255,255,255,.38);
 }
 
 .footer-links{
 
-display:flex;
+    display:flex;
 
-flex-direction:column;
+    flex-direction:column;
 
-align-items:flex-start;
+    gap:10px;
 
-gap:10px;
-
+    align-items:flex-start;
 }
 
 .footer-links a{
 
-font-size:9px;
+    font-size:9px;
 
-color:rgba(255,255,255,.76);
+    color:rgba(255,255,255,.72);
 
-transition:.25s;
-
+    transition:.25s;
 }
 
 .footer-links a:hover{
 
-color:#fff;
-
+    color:#fff;
 }
 
 .footer-bottom{
 
-display:flex;
+    padding-top:22px;
 
-align-items:center;
+    display:flex;
 
-justify-content:space-between;
+    align-items:center;
 
-gap:20px;
+    justify-content:space-between;
 
-padding-top:22px;
-
+    gap:20px;
 }
 
-.copyright,
-.footer-credit{
+.footer-bottom span{
 
-font-size:8px;
+    font-size:8px;
 
-color:rgba(255,255,255,.34);
-
+    color:rgba(255,255,255,.32);
 }
 
 
 /* =========================================================
-ANIMAÇÕES
+REVEAL
 ========================================================= */
 
 .reveal{
 
-opacity:0;
+    opacity:0;
 
-transform:translateY(25px);
+    transform:translateY(25px);
 
-transition:
-opacity .8s ease,
-transform .8s cubic-bezier(.2,.8,.2,1);
-
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.2,.8,.2,1);
 }
 
 .reveal.visible{
 
-opacity:1;
+    opacity:1;
 
-transform:translateY(0);
-
+    transform:translateY(0);
 }
 
 
@@ -2019,100 +1641,83 @@ TABLET
 
 @media(max-width:1050px){
 
-.menu{
+    .menu{
+        gap:18px;
+        margin-right:18px;
+    }
 
-gap:20px;
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
 
-margin-right:20px;
+    .hero-content{
+        padding-top:30px;
+    }
 
-}
+    .hero-visual{
+        height:590px;
+    }
 
-.hero-grid{
+    .hero-photo{
+        height:590px;
+    }
 
-grid-template-columns:1fr;
+    .intro-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
 
-}
+    .areas-grid{
+        grid-template-columns:1fr 1fr;
+    }
 
-.hero-copy{
+    .area:last-child{
+        grid-column:1/-1;
+    }
 
-padding-top:30px;
+    .about-grid{
+        grid-template-columns:1fr;
+        gap:55px;
+    }
 
-}
+    .about-photo{
+        height:540px;
+    }
 
-.hero-visual{
+    .quote-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
 
-min-height:590px;
+    .video-mosaic{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:300px 210px 210px;
+    }
 
-}
+    .video-item:nth-child(1){
+        grid-column:1/-1;
+        grid-row:1;
+    }
 
-.hero-photo{
+    .video-item:nth-child(2){
+        grid-column:1;
+        grid-row:2;
+    }
 
-height:590px;
+    .video-item:nth-child(3){
+        grid-column:2;
+        grid-row:2;
+    }
 
-}
+    .video-item:nth-child(4){
+        grid-column:1/-1;
+        grid-row:3;
+    }
 
-.editorial-layout{
-
-grid-template-columns:1fr;
-
-gap:30px;
-
-}
-
-.areas-grid{
-
-grid-template-columns:1fr 1fr;
-
-}
-
-.area-card:last-child{
-
-grid-column:1/-1;
-
-}
-
-.about-grid{
-
-grid-template-columns:1fr;
-
-gap:55px;
-
-}
-
-.about-photo{
-
-height:560px;
-
-}
-
-.quote-inner{
-
-grid-template-columns:1fr;
-
-gap:30px;
-
-}
-
-.video-grid{
-
-grid-template-columns:repeat(2,1fr);
-
-}
-
-.contact-box{
-
-grid-template-columns:1fr;
-
-gap:45px;
-
-}
-
-.photo-strip-grid{
-
-height:400px;
-
-}
-
+    .contact-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
 }
 
 
@@ -2122,351 +1727,251 @@ MOBILE
 
 @media(max-width:800px){
 
-.container{
+    .container{
+        width:min(100% - 34px, 650px);
+    }
 
-width:min(100% - 34px,650px);
+    .menu{
 
-}
+        position:fixed;
 
-.menu{
+        top:72px;
+        left:17px;
+        right:17px;
 
-position:fixed;
+        margin:0;
 
-top:77px;
+        padding:22px;
 
-left:17px;
-right:17px;
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
 
-margin:0;
+        gap:20px;
 
-padding:22px;
+        background:rgba(255,255,255,.97);
 
-display:flex;
+        backdrop-filter:blur(18px);
 
-flex-direction:column;
+        border:1px solid #e3e5e1;
 
-align-items:flex-start;
+        border-radius:20px;
 
-gap:20px;
+        box-shadow:
+            0 20px 60px rgba(40,45,42,.09);
 
-background:rgba(255,255,255,.97);
+        opacity:0;
 
-backdrop-filter:blur(18px);
+        pointer-events:none;
 
-border:1px solid #e5e6e1;
+        transform:translateY(-10px);
 
-border-radius:20px;
+        transition:.3s;
+    }
 
-box-shadow:
-0 20px 60px rgba(40,45,42,.09);
+    .menu.open{
 
-opacity:0;
+        opacity:1;
 
-pointer-events:none;
+        pointer-events:auto;
 
-transform:translateY(-10px);
+        transform:translateY(0);
+    }
 
-transition:.3s;
+    .menu a{
+        font-size:11px;
+    }
 
-}
+    .header-button{
+        display:none;
+    }
 
-.menu.open{
+    .menu-toggle{
+        display:block;
+    }
 
-opacity:1;
+    .hero{
 
-pointer-events:auto;
+        padding-top:110px;
 
-transform:translateY(0);
+        min-height:auto;
 
-}
+        padding-bottom:60px;
+    }
 
-.menu a{
+    .hero h1{
+        font-size:47px;
+    }
 
-font-size:11px;
+    .hero-visual{
+        height:500px;
+    }
 
-}
+    .hero-photo{
+        height:500px;
+    }
 
-.nav-cta{
+    .hero-name{
 
-display:none;
+        right:50%;
 
-}
+        top:auto;
+        bottom:10px;
 
-.menu-toggle{
+        transform:
+            translateX(50%);
 
-display:block;
+        font-size:39px;
+    }
 
-}
+    .hero-circle{
 
-.hero{
+        right:0;
 
-min-height:auto;
+        bottom:24px;
 
-padding-top:120px;
+        width:60px;
+        height:60px;
+    }
 
-padding-bottom:70px;
+    .intro{
+        padding:95px 0;
+    }
 
-}
+    .intro-title{
+        font-size:41px;
+    }
 
-.hero-grid{
+    .areas{
+        padding-bottom:90px;
+    }
 
-min-height:auto;
+    .areas-grid{
+        grid-template-columns:1fr;
+    }
 
-}
+    .area:last-child{
+        grid-column:auto;
+    }
 
-.hero h1{
+    .process{
+        padding:95px 0;
+    }
 
-font-size:53px;
+    .steps{
+        grid-template-columns:1fr;
+        gap:45px;
+    }
 
-}
+    .steps::before{
+
+        left:31px;
+        right:auto;
 
-.hero-visual{
+        top:31px;
+        bottom:31px;
 
-min-height:520px;
-
-}
-
-.hero-photo{
-
-height:520px;
-
-}
-
-.hero-name{
-
-right:50%;
-
-top:auto;
-
-bottom:12px;
-
-transform:translateX(50%);
-
-font-size:39px;
-
-}
-
-.hero-mark{
-
-right:5px;
-
-bottom:35px;
-
-width:62px;
-
-height:62px;
-
-}
-
-.editorial{
-
-padding:95px 0 90px;
-
-}
-
-.editorial-layout{
-
-gap:40px;
-
-}
-
-.editorial-title{
-
-font-size:42px;
-
-}
-
-.editorial-copy:before{
-
-left:-70px;
-
-top:-50px;
-
-width:190px;
-height:190px;
-
-}
-
-.areas{
-
-padding-bottom:90px;
-
-}
-
-.areas-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.area-card:last-child{
-
-grid-column:auto;
-
-}
-
-.process{
-
-padding:90px 0;
-
-}
-
-.steps{
-
-grid-template-columns:1fr;
-
-gap:45px;
-
-}
-
-.steps:before{
-
-left:31px;
-
-right:auto;
-
-top:31px;
-
-bottom:31px;
-
-width:1px;
-
-height:auto;
-
-}
-
-.step,
-.step:not(:first-child){
-
-padding:0 0 0 95px;
-
-}
-
-.step-dot{
-
-position:absolute;
-
-left:0;
-
-top:0;
-
-}
-
-.about{
-
-padding:90px 0;
-
-}
-
-.about-photo{
-
-height:500px;
-
-}
-
-.about-copy h2{
-
-font-size:42px;
-
-}
-
-.about-list{
-
-grid-template-columns:1fr;
-
-}
-
-.photo-strip{
-
-padding-bottom:90px;
-
-}
-
-.photo-strip-grid{
-
-height:auto;
-
-grid-template-columns:1fr 1fr;
-
-}
-
-.strip-photo{
-
-height:300px;
-
-}
-
-.strip-photo:first-child{
-
-grid-column:1/-1;
-
-height:390px;
-
-}
-
-.quote{
-
-padding:90px 0;
-
-}
-
-.quote h2{
-
-font-size:40px;
-
-}
-
-.videos{
-
-padding:90px 0;
-
-}
-
-.video-heading{
-
-display:grid;
-
-grid-template-columns:1fr;
-
-gap:20px;
-
-}
-
-.video-heading h2{
-
-font-size:40px;
-
-}
-
-.video-grid{
-
-grid-template-columns:1fr 1fr;
-
-}
-
-.contact{
-
-padding:90px 0;
-
-}
-
-.contact h2{
-
-font-size:42px;
-
-}
-
-.footer-top{
-
-grid-template-columns:1fr 1fr;
-
-}
-
-.footer-brand{
-
-grid-column:1/-1;
-
-}
+        width:1px;
+        height:auto;
+    }
+
+    .step,
+    .step:not(:first-child){
+
+        padding:
+            0
+            0
+            0
+            94px;
+    }
+
+    .step-icon{
+        position:absolute;
+        left:0;
+        top:0;
+    }
+
+    .about{
+        padding:95px 0;
+    }
+
+    .about-photo{
+        height:480px;
+    }
+
+    .about-title{
+        font-size:41px;
+    }
+
+    .about-points{
+        grid-template-columns:1fr;
+    }
+
+    .quote{
+        padding:95px 0;
+    }
+
+    .quote h2{
+        font-size:40px;
+    }
+
+    .videos{
+        padding:95px 0;
+    }
+
+    .videos-heading{
+        display:block;
+    }
+
+    .videos-heading p{
+        margin-top:20px;
+    }
+
+    .video-mosaic{
+
+        grid-template-columns:1fr 1fr;
+
+        grid-template-rows:
+            280px
+            190px
+            190px;
+    }
+
+    .video-item:nth-child(1){
+        grid-column:1/-1;
+        grid-row:1;
+    }
+
+    .video-item:nth-child(2){
+        grid-column:1;
+        grid-row:2;
+    }
+
+    .video-item:nth-child(3){
+        grid-column:2;
+        grid-row:2;
+    }
+
+    .video-item:nth-child(4){
+        grid-column:1/-1;
+        grid-row:3;
+    }
+
+    .contact{
+        padding:95px 0;
+    }
+
+    .contact h2{
+        font-size:41px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-brand{
+        grid-column:1/-1;
+    }
 
 }
 
@@ -2477,163 +1982,107 @@ MOBILE PEQUENO
 
 @media(max-width:520px){
 
-.logo{
-
-width:94px;
-
-}
-
-.hero h1{
-
-font-size:44px;
-
-}
-
-.hero-description{
-
-font-size:11px;
-
-}
-
-.hero-actions{
-
-flex-direction:column;
-
-align-items:stretch;
-
-}
-
-.btn-primary,
-.btn-secondary{
-
-width:100%;
-
-}
-
-.hero-visual{
-
-min-height:460px;
-
-}
-
-.hero-photo{
-
-height:460px;
-
-}
-
-.hero-name{
-
-font-size:34px;
-
-bottom:8px;
-
-}
-
-.hero-mark{
-
-right:0;
-
-bottom:22px;
-
-}
-
-.editorial-title{
-
-font-size:39px;
-
-}
-
-.editorial-text{
-
-font-size:11px;
-
-}
-
-.about-photo{
-
-height:450px;
-
-}
-
-.about-copy h2{
-
-font-size:39px;
-
-}
-
-.photo-strip-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.strip-photo:first-child{
-
-grid-column:auto;
-
-height:420px;
-
-}
-
-.strip-photo{
-
-height:350px;
-
-}
-
-.video-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.video-frame{
-
-aspect-ratio:16/9;
-
-}
-
-.contact h2{
-
-font-size:40px;
-
-}
-
-.footer-top{
-
-grid-template-columns:1fr;
-
-}
-
-.footer-brand{
-
-grid-column:auto;
-
-}
-
-.footer-bottom{
-
-flex-direction:column;
-
-align-items:flex-start;
-
-}
-
-.whatsapp-float{
-
-width:55px;
-height:55px;
-
-right:18px;
-bottom:18px;
-
-}
-
+    .logo{
+        width:94px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero-actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .button-main,
+    .button-light{
+        width:100%;
+    }
+
+    .hero-visual{
+        height:440px;
+    }
+
+    .hero-photo{
+        height:440px;
+    }
+
+    .hero-name{
+        font-size:33px;
+    }
+
+    .intro-title{
+        font-size:38px;
+    }
+
+    .about-photo{
+        height:430px;
+    }
+
+    .about-title{
+        font-size:38px;
+    }
+
+    .video-mosaic{
+
+        grid-template-columns:1fr;
+
+        grid-template-rows:
+            260px
+            200px
+            200px
+            220px;
+    }
+
+    .video-item:nth-child(1){
+        grid-column:1;
+        grid-row:1;
+    }
+
+    .video-item:nth-child(2){
+        grid-column:1;
+        grid-row:2;
+    }
+
+    .video-item:nth-child(3){
+        grid-column:1;
+        grid-row:3;
+    }
+
+    .video-item:nth-child(4){
+        grid-column:1;
+        grid-row:4;
+    }
+
+    .contact h2{
+        font-size:39px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-brand{
+        grid-column:auto;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .whatsapp-float{
+
+        width:55px;
+        height:55px;
+
+        right:17px;
+        bottom:17px;
+    }
 }
 
 </style>
-
 </head>
 
 
@@ -2644,12 +2093,11 @@ bottom:18px;
 HEADER
 ========================================================= -->
 
-<header class="header" id="header">
+<header id="header">
 
 <div class="container">
 
 <nav class="nav">
-
 
 <a
 href="#inicio"
@@ -2686,7 +2134,7 @@ alt="Paula Borch Psicopedagogia"
 href="https://wa.me/5500000000000"
 target="_blank"
 rel="noopener"
-class="nav-cta"
+class="header-button"
 >
 Agendar conversa
 </a>
@@ -2717,7 +2165,6 @@ aria-expanded="false"
 
 <!-- =========================================================
 HERO
-1ª FOTO
 ========================================================= -->
 
 <section
@@ -2730,14 +2177,10 @@ id="inicio"
 <div class="hero-grid">
 
 
-<div class="hero-copy reveal">
+<div class="hero-content reveal">
 
-<div class="eyebrow">
-
-<i></i>
-
+<div class="hero-eyebrow">
 Psicopedagogia
-
 </div>
 
 
@@ -2745,12 +2188,12 @@ Psicopedagogia
 
 Cada pessoa
 aprende de um
-jeito <em>único.</em>
+jeito <span>único.</span>
 
 </h1>
 
 
-<p class="hero-description">
+<p class="hero-text">
 
 Um espaço de acolhimento,
 investigação e desenvolvimento
@@ -2763,8 +2206,8 @@ formas de aprender.
 <div class="hero-actions">
 
 <a
-href="#contato"
-class="btn-primary"
+href="#sobre"
+class="button-main"
 >
 Conheça o trabalho
 </a>
@@ -2772,10 +2215,9 @@ Conheça o trabalho
 
 <a
 href="#processo"
-class="btn-secondary"
+class="button-light"
 >
-Como funciona
-<span>↓</span>
+Como funciona →
 </a>
 
 </div>
@@ -2785,7 +2227,6 @@ Como funciona
 
 
 <div class="hero-visual reveal">
-
 
 <div class="hero-name">
 Paula Borch
@@ -2803,7 +2244,7 @@ fetchpriority="high"
 </div>
 
 
-<div class="hero-mark">
+<div class="hero-circle">
 
 <svg viewBox="0 0 48 48">
 
@@ -2832,30 +2273,25 @@ fetchpriority="high"
 
 
 <!-- =========================================================
-UM OLHAR INDIVIDUAL
-SEM CARDS
+INTRO
 ========================================================= -->
 
-<section class="editorial">
+<section class="intro">
 
 <div class="container">
 
-<div class="editorial-layout reveal">
+<div class="intro-grid reveal">
 
 
 <div class="section-label">
-
 <i></i>
-
 Um olhar individual
-
 </div>
 
 
-<div class="editorial-copy">
+<div class="intro-content">
 
-
-<h2 class="editorial-title">
+<h2 class="intro-title">
 
 Aprender não é
 seguir uma fórmula.
@@ -2867,7 +2303,7 @@ seguir uma fórmula.
 </h2>
 
 
-<p class="editorial-text">
+<p class="intro-text">
 
 A psicopedagogia busca compreender
 como cada pessoa se relaciona com
@@ -2879,16 +2315,15 @@ mais significativa.
 </p>
 
 
-<div class="editorial-bottom">
+<div class="intro-footer">
 
-<div class="editorial-line"></div>
+<div class="intro-footer-line"></div>
 
-<div class="editorial-note">
+<span>
 Cada história importa
-</div>
+</span>
 
 </div>
-
 
 </div>
 
@@ -2901,7 +2336,7 @@ Cada história importa
 
 
 <!-- =========================================================
-ÁREAS
+ATUAÇÃO
 ========================================================= -->
 
 <section
@@ -2914,7 +2349,7 @@ id="atuacao"
 <div class="areas-grid">
 
 
-<article class="area-card area-one reveal">
+<article class="area reveal">
 
 <div class="area-icon">
 
@@ -2931,7 +2366,6 @@ id="atuacao"
 </svg>
 
 </div>
-
 
 <div class="area-content">
 
@@ -2952,7 +2386,7 @@ aprendizagem.
 
 
 
-<article class="area-card area-two reveal">
+<article class="area reveal">
 
 <div class="area-icon">
 
@@ -2969,7 +2403,6 @@ aprendizagem.
 </svg>
 
 </div>
-
 
 <div class="area-content">
 
@@ -2990,7 +2423,7 @@ de aprender.
 
 
 
-<article class="area-card area-three reveal">
+<article class="area reveal">
 
 <div class="area-icon">
 
@@ -3005,7 +2438,6 @@ de aprender.
 </svg>
 
 </div>
-
 
 <div class="area-content">
 
@@ -3033,7 +2465,7 @@ ao desenvolvimento.
 
 
 <!-- =========================================================
-COMO FUNCIONA
+PROCESSO
 ========================================================= -->
 
 <section
@@ -3044,7 +2476,7 @@ id="processo"
 <div class="container">
 
 
-<div class="process-heading reveal">
+<div class="process-header reveal">
 
 <div class="section-label">
 
@@ -3056,10 +2488,8 @@ Como funciona
 
 
 <h2>
-
 Um processo construído
 com calma e intenção.
-
 </h2>
 
 
@@ -3080,7 +2510,7 @@ história e as necessidades de cada pessoa.
 
 <article class="step reveal">
 
-<div class="step-dot">
+<div class="step-icon">
 
 <svg viewBox="0 0 48 48">
 
@@ -3107,12 +2537,10 @@ Escuta
 </h3>
 
 <p>
-
 Conhecer a história,
 compreender o contexto e
 ouvir aquilo que está por trás
 da dificuldade.
-
 </p>
 
 </article>
@@ -3121,7 +2549,7 @@ da dificuldade.
 
 <article class="step reveal">
 
-<div class="step-dot">
+<div class="step-icon">
 
 <svg viewBox="0 0 48 48">
 
@@ -3146,11 +2574,9 @@ Investigação
 </h3>
 
 <p>
-
 Observar estratégias,
 comportamentos e diferentes
 formas de aprender.
-
 </p>
 
 </article>
@@ -3159,7 +2585,7 @@ formas de aprender.
 
 <article class="step reveal">
 
-<div class="step-dot">
+<div class="step-icon">
 
 <svg viewBox="0 0 48 48">
 
@@ -3186,11 +2612,9 @@ Intervenção
 </h3>
 
 <p>
-
 Criar caminhos e estratégias
 personalizadas para favorecer
 novas possibilidades.
-
 </p>
 
 </article>
@@ -3206,7 +2630,7 @@ novas possibilidades.
 
 <!-- =========================================================
 SOBRE
-2ª FOTO = bwXelIG.png
+ÚNICA OUTRA FOTO
 ========================================================= -->
 
 <section
@@ -3230,7 +2654,7 @@ loading="lazy"
 </div>
 
 
-<div class="about-copy reveal">
+<div class="reveal">
 
 <div class="section-label">
 
@@ -3241,7 +2665,7 @@ Sobre Paula
 </div>
 
 
-<h2>
+<h2 class="about-title">
 
 Conhecimento com
 <span>
@@ -3251,7 +2675,7 @@ sensibilidade.
 </h2>
 
 
-<p>
+<p class="about-text">
 
 O trabalho psicopedagógico parte
 de um princípio simples: antes de
@@ -3267,9 +2691,10 @@ possibilidades.
 </p>
 
 
-<div class="about-list">
+<div class="about-points">
 
-<div class="about-item">
+
+<div class="about-point">
 
 <strong>
 Acolhimento
@@ -3283,7 +2708,7 @@ compreender cada história.
 </div>
 
 
-<div class="about-item">
+<div class="about-point">
 
 <strong>
 Individualidade
@@ -3297,7 +2722,7 @@ cada necessidade.
 </div>
 
 
-<div class="about-item">
+<div class="about-point">
 
 <strong>
 Desenvolvimento
@@ -3311,7 +2736,7 @@ novas possibilidades.
 </div>
 
 
-<div class="about-item">
+<div class="about-point">
 
 <strong>
 Parceria
@@ -3324,72 +2749,10 @@ profissional juntos.
 
 </div>
 
-</div>
 
 </div>
 
 </div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================================================
-GALERIA
-A FOTO ANTIGA DA SEGUNDA POSIÇÃO
-VAI AGORA PARA O ÚLTIMO CANTO DIREITO
-========================================================= -->
-
-<section class="photo-strip">
-
-<div class="container">
-
-<div class="photo-strip-grid">
-
-
-<!-- imagem complementar -->
-
-<div class="strip-photo reveal">
-
-<img
-src="https://i.imgur.com/vFnjZTE.png"
-alt="Paula Borch"
-loading="lazy"
->
-
-</div>
-
-
-<!-- terceira imagem -->
-
-<div class="strip-photo reveal">
-
-<img
-src="https://i.imgur.com/j2RHxPe.png"
-alt="Paula Borch"
-loading="lazy"
->
-
-</div>
-
-
-<!--
-    ESTA É A FOTO QUE ANTES ERA A SEGUNDA.
-    AGORA FICA NO ÚLTIMO CANTO DIREITO.
--->
-
-<div class="strip-photo reveal">
-
-<img
-src="https://i.imgur.com/xT4wqfg.png"
-alt="Paula Borch"
-loading="lazy"
->
-
-</div>
-
 
 </div>
 
@@ -3400,19 +2763,19 @@ loading="lazy"
 
 
 <!-- =========================================================
-FRASE
+FRASE ROXA
 ========================================================= -->
 
 <section class="quote">
 
 <div class="container">
 
-<div class="quote-inner">
+<div class="quote-grid">
 
 
 <div class="reveal">
 
-<div class="quote-label">
+<div class="section-label">
 
 <i></i>
 
@@ -3452,6 +2815,7 @@ possibilidades.
 
 <!-- =========================================================
 VÍDEOS
+MOSAICO ASSIMÉTRICO
 ========================================================= -->
 
 <section
@@ -3462,7 +2826,8 @@ id="videos"
 <div class="container">
 
 
-<div class="video-heading reveal">
+<div class="videos-heading reveal">
+
 
 <div>
 
@@ -3497,12 +2862,16 @@ educação e psicopedagogia.
 
 
 
-<div class="video-grid">
+<div class="video-mosaic">
 
 
-<article class="video-card reveal">
+<!-- GRANDE -->
 
-<div class="video-frame">
+<article class="video-item reveal">
+
+<span class="video-tag">
+Destaque
+</span>
 
 <iframe
 src="https://www.youtube.com/embed/G-WHLWXXQrg"
@@ -3512,32 +2881,16 @@ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; pic
 allowfullscreen>
 </iframe>
 
-</div>
-
-<div class="video-info">
-
-<div class="video-label">
-CONTEÚDO
-</div>
-
-<h3>
-Psicopedagogia na prática
-</h3>
-
-<p>
-Reflexões sobre aprendizagem
-e desenvolvimento.
-</p>
-
-</div>
-
 </article>
 
 
+<!-- PEQUENO -->
 
-<article class="video-card reveal">
+<article class="video-item reveal">
 
-<div class="video-frame">
+<span class="video-tag">
+Conteúdo
+</span>
 
 <iframe
 src="https://www.youtube.com/embed/FAuZXncvy5o"
@@ -3547,32 +2900,16 @@ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; pic
 allowfullscreen>
 </iframe>
 
-</div>
-
-<div class="video-info">
-
-<div class="video-label">
-CONTEÚDO
-</div>
-
-<h3>
-Aprendizagem
-</h3>
-
-<p>
-Informações para famílias
-e educadores.
-</p>
-
-</div>
-
 </article>
 
 
+<!-- PEQUENO -->
 
-<article class="video-card reveal">
+<article class="video-item reveal">
 
-<div class="video-frame">
+<span class="video-tag">
+Conteúdo
+</span>
 
 <iframe
 src="https://www.youtube.com/embed/ocwri6_0fHY"
@@ -3582,32 +2919,16 @@ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; pic
 allowfullscreen>
 </iframe>
 
-</div>
-
-<div class="video-info">
-
-<div class="video-label">
-CONTEÚDO
-</div>
-
-<h3>
-Educação
-</h3>
-
-<p>
-Um olhar diferente para
-aprender.
-</p>
-
-</div>
-
 </article>
 
 
+<!-- LARGO -->
 
-<article class="video-card reveal">
+<article class="video-item reveal">
 
-<div class="video-frame">
+<span class="video-tag">
+Short
+</span>
 
 <iframe
 src="https://www.youtube.com/embed/bfmsMIZ-hPc"
@@ -3617,25 +2938,6 @@ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; pic
 allowfullscreen>
 </iframe>
 
-</div>
-
-<div class="video-info">
-
-<div class="video-label">
-SHORT
-</div>
-
-<h3>
-Um olhar sobre aprender
-</h3>
-
-<p>
-Conteúdo rápido sobre
-psicopedagogia.
-</p>
-
-</div>
-
 </article>
 
 
@@ -3643,16 +2945,16 @@ psicopedagogia.
 
 
 
-<div class="videos-footer reveal">
+<div class="videos-button reveal">
 
 <a
 href="https://www.youtube.com/@prof.paulaborch8774"
 target="_blank"
 rel="noopener"
-class="youtube-link"
+class="youtube-button"
 >
 
-<span class="youtube-icon">
+<span class="youtube-button-icon">
 ▶
 </span>
 
@@ -3681,7 +2983,7 @@ id="contato"
 
 <div class="container">
 
-<div class="contact-box">
+<div class="contact-grid">
 
 
 <div class="reveal">
@@ -3704,7 +3006,7 @@ uma <span>conversa.</span>
 </h2>
 
 
-<p class="contact-description">
+<p class="contact-text">
 
 Entre em contato para conhecer
 melhor o trabalho e entender como
@@ -3716,20 +3018,25 @@ psicopedagógico.
 </div>
 
 
+
 <div class="contact-side reveal">
 
 <a
-class="whatsapp"
 href="https://wa.me/5500000000000"
 target="_blank"
 rel="noopener"
+class="whatsapp-button"
 >
 
 <svg viewBox="0 0 24 24">
 
-<path d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L4 20l1.2-3.2A8.5 8.5 0 1 1 20 11.5Z"/>
+<path
+d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L4 20l1.2-3.2A8.5 8.5 0 1 1 20 11.5Z"
+/>
 
-<path d="M9.5 8.5c.3-.3.6-.3.9 0l1 1.2c.2.2.2.5.1.7l-.5.8c.7 1.3 1.7 2.3 3 3l.8-.5c.2-.1.5-.1.7.1l1.2 1c.3.3.3.6 0 .9-.5.5-1.2.8-1.9.6-3.6-1-6.4-3.8-7.4-7.4-.2-.7.1-1.4.6-1.9Z"/>
+<path
+d="M9.5 8.5c.3-.3.6-.3.9 0l1 1.2c.2.2.2.5.1.7l-.5.8c.7 1.3 1.7 2.3 3 3l.8-.5c.2-.1.5-.1.7.1l1.2 1c.3.3.3.6 0 .9-.5.5-1.2.8-1.9.6-3.6-1-6.4-3.8-7.4-7.4-.2-.7.1-1.4.6-1.9Z"
+/>
 
 </svg>
 
@@ -3737,11 +3044,13 @@ Falar pelo WhatsApp
 
 </a>
 
-<p class="contact-note">
+
+<span class="contact-note">
 Atendimento mediante agendamento.
-</p>
+</span>
 
 </div>
+
 
 </div>
 
@@ -3758,14 +3067,14 @@ Atendimento mediante agendamento.
 FOOTER
 ========================================================= -->
 
-<footer class="footer">
+<footer>
 
 <div class="container">
 
-<div class="footer-top">
+<div class="footer-grid">
 
 
-<div class="footer-brand">
+<div>
 
 <img
 class="footer-logo"
@@ -3773,7 +3082,7 @@ src="https://i.imgur.com/b2bgrDe.png"
 alt="Paula Borch Psicopedagogia"
 >
 
-<p>
+<p class="footer-description">
 
 Psicopedagogia com um olhar
 individualizado para diferentes
@@ -3792,21 +3101,13 @@ Navegação
 
 <div class="footer-links">
 
-<a href="#inicio">
-Início
-</a>
+<a href="#inicio">Início</a>
 
-<a href="#sobre">
-Sobre
-</a>
+<a href="#sobre">Sobre</a>
 
-<a href="#atuacao">
-Atuação
-</a>
+<a href="#atuacao">Atuação</a>
 
-<a href="#processo">
-Como funciona
-</a>
+<a href="#processo">Como funciona</a>
 
 </div>
 
@@ -3821,13 +3122,9 @@ Conteúdos
 
 <div class="footer-links">
 
-<a href="#videos">
-Vídeos
-</a>
+<a href="#videos">Vídeos</a>
 
-<a href="#contato">
-Contato
-</a>
+<a href="#contato">Contato</a>
 
 <a
 href="https://www.youtube.com/@prof.paulaborch8774"
@@ -3847,18 +3144,13 @@ YouTube
 
 <div class="footer-bottom">
 
-<div class="copyright">
+<span>
+© 2026 Paula Borch Psicopedagogia. Todos os direitos reservados.
+</span>
 
-© 2026 Paula Borch Psicopedagogia.
-Todos os direitos reservados.
-
-</div>
-
-<div class="footer-credit">
-
-Psicopedagogia • Desenvolvimento • Aprendizagem
-
-</div>
+<span>
+Psicopedagogia • Aprendizagem • Desenvolvimento
+</span>
 
 </div>
 
@@ -3878,7 +3170,6 @@ target="_blank"
 rel="noopener"
 class="whatsapp-float"
 aria-label="Falar com Paula Borch pelo WhatsApp"
-title="Falar pelo WhatsApp"
 >
 
 <svg viewBox="0 0 24 24">
@@ -3903,26 +3194,21 @@ d="M9.5 8.5c.3-.3.6-.3.9 0l1 1.2c.2.2.2.5.1.7l-.5.8c.7 1.3 1.7 2.3 3 3l.8-.5c.2-
 HEADER
 ========================================================= */
 
-const header =
-document.getElementById("header");
+const header = document.getElementById("header");
 
 window.addEventListener("scroll",()=>{
 
-if(window.scrollY>30){
-
-header.classList.add("scrolled");
-
-}else{
-
-header.classList.remove("scrolled");
-
-}
+    if(window.scrollY > 30){
+        header.classList.add("scrolled");
+    }else{
+        header.classList.remove("scrolled");
+    }
 
 });
 
 
 /* =========================================================
-MENU MOBILE
+MENU
 ========================================================= */
 
 const menuToggle =
@@ -3931,20 +3217,21 @@ document.getElementById("menuToggle");
 const menu =
 document.getElementById("menu");
 
+
 menuToggle.addEventListener("click",()=>{
 
-const open =
-menu.classList.toggle("open");
+    const opened =
+    menu.classList.toggle("open");
 
-menuToggle.classList.toggle(
-"active",
-open
-);
+    menuToggle.classList.toggle(
+        "active",
+        opened
+    );
 
-menuToggle.setAttribute(
-"aria-expanded",
-open
-);
+    menuToggle.setAttribute(
+        "aria-expanded",
+        opened
+    );
 
 });
 
@@ -3953,77 +3240,71 @@ document
 .querySelectorAll(".menu a")
 .forEach(link=>{
 
-link.addEventListener("click",()=>{
+    link.addEventListener("click",()=>{
 
-menu.classList.remove("open");
+        menu.classList.remove("open");
 
-menuToggle.classList.remove("active");
+        menuToggle.classList.remove("active");
 
-menuToggle.setAttribute(
-"aria-expanded",
-"false"
-);
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
 
-});
-
-});
-
-
-/* =========================================================
-ESC
-========================================================= */
-
-document.addEventListener(
-"keydown",
-event=>{
-
-if(event.key==="Escape"){
-
-menu.classList.remove("open");
-
-menuToggle.classList.remove("active");
-
-menuToggle.setAttribute(
-"aria-expanded",
-"false"
-);
-
-}
+    });
 
 });
 
 
 /* =========================================================
-REVEAL
+ESC FECHA MENU
 ========================================================= */
 
-const observer =
+document.addEventListener("keydown",(event)=>{
+
+    if(event.key === "Escape"){
+
+        menu.classList.remove("open");
+
+        menuToggle.classList.remove("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
+
+});
+
+
+/* =========================================================
+ANIMAÇÕES DE ENTRADA
+========================================================= */
+
+const revealObserver =
 new IntersectionObserver(
 
-entries=>{
+(entries)=>{
 
-entries.forEach(entry=>{
+    entries.forEach(entry=>{
 
-if(entry.isIntersecting){
+        if(entry.isIntersecting){
 
-entry.target.classList.add(
-"visible"
-);
+            entry.target.classList.add("visible");
 
-observer.unobserve(
-entry.target
-);
+            revealObserver.unobserve(
+                entry.target
+            );
 
-}
+        }
 
-});
+    });
 
 },
-
 {
-threshold:.12
+    threshold:.12
 }
-
 );
 
 
@@ -4031,12 +3312,11 @@ document
 .querySelectorAll(".reveal")
 .forEach(element=>{
 
-observer.observe(element);
+    revealObserver.observe(element);
 
 });
 
 </script>
-
 
 </body>
 
