@@ -2,33 +2,29 @@
 <html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta
-name="description"
-content="Paula Borch — Psicopedagogia, desenvolvimento e aprendizagem."
+    name="description"
+    content="Paula Borch — Psicopedagogia, aprendizagem e desenvolvimento."
 >
 
 <title>Paula Borch | Psicopedagogia</title>
 
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link
-href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
-rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
 >
-
 
 <style>
 
 /* =========================================================
-RESET
+   RESET
 ========================================================= */
 
 *{
@@ -42,8 +38,8 @@ html{
 }
 
 body{
-    font-family:"DM Sans",sans-serif;
-    color:#353936;
+    font-family:"DM Sans", sans-serif;
+    color:#343836;
     background:#fff;
     overflow-x:hidden;
     -webkit-font-smoothing:antialiased;
@@ -70,38 +66,38 @@ button{
 }
 
 ::selection{
-    background:#e8e2ed;
-    color:#353936;
+    background:#ebe6ee;
+    color:#343836;
 }
 
 
 /* =========================================================
-CORES
+   CORES
 ========================================================= */
 
 :root{
 
     --white:#ffffff;
 
-    --background:#fbfbf9;
+    --bg:#ffffff;
 
-    --surface:#f5f6f3;
+    --soft-bg:#f8f9f7;
 
-    --surface-2:#eef0ed;
+    --light:#f2f4f1;
 
-    --line:#e0e3de;
+    --line:#e2e5e1;
 
-    --text:#353936;
+    --text:#343836;
 
-    --soft:#777d79;
+    --muted:#737a75;
 
-    --muted:#999f9a;
+    --light-text:#9ba09c;
 
-    --purple:#766480;
+    --purple:#796582;
 
-    --purple-soft:#eee9f1;
+    --purple-light:#eeeaf1;
 
-    --sage:#eaf0eb;
+    --green-soft:#eaf1eb;
 
     --blue-soft:#edf2f3;
 
@@ -110,62 +106,22 @@ CORES
 
 
 /* =========================================================
-CONTAINER
+   CONTAINER
 ========================================================= */
 
 .container{
-    width:min(1180px,calc(100% - 48px));
+    width:min(1180px, calc(100% - 48px));
     margin:auto;
 }
 
 
 /* =========================================================
-LABEL
+   HEADER
 ========================================================= */
-
-.section-label{
-
-    display:flex;
-    align-items:center;
-    gap:10px;
-
-    font-size:8px;
-    font-weight:600;
-
-    text-transform:uppercase;
-    letter-spacing:.18em;
-
-    color:#8c928d;
-}
-
-.section-label i{
-
-    display:block;
-
-    width:26px;
-    height:1px;
-
-    background:#a7aca7;
-}
-
-
-/* =========================================================
-HEADER
-========================================================= */
-
-/*
-IMPORTANTE:
-
-O header agora tem altura fixa.
-O hero começa exatamente depois dele.
-
-Isso elimina o espaço branco que estava
-aparecendo entre o menu e o conteúdo.
-*/
 
 header{
 
-    position:fixed;
+    position:absolute;
 
     z-index:1000;
 
@@ -174,76 +130,59 @@ header{
 
     width:100%;
 
-    height:68px;
+    padding:10px 0;
 
-    padding:0;
+    background:rgba(255,255,255,.93);
 
-    background:rgba(255,255,255,.97);
+    backdrop-filter:blur(16px);
 
-    border-bottom:1px solid rgba(40,45,42,.08);
-
-    backdrop-filter:blur(18px);
-
-    transition:.3s ease;
-}
-
-
-header.scrolled{
-
-    height:62px;
-
-    background:rgba(255,255,255,.98);
-
-    box-shadow:
-        0 8px 25px rgba(40,45,42,.04);
+    border-bottom:1px solid rgba(215,219,215,.75);
 }
 
 
 .nav{
 
-    height:100%;
+    height:48px;
 
     display:flex;
-
     align-items:center;
+
+    justify-content:space-between;
 }
 
 
-/* =========================================================
-LOGO
-========================================================= */
+/* LOGO MENOR */
 
 .logo{
 
-    width:100px;
+    width:78px;
 
     flex-shrink:0;
 
     display:flex;
-
     align-items:center;
 }
 
 .logo img{
 
-    width:100%;
+    width:78px;
 
     height:auto;
+
+    object-fit:contain;
 }
 
 
 /* =========================================================
-MENU
+   MENU
 ========================================================= */
 
 .menu{
 
     margin-left:auto;
-
-    margin-right:30px;
+    margin-right:27px;
 
     display:flex;
-
     align-items:center;
 
     gap:27px;
@@ -258,15 +197,14 @@ MENU
 
     font-weight:500;
 
-    color:#737975;
+    color:#6d736f;
 
     transition:.25s;
 }
 
 .menu a:hover{
-    color:#353936;
+    color:#343836;
 }
-
 
 .menu a::after{
 
@@ -291,29 +229,30 @@ MENU
 
 
 /* =========================================================
-BOTÃO HEADER
+   BOTÃO HEADER
 ========================================================= */
 
 .header-button{
 
     height:38px;
 
-    padding:0 19px;
+    padding:0 18px;
 
     border-radius:50px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
-    background:#353936;
+    background:#343836;
 
     color:#fff;
 
     font-size:9px;
 
     font-weight:600;
+
+    white-space:nowrap;
 
     transition:.3s;
 }
@@ -327,7 +266,7 @@ BOTÃO HEADER
 
 
 /* =========================================================
-MENU MOBILE
+   MOBILE BUTTON
 ========================================================= */
 
 .menu-toggle{
@@ -356,7 +295,7 @@ MENU MOBILE
     width:16px;
     height:1px;
 
-    background:#353936;
+    background:#343836;
 
     transition:.3s;
 }
@@ -385,60 +324,65 @@ MENU MOBILE
 
 
 /* =========================================================
-HERO
+   HERO
 ========================================================= */
-
-/*
-AQUI ESTÁ A CORREÇÃO PRINCIPAL.
-
-Antes:
-padding-top:120px;
-
-Agora:
-padding-top:68px;
-
-O conteúdo começa exatamente abaixo do header.
-*/
 
 .hero{
 
-    min-height:calc(100vh - 68px);
+    min-height:100vh;
+
+    height:100vh;
 
     padding-top:68px;
 
     background:
+
         linear-gradient(
-            100deg,
-            #fafaf8 0%,
-            #ffffff 68%,
-            #f7f7f5 100%
+            105deg,
+            #ffffff 0%,
+            #ffffff 47%,
+            #fafbf9 47%,
+            #f8f9f7 100%
         );
 
     overflow:hidden;
+
+    display:flex;
+    align-items:stretch;
 }
 
 
+/* =========================================================
+   HERO GRID
+========================================================= */
+
 .hero-grid{
 
-    min-height:calc(100vh - 68px);
+    width:100%;
 
     display:grid;
 
-    grid-template-columns:.92fr 1.08fr;
+    grid-template-columns:
+        .93fr
+        1.07fr;
 
-    gap:35px;
+    gap:20px;
 
     align-items:center;
 }
 
 
 /* =========================================================
-HERO TEXTO
+   HERO TEXTO
 ========================================================= */
 
 .hero-content{
 
-    padding-bottom:20px;
+    padding-bottom:10px;
+
+    position:relative;
+
+    z-index:5;
 }
 
 
@@ -458,7 +402,7 @@ HERO TEXTO
 
     text-transform:uppercase;
 
-    color:#8c928d;
+    color:#7e8580;
 }
 
 
@@ -469,7 +413,7 @@ HERO TEXTO
     width:26px;
     height:1px;
 
-    background:#a5aaa5;
+    background:#a9afaa;
 }
 
 
@@ -477,17 +421,19 @@ HERO TEXTO
 
     max-width:620px;
 
-    margin-top:25px;
+    margin-top:26px;
 
     font-family:"Manrope",sans-serif;
 
-    font-size:clamp(48px,6vw,75px);
+    font-size:clamp(47px,5.3vw,72px);
 
     line-height:.98;
 
     letter-spacing:-.075em;
 
     font-weight:500;
+
+    color:#343836;
 }
 
 
@@ -499,7 +445,7 @@ HERO TEXTO
 
 .hero-text{
 
-    max-width:450px;
+    max-width:470px;
 
     margin-top:28px;
 
@@ -507,7 +453,7 @@ HERO TEXTO
 
     line-height:1.9;
 
-    color:var(--soft);
+    color:#707772;
 }
 
 
@@ -535,6 +481,7 @@ HERO TEXTO
     display:inline-flex;
 
     align-items:center;
+
     justify-content:center;
 
     font-size:9px;
@@ -547,7 +494,7 @@ HERO TEXTO
 
 .button-main{
 
-    background:#353936;
+    background:#343836;
 
     color:#fff;
 }
@@ -562,23 +509,23 @@ HERO TEXTO
 
 .button-light{
 
-    border:1px solid var(--line);
+    border:1px solid #dfe2de;
 
     background:#fff;
 
-    color:#666d68;
+    color:#626964;
 }
 
 .button-light:hover{
 
     transform:translateY(-3px);
 
-    border-color:#cfd2cd;
+    border-color:#c9cdc9;
 }
 
 
 /* =========================================================
-HERO FOTO
+   HERO FOTO
 ========================================================= */
 
 .hero-visual{
@@ -587,7 +534,7 @@ HERO FOTO
 
     height:calc(100vh - 68px);
 
-    min-height:600px;
+    min-height:620px;
 
     display:flex;
 
@@ -597,13 +544,17 @@ HERO FOTO
 }
 
 
+/* =========================================================
+   FOTO
+========================================================= */
+
 .hero-photo{
 
     position:relative;
 
-    z-index:2;
+    z-index:3;
 
-    width:min(610px,100%);
+    width:min(650px,100%);
 
     height:100%;
 
@@ -618,25 +569,34 @@ HERO FOTO
 .hero-photo img{
 
     width:100%;
+
     height:100%;
 
     object-fit:contain;
 
     object-position:center bottom;
+
+    image-rendering:auto;
+
+    filter:none;
+
+    transform:translateZ(0);
+
+    backface-visibility:hidden;
 }
 
 
 /* =========================================================
-NOME VERTICAL
+   PAULA BORCH VERTICAL
 ========================================================= */
 
 .hero-name{
 
     position:absolute;
 
-    z-index:1;
+    z-index:2;
 
-    right:-18px;
+    right:-13px;
 
     top:50%;
 
@@ -644,24 +604,30 @@ NOME VERTICAL
         translateY(-50%)
         rotate(90deg);
 
+    transform-origin:center;
+
     white-space:nowrap;
 
     font-family:"Manrope",sans-serif;
 
-    font-size:clamp(48px,5vw,70px);
+    font-size:clamp(48px,5vw,69px);
+
+    line-height:1;
 
     font-weight:600;
 
-    letter-spacing:-.08em;
+    letter-spacing:-.075em;
 
-    color:#e5e7e4;
+    color:#e4e7e4;
 
     pointer-events:none;
+
+    user-select:none;
 }
 
 
 /* =========================================================
-QUADRADO SOBRE FOTO
+   QUADRADO SOBRE A FOTO
 ========================================================= */
 
 .hero-card{
@@ -670,30 +636,28 @@ QUADRADO SOBRE FOTO
 
     z-index:8;
 
-    left:20px;
+    left:5%;
 
-    bottom:34px;
+    bottom:28px;
 
     width:126px;
 
     min-height:126px;
 
-    padding:19px;
-
-    background:#353936;
-
-    border-radius:4px;
-
-    color:#fff;
-
-    box-shadow:
-        0 15px 35px rgba(30,35,32,.15);
+    padding:20px;
 
     display:flex;
 
     flex-direction:column;
 
     justify-content:flex-end;
+
+    background:#343836;
+
+    border-radius:4px;
+
+    box-shadow:
+        0 18px 45px rgba(35,40,37,.15);
 }
 
 
@@ -704,6 +668,7 @@ QUADRADO SOBRE FOTO
     position:absolute;
 
     top:14px;
+
     right:14px;
 
     width:5px;
@@ -711,21 +676,21 @@ QUADRADO SOBRE FOTO
 
     border-radius:50%;
 
-    background:#c9b8d0;
+    background:#c9b9d0;
 }
 
 
 .hero-card small{
 
+    margin-bottom:9px;
+
     font-size:6px;
 
-    letter-spacing:.15em;
+    letter-spacing:.16em;
 
     text-transform:uppercase;
 
-    color:#c7cbc7;
-
-    margin-bottom:8px;
+    color:#b9c0bb;
 }
 
 
@@ -733,28 +698,32 @@ QUADRADO SOBRE FOTO
 
     font-family:"Manrope",sans-serif;
 
-    font-size:15px;
+    font-size:16px;
 
-    line-height:1.08;
+    line-height:1.15;
+
+    letter-spacing:-.035em;
 
     font-weight:500;
+
+    color:#fff;
 }
 
 
 /* =========================================================
-CÍRCULO HERO
+   CÍRCULO DECORATIVO
 ========================================================= */
 
 .hero-circle{
 
     position:absolute;
 
-    right:5%;
+    right:2%;
 
-    bottom:35px;
+    bottom:26px;
 
-    width:68px;
-    height:68px;
+    width:64px;
+    height:64px;
 
     display:grid;
 
@@ -762,20 +731,20 @@ CÍRCULO HERO
 
     border-radius:50%;
 
-    background:rgba(255,255,255,.9);
+    background:rgba(255,255,255,.88);
 
-    border:1px solid rgba(255,255,255,.95);
+    border:1px solid rgba(225,228,224,.8);
 
     backdrop-filter:blur(12px);
 
-    z-index:5;
+    z-index:7;
 }
 
 
 .hero-circle svg{
 
-    width:29px;
-    height:29px;
+    width:28px;
+    height:28px;
 
     fill:none;
 
@@ -784,13 +753,12 @@ CÍRCULO HERO
     stroke-width:1.4;
 
     stroke-linecap:round;
-
     stroke-linejoin:round;
 }
 
 
 /* =========================================================
-INTRO
+   INTRO
 ========================================================= */
 
 .intro{
@@ -816,6 +784,37 @@ INTRO
 }
 
 
+.section-label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:8px;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:.18em;
+
+    color:#8b918c;
+}
+
+
+.section-label i{
+
+    display:block;
+
+    width:26px;
+    height:1px;
+
+    background:#a7aca7;
+}
+
+
 .intro-title{
 
     font-family:"Manrope",sans-serif;
@@ -834,7 +833,7 @@ INTRO
 
     display:block;
 
-    color:#8b908c;
+    color:#858b86;
 }
 
 
@@ -848,7 +847,7 @@ INTRO
 
     line-height:1.95;
 
-    color:var(--soft);
+    color:#777e79;
 }
 
 
@@ -867,6 +866,7 @@ INTRO
 .intro-footer-line{
 
     width:70px;
+
     height:1px;
 
     background:#d2d6d1;
@@ -886,7 +886,7 @@ INTRO
 
 
 /* =========================================================
-SERVICES
+   SERVIÇOS
 ========================================================= */
 
 .services{
@@ -933,15 +933,15 @@ SERVICES
 
 
 .service:nth-child(1){
-    background:#eaf0eb;
+    background:#edf2ed;
 }
 
 .service:nth-child(2){
-    background:#eee9f1;
+    background:#f0edf2;
 }
 
 .service:nth-child(3){
-    background:#edf2f3;
+    background:#eef2f3;
 }
 
 
@@ -956,7 +956,7 @@ SERVICES
 
     border-radius:15px;
 
-    background:rgba(255,255,255,.7);
+    background:rgba(255,255,255,.72);
 }
 
 
@@ -972,17 +972,12 @@ SERVICES
     stroke-width:1.4;
 
     stroke-linecap:round;
-
     stroke-linejoin:round;
 }
 
 
 .service:nth-child(2) .service-icon svg{
     stroke:var(--purple);
-}
-
-.service:nth-child(3) .service-icon svg{
-    stroke:#60777e;
 }
 
 
@@ -992,6 +987,7 @@ SERVICES
 
     left:27px;
     right:27px;
+
     bottom:27px;
 }
 
@@ -1023,7 +1019,7 @@ SERVICES
 
 
 /* =========================================================
-PROCESSO
+   PROCESSO
 ========================================================= */
 
 .process{
@@ -1155,17 +1151,12 @@ PROCESSO
     stroke-width:1.4;
 
     stroke-linecap:round;
-
     stroke-linejoin:round;
 }
 
 
 .step:nth-child(2) .step-icon svg{
     stroke:var(--purple);
-}
-
-.step:nth-child(3) .step-icon svg{
-    stroke:#607980;
 }
 
 
@@ -1212,7 +1203,7 @@ PROCESSO
 
 
 /* =========================================================
-SOBRE
+   SOBRE
 ========================================================= */
 
 .about{
@@ -1243,7 +1234,7 @@ SOBRE
 
     overflow:hidden;
 
-    background:#f6f6f3;
+    background:#f7f7f5;
 
     display:flex;
 
@@ -1358,7 +1349,7 @@ SOBRE
 
 
 /* =========================================================
-QUOTE
+   QUOTE
 ========================================================= */
 
 .quote{
@@ -1412,16 +1403,18 @@ QUOTE
 
 
 .quote .section-label{
+
     color:rgba(255,255,255,.6);
 }
 
 .quote .section-label i{
+
     background:rgba(255,255,255,.5);
 }
 
 
 /* =========================================================
-VIDEOS
+   VÍDEOS MOSAICO
 ========================================================= */
 
 .videos{
@@ -1613,7 +1606,7 @@ VIDEOS
 
     border-radius:50px;
 
-    background:#353936;
+    background:#343836;
 
     color:#fff;
 
@@ -1651,7 +1644,7 @@ VIDEOS
 
 
 /* =========================================================
-CONTATO
+   CONTATO
 ========================================================= */
 
 .contact{
@@ -1712,7 +1705,7 @@ CONTATO
 
 
 /* =========================================================
-FORM
+   FORM
 ========================================================= */
 
 .contact-form{
@@ -1731,6 +1724,7 @@ FORM
 
 
 .form-top{
+
     margin-bottom:28px;
 }
 
@@ -1770,6 +1764,7 @@ FORM
 
 
 .form-group{
+
     margin-bottom:14px;
 }
 
@@ -1835,13 +1830,6 @@ FORM
 }
 
 
-.form-group input::placeholder,
-.form-group textarea::placeholder{
-
-    color:#adb2ae;
-}
-
-
 .form-group input:focus,
 .form-group textarea:focus{
 
@@ -1864,7 +1852,7 @@ FORM
 
     border-radius:50px;
 
-    background:#353936;
+    background:#343836;
 
     color:#fff;
 
@@ -1922,14 +1910,14 @@ FORM
 
 
 /* =========================================================
-FOOTER
+   FOOTER
 ========================================================= */
 
 footer{
 
     padding:58px 0 24px;
 
-    background:#eceeea;
+    background:#f0f2ef;
 
     color:#4d534f;
 
@@ -1953,7 +1941,7 @@ footer{
 
 .footer-logo{
 
-    width:105px;
+    width:86px;
 
     margin-bottom:17px;
 }
@@ -2022,8 +2010,6 @@ footer{
 
     font-size:10px;
 
-    line-height:1.5;
-
     color:#5e6560;
 
     word-break:break-word;
@@ -2053,7 +2039,7 @@ footer{
 
 
 /* =========================================================
-WHATSAPP
+   WHATSAPP
 ========================================================= */
 
 .whatsapp-float{
@@ -2062,12 +2048,12 @@ WHATSAPP
 
     z-index:2000;
 
-    right:24px;
+    right:22px;
 
-    bottom:24px;
+    bottom:22px;
 
-    width:57px;
-    height:57px;
+    width:58px;
+    height:58px;
 
     display:grid;
 
@@ -2080,7 +2066,7 @@ WHATSAPP
     color:#fff;
 
     box-shadow:
-        0 9px 28px rgba(37,211,102,.3);
+        0 9px 28px rgba(37,211,102,.28);
 
     transition:.3s;
 }
@@ -2096,8 +2082,8 @@ WHATSAPP
 
 .whatsapp-float svg{
 
-    width:26px;
-    height:26px;
+    width:27px;
+    height:27px;
 
     fill:none;
 
@@ -2147,7 +2133,7 @@ WHATSAPP
 
 
 /* =========================================================
-REVEAL
+   ANIMAÇÕES
 ========================================================= */
 
 .reveal{
@@ -2171,44 +2157,57 @@ REVEAL
 
 
 /* =========================================================
-TABLET
+   TABLET
 ========================================================= */
 
 @media(max-width:1050px){
 
     .menu{
 
-        gap:18px;
+        gap:17px;
 
-        margin-right:18px;
+        margin-right:17px;
     }
-
 
     .hero-grid{
 
-        grid-template-columns:1fr;
+        grid-template-columns:1fr 1fr;
+
+        gap:0;
     }
 
+    .hero h1{
 
-    .hero-content{
-
-        padding-top:55px;
+        font-size:clamp(42px,5vw,59px);
     }
-
 
     .hero-visual{
 
-        height:590px;
-
-        min-height:590px;
+        min-height:580px;
     }
-
 
     .hero-photo{
 
-        height:590px;
+        height:100%;
     }
 
+    .hero-name{
+
+        right:-10px;
+
+        font-size:49px;
+    }
+
+    .hero-card{
+
+        left:0;
+
+        width:112px;
+
+        min-height:112px;
+
+        padding:17px;
+    }
 
     .intro-grid{
 
@@ -2217,18 +2216,15 @@ TABLET
         gap:30px;
     }
 
-
     .services-grid{
 
         grid-template-columns:1fr 1fr;
     }
 
-
     .service:last-child{
 
         grid-column:1/-1;
     }
-
 
     .about-grid{
 
@@ -2237,11 +2233,10 @@ TABLET
         gap:55px;
     }
 
-
     .about-photo{
+
         height:540px;
     }
-
 
     .quote-grid{
 
@@ -2249,7 +2244,6 @@ TABLET
 
         gap:30px;
     }
-
 
     .video-mosaic{
 
@@ -2261,14 +2255,12 @@ TABLET
             210px;
     }
 
-
     .video-item:nth-child(1){
 
         grid-column:1/-1;
 
         grid-row:1;
     }
-
 
     .video-item:nth-child(2){
 
@@ -2277,14 +2269,12 @@ TABLET
         grid-row:2;
     }
 
-
     .video-item:nth-child(3){
 
         grid-column:2;
 
         grid-row:2;
     }
-
 
     .video-item:nth-child(4){
 
@@ -2293,38 +2283,45 @@ TABLET
         grid-row:3;
     }
 
-
     .contact-grid{
 
         grid-template-columns:1fr;
 
         gap:45px;
     }
-
 }
 
 
 /* =========================================================
-MOBILE
+   MOBILE
 ========================================================= */
 
 @media(max-width:800px){
 
     .container{
 
-        width:min(100% - 34px,650px);
+        width:min(100% - 34px, 650px);
     }
 
 
     header{
 
-        height:64px;
+        position:absolute;
+
+        padding:8px 0;
     }
 
 
-    header.scrolled{
+    .nav{
 
-        height:60px;
+        height:48px;
+    }
+
+
+    .logo,
+    .logo img{
+
+        width:72px;
     }
 
 
@@ -2332,7 +2329,7 @@ MOBILE
 
         position:fixed;
 
-        top:74px;
+        top:66px;
 
         left:17px;
         right:17px;
@@ -2398,99 +2395,57 @@ MOBILE
     }
 
 
+    /* HERO MOBILE */
+
     .hero{
 
         min-height:auto;
 
-        padding-top:64px;
+        height:auto;
 
-        padding-bottom:0;
+        padding-top:86px;
+
+        padding-bottom:45px;
+
+        display:block;
+
+        background:#fff;
     }
 
 
     .hero-grid{
 
-        min-height:auto;
-
         display:flex;
 
         flex-direction:column;
 
-        gap:0;
+        gap:10px;
     }
 
 
     .hero-content{
 
-        padding-top:58px;
+        padding-top:25px;
 
-        padding-bottom:35px;
+        order:1;
     }
 
 
     .hero h1{
 
-        font-size:47px;
+        font-size:44px;
+
+        line-height:1;
+
+        margin-top:22px;
     }
 
 
-    .hero-visual{
+    .hero-text{
 
-        height:500px;
+        font-size:11px;
 
-        min-height:500px;
-
-        width:100%;
-    }
-
-
-    .hero-photo{
-
-        height:500px;
-
-        width:100%;
-    }
-
-
-    .hero-name{
-
-        right:50%;
-
-        top:auto;
-
-        bottom:15px;
-
-        transform:translateX(50%);
-
-        font-size:39px;
-
-        z-index:3;
-    }
-
-
-    .hero-card{
-
-        left:10px;
-
-        bottom:20px;
-
-        width:118px;
-
-        min-height:118px;
-
-        padding:16px;
-    }
-
-
-    .hero-circle{
-
-        right:0;
-
-        bottom:20px;
-
-        width:60px;
-
-        height:60px;
+        margin-top:22px;
     }
 
 
@@ -2499,6 +2454,8 @@ MOBILE
         flex-direction:column;
 
         align-items:stretch;
+
+        margin-top:25px;
     }
 
 
@@ -2509,8 +2466,69 @@ MOBILE
     }
 
 
-    .intro{
+    .hero-visual{
 
+        order:2;
+
+        height:500px;
+
+        min-height:500px;
+
+        width:100%;
+
+        margin-top:5px;
+    }
+
+
+    .hero-photo{
+
+        width:100%;
+
+        height:500px;
+    }
+
+
+    .hero-name{
+
+        right:0;
+
+        top:50%;
+
+        transform:
+            translateY(-50%)
+            rotate(90deg);
+
+        font-size:39px;
+
+        color:#e3e6e3;
+    }
+
+
+    .hero-card{
+
+        left:3%;
+
+        bottom:18px;
+
+        width:112px;
+
+        min-height:112px;
+    }
+
+
+    .hero-circle{
+
+        right:0;
+
+        bottom:20px;
+
+        width:57px;
+
+        height:57px;
+    }
+
+
+    .intro{
         padding:95px 0;
     }
 
@@ -2697,53 +2715,75 @@ MOBILE
     .footer-brand{
         grid-column:1/-1;
     }
-
 }
 
 
 /* =========================================================
-MOBILE PEQUENO
+   MOBILE PEQUENO
 ========================================================= */
 
 @media(max-width:520px){
 
-    .logo{
-        width:94px;
+    .container{
+
+        width:calc(100% - 28px);
+    }
+
+
+    .logo,
+    .logo img{
+
+        width:68px;
+    }
+
+
+    .hero{
+
+        padding-top:82px;
     }
 
 
     .hero h1{
-        font-size:43px;
+
+        font-size:40px;
     }
 
 
     .hero-visual{
 
-        height:440px;
+        height:430px;
 
-        min-height:440px;
+        min-height:430px;
     }
 
 
     .hero-photo{
-        height:440px;
+
+        height:430px;
     }
 
 
     .hero-name{
-        font-size:33px;
+
+        right:-5px;
+
+        font-size:32px;
     }
 
 
     .hero-card{
 
-        width:112px;
+        width:103px;
 
-        min-height:112px;
+        min-height:103px;
 
-        bottom:16px;
+        padding:15px;
+    }
 
-        left:5px;
+
+    .hero-card strong{
+
+        font-size:14px;
     }
 
 
@@ -2819,6 +2859,7 @@ MOBILE PEQUENO
 
 
     .footer-grid{
+
         grid-template-columns:1fr;
     }
 
@@ -2839,14 +2880,11 @@ MOBILE PEQUENO
     .whatsapp-float{
 
         width:55px;
-
         height:55px;
 
-        right:17px;
-
-        bottom:17px;
+        right:16px;
+        bottom:16px;
     }
-
 }
 
 </style>
@@ -2869,20 +2907,20 @@ HEADER
 
 
 <a
-href="#inicio"
-class="logo"
-aria-label="Paula Borch"
+    href="#inicio"
+    class="logo"
+    aria-label="Paula Borch"
 >
 
 <img
-src="https://i.imgur.com/b2bgrDe.png"
-alt="Paula Borch"
+    src="https://i.imgur.com/b2bgrDe.png"
+    alt="Logo Paula Borch"
 >
 
 </a>
 
 
-<div class="menu" id="menu">
+<nav class="menu" id="menu">
 
 <a href="#inicio">Início</a>
 
@@ -2896,37 +2934,34 @@ alt="Paula Borch"
 
 <a href="#contato">Contato</a>
 
-</div>
+</nav>
 
 
 <a
-href="#contato"
-class="header-button"
+    href="#contato"
+    class="header-button"
 >
-Vamos conversar
+    Vamos conversar
 </a>
 
 
 <button
-class="menu-toggle"
-id="menuToggle"
-aria-label="Abrir menu"
-aria-expanded="false"
+    class="menu-toggle"
+    id="menuToggle"
+    aria-label="Abrir menu"
+    aria-expanded="false"
 >
 
 <span></span>
-
 <span></span>
 
 </button>
-
 
 </nav>
 
 </div>
 
 </header>
-
 
 
 <main>
@@ -2937,8 +2972,8 @@ HERO
 ========================================================= -->
 
 <section
-class="hero"
-id="inicio"
+    class="hero"
+    id="inicio"
 >
 
 <div class="container">
@@ -2946,22 +2981,19 @@ id="inicio"
 <div class="hero-grid">
 
 
+<!-- TEXTO -->
+
 <div class="hero-content reveal">
 
-
 <div class="hero-eyebrow">
-
-Educação & Desenvolvimento
-
+    Educação & Desenvolvimento
 </div>
 
 
 <h1>
 
 Cada pessoa<br>
-
 aprende de um<br>
-
 jeito <span>único.</span>
 
 </h1>
@@ -2979,16 +3011,16 @@ com atenção, acolhimento e individualidade.
 <div class="hero-actions">
 
 <a
-href="#sobre"
-class="button-main"
+    href="#sobre"
+    class="button-main"
 >
 Conheça o trabalho
 </a>
 
 
 <a
-href="#processo"
-class="button-light"
+    href="#processo"
+    class="button-light"
 >
 Como funciona →
 </a>
@@ -2998,44 +3030,47 @@ Como funciona →
 </div>
 
 
+<!-- FOTO -->
 
 <div class="hero-visual reveal">
 
 
+<!-- NOME VERTICAL AO LADO DA FOTO -->
+
 <div class="hero-name">
-
-Paula Borch
-
+    Paula Borch
 </div>
 
 
 <div class="hero-photo">
 
 <img
-src="https://i.imgur.com/1QDxDPB.png"
-alt="Paula Borch"
-fetchpriority="high"
+    src="https://i.imgur.com/1QDxDPB.png"
+    alt="Paula Borch"
+    fetchpriority="high"
 >
 
 </div>
 
 
+<!-- QUADRADO INFERIOR -->
+
 <div class="hero-card">
 
 <small>
-Psicopedagogia
+    Psicopedagogia
 </small>
 
 <strong>
-
-Cada<br>
-história<br>
-importa.
-
+    Cada<br>
+    história<br>
+    importa.
 </strong>
 
 </div>
 
+
+<!-- ÍCONE -->
 
 <div class="hero-circle">
 
@@ -3064,7 +3099,6 @@ importa.
 </section>
 
 
-
 <!-- =========================================================
 INTRO
 ========================================================= -->
@@ -3086,7 +3120,6 @@ Um olhar individual
 
 
 <div class="intro-content">
-
 
 <h2 class="intro-title">
 
@@ -3133,14 +3166,13 @@ Cada história importa
 </section>
 
 
-
 <!-- =========================================================
 ATUAÇÃO
 ========================================================= -->
 
 <section
-class="services"
-id="atuacao"
+    class="services"
+    id="atuacao"
 >
 
 <div class="container">
@@ -3166,7 +3198,6 @@ id="atuacao"
 
 </div>
 
-
 <div class="service-content">
 
 <h3>
@@ -3174,15 +3205,13 @@ Desenvolvimento
 </h3>
 
 <p>
-Um olhar integrado para
-as necessidades e
-possibilidades de cada pessoa.
+Um olhar integrado para as necessidades
+e possibilidades de cada pessoa.
 </p>
 
 </div>
 
 </article>
-
 
 
 <article class="service reveal">
@@ -3203,7 +3232,6 @@ possibilidades de cada pessoa.
 
 </div>
 
-
 <div class="service-content">
 
 <h3>
@@ -3211,15 +3239,13 @@ Aprendizagem
 </h3>
 
 <p>
-Estratégias que respeitam
-diferentes formas, ritmos
-e caminhos para aprender.
+Estratégias que respeitam diferentes
+formas, ritmos e caminhos para aprender.
 </p>
 
 </div>
 
 </article>
-
 
 
 <article class="service reveal">
@@ -3238,7 +3264,6 @@ e caminhos para aprender.
 
 </div>
 
-
 <div class="service-content">
 
 <h3>
@@ -3246,15 +3271,13 @@ Acolhimento
 </h3>
 
 <p>
-Um espaço de escuta,
-compreensão e construção
-de novas possibilidades.
+Um espaço de escuta, compreensão
+e construção de novas possibilidades.
 </p>
 
 </div>
 
 </article>
-
 
 </div>
 
@@ -3263,21 +3286,18 @@ de novas possibilidades.
 </section>
 
 
-
 <!-- =========================================================
-COMO FUNCIONA
+PROCESSO
 ========================================================= -->
 
 <section
-class="process"
-id="processo"
+    class="process"
+    id="processo"
 >
 
 <div class="container">
 
-
 <div class="process-header reveal">
-
 
 <div class="section-label">
 
@@ -3289,23 +3309,18 @@ Como funciona
 
 
 <h2>
-
 Um processo construído
 com calma e intenção.
-
 </h2>
 
 
 <p>
-
 Cada acompanhamento começa
 pela escuta e pela compreensão
 da realidade de cada pessoa.
-
 </p>
 
 </div>
-
 
 
 <div class="steps">
@@ -3331,28 +3346,21 @@ da realidade de cada pessoa.
 
 </div>
 
-
 <div class="step-number">
 ETAPA 01
 </div>
-
 
 <h3>
 Escuta
 </h3>
 
-
 <p>
-
-Conhecer a história,
-compreender o contexto e
-ouvir aquilo que está por trás
-da dificuldade.
-
+Conhecer a história, compreender
+o contexto e ouvir aquilo que está
+por trás da dificuldade.
 </p>
 
 </article>
-
 
 
 <article class="step reveal">
@@ -3373,27 +3381,21 @@ da dificuldade.
 
 </div>
 
-
 <div class="step-number">
 ETAPA 02
 </div>
-
 
 <h3>
 Compreensão
 </h3>
 
-
 <p>
-
-Observar necessidades,
-contexto e diferentes formas
-de aprender e se desenvolver.
-
+Observar necessidades, contexto
+e diferentes formas de aprender
+e se desenvolver.
 </p>
 
 </article>
-
 
 
 <article class="step reveal">
@@ -3416,27 +3418,21 @@ de aprender e se desenvolver.
 
 </div>
 
-
 <div class="step-number">
 ETAPA 03
 </div>
-
 
 <h3>
 Caminhos
 </h3>
 
-
 <p>
-
 A partir da compreensão,
 são construídas estratégias
 adequadas a cada realidade.
-
 </p>
 
 </article>
-
 
 </div>
 
@@ -3445,14 +3441,13 @@ adequadas a cada realidade.
 </section>
 
 
-
 <!-- =========================================================
 SOBRE
 ========================================================= -->
 
 <section
-class="about"
-id="sobre"
+    class="about"
+    id="sobre"
 >
 
 <div class="container">
@@ -3463,17 +3458,15 @@ id="sobre"
 <div class="about-photo reveal">
 
 <img
-src="https://i.imgur.com/bwXelIG.png"
-alt="Paula Borch"
-loading="lazy"
+    src="https://i.imgur.com/bwXelIG.png"
+    alt="Paula Borch"
+    loading="lazy"
 >
 
 </div>
 
 
-
 <div class="reveal">
-
 
 <div class="section-label">
 
@@ -3510,12 +3503,9 @@ possibilidades.
 
 <div class="about-points">
 
-
 <div class="about-point">
 
-<strong>
-Escuta
-</strong>
+<strong>Escuta</strong>
 
 <span>
 Compreender antes de intervir.
@@ -3526,9 +3516,7 @@ Compreender antes de intervir.
 
 <div class="about-point">
 
-<strong>
-Individualidade
-</strong>
+<strong>Individualidade</strong>
 
 <span>
 Cada processo possui seu próprio ritmo.
@@ -3539,9 +3527,7 @@ Cada processo possui seu próprio ritmo.
 
 <div class="about-point">
 
-<strong>
-Estratégias
-</strong>
+<strong>Estratégias</strong>
 
 <span>
 Construir caminhos adequados.
@@ -3552,16 +3538,13 @@ Construir caminhos adequados.
 
 <div class="about-point">
 
-<strong>
-Acolhimento
-</strong>
+<strong>Acolhimento</strong>
 
 <span>
 Um espaço seguro para desenvolver.
 </span>
 
 </div>
-
 
 </div>
 
@@ -3574,7 +3557,6 @@ Um espaço seguro para desenvolver.
 </section>
 
 
-
 <!-- =========================================================
 FRASE
 ========================================================= -->
@@ -3585,9 +3567,7 @@ FRASE
 
 <div class="quote-grid">
 
-
 <div class="reveal">
-
 
 <div class="section-label">
 
@@ -3612,12 +3592,11 @@ abrimos novos caminhos.
 <p class="reveal">
 
 Um olhar atento pode transformar
-a maneira como uma dificuldade é
-percebida — e também revelar
+a maneira como uma dificuldade
+é percebida — e também revelar
 possibilidades.
 
 </p>
-
 
 </div>
 
@@ -3626,21 +3605,18 @@ possibilidades.
 </section>
 
 
-
 <!-- =========================================================
-VIDEOS
+VÍDEOS
 ========================================================= -->
 
 <section
-class="videos"
-id="videos"
+    class="videos"
+    id="videos"
 >
 
 <div class="container">
 
-
 <div class="videos-heading reveal">
-
 
 <div>
 
@@ -3654,10 +3630,8 @@ Conteúdos
 
 
 <h2>
-
 Conteúdos para
 aprender junto.
-
 </h2>
 
 </div>
@@ -3665,14 +3639,13 @@ aprender junto.
 
 <p>
 
-Vídeos da Paula sobre
-aprendizagem, desenvolvimento,
-educação e psicopedagogia.
+Vídeos da Paula sobre aprendizagem,
+desenvolvimento, educação
+e psicopedagogia.
 
 </p>
 
 </div>
-
 
 
 <div class="video-mosaic">
@@ -3685,15 +3658,14 @@ Destaque
 </span>
 
 <iframe
-src="https://www.youtube.com/embed/G-WHLWXXQrg"
-title="Paula Borch"
-loading="lazy"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen>
+    src="https://www.youtube.com/embed/G-WHLWXXQrg"
+    title="Paula Borch"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
 </iframe>
 
 </article>
-
 
 
 <article class="video-item reveal">
@@ -3703,15 +3675,14 @@ Conteúdo
 </span>
 
 <iframe
-src="https://www.youtube.com/embed/FAuZXncvy5o"
-title="Paula Borch"
-loading="lazy"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen>
+    src="https://www.youtube.com/embed/FAuZXncvy5o"
+    title="Paula Borch"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
 </iframe>
 
 </article>
-
 
 
 <article class="video-item reveal">
@@ -3721,15 +3692,14 @@ Conteúdo
 </span>
 
 <iframe
-src="https://www.youtube.com/embed/ocwri6_0fHY"
-title="Paula Borch"
-loading="lazy"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen>
+    src="https://www.youtube.com/embed/ocwri6_0fHY"
+    title="Paula Borch"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
 </iframe>
 
 </article>
-
 
 
 <article class="video-item reveal">
@@ -3739,27 +3709,25 @@ Short
 </span>
 
 <iframe
-src="https://www.youtube.com/embed/bfmsMIZ-hPc"
-title="Paula Borch"
-loading="lazy"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen>
+    src="https://www.youtube.com/embed/bfmsMIZ-hPc"
+    title="Paula Borch"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
 </iframe>
 
 </article>
 
-
 </div>
-
 
 
 <div class="videos-button reveal">
 
 <a
-href="https://www.youtube.com/@prof.paulaborch8774"
-target="_blank"
-rel="noopener"
-class="youtube-button"
+    href="https://www.youtube.com/@prof.paulaborch8774"
+    target="_blank"
+    rel="noopener"
+    class="youtube-button"
 >
 
 <span class="youtube-button-icon">
@@ -3779,14 +3747,13 @@ Ver canal completo
 </section>
 
 
-
 <!-- =========================================================
 CONTATO
 ========================================================= -->
 
 <section
-class="contact"
-id="contato"
+    class="contact"
+    id="contato"
 >
 
 <div class="container">
@@ -3795,7 +3762,6 @@ id="contato"
 
 
 <div class="reveal">
-
 
 <div class="section-label">
 
@@ -3826,12 +3792,10 @@ o WhatsApp da Paula.
 </div>
 
 
-
 <form
-class="contact-form reveal"
-id="whatsappForm"
+    class="contact-form reveal"
+    id="whatsappForm"
 >
-
 
 <div class="form-top">
 
@@ -3847,7 +3811,6 @@ para entrar em contato com você.
 </div>
 
 
-
 <div class="form-row">
 
 
@@ -3858,16 +3821,15 @@ Seu nome
 </label>
 
 <input
-type="text"
-id="nome"
-name="nome"
-placeholder="Digite seu nome"
-autocomplete="name"
-required
+    type="text"
+    id="nome"
+    name="nome"
+    placeholder="Digite seu nome"
+    autocomplete="name"
+    required
 >
 
 </div>
-
 
 
 <div class="form-group">
@@ -3877,19 +3839,17 @@ Seu WhatsApp
 </label>
 
 <input
-type="tel"
-id="telefone"
-name="telefone"
-placeholder="(43) 92003-6581"
-autocomplete="tel"
-required
+    type="tel"
+    id="telefone"
+    name="telefone"
+    placeholder="(00) 00000-0000"
+    autocomplete="tel"
+    required
 >
 
 </div>
 
-
 </div>
-
 
 
 <div class="form-group">
@@ -3899,19 +3859,18 @@ O que você precisa?
 </label>
 
 <textarea
-id="necessidade"
-name="necessidade"
-placeholder="Conte brevemente o que gostaria de conversar..."
-required
+    id="necessidade"
+    name="necessidade"
+    placeholder="Conte brevemente o que gostaria de conversar..."
+    required
 ></textarea>
 
 </div>
 
 
-
 <button
-type="submit"
-class="form-submit"
+    type="submit"
+    class="form-submit"
 >
 
 Enviar pelo WhatsApp
@@ -3933,9 +3892,7 @@ Você será direcionado para o WhatsApp após o envio.
 
 </div>
 
-
 </form>
-
 
 </div>
 
@@ -3943,9 +3900,7 @@ Você será direcionado para o WhatsApp após o envio.
 
 </section>
 
-
 </main>
-
 
 
 <!-- =========================================================
@@ -3962,22 +3917,20 @@ FOOTER
 <div>
 
 <img
-class="footer-logo"
-src="https://i.imgur.com/b2bgrDe.png"
-alt="Paula Borch"
+    class="footer-logo"
+    src="https://i.imgur.com/b2bgrDe.png"
+    alt="Paula Borch"
 >
-
 
 <p class="footer-description">
 
 Um espaço voltado à aprendizagem,
-desenvolvimento e construção de
-novas possibilidades.
+desenvolvimento e construção
+de novas possibilidades.
 
 </p>
 
 </div>
-
 
 
 <div>
@@ -4004,7 +3957,6 @@ Navegação
 </div>
 
 
-
 <div>
 
 <div class="footer-title">
@@ -4019,16 +3971,16 @@ Fale conosco
 </a>
 
 <a
-href="mailto:contato@paulaborch.com.br"
-class="footer-email"
+    href="mailto:contato@paulaborch.com.br"
+    class="footer-email"
 >
 contato@paulaborch.com.br
 </a>
 
 <a
-href="https://www.youtube.com/@prof.paulaborch8774"
-target="_blank"
-rel="noopener"
+    href="https://www.youtube.com/@prof.paulaborch8774"
+    target="_blank"
+    rel="noopener"
 >
 YouTube
 </a>
@@ -4037,9 +3989,7 @@ YouTube
 
 </div>
 
-
 </div>
-
 
 
 <div class="footer-bottom">
@@ -4047,7 +3997,6 @@ YouTube
 <span>
 © 2026 Paula Borch. Todos os direitos reservados.
 </span>
-
 
 <span>
 Educação • Desenvolvimento • Aprendizagem
@@ -4060,25 +4009,24 @@ Educação • Desenvolvimento • Aprendizagem
 </footer>
 
 
-
 <!-- =========================================================
 WHATSAPP
 ========================================================= -->
 
 <a
-href="#contato"
-class="whatsapp-float"
-aria-label="Entrar em contato"
+    href="#contato"
+    class="whatsapp-float"
+    aria-label="Entrar em contato pelo WhatsApp"
 >
 
 <svg viewBox="0 0 24 24">
 
 <path
-d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L4 20l1.2-3.2A8.5 8.5 0 1 1 20 11.5Z"
+    d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L4 20l1.2-3.2A8.5 8.5 0 1 1 20 11.5Z"
 />
 
 <path
-d="M9.5 8.5c.3-.3.6-.3.9 0l1 1.2c.2.2.2.5.1.7l-.5.8c.7 1.3 1.7 2.3 3 3l.8-.5c.2-.1.5-.1.7.1l1.2 1c.3.3.3.6 0 .9-.5.5-1.2.8-1.9.6-3.6-1-6.4-3.8-7.4-7.4-.2-.7.1-1.4.6-1.9Z"
+    d="M9.5 8.5c.3-.3.6-.3.9 0l1 1.2c.2.2.2.5.1.7l-.5.8c.7 1.3 1.7 2.3 3 3l.8-.5c.2-.1.5-.1.7.1l1.2 1c.3.3.3.6 0 .9-.5.5-1.2.8-1.9.6-3.6-1-6.4-3.8-7.4-7.4-.2-.7.1-1.4.6-1.9Z"
 />
 
 </svg>
@@ -4086,59 +4034,35 @@ d="M9.5 8.5c.3-.3.6-.3.9 0l1 1.2c.2.2.2.5.1.7l-.5.8c.7 1.3 1.7 2.3 3 3l.8-.5c.2-
 </a>
 
 
-
 <script>
 
 /* =========================================================
-WHATSAPP DA PAULA
+   CONFIGURAÇÃO DO WHATSAPP
 ========================================================= */
 
 /*
-Número informado:
-(43) 92003-6581
+   Número informado:
+   43 92003-6581
 
-Para o WhatsApp:
-55 + DDD + número
+   Com código do Brasil:
+   55 43 92003-6581
 */
 
 const WHATSAPP_PAULA = "5543920036581";
 
 
 /* =========================================================
-HEADER
-========================================================= */
-
-const header =
-document.getElementById("header");
-
-
-window.addEventListener("scroll",()=>{
-
-    if(window.scrollY > 25){
-
-        header.classList.add("scrolled");
-
-    }else{
-
-        header.classList.remove("scrolled");
-
-    }
-
-});
-
-
-/* =========================================================
-MENU MOBILE
+   MENU MOBILE
 ========================================================= */
 
 const menuToggle =
-document.getElementById("menuToggle");
+    document.getElementById("menuToggle");
 
 const menu =
-document.getElementById("menu");
+    document.getElementById("menu");
 
 
-menuToggle.addEventListener("click",()=>{
+menuToggle.addEventListener("click", () => {
 
     const opened =
         menu.classList.toggle("open");
@@ -4157,72 +4081,76 @@ menuToggle.addEventListener("click",()=>{
 
 
 document
-.querySelectorAll(".menu a")
-.forEach(link=>{
+    .querySelectorAll(".menu a")
+    .forEach(link => {
 
-    link.addEventListener("click",()=>{
+        link.addEventListener("click", () => {
 
-        menu.classList.remove("open");
+            menu.classList.remove("open");
 
-        menuToggle.classList.remove("active");
+            menuToggle.classList.remove("active");
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        });
 
     });
 
-});
-
 
 /* =========================================================
-FORMULÁRIO WHATSAPP
+   WHATSAPP FORMULÁRIO
 ========================================================= */
 
 const whatsappForm =
-document.getElementById("whatsappForm");
+    document.getElementById("whatsappForm");
 
 
 whatsappForm.addEventListener(
-"submit",
-function(event){
+    "submit",
+    function(event){
 
-    event.preventDefault();
-
-
-    const nome =
-    document
-    .getElementById("nome")
-    .value
-    .trim();
+        event.preventDefault();
 
 
-    const telefone =
-    document
-    .getElementById("telefone")
-    .value
-    .trim();
+        const nome =
+            document
+                .getElementById("nome")
+                .value
+                .trim();
 
 
-    const necessidade =
-    document
-    .getElementById("necessidade")
-    .value
-    .trim();
+        const telefone =
+            document
+                .getElementById("telefone")
+                .value
+                .trim();
 
 
-    if(!nome || !telefone || !necessidade){
-
-        alert(
-            "Por favor, preencha todos os campos."
-        );
-
-        return;
-    }
+        const necessidade =
+            document
+                .getElementById("necessidade")
+                .value
+                .trim();
 
 
-    const mensagem =
+        if(
+            !nome ||
+            !telefone ||
+            !necessidade
+        ){
+
+            alert(
+                "Por favor, preencha todos os campos."
+            );
+
+            return;
+        }
+
+
+        const mensagem =
 `Olá, Paula!
 
 Meu nome é ${nome}.
@@ -4234,133 +4162,140 @@ Gostaria de conversar sobre:
 ${necessidade}`;
 
 
-    const url =
-    "https://wa.me/" +
-    WHATSAPP_PAULA +
-    "?text=" +
-    encodeURIComponent(mensagem);
+        const url =
+            "https://wa.me/" +
+            WHATSAPP_PAULA +
+            "?text=" +
+            encodeURIComponent(mensagem);
 
 
-    window.open(
-        url,
-        "_blank",
-        "noopener"
-    );
+        window.open(
+            url,
+            "_blank",
+            "noopener"
+        );
 
-});
+    }
+);
 
 
 /* =========================================================
-MÁSCARA TELEFONE
+   MÁSCARA TELEFONE
 ========================================================= */
 
 const telefoneInput =
-document.getElementById("telefone");
+    document.getElementById("telefone");
 
 
 telefoneInput.addEventListener(
-"input",
-function(){
+    "input",
+    function(){
 
-    let value =
-    this.value.replace(/\D/g,"");
+        let value =
+            this.value.replace(/\D/g, "");
 
 
-    if(value.length > 11){
-        value = value.slice(0,11);
+        if(value.length > 11){
+
+            value =
+                value.slice(0,11);
+
+        }
+
+
+        if(value.length <= 10){
+
+            value =
+                value.replace(
+                    /^(\d{2})(\d{4})(\d{0,4}).*/,
+                    "($1) $2-$3"
+                );
+
+        }else{
+
+            value =
+                value.replace(
+                    /^(\d{2})(\d{5})(\d{0,4}).*/,
+                    "($1) $2-$3"
+                );
+
+        }
+
+
+        this.value = value;
+
     }
-
-
-    if(value.length <= 10){
-
-        value =
-        value.replace(
-            /^(\d{2})(\d{4})(\d{0,4}).*/,
-            "($1) $2-$3"
-        );
-
-    }else{
-
-        value =
-        value.replace(
-            /^(\d{2})(\d{5})(\d{0,4}).*/,
-            "($1) $2-$3"
-        );
-
-    }
-
-
-    this.value = value;
-
-});
+);
 
 
 /* =========================================================
-REVEAL
+   ANIMAÇÃO REVEAL
 ========================================================= */
 
 const revealObserver =
-new IntersectionObserver(
+    new IntersectionObserver(
 
-(entries)=>{
+        (entries) => {
 
-    entries.forEach(entry=>{
+            entries.forEach(entry => {
 
-        if(entry.isIntersecting){
+                if(entry.isIntersecting){
 
-            entry.target.classList.add(
-                "visible"
-            );
+                    entry.target.classList.add(
+                        "visible"
+                    );
 
-            revealObserver.unobserve(
-                entry.target
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:.12
+        }
+
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(element => {
+
+        revealObserver.observe(element);
+
+    });
+
+
+/* =========================================================
+   ESC FECHA MENU
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(event.key === "Escape"){
+
+            menu.classList.remove("open");
+
+            menuToggle.classList.remove("active");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
             );
 
         }
 
-    });
-
-},
-{
-    threshold:.12
-});
-
-
-document
-.querySelectorAll(".reveal")
-.forEach(element=>{
-
-    revealObserver.observe(element);
-
-});
-
-
-/* =========================================================
-ESC
-========================================================= */
-
-document.addEventListener(
-"keydown",
-event=>{
-
-    if(event.key === "Escape"){
-
-        menu.classList.remove("open");
-
-        menuToggle.classList.remove("active");
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
     }
-
-});
+);
 
 </script>
 
-
 </body>
-
 </html>
